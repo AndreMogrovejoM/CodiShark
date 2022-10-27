@@ -1,0 +1,9 @@
+{
+  "**/*.+(js|jsx|ts|tsx)": [
+    "lerna run lint"
+  ],
+  "**/*.+(js|jsx|ts|tsx|json|css|scss|html|md)": [
+    "lerna run format",
+    "lerna run test:staged"
+  ]
+}
