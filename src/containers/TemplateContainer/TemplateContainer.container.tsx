@@ -1,7 +1,7 @@
 import React from "react";
 
-import { TemplateContainerContainerProps as Props } from "./TemplateContainer.types";
 import TemplateContainer from "./TemplateContainer";
+import { TemplateContainerContainerProps as Props } from "./TemplateContainer.types";
 
 const TemplateContainerContainer: React.FC<Props> = props => {
   return <TemplateContainer />;

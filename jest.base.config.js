@@ -21,6 +21,7 @@ module.exports = {
   transformIgnorePatterns: ["node_modules/(?!@foobar)/"],
   transform: {
     "^.+\\.(ts|tsx)?$": "esbuild-jest",
+    // eslint-disable-next-line no-dupe-keys
     "^.+\\.(ts|tsx)?$": "ts-jest"
   }
 };
