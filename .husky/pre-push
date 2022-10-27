@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
 
-yarn check-types && yarn lint && yarn format && yarn test:all && yarn build
+yarn test:all && yarn build
