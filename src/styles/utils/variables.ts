@@ -1,6 +1,6 @@
 const palette = {
   empty: "", // Fixes a bug with styled components that appends a coma
-  primary: "hsla(349, 100%, 45%, 1)",
+  primary: "rgb(63,168,204)",
   darkerPrimary: "hsla(349, 100%, 35%, 1)",
   secondary: "hsla(240, 6%, 97%)",
   black: "hsla(0, 0%, 0%)",

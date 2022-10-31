@@ -4,7 +4,7 @@ import Styles from "./Home.styles";
 import { HomeProps as Props } from "./Home.types";
 
 const Home: React.FC<Props> = props => {
-  return <Styles className="Home">Home</Styles>;
+  return <Styles className="Home"></Styles>;
 };
 
 Home.defaultProps = {};

@@ -103,42 +103,6 @@ const base = css`
   /* Normalization END */
 
   /* Styles a page component that consists of a full page table */
-  .TablePage {
-    flex: 1;
-    width: 100%;
-    display: grid;
-    grid-template-columns: var(--sizes-page-columns);
-
-    & > header {
-      grid-column: content-start / content-end;
-    }
-
-    & > main {
-      display: grid;
-      grid-template-columns: var(--sizes-page-columns);
-      grid-column: content-start / content-end;
-    }
-  }
-
-  .ant-modal-title {
-    font-size: 2rem;
-    font-weight: 500;
-  }
-
-  .ant-modal-body {
-    font-size: 1.4rem;
-    font-weight: 500;
-
-    & > div {
-      display: flex;
-      padding: 1.6rem 0;
-      gap: 0.4rem;
-
-      & > p {
-        font-weight: 400;
-      }
-    }
-  }
 `;
 
 export default base;

@@ -1,4 +1,5 @@
-import { Form, Input, Button } from "antd";
+import { TextField } from "@mui/material";
+import { Form, Button } from "antd";
 import { ReactComponent as KFCSVG } from "assets/kfcLogo.svg";
 import CONSTANTS from "config/constants";
 import useI18n from "i18n/i18n.hooks";
@@ -50,11 +51,26 @@ const SignInForm: React.FC<Props> = props => {
             name="email"
             rules={[requiredField(), validEmail()]}
             validateTrigger="onBlur"
+            className="SignInForm__item"
           >
-            <Input type="email" placeholder={t.emailPlaceholder} />
+            <TextField
+              id="email"
+              type="email"
+              label="email"
+              variant="outlined"
+              placeholder={t.emailPlaceholder}
+              className="SignInForm__textField"
+            />
           </Item>
           <Item name="password" rules={[requiredField()]}>
-            <Input.Password placeholder={t.passwordPlaceholder} />
+            <TextField
+              id="password"
+              type="password"
+              label="password"
+              variant="outlined"
+              placeholder={t.passwordPlaceholder}
+              className="SignInForm__textField"
+            />
           </Item>
           <Item>
             <Button type="primary" htmlType="submit" loading={isLoading}>
