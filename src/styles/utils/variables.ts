@@ -5,7 +5,9 @@ const palette = {
   secondary: "hsla(240, 6%, 97%)",
   black: "hsla(0, 0%, 0%)",
   white: "hsla(0, 0%, 100%)",
-  grey: "hsla(0, 0%, 85%,1)"
+  grey: "hsla(0, 0%, 85%,1)",
+  darkGrey: "	hsl(214, 5%, 72%)",
+  deepBlue: "	hsl(205, 80%, 10%)"
 };
 
 const fonts = {};

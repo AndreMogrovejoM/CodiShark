@@ -36,7 +36,7 @@ const SignInFormStyled = styled.div<Props>`
     }
   }
 
-  .ant-btn-primary {
+  .mui-btn-primary {
     background-color: var(--palette-primary);
     border: none;
   }

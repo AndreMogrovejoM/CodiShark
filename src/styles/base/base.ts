@@ -102,6 +102,11 @@ const base = css`
 
   /* Normalization END */
 
+  .MuiInput-underline {
+    color: red;
+    background-color: red;
+  }
+
   /* Styles a page component that consists of a full page table */
 `;
 
