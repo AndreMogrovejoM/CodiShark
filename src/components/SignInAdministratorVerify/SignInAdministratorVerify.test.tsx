@@ -1,6 +1,6 @@
 import React from "react";
-
 import { render } from "setupTests";
+
 import SignInAdministratorVerify from "./SignInAdministratorVerify";
 
 describe("SignInAdministratorVerify", () => {
