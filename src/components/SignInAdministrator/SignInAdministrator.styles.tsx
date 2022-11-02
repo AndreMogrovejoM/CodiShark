@@ -27,7 +27,8 @@ const SignInAdministratorStyled = styled.div<Props>`
       line-height: 3.2rem;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 1.6rem;
+      margin-bottom: 0.6rem;
+      margin-top: 1rem;
     }
 
     &__subTitle {
@@ -44,27 +45,31 @@ const SignInAdministratorStyled = styled.div<Props>`
       margin: 0 auto;
       border-radius: 0.8rem;
       overflow: hidden;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1rem;
     }
 
     &__button {
       width: 80%;
       margin: 0 auto;
       border-radius: 0.8rem;
-      padding: 0.8rem 0;
+      padding: 1rem 0;
       color: var(--palette-white);
-      margin-top: 4.4rem;
+      margin-bottom: 4rem;
     }
 
     &__footerText {
       font-size: 1rem;
       line-height: 1.6rem;
       font-weight: 300;
-      text-align: center;
-      margin-bottom: 4.4rem;
-      position: absolute;
-      bottom: 1.6rem;
-      align-self: center;
+      margin-top: auto;
+      margin: 0 auto;
+    }
+    &__logo {
+      margin: 0 auto;
+      width: 16rem;
+      height: 4.8rem;
+    }
+    &__buttonText {
     }
   }
 `;
