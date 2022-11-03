@@ -20,6 +20,7 @@ export interface ButtonProps {
   startIcon?: React.ReactNode;
   type?: "button" | "submit" | "reset";
   fullWidth?: boolean;
+  disabled: boolean;
 }
 
 // Styled Component Props

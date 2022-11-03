@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import React, { forwardRef, PropsWithChildren } from "react";
 
 import { ButtonStyled as Styles } from "./Button.styles";
@@ -8,8 +9,14 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
     const { children } = props;
 
     return (
-      <Styles {...props} ref={ref}>
-        {children}
+      <Styles
+        {...props}
+        ref={ref}
+        startIcon={
+          props?.disabled ? <CircularProgress size={12} /> : props?.startIcon
+        }
+      >
+        {props?.disabled ? "Cargando..." : children}
       </Styles>
     );
   }
