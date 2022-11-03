@@ -20,12 +20,14 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
       padding: 4.8rem 0;
       position: relative;
     }
+
     &__logo {
       margin: 0 auto;
       width: 16rem;
       height: 4.8rem;
       margin-bottom: 2rem;
     }
+
     &__title {
       font-size: 2rem;
       line-height: 3.2rem;
@@ -43,6 +45,7 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
       text-align: center;
       margin-bottom: 2rem;
     }
+
     &__textField {
       background-color: var(--palette-white);
       width: 80%;
@@ -51,14 +54,15 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
       overflow: hidden;
       margin-bottom: 0.8rem;
     }
+
     &__button {
       width: 80%;
       margin: 0 auto;
       border-radius: 0.8rem;
       color: var(--palette-white);
-      padding: 1rem 0;
-      /* margin-bottom: 4rem; */
+      padding: 0.8rem 0;
     }
+
     &__footerText {
       font-size: 1rem;
       line-height: 1.6rem;

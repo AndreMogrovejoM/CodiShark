@@ -7,7 +7,7 @@ import React from "react";
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
-import Logo from "../../assets/images/logo 1.svg";
+import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministrator: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInForm;
@@ -55,7 +55,7 @@ const SignInAdministrator: React.FC<Props> = props => {
           }}
         />
         <Button variant="contained" className="SignInAdministrator__button">
-          <p className="SignInAdministrator__buttonText">Continuar</p>
+          Continuar
         </Button>
       </>
     );
@@ -64,7 +64,11 @@ const SignInAdministrator: React.FC<Props> = props => {
   return (
     <Styles className="SignInAdministrator">
       <div className="SignInAdministrator__container">
-        <img src={Logo} alt="logo" className="SignInAdministrator__logo" />
+        <img
+          src={LogoKonecta}
+          alt="logoKonecta"
+          className="SignInAdministrator__logo"
+        />
         {renderHeader}
         {renderForm()}
         <h4 className="SignInAdministrator__footerText">

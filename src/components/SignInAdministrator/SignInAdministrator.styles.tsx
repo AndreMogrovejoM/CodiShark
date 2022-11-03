@@ -69,8 +69,6 @@ const SignInAdministratorStyled = styled.div<Props>`
       width: 16rem;
       height: 4.8rem;
     }
-    &__buttonText {
-    }
   }
 `;
 

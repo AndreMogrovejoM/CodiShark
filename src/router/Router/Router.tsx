@@ -1,4 +1,3 @@
-import SignInAdministratorVerify from "components/SignInAdministratorVerify/SignInAdministratorVerify";
 import SignIn from "components/signIn/SignIn/SignIn";
 import SetupProvider from "containers/SetupProvider/SetupProvider";
 import React, { lazy, memo, Suspense } from "react";
@@ -26,10 +25,6 @@ const Router: React.FC<Props> = props => {
           <Route
             path="/signInAdministrator"
             element={<SignInAdministrator />}
-          />
-          <Route
-            path="/signInAdministratorVerify"
-            element={<SignInAdministratorVerify />}
           />
           <Route path="/" element={privateRoute(<Home />)} />
         </Routes>

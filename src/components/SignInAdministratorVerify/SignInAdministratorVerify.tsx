@@ -1,4 +1,3 @@
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import useI18n from "i18n/i18n.hooks";
@@ -7,10 +6,11 @@ import React from "react";
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
-import Logo from "../../assets/images/logo 1.svg";
+import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInForm;
+
   const renderHeaderVerify = (
     <>
       <h2 className="SignInAdministratorVerify__title">Bienvenido</h2>
@@ -19,6 +19,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
       </h3>
     </>
   );
+
   const renderFormVerify = () => {
     return (
       <>
@@ -46,12 +47,13 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
       </>
     );
   };
+
   return (
     <Styles className="SignInAdministratorVerify">
       <div className="SignInAdministratorVerify__container">
         <img
-          src={Logo}
-          alt="logo"
+          src={LogoKonecta}
+          alt="logoKonecta"
           className="SignInAdministratorVerify__logo"
         />
         {renderHeaderVerify}
