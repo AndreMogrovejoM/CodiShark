@@ -69,29 +69,3 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: vi.fn()
   }))
 });
-
-vi.mock("artisn/init", () => {
-  return {
-    createApp: vi.fn()
-  };
-});
-
-vi.mock("artisn/auth", () => ({
-  initAuth: vi.fn(() => {
-    return {
-      signInAnonymously: vi.fn()
-    };
-  }),
-  getServices: vi.fn
-}));
-
-vi.mock("config/artisn.config.ts", () => ({
-  auth: () => {
-    return {
-      onAuthStateChanged: vi.fn(),
-      signInAnonymously: vi.fn()
-    };
-  },
-  Services: vi.fn,
-  artisn: vi.fn
-}));
