@@ -4,6 +4,11 @@ const status = "Estado";
 
 const es: Dictionary = {
   global: {
+    sideBar: {
+      start: "Inicio",
+      myPayments: "Mis pagos",
+      logout: "Cerrar sesión"
+    },
     table: {
       TableHeader: {
         import: "Importar",

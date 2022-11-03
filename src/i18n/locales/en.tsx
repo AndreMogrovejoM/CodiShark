@@ -5,6 +5,11 @@ const status = "Status";
 
 const en = {
   global: {
+    sideBar: {
+      start: "Start",
+      myPayments: "My payments",
+      logout: "Logout"
+    },
     table: {
       TableHeader: {
         import: "Import",
