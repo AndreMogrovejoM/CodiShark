@@ -3,7 +3,6 @@ import SetupProvider from "containers/SetupProvider/SetupProvider";
 import React, { lazy, memo, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { privateRoute } from "./Router.helpers";
 import { RouterProps as Props } from "./Router.types";
 
 // Root routes
@@ -26,7 +25,7 @@ const Router: React.FC<Props> = props => {
             path="/signInAdministrator"
             element={<SignInAdministrator />}
           />
-          <Route path="/" element={privateRoute(<Home />)} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Suspense>
     </SetupProvider>
