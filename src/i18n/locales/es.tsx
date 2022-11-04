@@ -72,11 +72,10 @@ const es: Dictionary = {
   },
   signIn: {
     SignInForm: {
-      welcome: "Bienvenido/a",
-      instructions: "Ingresa tus datos para acceder a tus cuentas",
-      emailPlaceholder: "hola@correo.com",
-      passwordPlaceholder: "contraseña",
-      signIn: "Iniciar sesión"
+      title: "BIENVENIDO(A)",
+      subtitle: "Necesitamos identificarte para poder continuar",
+      button: "Continuar",
+      altLogo: "Logo de Konecta"
     }
   },
   utils: {

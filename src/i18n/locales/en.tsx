@@ -73,11 +73,10 @@ const en = {
   },
   signIn: {
     SignInForm: {
-      welcome: "Welcome",
-      instructions: "Enter your information to access your accounts",
-      emailPlaceholder: "hellow@email.com",
-      passwordPlaceholder: "password",
-      signIn: "Sign in"
+      title: "WELCOME",
+      subtitle: "We need to identify you in order to continue",
+      button: "Continue",
+      altLogo: "Konecta logo"
     }
   },
   utils: {
