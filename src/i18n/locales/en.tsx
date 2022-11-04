@@ -10,6 +10,9 @@ const en = {
       myPayments: "My payments",
       logout: "Logout"
     },
+    button: {
+      text: "Charging..."
+    },
     table: {
       TableHeader: {
         import: "Import",

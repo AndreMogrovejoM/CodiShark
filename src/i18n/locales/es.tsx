@@ -9,6 +9,9 @@ const es: Dictionary = {
       myPayments: "Mis pagos",
       logout: "Cerrar sesión"
     },
+    button: {
+      text: "Cargando..."
+    },
     table: {
       TableHeader: {
         import: "Importar",
