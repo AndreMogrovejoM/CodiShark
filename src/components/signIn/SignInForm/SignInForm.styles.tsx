@@ -5,13 +5,36 @@ import { SignInFormStyledProps as Props } from "./SignInForm.types";
 const SignInFormStyled = styled.div<Props>`
   .SignInForm {
     &__container {
-      &--form {
-        margin-top: 0.8rem;
-      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       &--button {
         margin-top: 2.4rem;
         margin-bottom: 1.6rem;
+      }
+
+      &--copyright {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        font-weight: 300;
+        margin-top: 16.4rem;
+        text-align: center;
+      }
+
+      &--content {
+        margin-bottom: 5.4rem;
+      }
+
+      &--content > * {
+        margin-bottom: 0.8rem;
+      }
+
+      &--form {
+        margin-top: 6.4rem;
+        margin-bottom: 6.4rem;
+        margin-left: 3.2rem;
+        margin-right: 3.2rem;
       }
     }
 
