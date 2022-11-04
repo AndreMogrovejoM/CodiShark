@@ -2,8 +2,8 @@ import { Box, Grid } from "@mui/material";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { Controller, useForm, FieldValues } from "react-hook-form";
 import { validLoginUser } from "utils/validations.utils";
 
 import Styles from "./SignInForm.styles";
@@ -12,9 +12,10 @@ import { SignInFormProps as Props } from "./SignInForm.types";
 /* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
 
 const SignInForm: React.FC<Props> = props => {
-  const { handleForm } = props;
   const t = useI18n().signIn.SignInForm;
   const [dniField, codeField, dateField] = validLoginUser();
+  const [loading, setLoading] = useState(false);
+
   /* const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate(); */
@@ -35,6 +36,10 @@ const SignInForm: React.FC<Props> = props => {
     }
   }; */
 
+  const handleForm = (values: FieldValues) => {
+    setLoading(!loading);
+  };
+
   return (
     <Styles className="SignInForm">
       <Box
@@ -44,7 +49,7 @@ const SignInForm: React.FC<Props> = props => {
         className="SignInForm__container--form"
       >
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={8} md={8}>
             <Controller
               name={dniField.name}
               control={control}
@@ -66,7 +71,7 @@ const SignInForm: React.FC<Props> = props => {
               )}
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={4} md={4}>
             <Controller
               name={codeField.name}
               control={control}
@@ -88,34 +93,39 @@ const SignInForm: React.FC<Props> = props => {
               )}
             />
           </Grid>
-        </Grid>
 
-        <Grid>
-          <Controller
-            name={dateField.name}
-            control={control}
-            rules={dateField.rules}
-            defaultValue=""
-            render={({ field, fieldState }) => (
-              <TextField
-                field={field}
-                fields={fieldState}
-                config={{
-                  type: dateField.type,
-                  label: dateField.label,
-                  variant: "outlined",
-                  margin: "dense",
-                  fullWidth: true,
-                  focused: true
-                }}
-              />
-            )}
-          />
+          <Grid item xs={12} md={12}>
+            <Controller
+              name={dateField.name}
+              control={control}
+              rules={dateField.rules}
+              defaultValue=""
+              render={({ field, fieldState }) => (
+                <TextField
+                  field={field}
+                  fields={fieldState}
+                  config={{
+                    type: dateField.type,
+                    label: dateField.label,
+                    variant: "outlined",
+                    margin: "dense",
+                    fullWidth: true,
+                    focused: true
+                  }}
+                />
+              )}
+            />
+          </Grid>
         </Grid>
-
         <Box className="SignInForm__container--button">
-          <Button type="submit" fullWidth variant="contained">
-            Continuar
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            fullWidth
+            disabled={loading}
+          >
+            {t.button}
           </Button>
         </Box>
       </Box>

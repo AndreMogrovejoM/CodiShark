@@ -1,10 +1,10 @@
-import { Avatar, Box, Typography } from "@mui/material";
-import Link from "@mui/material/Link";
+import { Box, Typography } from "@mui/material";
+import Logo from "assets/images/logo_konecta.webp";
 import CONSTANTS from "config/constants";
 import Layout from "containers/Layout/Layout.container";
 import useAuth from "contexts/auth/auth.hooks";
+import useI18n from "i18n/i18n.hooks";
 import React, { useEffect } from "react";
-import { FieldValues } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router";
 
 import SignInForm from "../SignInForm/SignInForm";
@@ -22,15 +22,15 @@ function Copyright(props: any) {
       {...props}
     >
       {`Copyright © B12 ${new Date().getFullYear()} -`}
-      <Link color="inherit" href="https://mui.com/">
-        Todos los derechos reservados
-      </Link>
+      Todos los derechos reservados
       {"."}
     </Typography>
   );
 }
 
 const SignIn: React.FC<Props> = props => {
+  const t = useI18n().signIn.SignInForm;
+
   const { search } = useLocation();
   const { isAnonymous } = useAuth();
   const navigate = useNavigate();
@@ -44,22 +44,15 @@ const SignIn: React.FC<Props> = props => {
 
     navigate(ENTRY_PATH);
   }, [isAnonymous, navigate, search]);
-
-  const handleForm = (values: FieldValues) => {
-    console.log(values);
-  };
-
   return (
     <Layout>
       <Styles className="SignIn">
         <Box className="SignIn__container">
-          <Avatar className="SignIn__avatar">{/*  <LockIcon /> */}</Avatar>
+          <img src={Logo} alt={t.altLogo} />
 
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-
-          <SignInForm handleForm={handleForm} />
+          <h1>{t.title}</h1>
+          <p>{t.subtitle}</p>
+          <SignInForm />
 
           <Copyright className="SignIn__container--copyright" />
         </Box>

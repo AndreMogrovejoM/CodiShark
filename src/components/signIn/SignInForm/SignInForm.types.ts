@@ -1,11 +1,7 @@
-import { FieldValues } from "react-hook-form";
-
 // Interfaces and types from component SignInForm
 
 // Component Props
-export interface SignInFormProps {
-  handleForm: (values: FieldValues) => void;
-}
+export interface SignInFormProps {}
 
 // Styled Component Props
 export interface SignInFormStyledProps {
