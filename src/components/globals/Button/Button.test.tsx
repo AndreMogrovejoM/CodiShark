@@ -1,9 +1,11 @@
 import { render } from "setupTests";
 
-/* import Button from "./Button"; */
+import Button from "./Button";
 
-/* describe("Button", () => {
+describe("Button", () => {
+  const loading = false; // or true
+
   it("renders with default props", () => {
-    render(<Button />);
+    render(<Button children={"Hello"} disabled={loading} />);
   });
-}); */
+});
