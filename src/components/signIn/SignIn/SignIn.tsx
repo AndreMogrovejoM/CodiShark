@@ -1,41 +1,20 @@
-import { Box, Typography } from "@mui/material";
-import Logo from "assets/images/logo_konecta.webp";
-import CONSTANTS from "config/constants";
-import Layout from "containers/Layout/Layout.container";
-import useAuth from "contexts/auth/auth.hooks";
-import useI18n from "i18n/i18n.hooks";
-import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { Grid, Paper } from "@mui/material";
+import React from "react";
+import { useState } from "react";
 
 import SignInForm from "../SignInForm/SignInForm";
 import Styles from "./SignIn.styles";
 import { SignInProps as Props } from "./SignIn.types";
 
-const { ENTRY_PATH } = CONSTANTS.ROUTES;
-
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {`Copyright © B12 ${new Date().getFullYear()} -`}
-      Todos los derechos reservados
-      {"."}
-    </Typography>
-  );
-}
+/* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
 
 const SignIn: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInFormUser;
-
-  const { search } = useLocation();
+  const [step] = useState(0);
+  /*  const { search } = useLocation();
   const { isAnonymous } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); */
 
-  useEffect(() => {
+  /* useEffect(() => {
     // If not authenticated
     if (isAnonymous) {
       navigate("/signin");
@@ -43,21 +22,38 @@ const SignIn: React.FC<Props> = props => {
     }
 
     navigate(ENTRY_PATH);
-  }, [isAnonymous, navigate, search]);
+  }, [isAnonymous, navigate, search]); */
+  const renderForm = (step: number) => {
+    switch (step) {
+      case 0:
+        return <SignInForm />;
+      case 1:
+        return <p> Hello </p>;
+      default:
+        return <SignInForm />;
+    }
+  };
+
   return (
-    <Layout>
-      <Styles className="SignIn">
-        <Box className="SignIn__container">
-          <img src={Logo} alt={t.altLogo} />
-
-          <h1>{t.title}</h1>
-          <p>{t.subtitle}</p>
-          <SignInForm />
-
-          <Copyright className="SignIn__container--copyright" />
-        </Box>
-      </Styles>
-    </Layout>
+    <Styles className="SignIn">
+      <Grid container component="main" className="SignIn__container">
+        <Grid item xs={false} sm={4} md={7} className="SignIn__image" />
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={5}
+          component={Paper}
+          elevation={6}
+          square
+          container
+          alignItems="center"
+          justifyContent="center"
+        >
+          {renderForm(step)}
+        </Grid>
+      </Grid>
+    </Styles>
   );
 };
 
