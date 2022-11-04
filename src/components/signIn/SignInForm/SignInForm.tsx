@@ -12,7 +12,7 @@ import { SignInFormProps as Props } from "./SignInForm.types";
 /* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
 
 const SignInForm: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInForm;
+  const t = useI18n().signIn.SignInFormUser;
   const [dniField, codeField, dateField] = validLoginUser();
   const [loading, setLoading] = useState(false);
 

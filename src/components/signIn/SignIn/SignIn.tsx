@@ -29,7 +29,7 @@ function Copyright(props: any) {
 }
 
 const SignIn: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInForm;
+  const t = useI18n().signIn.SignInFormUser;
 
   const { search } = useLocation();
   const { isAnonymous } = useAuth();
