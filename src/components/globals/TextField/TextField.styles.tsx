@@ -9,11 +9,9 @@ const { palette } = variables;
 export const TextFieldStyled = styled(TextField)(() => ({
   width: "100%",
   "& .MuiInputBase-input": {
-    /* fontFamily: `${fonts["Poppins-Rg"]}` */
     padding: "1.2rem 1.6rem"
   },
   ".MuiFormLabel-root": {
-    /* fontFamily: `${fonts["Poppins-Md"]}`, */
     color: `${palette.darkText}`,
     "&:after": {
       color: `${palette.darkText}`
@@ -24,9 +22,6 @@ export const TextFieldStyled = styled(TextField)(() => ({
     ".Mui-activated": {
       color: `${palette.darkText}`
     }
-  },
-  ".MuiFormHelperText-root": {
-    /* fontFamily: `${fonts["Poppins-Rg"]}` */
   },
   ".MuiOutlinedInput-root": {
     borderRadius: "1rem",
