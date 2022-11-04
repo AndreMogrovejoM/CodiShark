@@ -5,6 +5,7 @@ import { LayoutContainerProps as Props } from "./Layout.container.types";
 
 const LayoutContainer: React.FC<Props> = props => {
   const { children } = props;
+
   return (
     <>
       <Sidebar />
