@@ -1,9 +1,7 @@
 // Interfaces and types from component Layout
 
 // Component Props
-export interface LayoutComponentProps {
-  children: React.ReactNode;
-}
+export interface LayoutComponentProps {}
 
 // Styled Component Props
 export interface LayoutContainerStyledProps {
@@ -11,7 +9,6 @@ export interface LayoutContainerStyledProps {
 }
 
 // Container Props
-
 export interface LayoutContainerProps {
   children: React.ReactNode;
 }
