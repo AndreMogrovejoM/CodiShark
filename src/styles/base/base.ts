@@ -31,6 +31,7 @@ const base = css`
 
   body {
     background-color: var(--palette-secondary);
+    font-family: system-ui;
     text-rendering: optimizeSpeed;
     line-height: 1.2;
   }
@@ -81,6 +82,13 @@ const base = css`
     display: block;
   }
 
+  .aa-Input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -93,6 +101,11 @@ const base = css`
   }
 
   /* Normalization END */
+
+  .MuiInput-underline {
+    color: red;
+    background-color: red;
+  }
 
   /* Styles a page component that consists of a full page table */
 `;
