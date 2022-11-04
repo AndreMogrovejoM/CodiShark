@@ -2,14 +2,18 @@ import { ControllerFieldState, ControllerRenderProps } from "react-hook-form";
 
 // Interfaces and types from component TemplateComponent
 
+type variant = "standard" | "filled" | "outlined";
+type size = "small" | "medium";
+type margin = "dense" | "normal";
+
 // MUI Component Props
 export interface TextField {
   type: string;
   label: string;
-  variant?: "standard" | "filled" | "outlined";
+  variant?: variant;
   disabled?: boolean;
-  size?: "small" | "medium";
-  margin?: "dense" | "normal";
+  size?: size;
+  margin?: margin;
   InputProps?: any;
   fullWidth?: boolean;
   focused?: boolean;
