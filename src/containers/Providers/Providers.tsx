@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@mui/material";
 import { queryClient } from "config/reactQuery.config";
 import AuthProvider from "contexts/auth/auth.context";
 import GlobalsProvider from "contexts/globals/globals.context";
@@ -8,6 +9,7 @@ import { QueryClientProvider } from "react-query";
 import { BrowserRouter } from "react-router-dom";
 import Router from "router/Router/Router";
 import GlobalStyles from "styles/base/index";
+import { theme } from "styles/theme";
 
 import { ProvidersProps as Props } from "./Providers.types";
 
@@ -17,13 +19,15 @@ const Providers: React.FC<Props> = props => {
       {/* {process.env.NODE_ENV === "development" ? <ReactQueryDevtools /> : null} */}
       <I18nextProvider i18n={i18n}>
         <GlobalStyles />
-        <GlobalsProvider>
-          <AuthProvider>
-            <BrowserRouter>
-              <Router />
-            </BrowserRouter>
-          </AuthProvider>
-        </GlobalsProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalsProvider>
+            <AuthProvider>
+              <BrowserRouter>
+                <Router />
+              </BrowserRouter>
+            </AuthProvider>
+          </GlobalsProvider>
+        </ThemeProvider>
       </I18nextProvider>
     </QueryClientProvider>
   );

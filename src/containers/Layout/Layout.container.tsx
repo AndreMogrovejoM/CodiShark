@@ -1,14 +1,18 @@
+import Sidebar from "components/globals/Sidebar/Sidebar";
 import React from "react";
 
-import LayoutContainer from "./LayoutContainer";
-import { LayoutContainerProps as Props } from "./LayoutContainer.types";
+import { LayoutContainerProps as Props } from "./Layout.container.types";
 
-const Layout: React.FC<Props> = props => {
+const LayoutContainer: React.FC<Props> = props => {
   const { children } = props;
-
-  return <LayoutContainer> {children} </LayoutContainer>;
+  return (
+    <>
+      <Sidebar />
+      {children}
+    </>
+  );
 };
 
-Layout.defaultProps = {};
+LayoutContainer.defaultProps = {};
 
-export default Layout;
+export default LayoutContainer;

@@ -31,7 +31,6 @@ const base = css`
 
   body {
     background-color: var(--palette-secondary);
-    font-family: system-ui;
     text-rendering: optimizeSpeed;
     line-height: 1.2;
   }
@@ -80,13 +79,6 @@ const base = css`
   img {
     max-width: 100%;
     display: block;
-  }
-
-  .aa-Input,
-  button,
-  textarea,
-  select {
-    font: inherit;
   }
 
   @media (prefers-reduced-motion: reduce) {

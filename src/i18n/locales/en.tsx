@@ -5,6 +5,11 @@ const status = "Status";
 
 const en = {
   global: {
+    sideBar: {
+      start: "Start",
+      myPayments: "My payments",
+      logout: "Logout"
+    },
     table: {
       TableHeader: {
         import: "Import",
@@ -37,33 +42,6 @@ const en = {
     select: "Select"
   },
   home: {},
-  dashboard: {
-    title: "Kioscos dashboard",
-    active: "active",
-    inactive: "inactive",
-    empty: "",
-    error: "",
-    buttonText: "",
-    yes: "yes",
-    no: "no",
-    storeName: "Store name",
-    storeId: "Store",
-    kiosco: "Kiosco",
-    startSell: "Start sell",
-    cartActivity: "Cart activity",
-    closeSell: "Close sell",
-    lastSell: "Last sell",
-    shouldUpdate: "Should update",
-    lastRemoteUpdate: "Last remote update",
-    errors: "Errors",
-    allStores: "All stores",
-    see: "See",
-    reportTitle: "Kiosco errors",
-    label: "Label",
-    response: "Response",
-    date: "Date",
-    time: "Time"
-  },
   pages: {
     FourZeroThree: {
       title: "You need access",

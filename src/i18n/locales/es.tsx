@@ -4,6 +4,11 @@ const status = "Estado";
 
 const es: Dictionary = {
   global: {
+    sideBar: {
+      start: "Inicio",
+      myPayments: "Mis pagos",
+      logout: "Cerrar sesión"
+    },
     table: {
       TableHeader: {
         import: "Importar",
@@ -36,33 +41,6 @@ const es: Dictionary = {
     select: "Seleccionar"
   },
   home: {},
-  dashboard: {
-    title: "Dashboard kioscos",
-    active: "activo",
-    inactive: "inactivo",
-    empty: "",
-    error: "",
-    buttonText: "",
-    yes: "si",
-    no: "no",
-    storeName: "Nombre tienda",
-    storeId: "Tienda",
-    kiosco: "Kiosco",
-    startSell: "Inicio de la venta",
-    cartActivity: "Actividad carrito",
-    closeSell: "Cierre de la venta",
-    lastSell: "Ultima compra",
-    shouldUpdate: "Debe actualizarse",
-    lastRemoteUpdate: "Ultima actualización",
-    errors: "Errores",
-    allStores: "Todas las tiendas",
-    see: "Ver",
-    reportTitle: "Errores del kiosco",
-    label: "Etiqueta",
-    response: "Respuesta",
-    date: "Fecha",
-    time: "Hora"
-  },
   pages: {
     FourZeroThree: {
       title: "Necesitas accesos",

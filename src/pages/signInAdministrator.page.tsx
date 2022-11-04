@@ -1,0 +1,3 @@
+import SignInAdministratorContainer from "containers/SignInAdministrator/SignInAdministrator.container";
+
+export default SignInAdministratorContainer;

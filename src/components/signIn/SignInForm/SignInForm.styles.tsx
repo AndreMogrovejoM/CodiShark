@@ -14,6 +14,19 @@ const SignInFormStyled = styled.div<Props>`
         margin-bottom: 1.6rem;
       }
     }
+
+    &__instructions {
+      line-height: 2.4rem;
+    }
+
+    &__form {
+      padding-top: 3.2rem;
+    }
+  }
+
+  .mui-btn-primary {
+    background-color: var(--palette-primary);
+    border: none;
   }
 `;
 
