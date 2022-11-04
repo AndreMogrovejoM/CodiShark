@@ -6,6 +6,14 @@ const palette = {
   black: "hsla(0, 0%, 0%)",
   white: "hsla(0, 0%, 100%)",
   grey: "hsla(0, 0%, 85%,1)",
+  error: "hsla(0, 100%, 44%, 1)",
+  blue: "hsla(205, 80%, 10%, 1)",
+  skyBlue: "hsla(193, 100%, 45%, 1)",
+  yellow: "rgba(255, 230, 0, 1)",
+  blueText: "hsla(215, 72%, 24%, 1)",
+  grayText: "hsla(0, 0%, 39%, 1)",
+  darkText: "hsla(0, 0%, 0%, 1)",
+  white05: "hsla(0, 0%, 100%, 0.5)",
   darkGrey: "	hsl(214, 5%, 72%)",
   deepBlue: "	hsl(205, 80%, 10%)"
 };

@@ -1,85 +1,157 @@
-import { TextField } from "@mui/material";
-import { Form, Button } from "antd";
-import { ReactComponent as KFCSVG } from "assets/kfcLogo.svg";
-import CONSTANTS from "config/constants";
+import { Box, Grid } from "@mui/material";
+import Logo from "assets/images/logo_konecta.webp";
+import Button from "components/globals/Button/Button";
+import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { requiredField, validEmail } from "utils/validations.utils";
+import { Controller, useForm, FieldValues } from "react-hook-form";
+import { validLoginUser } from "utils/validations.utils";
 
 import Styles from "./SignInForm.styles";
-import { SignInFormProps as Props, SignInFormValues } from "./SignInForm.types";
+import { SignInFormProps as Props } from "./SignInForm.types";
 
-const { ENTRY_PATH } = CONSTANTS.ROUTES;
-const { Item } = Form;
+/* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
+const Copyright = (props: any) => {
+  return (
+    <p {...props}>
+      {`Copyright © B12 ${new Date().getFullYear()} -`}
+      Todos los derechos reservados
+      {"."}
+    </p>
+  );
+};
 
 const SignInForm: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInForm;
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const t = useI18n().signIn.SignInFormUser;
+  const [dniField, codeField, dateField] = validLoginUser();
+  const [loading, setLoading] = useState(false);
 
-  const submitHandler = async (values: SignInFormValues) => {
+  /* const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate(); */
+
+  const { control, handleSubmit } = useForm();
+
+  /* const submitHandler = async (values: SignInFormValues) => {
     const { email, password } = values;
     try {
       setIsLoading(true);
       console.log(email, password);
-      // await auth().signInWithEmailAndPassword(email, password);
+      await auth().signInWithEmailAndPassword(email, password);
       setIsLoading(false);
       navigate(ENTRY_PATH);
     } catch (e: any) {
       setIsLoading(false);
       setError(e.message);
     }
+  }; */
+
+  const handleForm = (values: FieldValues) => {
+    setLoading(!loading);
   };
+
+  const renderForm = () => (
+    <Box component="form" noValidate onSubmit={handleSubmit(handleForm)}>
+      <Grid container spacing={2}>
+        <Grid item xs={8} md={8}>
+          <Controller
+            name={dniField.name}
+            control={control}
+            rules={dniField.rules}
+            defaultValue=""
+            render={({ field, fieldState }) => (
+              <TextField
+                field={field}
+                fields={fieldState}
+                config={{
+                  type: dniField.type,
+                  label: dniField.label,
+                  variant: "outlined",
+                  margin: "dense",
+                  fullWidth: true,
+                  focused: true
+                }}
+              />
+            )}
+          />
+        </Grid>
+        <Grid item xs={4} md={4}>
+          <Controller
+            name={codeField.name}
+            control={control}
+            rules={codeField.rules}
+            defaultValue=""
+            render={({ field, fieldState }) => (
+              <TextField
+                field={field}
+                fields={fieldState}
+                config={{
+                  type: codeField.type,
+                  label: codeField.label,
+                  variant: "outlined",
+                  margin: "dense",
+                  fullWidth: true,
+                  focused: true
+                }}
+              />
+            )}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={12}>
+          <Controller
+            name={dateField.name}
+            control={control}
+            rules={dateField.rules}
+            defaultValue=""
+            render={({ field, fieldState }) => (
+              <TextField
+                field={field}
+                fields={fieldState}
+                config={{
+                  type: dateField.type,
+                  label: dateField.label,
+                  variant: "outlined",
+                  margin: "dense",
+                  fullWidth: true,
+                  focused: true
+                }}
+              />
+            )}
+          />
+        </Grid>
+      </Grid>
+      <Box className="SignInForm__container--button">
+        <Button
+          type="submit"
+          variant="contained"
+          size="large"
+          fullWidth
+          disabled={loading}
+        >
+          {t.button}
+        </Button>
+      </Box>
+    </Box>
+  );
+
+  const renderFormHeader = () => (
+    <>
+      <img src={Logo} alt={t.altLogo} />
+      <h1 className="SignIn__title">{t.title}</h1>
+      <p className="SignIn__subtitle">{t.subtitle}</p>
+    </>
+  );
 
   return (
     <Styles className="SignInForm">
-      <div className="SignInForm__top">
-        <header className="SignInForm__header">
-          <KFCSVG className="SignInForm__logo" width="104" height="32" />
-        </header>
-        <p className="SignInForm__title">{t.welcome}</p>
-        <p className="text SignInForm__instructions">{t.instructions}</p>
-        <Form
-          name="sign-in"
-          className="SignInForm__form"
-          onFinish={submitHandler}
-          onChange={() => setError("")}
-        >
-          <Item
-            name="email"
-            rules={[requiredField(), validEmail()]}
-            validateTrigger="onBlur"
-            className="SignInForm__item"
-          >
-            <TextField
-              id="email"
-              type="email"
-              label="email"
-              variant="outlined"
-              placeholder={t.emailPlaceholder}
-              className="SignInForm__textField"
-            />
-          </Item>
-          <Item name="password" rules={[requiredField()]}>
-            <TextField
-              id="password"
-              type="password"
-              label="password"
-              variant="outlined"
-              placeholder={t.passwordPlaceholder}
-              className="SignInForm__textField"
-            />
-          </Item>
-          <Item>
-            <Button type="primary" htmlType="submit" loading={isLoading}>
-              {t.signIn}
-            </Button>
-          </Item>
-          {error ? <p className="text text--error">{error}</p> : null}
-        </Form>
-      </div>
+      <Box className="SignInForm__container SignInForm__container--form">
+        <Box className="SignInForm__container  SignInForm__container--content">
+          {renderFormHeader()}
+        </Box>
+        {renderForm()}
+      </Box>
+      <Copyright className="SignInForm__container--copyright" />
     </Styles>
   );
 };

@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 const typography = css`
   body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Open Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

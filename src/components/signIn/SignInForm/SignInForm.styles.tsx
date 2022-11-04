@@ -1,30 +1,41 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { SignInFormStyledProps as Props } from "./SignInForm.types";
 
-const baseStyles = css`
-  background-color: var(--palette-white);
-  border-radius: 0.8rem;
-  box-shadow: 0.2rem 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
-  width: 44rem;
-  padding: 3.2rem;
-`;
-
 const SignInFormStyled = styled.div<Props>`
   .SignInForm {
-    &__top {
-      ${baseStyles};
-    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    &__logo {
-      margin-bottom: 4rem;
-      transform: scale(1.5) translateX(0.8rem);
-    }
+      &--button {
+        margin-top: 2.4rem;
+        margin-bottom: 1.6rem;
+      }
 
-    &__title {
-      color: var(--palette-grey);
-      font-size: 2.4rem;
-      line-height: 3.2rem;
+      &--copyright {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        font-weight: 300;
+        margin-top: 16.4rem;
+        text-align: center;
+      }
+
+      &--content {
+        margin-bottom: 5.4rem;
+      }
+
+      &--content > * {
+        margin-bottom: 0.8rem;
+      }
+
+      &--form {
+        margin-top: 6.4rem;
+        margin-bottom: 6.4rem;
+        margin-left: 3.2rem;
+        margin-right: 3.2rem;
+      }
     }
 
     &__instructions {
