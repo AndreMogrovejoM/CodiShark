@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { SignInFormStyledProps as Props } from "./SignInForm.types";
 
