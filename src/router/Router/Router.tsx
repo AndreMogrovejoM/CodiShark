@@ -9,7 +9,7 @@ import { RouterProps as Props } from "./Router.types";
 // Root routes
 const FiverZeroZero = lazy(() => import("pages/500/500.page"));
 const FourZeroFour = lazy(() => import("pages/404/404.page"));
-const Home = lazy(() => import("pages/home.page"));
+/* const Home = lazy(() => import("pages/home.page")); */
 
 const Router: React.FC<Props> = props => {
   return (
@@ -19,7 +19,7 @@ const Router: React.FC<Props> = props => {
           <Route path="*" element={<FourZeroFour />} />
           <Route path="/500" element={<FiverZeroZero />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/" element={privateRoute(<Home />)} />
+          <Route path="/" element={privateRoute(<SignIn />)} />
         </Routes>
       </Suspense>
     </SetupProvider>
