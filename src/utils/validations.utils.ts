@@ -27,11 +27,12 @@ export const validEmail = (): Rule => {
 
 export const validLoginUser = () => {
   const t = getI18n().utils.validations;
+  const fields = getI18n().signIn.SignInFormUser.fields;
 
   const dniField = {
     name: "dni",
-    type: "text",
-    label: "DNI",
+    type: "number",
+    label: fields.fieldDNI,
     rules: {
       required: t.fieldRequired,
       minLength: {
@@ -47,8 +48,8 @@ export const validLoginUser = () => {
 
   const codeField = {
     name: "cod",
-    type: "text",
-    label: "Cod. Verificador",
+    type: "number",
+    label: fields.fieldCode,
     rules: {
       required: t.fieldRequired
     }
@@ -57,7 +58,7 @@ export const validLoginUser = () => {
   const dateField = {
     name: "date_begin",
     type: "date",
-    label: "Cod. Verificador",
+    label: fields.fieldDate,
     rules: {
       required: t.fieldRequired
     }
