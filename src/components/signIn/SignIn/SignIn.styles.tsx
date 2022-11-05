@@ -1,4 +1,4 @@
-import BG_USER from "assets/images/login-image-user.webp";
+import BG_USER from "assets/images/loginImageUser.webp";
 import styled from "styled-components";
 
 import { SignInStyledProps as Props } from "./SignIn.types";
@@ -18,7 +18,7 @@ const SignInStyled = styled.div<Props>`
 
     &__title {
       font-size: 2rem;
-      line-height: 2.7rem;
+      line-height: 2.4rem;
       font-weight: 700;
     }
 
