@@ -7,7 +7,6 @@ import { defineConfig } from "vitest/config";
 
 // https://vitejs.dev/config/
 const viteConfig = defineViteConfig({
-  base: "/CodiShark/",
   plugins: [tsconfigPaths(), svgrPlugin(), react()],
   resolve: {
     alias: {
