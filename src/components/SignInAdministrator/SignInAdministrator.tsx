@@ -8,6 +8,8 @@ import React from "react";
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
+import LogoKonecta from "../../assets/images/logoKonecta.svg";
+
 const SignInAdministrator: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInForm;
   const { setIsAnonymous } = useAuth();
@@ -72,6 +74,11 @@ const SignInAdministrator: React.FC<Props> = props => {
   return (
     <Styles className="SignInAdministrator">
       <div className="SignInAdministrator__container">
+        <img
+          src={LogoKonecta}
+          alt="logoKonecta"
+          className="SignInAdministrator__logo"
+        />
         {renderHeader}
         {renderForm()}
         <h4 className="SignInAdministrator__footerText">
