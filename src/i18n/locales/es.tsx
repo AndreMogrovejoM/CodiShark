@@ -56,7 +56,8 @@ const es: Dictionary = {
       title: "BIENVENIDO(A)",
       subtitle: "Necesitamos identificarte para poder continuar",
       button: "Continuar",
-      altLogo: "Logo de Konecta"
+      altLogo: "Logo de Konecta",
+      copyright: "Copyright © B12 2022 - Todos los derechos reservados."
     },
     SignInForm: {
       welcome: "Bienvenido/a",

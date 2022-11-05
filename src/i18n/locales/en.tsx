@@ -11,7 +11,7 @@ const en = {
       logout: "Logout"
     },
     button: {
-      text: "Charging..."
+      text: "Loading..."
     },
     table: {
       TableHeader: {
@@ -57,7 +57,8 @@ const en = {
       title: "WELCOME",
       subtitle: "We need to identify you in order to continue",
       button: "Continue",
-      altLogo: "Konecta logo"
+      altLogo: "Konecta logo",
+      copyright: "Copyright © B12 2022 - All rights reserved."
     },
     SignInForm: {
       welcome: "Welcome",
