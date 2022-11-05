@@ -19,7 +19,7 @@ const Router: React.FC<Props> = props => {
     <SetupProvider>
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={privateRoute(<Home />)} />
+          <Route path="/*" element={privateRoute(<Home />)} />
           <Route path="/signin" element={<SignInUser />} />
           <Route
             path="/signInAdministrator"
