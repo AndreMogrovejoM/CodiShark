@@ -14,8 +14,8 @@ const palette = {
   grayText: "hsla(0, 0%, 39%, 1)",
   darkText: "hsla(0, 0%, 0%, 1)",
   white05: "hsla(0, 0%, 100%, 0.5)",
-  darkGrey: "	hsl(214, 5%, 72%)",
-  deepBlue: "	hsl(205, 80%, 10%)"
+  darkGrey: "hsl(214, 5%, 72%)",
+  deepBlue: "hsl(205, 80%, 10%)"
 };
 
 const fonts = {};
