@@ -6,7 +6,13 @@ import { TextFieldStyledProps as Props } from "./TextField.types";
 export const TextFieldStyled = styled(TextField)(() => ({
   width: "100%",
   "& .MuiInputBase-input": {
-    padding: "1.2rem 1.6rem"
+    padding: "1.2rem 1.6rem",
+    "&::-webkit-outer-spin-button": {
+      display: "none"
+    },
+    "&::-webkit-inner-spin-button": {
+      display: "none"
+    }
   },
   ".MuiFormLabel-root": {
     color: "var(--palette-darkText)",
