@@ -9,6 +9,9 @@ const es: Dictionary = {
       myPayments: "Mis pagos",
       logout: "Cerrar sesión"
     },
+    button: {
+      text: "Cargando..."
+    },
     table: {
       TableHeader: {
         import: "Importar",
@@ -49,6 +52,18 @@ const es: Dictionary = {
     }
   },
   signIn: {
+    SignInFormUser: {
+      title: "Bienvenido(a)",
+      subtitle: "Necesitamos identificarte para poder continuar",
+      button: "Continuar",
+      altLogo: "Logo de Konecta",
+      copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
+      fields: {
+        fieldDNI: "DNI",
+        fieldCode: "Cod. Verificador",
+        fieldDate: "Fecha de Emisión"
+      }
+    },
     SignInForm: {
       welcome: "Bienvenido/a",
       instructions: "Ingresa tus datos para acceder a tus cuentas",
