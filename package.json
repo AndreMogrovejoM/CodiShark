@@ -19,7 +19,7 @@
     "preview": "vite preview",
     "validate": "cross-env CI=true npm-run-all --parallel test check-types check-format lint build",
     "validate:ci": "npm-run-all --parallel check-types check-format lint",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
