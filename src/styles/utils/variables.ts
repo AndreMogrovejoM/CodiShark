@@ -9,7 +9,7 @@ const palette = {
   error: "hsla(0, 100%, 44%, 1)",
   blue: "hsla(205, 80%, 10%, 1)",
   skyBlue: "hsla(193, 100%, 45%, 1)",
-  yellow: "rgba(255, 230, 0, 1)",
+  yellow: "hsla(54, 100%, 50%, 1)",
   blueText: "hsla(215, 72%, 24%, 1)",
   grayText: "hsla(0, 0%, 39%, 1)",
   darkText: "hsla(0, 0%, 0%, 1)",
