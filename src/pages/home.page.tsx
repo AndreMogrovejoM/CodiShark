@@ -1,3 +1,3 @@
-import Home from "components/globals/Home/Home";
+import HomeContainer from "containers/Home/Home.container";
 
-export default Home;
+export default HomeContainer;

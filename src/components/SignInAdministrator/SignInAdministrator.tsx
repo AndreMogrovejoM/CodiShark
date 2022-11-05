@@ -1,6 +1,7 @@
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 import { Button, InputAdornment, TextField } from "@mui/material";
+import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
@@ -11,6 +12,11 @@ import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministrator: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInForm;
+  const { setIsAnonymous } = useAuth();
+
+  const handleSubmit = () => {
+    setIsAnonymous(false);
+  };
 
   const renderHeader = (
     <>
@@ -54,7 +60,11 @@ const SignInAdministrator: React.FC<Props> = props => {
             )
           }}
         />
-        <Button variant="contained" className="SignInAdministrator__button">
+        <Button
+          variant="contained"
+          className="SignInAdministrator__button"
+          onClick={handleSubmit}
+        >
           Continuar
         </Button>
       </>
