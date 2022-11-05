@@ -16,14 +16,14 @@ const SignInFormStyled = styled.div<Props>`
 
       &--copyright {
         font-size: 1rem;
-        line-height: 1.4rem;
+        line-height: 1.6rem;
         font-weight: 300;
         margin-top: 16.4rem;
         text-align: center;
       }
 
       &--content {
-        margin-bottom: 5.4rem;
+        margin-bottom: 5.6rem;
       }
 
       &--content > * {

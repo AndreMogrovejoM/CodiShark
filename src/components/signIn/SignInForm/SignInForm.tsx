@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import Logo from "assets/images/logo_konecta.webp";
+import Logo from "assets/images/logoKonecta.webp";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
@@ -10,15 +10,13 @@ import { validLoginUser } from "utils/validations.utils";
 import Styles from "./SignInForm.styles";
 import { SignInFormProps as Props } from "./SignInForm.types";
 
+// TODO: Uncomment when functionality is ready
 /* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
+
 const Copyright = (props: any) => {
-  return (
-    <p {...props}>
-      {`Copyright © B12 ${new Date().getFullYear()} -`}
-      Todos los derechos reservados
-      {"."}
-    </p>
-  );
+  const { className, content } = props;
+
+  return <p className={className}>{content}</p>;
 };
 
 const SignInForm: React.FC<Props> = props => {
@@ -26,12 +24,14 @@ const SignInForm: React.FC<Props> = props => {
   const [dniField, codeField, dateField] = validLoginUser();
   const [loading, setLoading] = useState(false);
 
+  // TODO: Uncomment when functionality is ready
   /* const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate(); */
 
   const { control, handleSubmit } = useForm();
 
+  // TODO: Uncomment when functionality is ready
   /* const submitHandler = async (values: SignInFormValues) => {
     const { email, password } = values;
     try {
@@ -151,7 +151,10 @@ const SignInForm: React.FC<Props> = props => {
         </Box>
         {renderForm()}
       </Box>
-      <Copyright className="SignInForm__container--copyright" />
+      <Copyright
+        className="SignInForm__container--copyright"
+        content={t.copyright}
+      />
     </Styles>
   );
 };
