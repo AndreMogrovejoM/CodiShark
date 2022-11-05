@@ -12,7 +12,7 @@ export interface ButtonProps {
   startIcon?: React.ReactNode;
   type?: Type;
   fullWidth?: boolean;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 // Styled Component Props
