@@ -22,8 +22,4 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
   }
 );
 
-Button.defaultProps = {
-  color: "primary"
-};
-
 export default Button;

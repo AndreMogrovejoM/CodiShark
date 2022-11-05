@@ -1,24 +1,16 @@
 // Interfaces and types from component TemplateComponent
-
-type Color =
-  | "inherit"
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "info"
-  | "warning";
-
+type Variant = "text" | "outlined" | "contained";
+type Size = "large" | "small" | "medium";
+type Type = "button" | "submit" | "reset";
 // Component Props
 export interface ButtonProps {
   children: string;
-  color?: Color;
-  variant?: "text" | "outlined" | "contained";
-  size?: "large" | "small" | "medium";
+  variant?: Variant;
+  size?: Size;
   onClick?: (event: any) => void;
   endIcon?: React.ReactNode;
   startIcon?: React.ReactNode;
-  type?: "button" | "submit" | "reset";
+  type?: Type;
   fullWidth?: boolean;
   disabled: boolean;
 }
@@ -26,5 +18,4 @@ export interface ButtonProps {
 // Styled Component Props
 export interface ButtonStyledProps {
   className?: string;
-  color?: Color;
 }
