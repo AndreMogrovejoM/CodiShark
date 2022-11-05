@@ -57,7 +57,12 @@ const es: Dictionary = {
       subtitle: "Necesitamos identificarte para poder continuar",
       button: "Continuar",
       altLogo: "Logo de Konecta",
-      copyright: "Copyright © B12 2022 - Todos los derechos reservados."
+      copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
+      fields: {
+        fieldDNI: "DNI",
+        fieldCode: "Cod. Verificador",
+        fieldDate: "Fecha de Emisión"
+      }
     },
     SignInForm: {
       welcome: "Bienvenido/a",
