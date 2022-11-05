@@ -7,7 +7,7 @@ const InfoCardStyled = styled.div<Props>`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  width: 33.6rem;
+  width: 49.4%;
   height: 6.4rem;
   border-radius: 0.8rem;
   padding: 1.2rem 2.4rem;

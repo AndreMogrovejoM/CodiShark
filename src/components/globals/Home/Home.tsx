@@ -1,4 +1,3 @@
-import InfoCard from "components/InfoCard/InfoCard";
 import React from "react";
 
 import Styles from "./Home.styles";

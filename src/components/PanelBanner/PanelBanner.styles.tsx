@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PanelBannerStyledProps as Props } from "./PanelBanner.types";
 
 const PanelBannerStyled = styled.div<Props>`
-  width: 80rem;
+  width: 72rem;
   height: 12rem;
   display: flex;
   flex-direction: column;

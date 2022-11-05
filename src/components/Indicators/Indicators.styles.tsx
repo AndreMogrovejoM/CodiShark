@@ -3,17 +3,18 @@ import styled from "styled-components";
 import { IndicatorsStyledProps as Props } from "./Indicators.types";
 
 const IndicatorsStyled = styled.div<Props>`
-  width: 80rem;
+  width: 72rem;
   height: 22rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 0.8rem;
+  margin-top: 2.4rem;
 
   .Indicators {
-    &__subtitle {
+    &__title {
       font-weight: 600;
-      font-size: 2rem;
+      font-size: 1.1rem;
       line-height: 2.4rem;
     }
 
@@ -21,6 +22,7 @@ const IndicatorsStyled = styled.div<Props>`
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
+      width: 100%;
     }
 
     &__spanContainer {

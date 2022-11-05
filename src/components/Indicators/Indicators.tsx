@@ -7,7 +7,7 @@ import { IndicatorsProps as Props } from "./Indicators.types";
 const Indicators: React.FC<Props> = props => {
   const renderHeaderIndicators = (
     <>
-      <h3 className="Indicators__subtitle">Te mostramos algunos indicadores</h3>
+      <h3 className="Indicators__title">Te mostramos algunos indicadores</h3>
       <div className="Indicators__spanContainer">
         <span className="display-block Indicators__span">MES</span>
         <span className="Indicators__span">AÑO</span>
