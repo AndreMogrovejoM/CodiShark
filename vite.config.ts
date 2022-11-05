@@ -10,6 +10,7 @@ const viteConfig = defineViteConfig({
   build: {
     outDir: "build"
   },
+  base: "/CodiShark/",
   plugins: [tsconfigPaths(), svgrPlugin(), react()],
   resolve: {
     alias: {
