@@ -138,7 +138,7 @@ const SignInForm: React.FC<Props> = props => {
   const renderFormHeader = () => (
     <>
       <img src={Logo} alt={t.altLogo} />
-      <h1 className="SignIn__title">{t.title}</h1>
+      <h1 className="SignIn__title">{t.title.toUpperCase()}</h1>
       <p className="SignIn__subtitle">{t.subtitle}</p>
     </>
   );

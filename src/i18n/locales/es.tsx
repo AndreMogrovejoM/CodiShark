@@ -53,7 +53,7 @@ const es: Dictionary = {
   },
   signIn: {
     SignInFormUser: {
-      title: "BIENVENIDO(A)",
+      title: "Bienvenido(a)",
       subtitle: "Necesitamos identificarte para poder continuar",
       button: "Continuar",
       altLogo: "Logo de Konecta",

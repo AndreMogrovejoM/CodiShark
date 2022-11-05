@@ -54,7 +54,7 @@ const en = {
   },
   signIn: {
     SignInFormUser: {
-      title: "WELCOME",
+      title: "Welcome",
       subtitle: "We need to identify you in order to continue",
       button: "Continue",
       altLogo: "Konecta logo",
