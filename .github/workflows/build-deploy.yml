@@ -1,11 +1,11 @@
 name: CodiShark Collection System
 
-on: 
-  push:
-    branches:
-      - "master"
+on: [push]
+permissions:
+  contents: write
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
   
   steps: 
@@ -16,7 +16,7 @@ jobs:
       run: yarn && yarn build
 
     - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.4.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
