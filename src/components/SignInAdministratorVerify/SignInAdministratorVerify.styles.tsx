@@ -8,6 +8,7 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
   background-color: var(--palette-deepBlue);
   display: flex;
   align-items: center;
+
   .SignInAdministratorVerify {
     &__container {
       width: 48rem;

@@ -45,7 +45,7 @@ const SignInAdministratorStyled = styled.div<Props>`
       margin: 0 auto;
       border-radius: 0.8rem;
       overflow: hidden;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     &__button {
