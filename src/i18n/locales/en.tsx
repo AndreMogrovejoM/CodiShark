@@ -10,6 +10,9 @@ const en = {
       myPayments: "My payments",
       logout: "Logout"
     },
+    button: {
+      text: "Loading..."
+    },
     table: {
       TableHeader: {
         import: "Import",
@@ -50,6 +53,18 @@ const en = {
     }
   },
   signIn: {
+    SignInFormUser: {
+      title: "Welcome",
+      subtitle: "We need to identify you in order to continue",
+      button: "Continue",
+      altLogo: "Konecta logo",
+      copyright: "Copyright © B12 2022 - All rights reserved.",
+      fields: {
+        fieldDNI: "DNI",
+        fieldCode: "Verification code",
+        fieldDate: "Date of issue"
+      }
+    },
     SignInForm: {
       welcome: "Welcome",
       instructions: "Enter your information to access your accounts",

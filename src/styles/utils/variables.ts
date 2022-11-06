@@ -5,10 +5,17 @@ const palette = {
   secondary: "hsla(240, 6%, 97%)",
   black: "hsla(0, 0%, 0%)",
   white: "hsla(0, 0%, 100%)",
-  white05: "hsla(0, 0%, 100%, 0.5)",
   grey: "hsla(0, 0%, 85%,1)",
-  darkGrey: "	hsl(214, 5%, 72%)",
-  deepBlue: "	hsl(205, 80%, 10%)"
+  error: "hsla(0, 100%, 44%, 1)",
+  blue: "hsla(205, 80%, 10%, 1)",
+  skyBlue: "hsla(193, 100%, 45%, 1)",
+  yellow: "hsla(54, 100%, 50%, 1)",
+  blueText: "hsla(215, 72%, 24%, 1)",
+  grayText: "hsla(0, 0%, 39%, 1)",
+  darkText: "hsla(0, 0%, 0%, 1)",
+  white05: "hsla(0, 0%, 100%, 0.5)",
+  darkGrey: "hsl(214, 5%, 72%)",
+  deepBlue: "hsl(205, 80%, 10%)"
 };
 
 const fonts = {};

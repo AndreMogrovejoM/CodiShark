@@ -15,10 +15,54 @@ export const requiredField = (): Rule => {
   };
 };
 
+/* TODO: validar Login */
 export const validEmail = (): Rule => {
   const t = getI18n().utils.validations;
+
   return {
     type: "email",
     message: t.validEmail
   };
+};
+
+export const validLoginUser = () => {
+  const t = getI18n().utils.validations;
+  const fields = getI18n().signIn.SignInFormUser.fields;
+
+  const dniField = {
+    name: "dni",
+    type: "number",
+    label: fields.fieldDNI,
+    rules: {
+      required: t.fieldRequired,
+      minLength: {
+        value: passwordMinLength,
+        message: t.stringMinLength(passwordMinLength)
+      },
+      maxLength: {
+        value: passwordMinLength,
+        message: t.stringMaxLength(passwordMinLength)
+      }
+    }
+  };
+
+  const codeField = {
+    name: "cod",
+    type: "number",
+    label: fields.fieldCode,
+    rules: {
+      required: t.fieldRequired
+    }
+  };
+
+  const dateField = {
+    name: "date_begin",
+    type: "date",
+    label: fields.fieldDate,
+    rules: {
+      required: t.fieldRequired
+    }
+  };
+
+  return [dniField, codeField, dateField];
 };
