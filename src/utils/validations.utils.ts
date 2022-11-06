@@ -66,3 +66,22 @@ export const validLoginUser = () => {
 
   return [dniField, codeField, dateField];
 };
+
+export const validLoginUserValidation = () => {
+  const t = getI18n().signIn.SignInValidation.fields;
+
+  return [
+    {
+      id: "field-phone",
+      name: "type-message",
+      value: "phone",
+      label: t.labelPhone
+    },
+    {
+      id: "field-email",
+      name: "type-message",
+      value: "email",
+      label: t.labelEmail
+    }
+  ];
+};
