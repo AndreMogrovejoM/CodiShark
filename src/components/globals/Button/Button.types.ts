@@ -2,9 +2,18 @@
 type Variant = "text" | "outlined" | "contained";
 type Size = "large" | "small" | "medium";
 type Type = "button" | "submit" | "reset";
+type Color =
+  | "inherit"
+  | "error"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "info"
+  | "warning";
 // Component Props
 export interface ButtonProps {
   children: string;
+  color?: Color;
   variant?: Variant;
   size?: Size;
   onClick?: (event: any) => void;
