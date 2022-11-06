@@ -6,6 +6,7 @@ export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
 export const fieldMinLength = 2;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
+export const minInputsCode = 6;
 
 export const requiredField = (): Rule => {
   const t = getI18n().utils.validations;

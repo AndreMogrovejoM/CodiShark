@@ -11,7 +11,6 @@ const SignInCodeStyled = styled.div<Props>`
       }
 
       &--button {
-        margin-top: 2.4rem;
         margin-bottom: 1.6rem;
       }
 
@@ -21,6 +20,11 @@ const SignInCodeStyled = styled.div<Props>`
 
       &--text > * {
         margin-bottom: 0.8rem;
+      }
+
+      &--time {
+        margin: 1rem auto;
+        text-align: center;
       }
     }
 
@@ -41,6 +45,11 @@ const SignInCodeStyled = styled.div<Props>`
         font-weight: 700;
         line-height: 3.2rem;
         color: var(--palette-darkText);
+      }
+
+      &--time {
+        font-size: 1.4rem;
+        line-height: 1.9rem;
       }
     }
 

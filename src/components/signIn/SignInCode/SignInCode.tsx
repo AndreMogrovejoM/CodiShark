@@ -3,11 +3,10 @@ import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { useState } from "react";
 import OtpInput from "react-otp-input";
+import { minInputsCode } from "utils/validations.utils";
 
 import Styles from "./SignInCode.styles";
 import { SignInCodeProps as Props } from "./SignInCode.types";
-
-const code = 123456;
 
 const SignInCode: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormCode;
@@ -20,24 +19,32 @@ const SignInCode: React.FC<Props> = props => {
     <span className="SignInCode__container--separator" />
   );
 
+  const handleClick = () => {
+    console.log("🚀 ~ file: SignInCode.tsx ~ line 24 ~ OTP", OTP);
+    console.log(typeof OTP);
+  };
   return (
     <Styles className={`SignInCode`}>
       <OtpInput
         value={OTP}
         onChange={handleChange}
-        numInputs={6}
+        numInputs={minInputsCode}
         separator={renderSpan()}
         containerStyle="SignInCode__container--OTP"
         inputStyle="SignInCode__input SignInCode__input--text"
         focusStyle="SignInCode__input--focus"
       />
+      <div className="SignInCode__container--time">
+        {/*  TODO: Remove this when integrated time */}
+        <p className="SignInCode__text SignInCode__text--time">(3:44)</p>
+      </div>
       <div className="SignInCode__container--button">
         <Button
           variant="contained"
           size="large"
           color="info"
           fullWidth
-          onClick={() => console.log(OTP)}
+          onClick={handleClick}
         >
           {t.button}
         </Button>
