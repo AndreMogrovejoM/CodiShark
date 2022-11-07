@@ -2,7 +2,6 @@ import SetupProvider from "containers/SetupProvider/SetupProvider";
 import React, { lazy, memo, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { privateRoute } from "./Router.helpers";
 import { RouterProps as Props } from "./Router.types";
 
 // Root routes
@@ -22,21 +21,17 @@ const Router: React.FC<Props> = props => {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
-            <Route path="/signin" element={<SignInUser />} />
             <Route
-              path="/signInAdministrator"
-              element={<SignInAdministrator />}
+              path="/AdministratorPanel"
+              element={<AdministratorPanel />}
             />
           </Route>
-          <Route path="/500" element={<FiverZeroZero />} />
           <Route path="/signin" element={<SignInUser />} />
-          <Route path="/" element={privateRoute(<Home />)} />
           <Route
             path="/signInAdministrator"
             element={<SignInAdministrator />}
           />
-          <Route path="/AdministratorPanel" element={<AdministratorPanel />} />
-          <Route path="/" element={privateRoute(<Home />)} />
+          <Route path="/500" element={<FiverZeroZero />} />
           <Route path="*" element={<FourZeroFour />} />
         </Routes>
       </Suspense>

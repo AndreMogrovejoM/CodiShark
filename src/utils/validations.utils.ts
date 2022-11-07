@@ -1,5 +1,4 @@
 // Validation utility function and data
-import { Rule } from "antd/lib/form";
 import getI18n from "i18n/i18n.helpers";
 
 export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
@@ -7,7 +6,7 @@ export const fieldMinLength = 2;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
 
-export const requiredField = (): Rule => {
+export const requiredField = () => {
   const t = getI18n().utils.validations;
   return {
     required: true,
@@ -15,13 +14,31 @@ export const requiredField = (): Rule => {
   };
 };
 
-/* TODO: validar Login */
-export const validEmail = (): Rule => {
+export const validEmail = () => {
   const t = getI18n().utils.validations;
 
   return {
     type: "email",
-    message: t.validEmail
+    message: t.validEmail,
+    name: "email",
+    rules: {
+      required: t.fieldRequired
+    }
+  };
+};
+
+export const validPassword = () => {
+  const t = getI18n().utils.validations;
+
+  return {
+    type: "password",
+    message: t.minPasswordLength,
+    name: "password",
+    rules: {
+      required: t.fieldRequired,
+      value: passwordMinLength,
+      message: t.stringMinLength(passwordMinLength)
+    }
   };
 };
 

@@ -4,7 +4,7 @@ import { TextFieldStyled as Styles } from "./TextField.styles";
 import { TextFieldProps as Props } from "./TextField.types";
 
 const TextField: React.FC<Props> = props => {
-  const { fields, field, config } = props;
+  const { fields, field, config, className } = props;
 
   return (
     <Styles
@@ -19,6 +19,8 @@ const TextField: React.FC<Props> = props => {
       fullWidth={config.fullWidth}
       focused={config.focused}
       InputProps={config.InputProps}
+      sx={config.sx}
+      className={className}
     />
   );
 };

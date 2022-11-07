@@ -13,6 +13,7 @@ export interface ButtonProps {
   type?: Type;
   fullWidth?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
 // Styled Component Props

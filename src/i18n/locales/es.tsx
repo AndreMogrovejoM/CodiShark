@@ -70,6 +70,16 @@ const es: Dictionary = {
       emailPlaceholder: "hola@correo.com",
       passwordPlaceholder: "contraseña",
       signIn: "Iniciar sesión"
+    },
+    SignInAdministrator: {
+      step1: {
+        user: "Usuario",
+        password: "Contraseña",
+        continue: "Continuar",
+        copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
+        welcome: "Bienvenido",
+        greetings: "¡Hola! Sigue estos simples pasos"
+      }
     }
   },
   utils: {

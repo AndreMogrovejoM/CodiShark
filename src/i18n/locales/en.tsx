@@ -71,6 +71,16 @@ const en = {
       emailPlaceholder: "hellow@email.com",
       passwordPlaceholder: "password",
       signIn: "Sign in"
+    },
+    SignInAdministrator: {
+      step1: {
+        user: "User",
+        password: "Password",
+        continue: "Continue",
+        copyright: "Copyright © B12 2022 - All rights reserved.",
+        welcome: "Welcome",
+        greetings: "Hello! Follow this simple steps"
+      }
     }
   },
   utils: {
