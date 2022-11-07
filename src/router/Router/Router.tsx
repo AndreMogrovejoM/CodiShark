@@ -20,12 +20,12 @@ const Router: React.FC<Props> = props => {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
-            <Route path="/signin" element={<SignInUser />} />
-            <Route
-              path="/signInAdministrator"
-              element={<SignInAdministrator />}
-            />
           </Route>
+          <Route path="/signin" element={<SignInUser />} />
+          <Route
+            path="/signInAdministrator"
+            element={<SignInAdministrator />}
+          />
           <Route path="/500" element={<FiverZeroZero />} />
           <Route path="*" element={<FourZeroFour />} />
         </Routes>
