@@ -1,8 +1,11 @@
-import { Grid, Paper } from "@mui/material";
-import React from "react";
-import { useState } from "react";
+import { Grid, Paper, Box } from "@mui/material";
+import Logo from "assets/images/logoKonecta.webp";
+import useI18n from "i18n/i18n.hooks";
+import React, { useState } from "react";
 
+import SignInCode from "../SignInCode/SignInCode";
 import SignInForm from "../SignInForm/SignInForm";
+import SignInValidate from "../SignInValidate/SignInValidate";
 import Styles from "./SignIn.styles";
 import { SignInProps as Props } from "./SignIn.types";
 
@@ -10,7 +13,9 @@ import { SignInProps as Props } from "./SignIn.types";
 /* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
 
 const SignIn: React.FC<Props> = props => {
-  const [step] = useState(0);
+  const [step] = useState(2);
+
+  const t = useI18n().signIn.SignInFormUser;
 
   // TODO: Uncomment when functionality is ready
   /*  const { search } = useLocation();
@@ -32,12 +37,31 @@ const SignIn: React.FC<Props> = props => {
       case 0:
         return <SignInForm />;
       case 1:
-        // TODO: Create second sign in step
-        return <p> Hello </p>;
+        return <SignInValidate />;
+      case 2:
+        return <SignInCode />;
       default:
         return <SignInForm />;
     }
   };
+
+  const renderFormHeader = () => (
+    <>
+      <img src={Logo} alt={t.altLogo} />
+      <h1 className="SignIn__title">
+        {step !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
+      </h1>
+      <p className="SignIn__subtitle">
+        {step !== 2 ? t.subtitle : t.subtitleAlt}
+      </p>
+      {step === 2 && <p className="SignIn__subtitle">{t.subtitleAltTwo}</p>}
+    </>
+  );
+
+  /* TODO: Fixed styles */
+  const renderCopyright = () => (
+    <p className="SignIn__container--copyright">{t.copyright}</p>
+  );
 
   return (
     <Styles className="SignIn">
@@ -55,7 +79,13 @@ const SignIn: React.FC<Props> = props => {
           alignItems="center"
           justifyContent="center"
         >
-          {renderForm(step)}
+          <Box className="SignIn__container--form">
+            <Box className="SignIn__container--center   SignIn__container--content">
+              {renderFormHeader()}
+            </Box>
+            {renderForm(step)}
+          </Box>
+          {renderCopyright()}
         </Grid>
       </Grid>
     </Styles>

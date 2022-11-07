@@ -18,6 +18,9 @@ export const theme = createTheme({
     },
     secondary: {
       main: palette.secondary
+    },
+    info: {
+      main: palette.blue
     }
   }
 });
