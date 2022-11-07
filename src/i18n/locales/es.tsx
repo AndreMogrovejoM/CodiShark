@@ -55,6 +55,9 @@ const es: Dictionary = {
     SignInFormUser: {
       title: "Bienvenido(a)",
       subtitle: "Necesitamos identificarte para poder continuar",
+      titleAlt: "Ingrese el código recibido",
+      subtitleAlt: "Enviamos un código según el método seleccionado.",
+      subtitleAltTwo: "Ingreselo a continuación para continuar:",
       button: "Continuar",
       altLogo: "Logo de Konecta",
       copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
@@ -63,6 +66,21 @@ const es: Dictionary = {
         fieldCode: "Cod. Verificador",
         fieldDate: "Fecha de Emisión"
       }
+    },
+    SignInValidation: {
+      greeting: "Bienvenido",
+      instructions: "Por favor elige un metodo de verificación:",
+      button: "Continuar",
+      fields: {
+        labelPhone: "Enviar un código SMS al número",
+        labelEmail: "Enviar un código al correo:"
+      }
+    },
+    SignInFormCode: {
+      question: "No recibió ningun código? Reenviar código de verificación ",
+      answer: "Reenviar código de verificación ",
+      method: "Probar otro método de verificación",
+      button: "Continuar"
     },
     SignInForm: {
       welcome: "Bienvenido/a",

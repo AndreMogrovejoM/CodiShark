@@ -5,6 +5,7 @@ export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
 export const fieldMinLength = 2;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
+export const minInputsCode = 6;
 
 export const requiredField = () => {
   const t = getI18n().utils.validations;
@@ -94,4 +95,23 @@ export const validLoginUser = () => {
   };
 
   return [dniField, codeField, dateField];
+};
+
+export const validLoginUserValidation = () => {
+  const t = getI18n().signIn.SignInValidation.fields;
+
+  return [
+    {
+      id: "field-phone",
+      name: "type-message",
+      value: "phone",
+      label: t.labelPhone
+    },
+    {
+      id: "field-email",
+      name: "type-message",
+      value: "email",
+      label: t.labelEmail
+    }
+  ];
 };
