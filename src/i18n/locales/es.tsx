@@ -79,6 +79,13 @@ const es: Dictionary = {
         copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
         welcome: "Bienvenido",
         greetings: "¡Hola! Sigue estos simples pasos"
+      },
+      step2: {
+        code: "Ingrese el código enviado a su número de celular para poder continuar:",
+        continue: "Ingresar",
+        copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
+        welcome: "Bienvenido",
+        place: "Codigo Verificador"
       }
     }
   },

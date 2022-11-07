@@ -1,60 +1,81 @@
+import { InputAdornment } from "@mui/material";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
-// import useI18n from "i18n/i18n.hooks";
+import useI18n from "i18n/i18n.hooks";
 import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { validLoginUser } from "utils/validations.utils";
+import { Controller, FieldValues, useForm } from "react-hook-form";
+import { validCode } from "utils/validations.utils";
 
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
+import iconVerification from "../../assets/images/iconVerification.svg";
 import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
-  const [dniField] = validLoginUser();
+  const codeField = validCode();
   const { control, handleSubmit } = useForm();
-  // const t = useI18n().signIn.SignInForm;
+  const t = useI18n().signIn.SignInAdministrator.step2;
+
+  const handleForm = (values: FieldValues) => {
+    console.log(values);
+  };
 
   const renderHeaderVerify = (
     <>
-      <h2 className="SignInAdministratorVerify__title">Bienvenido</h2>
-      <h3 className="SignInAdministratorVerify__subTitle">
-        Ingrese el código enviado a su número de celular para poder continuar:
-      </h3>
+      <h2 className="SignInAdministratorVerify__title">{t.welcome}</h2>
+      <h3 className="SignInAdministratorVerify__subTitle">{t.code}</h3>
     </>
   );
 
   const renderFormVerify = () => {
     return (
-      <>
+      <form
+        onSubmit={handleSubmit(handleForm)}
+        className="SignInAdministratorVerify__form"
+      >
         <Controller
-          name={dniField.name}
+          name={codeField.name}
           control={control}
-          rules={dniField.rules}
+          rules={codeField.rules}
           defaultValue=""
           render={({ field, fieldState }) => (
             <TextField
               field={field}
               fields={fieldState}
+              className="SignInAdministratorVerify__textField"
               config={{
-                type: dniField.type,
-                label: dniField.label,
-                variant: "outlined",
-                margin: "dense",
+                type: codeField.type,
+                label: "",
+                variant: "filled",
                 fullWidth: true,
-                focused: true
+                focused: true,
+                placeholder: t.place,
+                InputProps: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <img
+                        className="SignInAdministratorVerify__icon"
+                        src={iconVerification}
+                        alt="iconVerfication"
+                      />
+                    </InputAdornment>
+                  )
+                }
               }}
             />
           )}
         />
+
         <Button
           variant="contained"
-          // className="SignInAdministrator__button"
-          onClick={handleSubmit}
+          type="submit"
+          className="SignInAdministratorVerify__button"
+          disabled={false}
         >
-          Ingresar
+          {t.continue}
         </Button>
-      </>
+      </form>
     );
   };
 
@@ -68,9 +89,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         />
         {renderHeaderVerify}
         {renderFormVerify()}
-        <h4 className="SignInAdministratorVerify__footerText">
-          Copyright B12 2022 - Todos los derechos reservados
-        </h4>
+        <h4 className="SignInAdministratorVerify__footerText">{t.copyright}</h4>
       </div>
     </Styles>
   );

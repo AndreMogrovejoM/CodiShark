@@ -27,6 +27,18 @@ export const validEmail = () => {
   };
 };
 
+export const validCode = () => {
+  const t = getI18n().utils.validations;
+
+  return {
+    type: "text",
+    name: "code",
+    rules: {
+      required: t.fieldRequired
+    }
+  };
+};
+
 export const validPassword = () => {
   const t = getI18n().utils.validations;
 
