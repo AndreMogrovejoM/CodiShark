@@ -14,9 +14,11 @@ export interface TextField {
   disabled?: boolean;
   size?: size;
   margin?: margin;
-  InputProps?: any;
   fullWidth?: boolean;
   focused?: boolean;
+  maxLength?: number;
+  onInput?: any;
+  autoComplete?: string;
 }
 
 // Component Props
@@ -24,6 +26,7 @@ export interface TextFieldProps {
   config: TextField;
   field: ControllerRenderProps<any, any>;
   fields: ControllerFieldState;
+  inputProps?: any;
 }
 
 // Styled Component Props

@@ -7,6 +7,7 @@ export const fieldMinLength = 2;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
 export const minInputsCode = 6;
+export const voidValue = 0;
 
 export const requiredField = (): Rule => {
   const t = getI18n().utils.validations;
@@ -34,6 +35,7 @@ export const validLoginUser = () => {
     name: "dni",
     type: "number",
     label: fields.fieldDNI,
+    maxLength: passwordMinLength,
     rules: {
       required: t.fieldRequired,
       minLength: {
@@ -41,6 +43,7 @@ export const validLoginUser = () => {
         message: t.stringMinLength(passwordMinLength)
       },
       maxLength: {
+        /* A constant that is used to validate the length of the password. */
         value: passwordMinLength,
         message: t.stringMaxLength(passwordMinLength)
       }
@@ -51,8 +54,17 @@ export const validLoginUser = () => {
     name: "cod",
     type: "number",
     label: fields.fieldCode,
+    maxLength: fieldMinLength,
     rules: {
-      required: t.fieldRequired
+      required: t.fieldRequired,
+      minLength: {
+        value: fieldMinLength,
+        message: t.stringMinLength(fieldMinLength)
+      },
+      maxLength: {
+        value: fieldMinLength,
+        message: t.stringMaxLength(fieldMinLength)
+      }
     }
   };
 
@@ -60,6 +72,7 @@ export const validLoginUser = () => {
     name: "date_begin",
     type: "date",
     label: fields.fieldDate,
+    maxLength: voidValue,
     rules: {
       required: t.fieldRequired
     }
