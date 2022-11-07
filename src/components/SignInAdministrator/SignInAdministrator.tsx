@@ -1,9 +1,9 @@
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import KeyIcon from "@mui/icons-material/Key";
-import { Button, InputAdornment, TextField } from "@mui/material";
-import useAuth from "contexts/auth/auth.hooks";
+import Button from "components/globals/Button/Button";
+import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { Controller, useForm } from "react-hook-form";
+import { validLoginUser } from "utils/validations.utils";
 
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
@@ -11,12 +11,9 @@ import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministrator: React.FC<Props> = props => {
+  const [dniField, codeField] = validLoginUser();
+  const { control, handleSubmit } = useForm();
   const t = useI18n().signIn.SignInForm;
-  const { setIsAnonymous } = useAuth();
-
-  const handleSubmit = () => {
-    setIsAnonymous(false);
-  };
 
   const renderHeader = (
     <>
@@ -30,39 +27,52 @@ const SignInAdministrator: React.FC<Props> = props => {
   const renderForm = () => {
     return (
       <>
-        <TextField
-          id="email"
-          type="email"
-          label="email"
-          variant="filled"
-          placeholder={t.emailPlaceholder}
-          className="SignInAdministrator__textField"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AccountCircle />
-              </InputAdornment>
-            )
-          }}
-        />
-        <TextField
-          id="password"
-          type="password"
-          label="password"
-          variant="filled"
-          placeholder={t.passwordPlaceholder}
-          className="SignInAdministrator__textField"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <KeyIcon />
-              </InputAdornment>
-            )
-          }}
-        />
+        <div className="SignInAdministrator__textField">
+          <Controller
+            name={dniField.name}
+            control={control}
+            rules={dniField.rules}
+            defaultValue=""
+            render={({ field, fieldState }) => (
+              <TextField
+                field={field}
+                fields={fieldState}
+                config={{
+                  type: dniField.type,
+                  label: dniField.label,
+                  variant: "outlined",
+                  margin: "dense",
+                  fullWidth: true,
+                  focused: true
+                }}
+              />
+            )}
+          />
+          <Controller
+            name={codeField.name}
+            control={control}
+            rules={codeField.rules}
+            defaultValue=""
+            render={({ field, fieldState }) => (
+              <TextField
+                field={field}
+                fields={fieldState}
+                config={{
+                  type: codeField.type,
+                  label: codeField.label,
+                  variant: "outlined",
+                  margin: "dense",
+                  fullWidth: true,
+                  focused: true
+                }}
+              />
+            )}
+          />
+        </div>
+
         <Button
           variant="contained"
-          className="SignInAdministrator__button"
+          // className="SignInAdministrator__button"
           onClick={handleSubmit}
         >
           Continuar

@@ -19,7 +19,7 @@ const InfoPanelBannerStyled = styled.div<Props>`
     &__subtitle {
       font-weight: 400;
       font-size: 0.8rem;
-      line-height: 1.4rem;
+      line-height: 1.6rem;
     }
   }
 `;

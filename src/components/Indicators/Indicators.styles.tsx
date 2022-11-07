@@ -4,7 +4,7 @@ import { IndicatorsStyledProps as Props } from "./Indicators.types";
 
 const IndicatorsStyled = styled.div<Props>`
   width: 72rem;
-  height: 22rem;
+  height: 24rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -26,8 +26,8 @@ const IndicatorsStyled = styled.div<Props>`
     }
 
     &__spanContainer {
-      margin-top: 1.8rem;
-      margin-bottom: 1rem;
+      margin-top: 1.6rem;
+      margin-bottom: 0.8rem;
       display: flex;
       align-items: flex-start;
       gap: 0.8rem;
