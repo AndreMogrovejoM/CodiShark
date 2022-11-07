@@ -1,8 +1,6 @@
 import { TextField } from "@mui/material";
 import styled from "styled-components";
 
-import { TextFieldStyledProps as Props } from "./TextField.types";
-
 export const TextFieldStyled = styled(TextField)(() => ({
   width: "100%",
   "& .MuiInputBase-input": {

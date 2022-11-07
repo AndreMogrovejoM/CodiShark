@@ -39,8 +39,8 @@ const SignInValidate: React.FC<Props> = props => {
             {...register(name, {
               required: true
             })}
-          />{" "}
-          {label}{" "}
+          />
+          {label}
           <span className="SignInValidate__text--color">{labelExtension}</span>
         </label>
       </div>
@@ -84,7 +84,9 @@ const SignInValidate: React.FC<Props> = props => {
     <>
       <p className="SignInValidate__text--greeting">
         {t.greeting}
-        <span className="SignInValidate__text--greeting__bold"> {name}</span>
+        <span className="SignInValidate__text--greeting__bold">
+          {` ${name}`}
+        </span>
       </p>
       <p className="SignInValidate__text--indication">{t.instructions}</p>
     </>

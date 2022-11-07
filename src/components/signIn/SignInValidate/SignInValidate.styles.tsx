@@ -7,7 +7,6 @@ const SignInValidateStyled = styled.div<Props>`
     &__container {
       &__input {
         outline: 0.1rem solid var(--palette-skyBlue);
-
         appearance: none;
         -webkit-appearance: none;
         border: 0.2rem solid var(--palette-white);
@@ -21,7 +20,6 @@ const SignInValidateStyled = styled.div<Props>`
         &:checked {
           outline-color: var(--palette-skyBlue);
           background-color: var(--palette-skyBlue);
-
           animation: outline-checked;
           animation-duration: 0.1s;
           animation-iteration-count: 4;

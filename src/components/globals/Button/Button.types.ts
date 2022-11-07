@@ -10,6 +10,7 @@ type Color =
   | "success"
   | "info"
   | "warning";
+
 // Component Props
 export interface ButtonProps {
   children: string;

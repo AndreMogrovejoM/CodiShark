@@ -10,7 +10,6 @@ import { SignInCodeProps as Props } from "./SignInCode.types";
 
 const SignInCode: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormCode;
-
   const [OTP, setOTP] = useState("");
 
   const handleChange = (otp: any) => setOTP(otp);
@@ -23,6 +22,7 @@ const SignInCode: React.FC<Props> = props => {
     console.log("🚀 ~ file: SignInCode.tsx ~ line 24 ~ OTP", OTP);
     console.log(typeof OTP);
   };
+
   return (
     <Styles className={`SignInCode`}>
       <OtpInput

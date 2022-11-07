@@ -30,15 +30,10 @@ const SignInCodeStyled = styled.div<Props>`
 
     &__input {
       background: var(--palette-white);
-      border: 0.05rem solid var(--palette-black);
-      border-radius: 10px;
+      border: 0.04rem solid var(--palette-black);
+      border-radius: 0.8rem;
       width: 4.8rem !important;
       height: 4.8rem !important;
-
-      &--focus {
-        border: 0.05rem solid var(--palette-skyBlue);
-        color: var(--palette-skyBlue) !important;
-      }
 
       &--text {
         font-size: 2.4rem;
@@ -47,14 +42,19 @@ const SignInCodeStyled = styled.div<Props>`
         color: var(--palette-darkText);
       }
 
+      &--focus {
+        border: 0.04rem solid var(--palette-skyBlue);
+        color: var(--palette-skyBlue);
+      }
+
       &--time {
         font-size: 1.4rem;
-        line-height: 1.9rem;
+        line-height: 2rem;
       }
     }
 
     &__text {
-      font-weight: 540;
+      font-weight: 600;
       font-size: 1.2rem;
       line-height: 1.6rem;
 
