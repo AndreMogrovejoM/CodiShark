@@ -7,9 +7,6 @@ import { defineConfig } from "vitest/config";
 
 // https://vitejs.dev/config/
 const viteConfig = defineViteConfig({
-  build: {
-    outDir: "build"
-  },
   plugins: [tsconfigPaths(), svgrPlugin(), react()],
   resolve: {
     alias: {

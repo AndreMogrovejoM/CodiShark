@@ -12,7 +12,7 @@ const FourZeroFour: React.FC<Props> = props => {
       <header className="FourZeroFour__header" />
       <main className="FourZeroFour__main">
         <FourZeroFourSVG className="FourZeroFour__icon" />
-        <button onClick={() => navigate(-1)}>Regresar</button>
+        <button onClick={() => navigate("/signin")}>Regresar</button>
       </main>
       <footer className="FourZeroFour__footer" />
     </Styles>
