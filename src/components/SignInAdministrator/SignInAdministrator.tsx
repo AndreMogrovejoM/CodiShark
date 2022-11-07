@@ -1,6 +1,6 @@
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
-import useI18n from "i18n/i18n.hooks";
+// import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { validLoginUser } from "utils/validations.utils";
@@ -13,7 +13,7 @@ import LogoKonecta from "../../assets/images/logoKonecta.svg";
 const SignInAdministrator: React.FC<Props> = props => {
   const [dniField, codeField] = validLoginUser();
   const { control, handleSubmit } = useForm();
-  const t = useI18n().signIn.SignInForm;
+  // const t = useI18n().signIn.SignInForm;
 
   const renderHeader = (
     <>
