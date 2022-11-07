@@ -52,9 +52,14 @@ const SignInCode: React.FC<Props> = props => {
       <div className="SignInCode__container--text">
         <p className="SignInCode__text">
           {t.question}
-          <span className="SignInCode__text--color">{t.answer}</span>
+          <span
+            onClick={() => console.log("resend")}
+            className="SignInCode__text--color"
+          >
+            {t.answer}
+          </span>
         </p>
-        <p className="SignInCode__text"> {t.method}</p>
+        <p className="SignInCode__text">{t.method}</p>
       </div>
     </Styles>
   );
