@@ -4,6 +4,7 @@ import getI18n from "i18n/i18n.helpers";
 
 export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
 export const fieldMinLength = 2;
+export const fieldDniLength = 8;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
 export const minInputsCode = 6;
@@ -35,17 +36,17 @@ export const validLoginUser = () => {
     name: "dni",
     type: "number",
     label: fields.fieldDNI,
-    maxLength: passwordMinLength,
+    maxLength: fieldDniLength,
     rules: {
       required: t.fieldRequired,
       minLength: {
-        value: passwordMinLength,
-        message: t.stringMinLength(passwordMinLength)
+        value: fieldDniLength,
+        message: t.stringMinLength(fieldDniLength)
       },
       maxLength: {
         /* A constant that is used to validate the length of the password. */
-        value: passwordMinLength,
-        message: t.stringMaxLength(passwordMinLength)
+        value: fieldDniLength,
+        message: t.stringMaxLength(fieldDniLength)
       }
     }
   };

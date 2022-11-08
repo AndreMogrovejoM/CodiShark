@@ -13,10 +13,7 @@ export const TextFieldStyled = styled(TextField)(() => ({
     "&::-webkit-inner-spin-button": {
       display: "none"
     },
-    // TODO: Change icon
     "&::-webkit-calendar-picker-indicator": {
-      //display: none;
-      //-webkit-appearance: none;
       fontSize: "1.6rem",
       background: `url(${BG_ICON}) no-repeat`
     }

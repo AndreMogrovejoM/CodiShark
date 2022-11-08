@@ -17,7 +17,7 @@ export interface TextField {
   fullWidth?: boolean;
   focused?: boolean;
   maxLength?: number;
-  onInput?: any;
+  onInput?: () => void;
   autoComplete?: string;
 }
 

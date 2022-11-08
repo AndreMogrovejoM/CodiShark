@@ -7,11 +7,10 @@ const TextField: React.FC<Props> = props => {
   const { fields, field, config } = props;
 
   // Limit numbers in the input type "number"
-  const handleNumber = (e: any) => {
+  const handleNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (config.maxLength) {
-      e.target.value = Math.max(0, parseInt(e.target.value))
-        .toString()
-        .slice(0, config.maxLength);
+      const value = e.target.value;
+      e.target.value = value.substring(0, config.maxLength);
     }
   };
 
