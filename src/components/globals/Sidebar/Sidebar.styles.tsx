@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { SidebarStyledProps as Props } from "./Sidebar.types";
 
-const SidebarStyled = styled.div<Props>`
+const SidebarStyled = styled.nav<Props>`
   position: absolute;
   top: 0;
   left: 0;

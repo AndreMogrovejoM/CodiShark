@@ -1,27 +1,45 @@
 import Button from "components/globals/Button/Button";
+import CONSTANTS from "config/constants";
+import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { useState } from "react";
 import OtpInput from "react-otp-input";
+import { useNavigate } from "react-router-dom";
+import { useSignInUserStep3 } from "services/auth/auth.service.hooks";
 import { minInputsCode } from "utils/validations.utils";
 
 import Styles from "./SignInCode.styles";
 import { SignInCodeProps as Props } from "./SignInCode.types";
 
+const { ENTRY_PATH } = CONSTANTS.ROUTES;
+
 const SignInCode: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormCode;
+  const [isLoading, setIsLoading] = useState(false);
   const [OTP, setOTP] = useState("");
+  const navigate = useNavigate();
+  const { setSignInStep } = useAuth();
+  const { mutateAsync, reset } = useSignInUserStep3();
 
   const handleChange = (otp: any) => setOTP(otp);
+
+  const submitHandler = async () => {
+    try {
+      setIsLoading(true);
+      await mutateAsync(OTP);
+      reset();
+      setIsLoading(false);
+      navigate(ENTRY_PATH);
+      setSignInStep(0);
+    } catch {
+      setIsLoading(false);
+    }
+  };
 
   const renderSpan = () => (
     <span className="SignInCode__container--separator" />
   );
-
-  const handleClick = () => {
-    console.log("🚀 ~ file: SignInCode.tsx ~ line 24 ~ OTP", OTP);
-    console.log(typeof OTP);
-  };
 
   return (
     <Styles className={`SignInCode`}>
@@ -44,7 +62,8 @@ const SignInCode: React.FC<Props> = props => {
           size="large"
           color="info"
           fullWidth
-          onClick={handleClick}
+          onClick={submitHandler}
+          disabled={isLoading}
         >
           {t.button}
         </Button>

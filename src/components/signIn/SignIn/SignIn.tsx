@@ -55,7 +55,6 @@ const SignIn: React.FC<Props> = props => {
     </>
   );
 
-  /* TODO: Fixed styles */
   const renderCopyright = () => (
     <p className="SignIn__container--copyright">{t.copyright}</p>
   );
