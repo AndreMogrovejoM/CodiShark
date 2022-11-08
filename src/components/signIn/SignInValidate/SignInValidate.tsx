@@ -1,7 +1,9 @@
 import Button from "components/globals/Button/Button";
+import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { validLoginUserValidation } from "utils/validations.utils";
 
 import Styles from "./SignInValidate.styles";
@@ -14,15 +16,21 @@ const email = "daprimovaria@gmail.com";
 const SignInValidate: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInValidation;
   const fields = validLoginUserValidation();
-  const [loading] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const { setSignInStep } = useAuth();
   const { register, handleSubmit } = useForm();
+  const { mutateAsync, reset } = useSignInUserStep2();
 
-  const handleForm = (values: FieldValues) => {
-    console.log(
-      "🚀 ~ file: SignInValidate.tsx ~ line 23 ~ handleForm ~ values",
-      values
-    );
+  const submitHandler = async (values: FieldValues) => {
+    try {
+      setIsLoading(true);
+      await mutateAsync(values.verifyMethod);
+      reset();
+      setIsLoading(false);
+      setSignInStep(2);
+    } catch {
+      setIsLoading(false);
+    }
   };
 
   const Radio = (props: any) => {
@@ -48,7 +56,7 @@ const SignInValidate: React.FC<Props> = props => {
   };
 
   const renderForm = () => (
-    <form onSubmit={handleSubmit(handleForm)}>
+    <form onSubmit={handleSubmit(submitHandler)}>
       <div className="SignInValidate__container__form">
         {fields.map((field, index) => (
           <Radio
@@ -59,8 +67,8 @@ const SignInValidate: React.FC<Props> = props => {
             label={field.label}
             labelExtension={
               field.value === "phone"
-                ? `*** *** ${phone.substr(phone.length - 3)}`
-                : `********${email.substr(email.length - 15)}`
+                ? `*** *** ${phone.slice(phone.length - 3)}`
+                : `********${email.slice(email.length - 15)}`
             }
           />
         ))}
@@ -72,7 +80,7 @@ const SignInValidate: React.FC<Props> = props => {
           size="large"
           color="info"
           fullWidth
-          disabled={loading}
+          disabled={isLoading}
         >
           {t.button}
         </Button>

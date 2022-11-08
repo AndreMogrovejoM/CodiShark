@@ -88,14 +88,14 @@ export const validLoginUserValidation = () => {
   return [
     {
       id: "field-phone",
-      name: "type-message",
-      value: "phone",
+      name: "verifyMethod",
+      value: "SMS",
       label: t.labelPhone
     },
     {
       id: "field-email",
-      name: "type-message",
-      value: "email",
+      name: "verifyMethod",
+      value: "EMAIL",
       label: t.labelEmail
     }
   ];

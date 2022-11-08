@@ -1,39 +1,39 @@
 import { Box, Grid } from "@mui/material";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
-import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { Controller, useForm, FieldValues } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useSignInUserStep1 } from "services/auth/auth.service.hooks";
+import { RegisterUserConfig } from "services/auth/auth.service.types";
 import { validLoginUser } from "utils/validations.utils";
 
 import Styles from "./SignInForm.styles";
 import { SignInFormProps as Props } from "./SignInForm.types";
-
-const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignInForm: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormUser;
   const [dniField, codeField, dateField] = validLoginUser();
   const [isLoading, setIsLoading] = useState(false);
   const { setSignInStep } = useAuth();
-  const navigate = useNavigate();
+  const { mutateAsync, reset } = useSignInUserStep1();
 
   const { control, handleSubmit } = useForm();
 
   const submitHandler = async (values: FieldValues) => {
     try {
       setIsLoading(true);
-      console.log(values);
-      // await auth().signInWithEmailAndPassword(email, password);
-      setTimeout(() => {
-        setIsLoading(false);
-        setSignInStep(1);
-        navigate(ENTRY_PATH);
-      }, 2000);
-    } catch (e: any) {
+      const data: RegisterUserConfig = {
+        dni: values?.dni,
+        code: values?.cod,
+        emissionDate: values?.date_begin
+      };
+      await mutateAsync(data);
+      reset();
+      setIsLoading(false);
+      setSignInStep(1);
+    } catch {
       setIsLoading(false);
     }
   };
