@@ -20,6 +20,9 @@ export interface TextField {
   helperText?: string;
   error?: boolean;
   sx?: object;
+  maxLength?: number;
+  onInput?: () => void;
+  autoComplete?: string;
 }
 
 // Component Props
@@ -28,6 +31,7 @@ export interface TextFieldProps {
   field: ControllerRenderProps<any, any>;
   fields: ControllerFieldState;
   className?: string;
+  inputProps?: any;
 }
 
 // Styled Component Props

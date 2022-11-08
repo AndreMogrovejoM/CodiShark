@@ -56,6 +56,9 @@ const en = {
     SignInFormUser: {
       title: "Welcome",
       subtitle: "We need to identify you in order to continue",
+      titleAlt: "Enter the received code",
+      subtitleAlt: "We send a code according to the selected method.",
+      subtitleAltTwo: "Enter it below to continue:",
       button: "Continue",
       altLogo: "Konecta logo",
       copyright: "Copyright © B12 2022 - All rights reserved.",
@@ -64,6 +67,21 @@ const en = {
         fieldCode: "Verification code",
         fieldDate: "Date of issue"
       }
+    },
+    SignInValidation: {
+      greeting: "Welcome",
+      instructions: "Please choose a verification method:",
+      button: "Continue",
+      fields: {
+        labelPhone: "Send an SMS code to the number",
+        labelEmail: "Send a code to the mail:"
+      }
+    },
+    SignInFormCode: {
+      question: "Didn't receive any code? ",
+      answer: "Resend verification code",
+      method: "Try another verification method",
+      button: "Continue"
     },
     SignInForm: {
       welcome: "Welcome",
@@ -81,6 +99,20 @@ const en = {
         welcome: "Welcome",
         greetings: "Hello! Follow this simple steps"
       }
+    },
+    AdministratorPanel: {
+      charges1: "Collections made",
+      charges2: "Collections in process"
+    },
+    Indicator: {
+      title: "Here are some indicators",
+      year: "YEAR",
+      month: "MONTH",
+      day: "DAY",
+      card1: "Collections Made",
+      card2: "Income to the System",
+      card3: "Contact requests by call",
+      card4: "Payments by wire transfer"
     }
   },
   utils: {

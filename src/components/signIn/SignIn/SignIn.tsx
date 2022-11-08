@@ -1,43 +1,63 @@
-import { Grid, Paper } from "@mui/material";
-import React from "react";
-import { useState } from "react";
+import { Grid, Paper, Box } from "@mui/material";
+import Logo from "assets/images/logoKonecta.webp";
+import CONSTANTS from "config/constants";
+import useAuth from "contexts/auth/auth.hooks";
+import useI18n from "i18n/i18n.hooks";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
+import SignInCode from "../SignInCode/SignInCode";
 import SignInForm from "../SignInForm/SignInForm";
+import SignInValidate from "../SignInValidate/SignInValidate";
 import Styles from "./SignIn.styles";
 import { SignInProps as Props } from "./SignIn.types";
 
-// TODO: Uncomment when functionality is ready
-/* const { ENTRY_PATH } = CONSTANTS.ROUTES; */
+const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignIn: React.FC<Props> = props => {
-  const [step] = useState(0);
+  const { isAnonymous, signInStep } = useAuth();
+  const t = useI18n().signIn.SignInFormUser;
 
-  // TODO: Uncomment when functionality is ready
-  /*  const { search } = useLocation();
-  const { isAnonymous } = useAuth();
-  const navigate = useNavigate(); */
+  const navigate = useNavigate();
 
-  /* useEffect(() => {
-    // If not authenticated
-    if (isAnonymous) {
-      navigate("/signin");
+  useEffect(() => {
+    if (!isAnonymous) {
+      navigate(ENTRY_PATH);
       return;
     }
+  }, [isAnonymous, navigate]);
 
-    navigate(ENTRY_PATH);
-  }, [isAnonymous, navigate, search]); */
-
-  const renderForm = (step: number) => {
-    switch (step) {
+  const renderForm = () => {
+    switch (signInStep) {
       case 0:
         return <SignInForm />;
       case 1:
-        // TODO: Create second sign in step
-        return <p> Hello </p>;
+        return <SignInValidate />;
+      case 2:
+        return <SignInCode />;
       default:
         return <SignInForm />;
     }
   };
+
+  const renderFormHeader = () => (
+    <>
+      <img src={Logo} alt={t.altLogo} />
+      <h1 className="SignIn__title">
+        {signInStep !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
+      </h1>
+      <p className="SignIn__subtitle">
+        {signInStep !== 2 ? t.subtitle : t.subtitleAlt}
+      </p>
+      {signInStep === 2 && (
+        <p className="SignIn__subtitle">{t.subtitleAltTwo}</p>
+      )}
+    </>
+  );
+
+  const renderCopyright = () => (
+    <p className="SignIn__container--copyright">{t.copyright}</p>
+  );
 
   return (
     <Styles className="SignIn">
@@ -55,7 +75,13 @@ const SignIn: React.FC<Props> = props => {
           alignItems="center"
           justifyContent="center"
         >
-          {renderForm(step)}
+          <Box className="SignIn__container--form">
+            <Box className="SignIn__container--center   SignIn__container--content">
+              {renderFormHeader()}
+            </Box>
+            {renderForm()}
+          </Box>
+          {renderCopyright()}
         </Grid>
       </Grid>
     </Styles>

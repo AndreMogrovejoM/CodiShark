@@ -6,7 +6,6 @@ const LastProcessCardStyled = styled.div<Props>`
   display: flex;
   width: 40rem;
   height: 32.8rem;
-  background-color: red;
   .LastProcessCard {
     &__title {
       font-size: 1.4rem;
