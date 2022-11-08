@@ -58,7 +58,8 @@ const SignInForm: React.FC<Props> = props => {
                     variant: "outlined",
                     margin: "dense",
                     fullWidth: true,
-                    focused: true
+                    focused: true,
+                    maxLength: dniField?.maxLength
                   }}
                 />
               )}
@@ -80,7 +81,8 @@ const SignInForm: React.FC<Props> = props => {
                     variant: "outlined",
                     margin: "dense",
                     fullWidth: true,
-                    focused: true
+                    focused: true,
+                    maxLength: codeField?.maxLength
                   }}
                 />
               )}

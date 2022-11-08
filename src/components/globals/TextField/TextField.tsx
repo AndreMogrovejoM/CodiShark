@@ -6,6 +6,14 @@ import { TextFieldProps as Props } from "./TextField.types";
 const TextField: React.FC<Props> = props => {
   const { fields, field, config } = props;
 
+  // Limit numbers in the input type "number"
+  const handleNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (config.maxLength) {
+      const value = e.target.value;
+      e.target.value = value.substring(0, config.maxLength);
+    }
+  };
+
   return (
     <Styles
       {...field}
@@ -18,7 +26,9 @@ const TextField: React.FC<Props> = props => {
       margin={config.margin}
       fullWidth={config.fullWidth}
       focused={config.focused}
-      InputProps={config.InputProps}
+      inputProps={{ maxLength: config.maxLength }}
+      onInput={handleNumber}
+      autoComplete="off"
     />
   );
 };
