@@ -6,6 +6,7 @@ import React from "react";
 import { useState } from "react";
 import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
+import { setCookie } from "react-use-cookie";
 import { useSignInUserStep3 } from "services/auth/auth.service.hooks";
 import { minInputsCode } from "utils/validations.utils";
 
@@ -19,7 +20,7 @@ const SignInCode: React.FC<Props> = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [OTP, setOTP] = useState("");
   const navigate = useNavigate();
-  const { setSignInStep } = useAuth();
+  const { setSignInStep, user, setUser } = useAuth();
   const { mutateAsync, reset } = useSignInUserStep3();
 
   const handleChange = (otp: any) => setOTP(otp);
@@ -27,7 +28,11 @@ const SignInCode: React.FC<Props> = props => {
   const submitHandler = async () => {
     try {
       setIsLoading(true);
-      await mutateAsync(OTP);
+      await mutateAsync({ password: OTP, dni: user?.dni }).then(response => {
+        const { access_token, user } = response ?? {};
+        setUser(user);
+        setCookie("token", access_token);
+      });
       reset();
       setIsLoading(false);
       navigate(ENTRY_PATH);

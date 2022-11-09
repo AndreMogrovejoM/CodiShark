@@ -16,7 +16,7 @@ const SignInForm: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormUser;
   const [dniField, codeField, dateField] = validLoginUser();
   const [isLoading, setIsLoading] = useState(false);
-  const { setSignInStep } = useAuth();
+  const { setSignInStep, setUser } = useAuth();
   const { mutateAsync, reset } = useSignInUserStep1();
 
   const { control, handleSubmit } = useForm();
@@ -26,10 +26,10 @@ const SignInForm: React.FC<Props> = props => {
       setIsLoading(true);
       const data: RegisterUserConfig = {
         dni: values?.dni,
-        code: values?.cod,
-        emissionDate: values?.date_begin
+        cod_verifier: values?.cod,
+        emision_date: values?.date_begin
       };
-      await mutateAsync(data);
+      await mutateAsync(data).then(response => setUser(response));
       reset();
       setIsLoading(false);
       setSignInStep(1);

@@ -6,13 +6,13 @@ import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
-import { validEmail, validPassword } from "utils/validations.utils";
+import { validLoginUser, validPassword } from "utils/validations.utils";
 
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
 const SignInAdministrator: React.FC<Props> = props => {
-  const emailField = validEmail();
+  const [dniField] = validLoginUser();
   const passwordField = validPassword();
   const { control, handleSubmit } = useForm();
   const t = useI18n().signIn.SignInAdministrator.step1;
@@ -35,9 +35,9 @@ const SignInAdministrator: React.FC<Props> = props => {
         className="SignInAdministrator__form"
       >
         <Controller
-          name={emailField.name}
+          name={dniField.name}
           control={control}
-          rules={emailField.rules}
+          rules={dniField.rules}
           defaultValue=""
           render={({ field, fieldState }) => (
             <TextField
@@ -45,7 +45,7 @@ const SignInAdministrator: React.FC<Props> = props => {
               fields={fieldState}
               className="SignInAdministrator__textField"
               config={{
-                type: emailField.type,
+                type: dniField.type,
                 label: "",
                 variant: "filled",
                 fullWidth: true,

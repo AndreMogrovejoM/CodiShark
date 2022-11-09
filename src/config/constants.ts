@@ -16,7 +16,7 @@ const CONSTANTS = {
     NO_AUTH_PATH: "/signin"
   },
   API: {
-    REACT_APP_API_URL: "http://box5133.temp.domains/~tqcodish/public/api",
+    REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
     REACT_APP_PLATFORM: "WEB",
     // Mock services, change to false if you don't want to mock
     MOCK_SERVICES: FamilyRestroomOutlined,
