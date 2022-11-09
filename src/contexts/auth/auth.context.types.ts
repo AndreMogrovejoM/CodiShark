@@ -1,6 +1,7 @@
 // Interfaces and types from context Auth
 
 import { Dispatch, SetStateAction } from "react";
+import { User } from "types/user.types";
 
 export type SignInStep = 0 | 1 | 2;
 
@@ -15,4 +16,6 @@ export interface AuthProviderValue {
   setIsAnonymous: Dispatch<SetStateAction<boolean>>;
   signInStep?: SignInStep;
   setSignInStep: Dispatch<SetStateAction<SignInStep | undefined>>;
+  user: User | undefined;
+  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
 }

@@ -3,9 +3,11 @@ import getI18n from "i18n/i18n.helpers";
 
 export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
 export const fieldMinLength = 2;
+export const fieldDniLength = 8;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
 export const minInputsCode = 6;
+export const voidValue = 0;
 
 export const requiredField = () => {
   const t = getI18n().utils.validations;
@@ -63,15 +65,17 @@ export const validLoginUser = () => {
     name: "dni",
     type: "number",
     label: fields.fieldDNI,
+    maxLength: fieldDniLength,
     rules: {
       required: t.fieldRequired,
       minLength: {
-        value: passwordMinLength,
-        message: t.stringMinLength(passwordMinLength)
+        value: fieldDniLength,
+        message: t.stringMinLength(fieldDniLength)
       },
       maxLength: {
-        value: passwordMinLength,
-        message: t.stringMaxLength(passwordMinLength)
+        /* A constant that is used to validate the length of the password. */
+        value: fieldDniLength,
+        message: t.stringMaxLength(fieldDniLength)
       }
     }
   };
@@ -80,8 +84,17 @@ export const validLoginUser = () => {
     name: "cod",
     type: "number",
     label: fields.fieldCode,
+    maxLength: fieldMinLength,
     rules: {
-      required: t.fieldRequired
+      required: t.fieldRequired,
+      minLength: {
+        value: fieldMinLength,
+        message: t.stringMinLength(fieldMinLength)
+      },
+      maxLength: {
+        value: fieldMinLength,
+        message: t.stringMaxLength(fieldMinLength)
+      }
     }
   };
 
@@ -89,6 +102,7 @@ export const validLoginUser = () => {
     name: "date_begin",
     type: "date",
     label: fields.fieldDate,
+    maxLength: voidValue,
     rules: {
       required: t.fieldRequired
     }
@@ -103,14 +117,14 @@ export const validLoginUserValidation = () => {
   return [
     {
       id: "field-phone",
-      name: "type-message",
-      value: "phone",
+      name: "verifyMethod",
+      value: "SMS",
       label: t.labelPhone
     },
     {
       id: "field-email",
-      name: "type-message",
-      value: "email",
+      name: "verifyMethod",
+      value: "EMAIL",
       label: t.labelEmail
     }
   ];

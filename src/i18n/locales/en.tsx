@@ -106,6 +106,20 @@ const en = {
         welcome: "Welcome",
         place: "verification code"
       }
+    },
+    AdministratorPanel: {
+      charges1: "Collections made",
+      charges2: "Collections in process"
+    },
+    Indicator: {
+      title: "Here are some indicators",
+      year: "YEAR",
+      month: "MONTH",
+      day: "DAY",
+      card1: "Collections Made",
+      card2: "Income to the System",
+      card3: "Contact requests by call",
+      card4: "Payments by wire transfer"
     }
   },
   utils: {

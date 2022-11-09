@@ -105,6 +105,20 @@ const es: Dictionary = {
         welcome: "Bienvenido",
         place: "Codigo Verificador"
       }
+    },
+    AdministratorPanel: {
+      charges1: "Cobros realizados",
+      charges2: "Cobros en proceso"
+    },
+    Indicator: {
+      title: "Te mostramos algunos indicadores",
+      year: "AÑO",
+      month: "MES",
+      day: "DIA",
+      card1: "Cobros Realizados",
+      card2: "Ingresos al Sistema",
+      card3: "Solicitudes de contacto por llamada",
+      card4: "Pagos por transferencia"
     }
   },
   utils: {
