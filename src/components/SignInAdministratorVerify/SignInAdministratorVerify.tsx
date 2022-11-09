@@ -1,4 +1,6 @@
 import { InputAdornment } from "@mui/material";
+import iconVerification from "assets/images/iconVerification.svg";
+import LogoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
@@ -8,9 +10,6 @@ import { validCode } from "utils/validations.utils";
 
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
-
-import iconVerification from "../../assets/images/iconVerification.svg";
-import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
   const codeField = validCode();

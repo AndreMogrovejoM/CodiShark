@@ -1,4 +1,6 @@
 import { InputAdornment } from "@mui/material";
+import iconUserAdministrator from "assets/images/iconUserAdministrator.svg";
+import iconPasswordAdministrator from "assets/images/iconVerification.svg";
 import LogoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
@@ -9,9 +11,6 @@ import { validLoginUser, validPassword } from "utils/validations.utils";
 
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
-
-import iconPasswordAdministrator from "../../assets/images/iconPasswordAdministrator.svg";
-import iconUserAdministrator from "../../assets/images/iconUserAdministrator.svg";
 
 const SignInAdministrator: React.FC<Props> = props => {
   const [dniField] = validLoginUser();

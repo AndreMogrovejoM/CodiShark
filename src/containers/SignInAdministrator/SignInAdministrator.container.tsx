@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { SignInAdministratorContainerProps as Props } from "./SignInAdministrator.types";
 
 const SignInAdministratorContainer: React.FC<Props> = props => {
-  const [step] = useState(1);
+  const [step] = useState(0);
 
   switch (step) {
     case 0:

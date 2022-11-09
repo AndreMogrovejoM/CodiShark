@@ -62,7 +62,7 @@ const SignInAdministratorStyled = styled.div<Props>`
     &__icon {
       position: absolute;
       top: 0;
-      margin: 1.4rem 4rem 0 0;
+      margin: 1.6rem 4rem 0 0;
     }
 
     &__button {

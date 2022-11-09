@@ -108,7 +108,8 @@ const es: Dictionary = {
     },
     AdministratorPanel: {
       charges1: "Cobros realizados",
-      charges2: "Cobros en proceso"
+      charges2: "Cobros en proceso",
+      footerTitle: "Ver todos"
     },
     Indicator: {
       title: "Te mostramos algunos indicadores",
