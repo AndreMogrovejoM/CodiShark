@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { SidebarStyledProps as Props } from "./Sidebar.types";
 
-const SidebarStyled = styled.div<Props>`
+const SidebarStyled = styled.nav<Props>`
   position: absolute;
   top: 0;
   left: 0;
@@ -10,7 +10,6 @@ const SidebarStyled = styled.div<Props>`
   height: 100vh;
   flex: 1;
   color: var(--palette-white);
-  z-index: 9;
 
   * > h2 {
     font-size: 1.4rem;

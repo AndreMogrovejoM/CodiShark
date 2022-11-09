@@ -1,13 +1,14 @@
 import SignInAdministrator from "components/SignInAdministrator/SignInAdministrator";
 import SignInAdministratorVerify from "components/SignInAdministratorVerify/SignInAdministratorVerify";
-import React, { useState } from "react";
+import useAuth from "contexts/auth/auth.hooks";
+import React from "react";
 
 import { SignInAdministratorContainerProps as Props } from "./SignInAdministrator.types";
 
 const SignInAdministratorContainer: React.FC<Props> = props => {
-  const [step] = useState(0);
+  const { signInStep } = useAuth();
 
-  switch (step) {
+  switch (signInStep) {
     case 0:
       return <SignInAdministrator />;
     case 1:

@@ -1,15 +1,52 @@
-import KeyIcon from "@mui/icons-material/Key";
-import { Button, InputAdornment, TextField } from "@mui/material";
-import useI18n from "i18n/i18n.hooks";
-import React from "react";
+import Button from "components/globals/Button/Button";
+import TextField from "components/globals/TextField/TextField";
+// import useI18n from "i18n/i18n.hooks";
+import CONSTANTS from "config/constants";
+import useAuth from "contexts/auth/auth.hooks";
+import React, { useState } from "react";
+import { Controller, FieldValues, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { setCookie } from "react-use-cookie";
+import { useSignInAdminStep2 } from "services/auth/auth.service.hooks";
+import { Login } from "services/auth/auth.service.types";
+import { validCode } from "utils/validations.utils";
 
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
 import LogoKonecta from "../../assets/images/logoKonecta.svg";
+const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInForm;
+  const validationCode = validCode();
+  const { control, handleSubmit } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
+  const { setSignInStep, setUser, user } = useAuth();
+  const { mutateAsync, reset } = useSignInAdminStep2();
+  const navigate = useNavigate();
+
+  // const t = useI18n().signIn.SignInForm;
+
+  const submitHandler = async (values: FieldValues) => {
+    try {
+      setIsLoading(true);
+      const data: Login = {
+        dni: user?.dni,
+        password: values?.code
+      };
+      await mutateAsync(data).then(user => {
+        delete user["token"];
+        setUser(user);
+        setCookie("token", user?.token ?? "");
+      });
+      reset();
+      setIsLoading(false);
+      setSignInStep(0);
+      navigate(ENTRY_PATH);
+    } catch {
+      setIsLoading(false);
+    }
+  };
 
   const renderHeaderVerify = (
     <>
@@ -22,29 +59,31 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
 
   const renderFormVerify = () => {
     return (
-      <>
-        <TextField
-          id="password"
-          type="password"
-          label="codigo verificador"
-          variant="filled"
-          placeholder={t.passwordPlaceholder}
-          className="SignInAdministratorVerify__textField"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <KeyIcon />
-              </InputAdornment>
-            )
-          }}
+      <form onSubmit={handleSubmit(submitHandler)}>
+        <Controller
+          name={validationCode.name}
+          control={control}
+          rules={validationCode.rules}
+          defaultValue=""
+          render={({ field, fieldState }) => (
+            <TextField
+              field={field}
+              fields={fieldState}
+              config={{
+                type: validationCode.type,
+                label: validationCode.label,
+                variant: "outlined",
+                margin: "dense",
+                fullWidth: true,
+                focused: true
+              }}
+            />
+          )}
         />
-        <Button
-          variant="contained"
-          className="SignInAdministratorVerify__button"
-        >
+        <Button variant="contained" type="submit" disabled={isLoading}>
           Ingresar
         </Button>
-      </>
+      </form>
     );
   };
 
