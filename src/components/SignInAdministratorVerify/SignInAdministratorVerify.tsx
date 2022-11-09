@@ -71,7 +71,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
               fields={fieldState}
               config={{
                 type: validationCode.type,
-                label: validationCode.label,
+                label: "",
                 variant: "outlined",
                 margin: "dense",
                 fullWidth: true,

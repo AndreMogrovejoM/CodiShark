@@ -36,7 +36,6 @@ export const validCode = () => {
 
   return {
     type: "code",
-    label: "Code",
     message: t.minPasswordLength(fieldCodeLength),
     name: "code",
     rules: {
