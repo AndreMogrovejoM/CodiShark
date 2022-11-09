@@ -17,7 +17,7 @@ const SignInValidate: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInValidation;
   const fields = validLoginUserValidation();
   const [isLoading, setIsLoading] = useState(false);
-  const { setSignInStep, user } = useAuth();
+  const { setSignInStep, user, setSignInMethod } = useAuth();
   const { register, handleSubmit } = useForm();
   const { mutateAsync, reset } = useSignInUserStep2();
 
@@ -26,6 +26,7 @@ const SignInValidate: React.FC<Props> = props => {
       setIsLoading(true);
       await mutateAsync({ dni: user?.dni, type: values?.verifyMethod });
       reset();
+      setSignInMethod(values?.verifyMethod);
       setIsLoading(false);
       setSignInStep(2);
     } catch {

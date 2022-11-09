@@ -2,7 +2,8 @@
 import getI18n from "i18n/i18n.helpers";
 
 export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
-export const fieldMinLength = 2;
+export const fieldMinLength = 1;
+export const fieldCodeLength = 6;
 export const fieldDniLength = 8;
 export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
@@ -26,6 +27,22 @@ export const validEmail = () => {
     name: "email",
     rules: {
       required: t.fieldRequired
+    }
+  };
+};
+
+export const validCode = () => {
+  const t = getI18n().utils.validations;
+
+  return {
+    type: "code",
+    label: "Code",
+    message: t.minPasswordLength(fieldCodeLength),
+    name: "code",
+    rules: {
+      required: t.fieldRequired,
+      value: fieldCodeLength,
+      message: t.stringMinLength(fieldCodeLength)
     }
   };
 };

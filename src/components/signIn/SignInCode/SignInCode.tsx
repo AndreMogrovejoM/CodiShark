@@ -7,6 +7,7 @@ import { useState } from "react";
 import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
+import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { useSignInUserStep3 } from "services/auth/auth.service.hooks";
 import { minInputsCode } from "utils/validations.utils";
 
@@ -21,9 +22,22 @@ const SignInCode: React.FC<Props> = props => {
   const [OTP, setOTP] = useState("");
   const navigate = useNavigate();
   const { setSignInStep, user, setUser } = useAuth();
+  const { signInMethod } = useAuth();
+  const { mutateAsync: mutateStep2, reset: resetStep2 } = useSignInUserStep2();
   const { mutateAsync, reset } = useSignInUserStep3();
 
   const handleChange = (otp: any) => setOTP(otp);
+
+  const handleResetCode = async () => {
+    try {
+      setIsLoading(true);
+      mutateStep2({ dni: user?.dni, type: signInMethod });
+      resetStep2();
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+    }
+  };
 
   const submitHandler = async () => {
     try {
@@ -35,8 +49,8 @@ const SignInCode: React.FC<Props> = props => {
       });
       reset();
       setIsLoading(false);
-      navigate(ENTRY_PATH);
       setSignInStep(0);
+      navigate(ENTRY_PATH);
     } catch {
       setIsLoading(false);
     }
@@ -76,10 +90,7 @@ const SignInCode: React.FC<Props> = props => {
       <div className="SignInCode__container--text">
         <p className="SignInCode__text">
           {t.question}
-          <span
-            onClick={() => console.log("resend")}
-            className="SignInCode__text--color"
-          >
+          <span onClick={handleResetCode} className="SignInCode__text--color">
             {t.answer}
           </span>
         </p>

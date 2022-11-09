@@ -1,14 +1,16 @@
 // Auth service interfaces and types
 
-export type VerifyMethod = {
-  type: "SMS" | "EMAIL";
-  dni?: string;
-};
+export type SignInMethod = "SMS" | "EMAIL";
 
-export type Login = {
+export interface VerifyMethod {
+  type: SignInMethod;
+  dni?: string;
+}
+
+export interface Login {
   password?: string;
   dni?: string;
-};
+}
 
 export interface Auth {}
 
