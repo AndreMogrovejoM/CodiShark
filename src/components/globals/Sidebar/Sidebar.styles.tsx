@@ -10,7 +10,6 @@ const SidebarStyled = styled.nav<Props>`
   height: 100vh;
   flex: 1;
   color: var(--palette-white);
-  z-index: 9;
 
   * > h2 {
     font-size: 1.4rem;

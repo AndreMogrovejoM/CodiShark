@@ -89,6 +89,30 @@ const en = {
       emailPlaceholder: "hellow@email.com",
       passwordPlaceholder: "password",
       signIn: "Sign in"
+    },
+    SignInAdministrator: {
+      step1: {
+        user: "User",
+        password: "Password",
+        continue: "Continue",
+        copyright: "Copyright © B12 2022 - All rights reserved.",
+        welcome: "Welcome",
+        greetings: "Hello! Follow this simple steps"
+      }
+    },
+    AdministratorPanel: {
+      charges1: "Collections made",
+      charges2: "Collections in process"
+    },
+    Indicator: {
+      title: "Here are some indicators",
+      year: "YEAR",
+      month: "MONTH",
+      day: "DAY",
+      card1: "Collections Made",
+      card2: "Income to the System",
+      card3: "Contact requests by call",
+      card4: "Payments by wire transfer"
     }
   },
   utils: {

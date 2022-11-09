@@ -1,5 +1,4 @@
 import { ControllerFieldState, ControllerRenderProps } from "react-hook-form";
-
 // Interfaces and types from component TemplateComponent
 
 type variant = "standard" | "filled" | "outlined";
@@ -14,8 +13,13 @@ export interface TextField {
   disabled?: boolean;
   size?: size;
   margin?: margin;
+  InputProps?: object;
   fullWidth?: boolean;
   focused?: boolean;
+  placeholder?: string;
+  helperText?: string;
+  error?: boolean;
+  sx?: object;
   maxLength?: number;
   onInput?: () => void;
   autoComplete?: string;
@@ -26,6 +30,7 @@ export interface TextFieldProps {
   config: TextField;
   field: ControllerRenderProps<any, any>;
   fields: ControllerFieldState;
+  className?: string;
   inputProps?: any;
 }
 

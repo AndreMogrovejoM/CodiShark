@@ -1,7 +1,9 @@
-import KeyIcon from "@mui/icons-material/Key";
-import { Button, InputAdornment, TextField } from "@mui/material";
-import useI18n from "i18n/i18n.hooks";
+import Button from "components/globals/Button/Button";
+import TextField from "components/globals/TextField/TextField";
+// import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { Controller, useForm } from "react-hook-form";
+import { validLoginUser } from "utils/validations.utils";
 
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
@@ -9,7 +11,9 @@ import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVe
 import LogoKonecta from "../../assets/images/logoKonecta.svg";
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInForm;
+  const [dniField] = validLoginUser();
+  const { control, handleSubmit } = useForm();
+  // const t = useI18n().signIn.SignInForm;
 
   const renderHeaderVerify = (
     <>
@@ -23,24 +27,30 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
   const renderFormVerify = () => {
     return (
       <>
-        <TextField
-          id="password"
-          type="password"
-          label="codigo verificador"
-          variant="filled"
-          placeholder={t.passwordPlaceholder}
-          className="SignInAdministratorVerify__textField"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <KeyIcon />
-              </InputAdornment>
-            )
-          }}
+        <Controller
+          name={dniField.name}
+          control={control}
+          rules={dniField.rules}
+          defaultValue=""
+          render={({ field, fieldState }) => (
+            <TextField
+              field={field}
+              fields={fieldState}
+              config={{
+                type: dniField.type,
+                label: dniField.label,
+                variant: "outlined",
+                margin: "dense",
+                fullWidth: true,
+                focused: true
+              }}
+            />
+          )}
         />
         <Button
           variant="contained"
-          className="SignInAdministratorVerify__button"
+          // className="SignInAdministrator__button"
+          onClick={handleSubmit}
         >
           Ingresar
         </Button>

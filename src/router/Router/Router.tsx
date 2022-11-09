@@ -11,6 +11,7 @@ const Home = lazy(() => import("pages/home.page"));
 const SignInAdministrator = lazy(
   () => import("pages/signInAdministrator.page")
 );
+const AdministratorPanel = lazy(() => import("pages/AdministratorPanel.page"));
 const SignInUser = lazy(() => import("pages/signInUser.page"));
 
 const Router: React.FC<Props> = props => {
@@ -20,6 +21,10 @@ const Router: React.FC<Props> = props => {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
+            <Route
+              path="/AdministratorPanel"
+              element={<AdministratorPanel />}
+            />
           </Route>
           <Route path="/signin" element={<SignInUser />} />
           <Route

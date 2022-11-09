@@ -1,73 +1,106 @@
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import KeyIcon from "@mui/icons-material/Key";
-import { Button, InputAdornment, TextField } from "@mui/material";
-import useAuth from "contexts/auth/auth.hooks";
+import { AccountCircle } from "@mui/icons-material";
+import { InputAdornment } from "@mui/material";
+import LogoKonecta from "assets/images/logoKonecta.svg";
+import Button from "components/globals/Button/Button";
+import TextField from "components/globals/TextField/TextField";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { Controller, FieldValues, useForm } from "react-hook-form";
+import { validEmail, validPassword } from "utils/validations.utils";
 
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
-import LogoKonecta from "../../assets/images/logoKonecta.svg";
-
 const SignInAdministrator: React.FC<Props> = props => {
-  const t = useI18n().signIn.SignInForm;
-  const { setIsAnonymous } = useAuth();
+  const emailField = validEmail();
+  const passwordField = validPassword();
+  const { control, handleSubmit } = useForm();
+  const t = useI18n().signIn.SignInAdministrator.step1;
 
-  const handleSubmit = () => {
-    setIsAnonymous(false);
+  const handleForm = (values: FieldValues) => {
+    console.log(values);
   };
 
   const renderHeader = (
     <>
-      <h2 className="SignInAdministrator__title">Bienvenido</h2>
-      <h3 className="SignInAdministrator__subTitle">
-        ¡Hola! Sigue estos simples pasos
-      </h3>
+      <h2 className="SignInAdministrator__title">{t.welcome}</h2>
+      <h3 className="SignInAdministrator__subTitle">{t.greetings}</h3>
     </>
   );
 
   const renderForm = () => {
     return (
-      <>
-        <TextField
-          id="email"
-          type="email"
-          label="email"
-          variant="filled"
-          placeholder={t.emailPlaceholder}
-          className="SignInAdministrator__textField"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AccountCircle />
-              </InputAdornment>
-            )
-          }}
+      <form
+        onSubmit={handleSubmit(handleForm)}
+        className="SignInAdministrator__form"
+      >
+        <Controller
+          name={emailField.name}
+          control={control}
+          rules={emailField.rules}
+          defaultValue=""
+          render={({ field, fieldState }) => (
+            <TextField
+              field={field}
+              fields={fieldState}
+              className="SignInAdministrator__textField"
+              config={{
+                type: emailField.type,
+                label: "",
+                variant: "filled",
+                fullWidth: true,
+                focused: true,
+                placeholder: t.user,
+                InputProps: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle className="SignInAdministrator__icon" />
+                    </InputAdornment>
+                  )
+                }
+              }}
+            />
+          )}
         />
-        <TextField
-          id="password"
-          type="password"
-          label="password"
-          variant="filled"
-          placeholder={t.passwordPlaceholder}
-          className="SignInAdministrator__textField"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <KeyIcon />
-              </InputAdornment>
-            )
-          }}
+        <Controller
+          name={passwordField.name}
+          control={control}
+          rules={passwordField.rules}
+          defaultValue=""
+          render={({ field, fieldState }) => (
+            <TextField
+              field={field}
+              fields={fieldState}
+              className="SignInAdministrator__textField"
+              config={{
+                type: passwordField.type,
+                label: "",
+                variant: "filled",
+                margin: "dense",
+                placeholder: t.password,
+                fullWidth: true,
+                focused: true,
+                InputProps: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle className="SignInAdministrator__icon" />
+                    </InputAdornment>
+                  )
+                }
+              }}
+            />
+          )}
         />
+
         <Button
           variant="contained"
+          type="submit"
           className="SignInAdministrator__button"
-          onClick={handleSubmit}
+          disabled={false}
         >
-          Continuar
+          {t.continue}
         </Button>
-      </>
+      </form>
     );
   };
 
@@ -81,9 +114,7 @@ const SignInAdministrator: React.FC<Props> = props => {
         />
         {renderHeader}
         {renderForm()}
-        <h4 className="SignInAdministrator__footerText">
-          Copyright B12 2022 - Todos los derechos reservados
-        </h4>
+        <h4 className="SignInAdministrator__footerText">{t.copyright}</h4>
       </div>
     </Styles>
   );

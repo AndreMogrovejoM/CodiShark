@@ -11,7 +11,7 @@
     "test:ci": "cross-env CI=true yarn test",
     "check-types": "tsc",
     "commit": "git-cz",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern !cypress/.eslintrc.js --ext .js,jsx,.ts,.tsx . --fix",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ignore-pattern !cypress/.eslintrc.js --ext .js,jsx,.ts,.tsx . --fix",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
     "format": "yarn prettier --write",
     "check-format": "yarn prettier --list-different",
