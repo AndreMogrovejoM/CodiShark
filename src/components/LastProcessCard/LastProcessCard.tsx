@@ -11,7 +11,7 @@ const LastProcessCard: React.FC<Props> = props => {
 
   const renderUser = () => {
     return (
-      <div>
+      <div className="LastProcessCard__sectionContainer">
         <Avatar />
         <h2 className="LastProcessCard__name">Jorge Lopez</h2>
       </div>
@@ -20,8 +20,8 @@ const LastProcessCard: React.FC<Props> = props => {
 
   const renderDebt = () => {
     return (
-      <div>
-        <h3>S/. 565.00</h3>
+      <div className="LastProcessCard__sectionContainer">
+        <h3 className="LastProcessCard__name">S/. 565.00</h3>
         <IconButton />
       </div>
     );
@@ -30,8 +30,8 @@ const LastProcessCard: React.FC<Props> = props => {
   return (
     <Styles className="LastProcessCard">
       <h1 className="LastProcessCard__title">{title}</h1>
-      <div>
-        <div className="LastProcessCard__container">
+      <div className="LastProcessCard__container">
+        <div>
           <h3 className="LastProcessCard__subtitle">Nombres del cliente</h3>
           <div className="LastProcessCard__names">
             {renderUser()}
@@ -41,7 +41,7 @@ const LastProcessCard: React.FC<Props> = props => {
           </div>
         </div>
         <div className="LastProcessCard__debs">
-          <h3 className="LastProcessCard__subtitledev">Monto de deuda</h3>
+          <h3 className="LastProcessCard__subtitle">Monto de deuda</h3>
           {renderDebt()}
           {renderDebt()}
           {renderDebt()}
