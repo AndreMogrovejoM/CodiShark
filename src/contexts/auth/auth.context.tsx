@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 import { useMemo, useState } from "react";
+import { SignInMethod } from "services/auth/auth.service.types";
 import { User } from "types/user.types";
 
 import { AuthProviderProps as Props, SignInStep } from "./auth.context.types";
@@ -9,20 +10,31 @@ import { AuthProviderValue } from "./auth.context.types";
 export const AuthContext = createContext<AuthProviderValue>();
 
 const AuthProvider: React.FC<Props> = props => {
-  const [isAnonymous, setIsAnonymous] = useState(true);
+  const [isAnonymous] = useState(true);
   const [signInStep, setSignInStep] = useState<SignInStep>();
   const [user, setUser] = useState<User>();
+  const [signInMethod, setSignInMethod] = useState<SignInMethod>("SMS");
+
+  // useEffect(() => {
+  //   if (user) {
+  //     setIsAnonymous(false);
+  //   }
+  //   return () => {
+  //     setIsAnonymous(true);
+  //   };
+  // }, [user]);
 
   const value: AuthProviderValue = useMemo(() => {
     return {
       isAnonymous,
-      setIsAnonymous,
       signInStep,
       setSignInStep,
       user,
-      setUser
+      setUser,
+      signInMethod,
+      setSignInMethod
     };
-  }, [isAnonymous, signInStep, user]);
+  }, [isAnonymous, signInMethod, signInStep, user]);
 
   return (
     <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>

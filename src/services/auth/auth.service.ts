@@ -10,11 +10,25 @@ import { RegisterUserConfig, VerifyMethod } from "./auth.service.types";
 const { API } = CONSTANTS;
 const { REACT_APP_API_URL } = API;
 
-export const signInAdmin = async (data: Login): Promise<TemporalAdminUser> => {
+export const signInAdmin = async (data: Login): Promise<void> => {
+  try {
+    return await axiosDefault.post(
+      `${REACT_APP_API_URL}/admin/auth/login`,
+      data
+    );
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const signInAdminStep2 = async (
+  data: Login
+): Promise<TemporalAdminUser> => {
+  const { dni, password } = data;
   try {
     return await axiosDefault
-      .post(`${REACT_APP_API_URL}`, data)
-      .then(response => response.data);
+      .post(`${REACT_APP_API_URL}/admin/auth/verified`, { dni, code: password })
+      .then(response => response.data.data);
   } catch (e: any) {
     throw new Error(e.message);
   }
@@ -26,7 +40,7 @@ export const signInUserStep1 = async (
   try {
     return await axiosDefault
       .post(`${REACT_APP_API_URL}/auth/validate/reniec`, data)
-      .then(response => response.data);
+      .then(response => response.data.data);
   } catch (e: any) {
     throw new Error(e.message);
   }
@@ -35,12 +49,13 @@ export const signInUserStep1 = async (
 export const signInUserStep2 = async (method: VerifyMethod): Promise<void> => {
   const { type, dni } = method;
   try {
-    return await axiosDefault
-      .post(`${REACT_APP_API_URL}/auth/generateCode/user`, {
+    return await axiosDefault.post(
+      `${REACT_APP_API_URL}/auth/generateCode/user`,
+      {
         type: type === "SMS" ? 1 : 2,
         dni
-      })
-      .then(response => console.log(response.data));
+      }
+    );
   } catch (e: any) {
     throw new Error(e.message);
   }
@@ -50,8 +65,16 @@ export const signInUserStep3 = async (data: Login): Promise<LoginResponse> => {
   const { dni, password } = data;
   try {
     return await axiosDefault
-      .post(`${REACT_APP_API_URL}`, { dni, password })
+      .post(`${REACT_APP_API_URL}/auth/login`, { dni, password })
       .then(response => response.data);
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const logoutService = async (): Promise<void> => {
+  try {
+    return await axiosDefault.post(`${REACT_APP_API_URL}/auth/logout`);
   } catch (e: any) {
     throw new Error(e.message);
   }
