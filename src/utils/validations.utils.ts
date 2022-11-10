@@ -35,9 +35,9 @@ export const validCode = () => {
   const t = getI18n().utils.validations;
 
   return {
-    type: "code",
-    message: t.minPasswordLength(fieldCodeLength),
+    type: "text",
     name: "code",
+    message: t.minPasswordLength(fieldCodeLength),
     rules: {
       required: t.fieldRequired,
       value: fieldCodeLength,

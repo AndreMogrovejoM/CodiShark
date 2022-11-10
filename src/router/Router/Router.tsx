@@ -22,6 +22,7 @@ const Router: React.FC<Props> = props => {
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
           </Route>
+          <Route path="/AdministratorPanel" element={<AdministratorPanel />} />
           <Route path="/signin" element={<SignInUser />} />
           <Route
             path="/signInAdministrator"

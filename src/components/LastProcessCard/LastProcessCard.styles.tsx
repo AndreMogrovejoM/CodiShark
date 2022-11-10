@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { LastProcessCardStyledProps as Props } from "./LastProcessCard.types";
 
 const LastProcessCardStyled = styled.div<Props>`
-  display: flex;
   width: 40rem;
   height: 32.8rem;
+  background-color: var(--palette-white);
+  display: flex;
+  align-items: center;
   .LastProcessCard {
     &__title {
       font-size: 1.4rem;
