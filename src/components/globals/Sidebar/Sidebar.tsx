@@ -13,6 +13,9 @@ import { useLogout } from "services/auth/auth.service.hooks";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
+import iconPersonSideBar from "../../../assets/images/iconPersonSideBar.svg";
+import logoKonecta from "../../../assets/images/logoKonectaSideBar.svg";
+
 const { NO_AUTH_PATH } = CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
@@ -102,7 +105,15 @@ const Sidebar: React.FC<Props> = props => {
           subheader={
             <div className="Sidebar__header">
               <div className="Sidebar__header-text">
-                <h2>Armando</h2>
+                <img
+                  className="Sidebar__icon"
+                  src={logoKonecta}
+                  alt="logoKonecta"
+                />
+                <div className="Sidebar__sectionContainer">
+                  <img src={iconPersonSideBar} alt="iconPersonSideBar" />
+                  <h2>Armando</h2>
+                </div>
                 <h4>Rodriguez Guerra</h4>
               </div>
             </div>
