@@ -98,11 +98,19 @@ const en = {
         copyright: "Copyright © B12 2022 - All rights reserved.",
         welcome: "Welcome",
         greetings: "Hello! Follow this simple steps"
+      },
+      step2: {
+        code: "Enter the code sent to your cell phone number to continue:",
+        continue: "Enter",
+        copyright: "Copyright © B12 2022 - All rights reserved.",
+        welcome: "Welcome",
+        place: "verification code"
       }
     },
     AdministratorPanel: {
-      charges1: "Collections made",
-      charges2: "Collections in process"
+      charges1: "Charges made",
+      charges2: "Charges in process",
+      footerTitle: "See all"
     },
     Indicator: {
       title: "Here are some indicators",

@@ -1,5 +1,6 @@
-import { AccountCircle } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
+import iconUserAdministrator from "assets/images/iconUserAdministrator.svg";
+import iconPasswordAdministrator from "assets/images/iconVerification.svg";
 import LogoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
@@ -73,7 +74,11 @@ const SignInAdministrator: React.FC<Props> = props => {
                 InputProps: {
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccountCircle className="SignInAdministrator__icon" />
+                      <img
+                        className="SignInAdministrator__icon"
+                        src={iconUserAdministrator}
+                        alt="iconUserAdministrator"
+                      />
                     </InputAdornment>
                   )
                 }
@@ -81,6 +86,7 @@ const SignInAdministrator: React.FC<Props> = props => {
             />
           )}
         />
+
         <Controller
           name={passwordField.name}
           control={control}
@@ -102,7 +108,11 @@ const SignInAdministrator: React.FC<Props> = props => {
                 InputProps: {
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccountCircle className="SignInAdministrator__icon" />
+                      <img
+                        className="SignInAdministrator__icon"
+                        src={iconPasswordAdministrator}
+                        alt="iconPasswordAdministrator"
+                      />
                     </InputAdornment>
                   )
                 }

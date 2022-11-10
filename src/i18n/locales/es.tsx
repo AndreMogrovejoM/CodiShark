@@ -97,11 +97,19 @@ const es: Dictionary = {
         copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
         welcome: "Bienvenido",
         greetings: "¡Hola! Sigue estos simples pasos"
+      },
+      step2: {
+        code: "Ingrese el código enviado a su número de celular para poder continuar:",
+        continue: "Ingresar",
+        copyright: "Copyright © B12 2022 - Todos los derechos reservados.",
+        welcome: "Bienvenido",
+        place: "Codigo Verificador"
       }
     },
     AdministratorPanel: {
       charges1: "Cobros realizados",
-      charges2: "Cobros en proceso"
+      charges2: "Cobros en proceso",
+      footerTitle: "Ver todos"
     },
     Indicator: {
       title: "Te mostramos algunos indicadores",

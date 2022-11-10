@@ -1,10 +1,12 @@
 import { Avatar, IconButton } from "@mui/material";
+import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
 import Styles from "./LastProcessCard.styles";
 import { LastProcessCardProps as Props } from "./LastProcessCard.types";
 
 const LastProcessCard: React.FC<Props> = props => {
+  const t = useI18n().signIn.AdministratorPanel;
   const { title } = props;
 
   const renderUser = () => {
@@ -29,7 +31,7 @@ const LastProcessCard: React.FC<Props> = props => {
     <Styles className="LastProcessCard">
       <h1 className="LastProcessCard__title">{title}</h1>
       <div>
-        <div>
+        <div className="LastProcessCard__container">
           <h3 className="LastProcessCard__subtitle">Nombres del cliente</h3>
           <div className="LastProcessCard__names">
             {renderUser()}
@@ -38,15 +40,17 @@ const LastProcessCard: React.FC<Props> = props => {
             {renderUser()}
           </div>
         </div>
-        <div>
-          <h3 className="LastProcessCard__subtitle">Monto de deuda</h3>
+        <div className="LastProcessCard__debs">
+          <h3 className="LastProcessCard__subtitledev">Monto de deuda</h3>
           {renderDebt()}
           {renderDebt()}
           {renderDebt()}
           {renderDebt()}
         </div>
       </div>
-      <h3 onClick={() => {}}>Ver todos</h3>
+      <h3 className="LastProcessCard__footerSubtitle" onClick={() => {}}>
+        {t.footerTitle}
+      </h3>
     </Styles>
   );
 };
