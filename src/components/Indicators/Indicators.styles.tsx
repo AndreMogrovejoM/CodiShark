@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IndicatorsStyledProps as Props } from "./Indicators.types";
 
 const IndicatorsStyled = styled.div<Props>`
-  width: 72rem;
+  width: 88rem;
   height: 24rem;
   display: flex;
   flex-direction: column;
