@@ -60,7 +60,10 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
 
   const renderFormVerify = () => {
     return (
-      <form onSubmit={handleSubmit(submitHandler)}>
+      <form
+        onSubmit={handleSubmit(submitHandler)}
+        className="SignInAdministratorVerify__form"
+      >
         <Controller
           name={validationCode.name}
           control={control}
@@ -74,7 +77,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
               config={{
                 type: validationCode.type,
                 label: "",
-                variant: "outlined",
+                variant: "filled",
                 margin: "dense",
                 fullWidth: true,
                 focused: true,
@@ -85,7 +88,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
                       <img
                         className="SignInAdministratorVerify__icon"
                         src={iconVerification}
-                        alt="iconVerfication"
+                        alt="iconVerification"
                       />
                     </InputAdornment>
                   )
@@ -94,7 +97,12 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
             />
           )}
         />
-        <Button variant="contained" type="submit" disabled={isLoading}>
+        <Button
+          variant="contained"
+          type="submit"
+          disabled={isLoading}
+          className="SignInAdministratorVerify__button"
+        >
           {t.continue}
         </Button>
       </form>

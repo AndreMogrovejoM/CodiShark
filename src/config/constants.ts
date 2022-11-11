@@ -38,7 +38,9 @@ const CONSTANTS = {
     hd: 2560
   },
   // Time format
-  FORMAT: "mm:ss"
+  FORMAT: "mm:ss",
+  INTERVAL: 1000,
+  INITIAL_TIME: 5 * 1000 * 60
 };
 
 export default CONSTANTS;

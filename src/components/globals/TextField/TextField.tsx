@@ -27,6 +27,7 @@ const TextField: React.FC<Props> = props => {
       fullWidth={config.fullWidth}
       focused={config.focused}
       InputProps={config.InputProps}
+      placeholder={config.placeholder}
       sx={config.sx}
       className={className}
       inputProps={{ maxLength: config.maxLength }}

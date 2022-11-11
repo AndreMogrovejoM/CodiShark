@@ -39,6 +39,7 @@
     "intl": "^1.2.5",
     "react": "^18.2.0",
     "react-context-devtool": "^2.0.3",
+    "react-countdown-hook": "^1.1.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
     "react-i18next": "^11.18.6",
