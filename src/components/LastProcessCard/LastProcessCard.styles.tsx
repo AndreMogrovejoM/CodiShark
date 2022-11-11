@@ -6,24 +6,41 @@ const LastProcessCardStyled = styled.div<Props>`
   width: 40rem;
   height: 32.8rem;
   background-color: var(--palette-white);
-  margin: 3.2rem;
+  margin-bottom: 3.2rem;
+  border-radius: 0.8rem;
 
   .LastProcessCard {
     &__title {
       font-size: 1.4rem;
       font-weight: 700;
       line-height: 2.6rem;
-      margin-bottom: 3.2rem;
+      padding: 1.6rem 1.6rem;
     }
 
     &__subtitle {
+      font-size: 1rem;
       font-weight: 600;
       line-height: 1.6rem;
+      padding: 1.6rem;
     }
 
     &__name {
+      font-size: 1rem;
       font-weight: 700;
       line-height: 1.6rem;
+      padding: 0.64rem;
+    }
+
+    &__debt {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6rem;
+      padding: 0.64rem;
+      padding-left: 2rem;
+    }
+
+    &__iconDebt {
+      padding-left: 7.2rem;
     }
 
     &__container {
@@ -38,9 +55,14 @@ const LastProcessCardStyled = styled.div<Props>`
       margin: 1.2rem 0;
     }
 
+    &__icon {
+      padding-left: 1.6rem;
+    }
+
     &__footerSubtitle {
       text-align: end;
       padding-right: 1.6rem;
+      padding-top: 1.6rem;
     }
   }
 `;

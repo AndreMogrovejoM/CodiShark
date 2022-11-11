@@ -110,7 +110,9 @@ const en = {
     AdministratorPanel: {
       charges1: "Charges made",
       charges2: "Charges in process",
-      footerTitle: "See all"
+      footerTitle: "See all",
+      name: "Customer's name",
+      debt: "Amount of debt"
     },
     Indicator: {
       title: "Here are some indicators",
