@@ -1,5 +1,6 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Table from "components/globals/Table/Table";
+import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { TableColumn } from "react-data-table-component";
 import { paginationPerPage } from "utils/validations.utils";
@@ -20,9 +21,12 @@ const PaginationCustom = (props: PaginationInterface) => {
     onChangeRowsPerPage
   } = props;
 
+  const t = useI18n().global.table.TablePaymentUser.Pagination;
+
   const numPages = getNumberOfPages(rowCount, rowsPerPage);
   const totalRowCount = getArrayViews(numPages);
-
+  const lastIndex = currentPage * rowsPerPage;
+  const firstIndex = lastIndex - rowsPerPage + 1;
   const disabledLesser = currentPage === 1;
   const disabledGreater = currentPage === numPages;
 
@@ -43,13 +47,15 @@ const PaginationCustom = (props: PaginationInterface) => {
 
   const NumbersComponent = (props: any) => <div {...props}>{props?.value}</div>;
 
+  const renderLegend =
+    currentPage === numPages
+      ? t.legend(firstIndex, rowCount, rowCount)
+      : t.legend(firstIndex, rowCount, rowCount);
+
   return (
     <Styles className="Pagination">
       <div className="Pagination__container">
-        <p className="Pagination__text">
-          Mostrando registros del 1 al {rowsPerPage} de un total de {rowCount}{" "}
-          registros
-        </p>
+        <p className="Pagination__text">{renderLegend}</p>
 
         <div className="Pagination__container--pagination">
           <button
@@ -60,7 +66,7 @@ const PaginationCustom = (props: PaginationInterface) => {
             onClick={handlePrevious}
             disabled={disabledLesser}
           >
-            Anterior
+            {t.back}
           </button>
           {totalRowCount.map((page, index) => (
             <NumbersComponent
@@ -82,7 +88,7 @@ const PaginationCustom = (props: PaginationInterface) => {
             onClick={handleNext}
             disabled={disabledGreater}
           >
-            Siguiente
+            {t.next}
           </button>
         </div>
       </div>
@@ -93,40 +99,42 @@ const PaginationCustom = (props: PaginationInterface) => {
 const PaymentTable: React.FC<Props> = props => {
   const { data } = props;
 
+  const t = useI18n().global.table.TablePaymentUser.TableHeader;
+
   const columns: TableColumn<DataRow>[] = [
     {
-      name: "Nombre",
+      name: t.name,
       selector: row => row.name,
       sortable: true,
       maxWidth: "600px", // when using custom you should use width or maxWidth, otherwise, the table will default to flex grow behavior
       cell: row => <Row content={row.name} bold={true} />
     },
     {
-      name: "Fecha de pago",
+      name: t.date,
       selector: row => row.date,
       wrap: true,
       sortable: true,
       cell: row => <Row content={row.date} />
     },
     {
-      name: "Monto pagado",
+      name: t.amount,
       selector: row => row.amount,
       wrap: true,
       sortable: true,
       cell: row => <Row content={row.amount} />
     },
     {
-      name: "Método de pago",
+      name: t.method,
       selector: row => row.paymentMethod,
       cell: row => <Row content={row.paymentMethod} />
     },
     {
-      name: "Estado",
+      name: t.state,
       button: true,
       cell: row => <RowChip conditional={row.state} />
     },
     {
-      name: "",
+      name: t.action,
       button: true,
       cell: row => <RowButton row={row} />
     }

@@ -36,6 +36,22 @@ const en = {
       TableError: {
         title: "An error occurred while trying to load your records",
         buttonText: "Try again"
+      },
+      TablePaymentUser: {
+        TableHeader: {
+          name: "Name",
+          date: "Payment date",
+          amount: "Amount paid",
+          method: "Payment method",
+          state: "State",
+          action: ""
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Showing records from ${begin} to ${rowsPage}  of a total of ${total} records.`,
+          back: "Back",
+          next: "Next"
+        }
       }
     },
     ProfileSelectOverlay: {
