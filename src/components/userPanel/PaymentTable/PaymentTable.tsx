@@ -2,9 +2,93 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Table from "components/globals/Table/Table";
 import React from "react";
 import { TableColumn } from "react-data-table-component";
+import { paginationPerPage } from "utils/validations.utils";
+import { paginationRowsPerPageOptions } from "utils/validations.utils";
 
+import { getArrayViews, getNumberOfPages } from "./PaymentTable.helpers";
 import Styles from "./PaymentTable.styles";
+import { PaginationInterface } from "./PaymentTable.types";
 import { DataRow, PaymentTableProps as Props } from "./PaymentTable.types";
+
+const PaginationCustom = (props: PaginationInterface) => {
+  const {
+    rowsPerPage,
+    rowCount,
+    currentPage,
+    onChangePage,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onChangeRowsPerPage
+  } = props;
+
+  const numPages = getNumberOfPages(rowCount, rowsPerPage);
+  const totalRowCount = getArrayViews(numPages);
+
+  const disabledLesser = currentPage === 1;
+  const disabledGreater = currentPage === numPages;
+
+  const handlePrevious = React.useCallback(
+    () => onChangePage(currentPage - 1),
+    [currentPage, onChangePage]
+  );
+
+  const handleNext = React.useCallback(
+    () => onChangePage(currentPage + 1),
+    [currentPage, onChangePage]
+  );
+
+  const handleChangePage = React.useCallback(
+    (page: number) => onChangePage(page),
+    [onChangePage]
+  );
+
+  const NumbersComponent = (props: any) => <div {...props}>{props?.value}</div>;
+
+  return (
+    <Styles className="Pagination">
+      <div className="Pagination__container">
+        <p className="Pagination__text">
+          Mostrando registros del 1 al {rowsPerPage} de un total de {rowCount}{" "}
+          registros
+        </p>
+
+        <div className="Pagination__container--pagination">
+          <button
+            className={`Pagination__text--bold ${
+              disabledLesser ? "Pagination__text--disabled" : ""
+            }`}
+            aria-disabled={disabledLesser}
+            onClick={handlePrevious}
+            disabled={disabledLesser}
+          >
+            Anterior
+          </button>
+          {totalRowCount.map((page, index) => (
+            <NumbersComponent
+              key={index}
+              value={page}
+              className={`Pagination__container--numbers ${
+                page === currentPage
+                  ? "Pagination__container--numbers-activated"
+                  : ""
+              }`}
+              onClick={() => handleChangePage(page)}
+            />
+          ))}
+          <button
+            className={`Pagination__text--bold ${
+              disabledGreater ? "Pagination__text--disabled" : ""
+            }`}
+            aria-disabled={disabledGreater}
+            onClick={handleNext}
+            disabled={disabledGreater}
+          >
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </Styles>
+  );
+};
 
 const PaymentTable: React.FC<Props> = props => {
   const { data } = props;
@@ -47,13 +131,6 @@ const PaymentTable: React.FC<Props> = props => {
       cell: row => <RowButton row={row} />
     }
   ];
-
-  const paginationComponentOptions = {
-    rowsPerPageText: "Filas por página",
-    rangeSeparatorText: "de",
-    selectAllRowsItem: true,
-    selectAllRowsItemText: "Todos"
-  };
 
   const Row = (props: any) => {
     const { content, bold = false } = props;
@@ -100,11 +177,13 @@ const PaymentTable: React.FC<Props> = props => {
 
   return (
     <Styles className={`PaymentTable`}>
-      {/* @ts-ignore */}
       <Table
         columns={columns}
         data={data}
-        paginationComponentOptions={paginationComponentOptions}
+        paginationPerPage={paginationPerPage}
+        paginationRowsPerPageOptions={paginationRowsPerPageOptions}
+        //@ts-ignore
+        paginationComponent={PaginationCustom}
       />
     </Styles>
   );

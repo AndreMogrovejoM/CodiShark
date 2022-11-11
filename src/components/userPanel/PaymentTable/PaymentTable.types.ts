@@ -1,4 +1,11 @@
 // Interfaces and types from component PaymentTable
+export interface PaginationInterface {
+  rowsPerPage: number;
+  rowCount: number;
+  currentPage: number;
+  onChangePage: (page: number) => void;
+  onChangeRowsPerPage: (numRows: number, currentPage: number) => void;
+}
 
 // DataTable
 export interface DataRow {
