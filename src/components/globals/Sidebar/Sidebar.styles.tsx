@@ -63,10 +63,22 @@ const SidebarStyled = styled.nav<Props>`
       position: relative;
     }
 
-    &__footerImage {
+    &__footerList {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
       position: absolute;
-      top: 57.6rem;
-      left: 2.3rem;
+      top: 57rem;
+      left: 2rem;
+    }
+
+    &__footerListTitle {
+      padding-bottom: 0.8rem;
+    }
+
+    &__iconFooter {
+      display: flex;
+      gap: 0.6rem;
     }
   }
 `;

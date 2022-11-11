@@ -1,8 +1,10 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LogoutIcon from "@mui/icons-material/Logout";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
-import footerImageSideBar from "assets/images/footerImageSideBar.svg";
 import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
 import logoKonecta from "assets/images/logoKonectaSideBar.svg";
 import CONSTANTS from "config/constants";
@@ -128,11 +130,22 @@ const Sidebar: React.FC<Props> = props => {
               <div className="Sidebar__footer">
                 <div className="Sidebar__footer-text">
                   <div className="Sidebar__sectionContainerFooter">
-                    <img
-                      className="Sidebar__footerImage"
-                      src={footerImageSideBar}
-                      alt="footerImageSideBar"
-                    />
+                    <div className="Sidebar__footerList">
+                      <h2 className="Sidebar__footerListTitle">Contacto</h2>
+                      <div className="Sidebar__iconFooter">
+                        <LocalPhoneIcon />
+                        <p>0800 1652 1254</p>
+                      </div>
+                      <div className="Sidebar__iconFooter">
+                        <WhatsAppIcon />
+                        <p>info@b12.com</p>
+                      </div>
+                      <div className="Sidebar__iconFooter">
+                        <FmdGoodIcon />
+                        <p>la Republica 218 - Miraflores</p>
+                      </div>
+                      <a href="google.com">www.b12.com</a>
+                    </div>
                   </div>
                 </div>
               </div>
