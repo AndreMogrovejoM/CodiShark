@@ -1,11 +1,15 @@
-import { AccountCircle } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
+import iconUserAdministrator from "assets/images/iconUserAdministrator.svg";
+import iconPasswordAdministrator from "assets/images/iconVerification.svg";
 import LogoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
+import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
+import { useSignInAdmin } from "services/auth/auth.service.hooks";
+import { Login } from "services/auth/auth.service.types";
 import { validLoginUser, validPassword } from "utils/validations.utils";
 
 import Styles from "./SignInAdministrator.styles";
@@ -15,10 +19,26 @@ const SignInAdministrator: React.FC<Props> = props => {
   const [dniField] = validLoginUser();
   const passwordField = validPassword();
   const { control, handleSubmit } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
+  const { setSignInStep, setUser } = useAuth();
+  const { mutateAsync, reset } = useSignInAdmin();
   const t = useI18n().signIn.SignInAdministrator.step1;
 
-  const handleForm = (values: FieldValues) => {
-    console.log(values);
+  const submitHandler = async (values: FieldValues) => {
+    try {
+      setIsLoading(true);
+      const data: Login = {
+        dni: values?.dni,
+        password: values?.password
+      };
+      await mutateAsync(data);
+      reset();
+      setUser({ dni: values?.dni });
+      setIsLoading(false);
+      setSignInStep(1);
+    } catch {
+      setIsLoading(false);
+    }
   };
 
   const renderHeader = (
@@ -31,7 +51,7 @@ const SignInAdministrator: React.FC<Props> = props => {
   const renderForm = () => {
     return (
       <form
-        onSubmit={handleSubmit(handleForm)}
+        onSubmit={handleSubmit(submitHandler)}
         className="SignInAdministrator__form"
       >
         <Controller
@@ -54,7 +74,11 @@ const SignInAdministrator: React.FC<Props> = props => {
                 InputProps: {
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccountCircle className="SignInAdministrator__icon" />
+                      <img
+                        className="SignInAdministrator__icon"
+                        src={iconUserAdministrator}
+                        alt="iconUserAdministrator"
+                      />
                     </InputAdornment>
                   )
                 }
@@ -62,6 +86,7 @@ const SignInAdministrator: React.FC<Props> = props => {
             />
           )}
         />
+
         <Controller
           name={passwordField.name}
           control={control}
@@ -83,7 +108,11 @@ const SignInAdministrator: React.FC<Props> = props => {
                 InputProps: {
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccountCircle className="SignInAdministrator__icon" />
+                      <img
+                        className="SignInAdministrator__icon"
+                        src={iconPasswordAdministrator}
+                        alt="iconPasswordAdministrator"
+                      />
                     </InputAdornment>
                   )
                 }
@@ -96,7 +125,7 @@ const SignInAdministrator: React.FC<Props> = props => {
           variant="contained"
           type="submit"
           className="SignInAdministrator__button"
-          disabled={false}
+          disabled={isLoading}
         >
           {t.continue}
         </Button>

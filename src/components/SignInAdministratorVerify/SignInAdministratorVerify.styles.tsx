@@ -9,6 +9,10 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
   display: flex;
   align-items: center;
 
+  .MuiInputBase-input {
+    padding: 1.6rem;
+  }
+
   .SignInAdministratorVerify {
     &__container {
       width: 48rem;
@@ -56,12 +60,25 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
       margin-bottom: 0.8rem;
     }
 
+    &__form {
+      align-self: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      margin: 1.6rem 4rem 0 0;
+    }
+
     &__button {
       width: 80%;
       margin: 0 auto;
       border-radius: 0.8rem;
       color: var(--palette-white);
-      padding: 0.8rem 0;
+      margin-bottom: 4rem;
     }
 
     &__footerText {

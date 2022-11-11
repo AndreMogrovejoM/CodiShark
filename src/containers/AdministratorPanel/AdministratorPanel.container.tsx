@@ -5,6 +5,7 @@ import LayoutContainer from "containers/Layout/Layout.container";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
+import Styles from "./AdministratorPanel.styles";
 import { AdministratorPanelContainerProps as Props } from "./AdministratorPanel.types";
 
 const AdministratorPanelContainer: React.FC<Props> = props => {
@@ -12,12 +13,17 @@ const AdministratorPanelContainer: React.FC<Props> = props => {
 
   return (
     <LayoutContainer>
-      <PanelBanner />
-      <Indicators />
-      <div>
-        <LastProcessCard title={t.charges1} />
-        <LastProcessCard title={t.charges2} />
-      </div>
+      <Styles className="AdministratorPanel">
+        <div>
+          <PanelBanner />
+          <Indicators />
+        </div>
+
+        <div>
+          <LastProcessCard title={t.charges1} />
+          <LastProcessCard title={t.charges2} />
+        </div>
+      </Styles>
     </LayoutContainer>
   );
 };
