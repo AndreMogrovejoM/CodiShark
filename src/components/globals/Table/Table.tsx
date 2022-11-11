@@ -4,7 +4,7 @@ import DataTableCustom from "./Table.styles";
 import { TableProps as Props } from "./Table.types";
 
 const Table: React.FC<Props> = props => {
-  const { columns, data, paginationComponentOptions } = props;
+  const { columns, data, paginationComponent } = props;
   const { paginationPerPage, paginationRowsPerPageOptions } = props;
 
   return (
@@ -13,9 +13,9 @@ const Table: React.FC<Props> = props => {
       data={data}
       pagination
       responsive
-      paginationComponentOptions={paginationComponentOptions}
       paginationPerPage={paginationPerPage}
       paginationRowsPerPageOptions={paginationRowsPerPageOptions}
+      paginationComponent={paginationComponent}
     />
   );
 };

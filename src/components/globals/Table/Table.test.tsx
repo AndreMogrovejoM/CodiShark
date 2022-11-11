@@ -8,7 +8,6 @@ describe("Table", () => {
       <Table
         columns={[]}
         data={[]}
-        paginationComponentOptions={{ data: "hello" }}
         paginationPerPage={0}
         paginationRowsPerPageOptions={[]}
       />
