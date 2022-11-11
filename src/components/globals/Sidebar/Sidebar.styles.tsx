@@ -58,6 +58,16 @@ const SidebarStyled = styled.nav<Props>`
       align-items: center;
       gap: 0.8rem;
     }
+
+    &__sectionContainerFooter {
+      position: relative;
+    }
+
+    &__footerImage {
+      position: absolute;
+      top: 57.6rem;
+      left: 2.3rem;
+    }
   }
 `;
 
