@@ -6,12 +6,16 @@ const LayoutContainerStyled = styled.div<Props>`
   width: 100%;
   height: 100vh;
   display: flex;
+  position: relative;
 
   .LayoutContainer {
     &__children {
-      width: 100%;
+      width: calc(100% - 20.4rem);
       height: 100%;
       padding: 2.4rem;
+      top: 0;
+      margin-left: 20.4rem;
+      position: absolute;
     }
   }
 `;

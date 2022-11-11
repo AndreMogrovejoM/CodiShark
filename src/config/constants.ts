@@ -1,8 +1,6 @@
 // Kioscos Dashboard Project constants
 
-import { FamilyRestroomOutlined } from "@mui/icons-material";
-
-export const platform = "web";
+export const platform = "WEB";
 
 const CONSTANTS = {
   // HTML title tag text
@@ -20,7 +18,7 @@ const CONSTANTS = {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
     REACT_APP_PLATFORM: "WEB",
     // Mock services, change to false if you don't want to mock
-    MOCK_SERVICES: FamilyRestroomOutlined,
+    MOCK_SERVICES: false,
     // TODO: If true a registered user with address, billing data and orders will be present
     MOCK_WITH_INITIAL_USER_DATA: false,
     // Default max waiting time for a request reply
