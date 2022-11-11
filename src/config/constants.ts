@@ -12,6 +12,7 @@ const CONSTANTS = {
   ROUTES: {
     // Router where the user will land initially to check authentication
     ENTRY_PATH: "/",
+    ADMIN_ENTRY_PATH: "/",
     // Router where the user will land if not authenticated
     NO_AUTH_PATH: "/signin"
   },

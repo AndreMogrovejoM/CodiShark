@@ -8,7 +8,6 @@ import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
-// import useI18n from "i18n/i18n.hooks";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useSignInAdminStep2 } from "services/auth/auth.service.hooks";
@@ -18,7 +17,7 @@ import { validCode } from "utils/validations.utils";
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
-const { ENTRY_PATH } = CONSTANTS.ROUTES;
+const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
   const validationCode = validCode();
@@ -45,7 +44,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
       reset();
       setIsLoading(false);
       setSignInStep(0);
-      navigate(ENTRY_PATH);
+      navigate(ADMIN_ENTRY_PATH);
     } catch {
       setIsLoading(false);
     }

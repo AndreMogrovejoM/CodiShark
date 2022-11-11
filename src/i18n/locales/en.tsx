@@ -52,6 +52,21 @@ const en = {
       accessing: "You are accessing as"
     }
   },
+  chart: {
+    title: "Year's income",
+    jan: "January",
+    feb: "February",
+    mar: "March",
+    apr: "April",
+    may: "May",
+    jun: "June",
+    jul: "July",
+    aug: "August",
+    sep: "September",
+    oct: "October",
+    nov: "November",
+    dic: "December"
+  },
   signIn: {
     SignInFormUser: {
       title: "Welcome",

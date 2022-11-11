@@ -51,6 +51,21 @@ const es: Dictionary = {
       accessing: "Estás accediendo como"
     }
   },
+  chart: {
+    title: "Ingresos de este año",
+    jan: "Enero",
+    feb: "Febrero",
+    mar: "Marzo",
+    apr: "Abril",
+    may: "Mayo",
+    jun: "Junio",
+    jul: "Julio",
+    aug: "Agosto",
+    sep: "Septiembre",
+    oct: "Octubre",
+    nov: "Noviembre",
+    dic: "Diciembre"
+  },
   signIn: {
     SignInFormUser: {
       title: "Bienvenido(a)",
