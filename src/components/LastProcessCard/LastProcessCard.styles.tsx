@@ -28,19 +28,19 @@ const LastProcessCardStyled = styled.div<Props>`
       font-size: 1rem;
       font-weight: 700;
       line-height: 1.6rem;
-      padding: 0.6rem;
+      padding: 0.64rem;
     }
 
     &__debt {
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.6rem;
-      padding: 0.6rem;
+      padding: 0.64rem;
       padding-left: 2rem;
     }
 
     &__iconDebt {
-      padding-left: 7rem;
+      padding-left: 7.2rem;
     }
 
     &__container {

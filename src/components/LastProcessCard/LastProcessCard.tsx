@@ -1,11 +1,10 @@
+import iconArrowCard from "assets/images/iconArrowCard.svg";
+import iconCard from "assets/images/iconCard.svg";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
 import Styles from "./LastProcessCard.styles";
 import { LastProcessCardProps as Props } from "./LastProcessCard.types";
-
-import iconArrowCard from "../../assets/images/iconArrowCard.svg";
-import iconCard from "../../assets/images/iconCard.svg";
 
 const LastProcessCard: React.FC<Props> = props => {
   const t = useI18n().signIn.AdministratorPanel;
