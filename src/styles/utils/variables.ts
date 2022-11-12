@@ -5,7 +5,12 @@ const palette = {
   secondary: "hsla(240, 6%, 97%)",
   black: "hsla(0, 0%, 0%)",
   white: "hsla(0, 0%, 100%)",
+  whiteBackground: "hsla(0, 0%, 100%, 1)",
+  whiteBackgroundTwo: "hsla(214, 5%, 72%, 1)",
+  whiteBackgroundTree: "hsla(0, 0%, 96%, 1)",
   grey: "hsla(0, 0%, 85%,1)",
+  greyBackground: "hsla(0, 0%, 93%, 1)",
+  greyBackgroundBorder: "hsla(0, 0%, 79%, 1)",
   error: "hsla(0, 100%, 44%, 1)",
   blue: "hsla(205, 80%, 10%, 1)",
   skyBlue: "hsla(193, 100%, 45%, 1)",
@@ -16,6 +21,8 @@ const palette = {
   white05: "hsla(0, 0%, 100%, 0.5)",
   darkGrey: "hsl(214, 5%, 72%)",
   deepBlue: "hsl(205, 80%, 10%)",
+  greenWeakBackground: "hsla(83, 60%, 73%, 1)",
+  yellowWeakBackground: "hsla(48, 77%, 82%, 1)",
   limeGreen: "hsl(84, 48%, 55%)"
 };
 

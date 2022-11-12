@@ -35,6 +35,26 @@ const es: Dictionary = {
       TableError: {
         title: "Ocurrió un error mientras cargábamos tus datos",
         buttonText: "Volver a intentar"
+      },
+      TablePaymentUser: {
+        TableHeader: {
+          name: "Nombre",
+          date: "Fecha de pago",
+          amount: "Monto pagado",
+          method: "Método de pago",
+          state: "Estado",
+          action: ""
+        },
+        TableRows: {
+          pay: "Pagado",
+          pending: "Pendiente"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Mostrando registros del ${begin} al ${rowsPage} de un total de ${total} registros.`,
+          back: "Anterior",
+          next: "Siguiente"
+        }
       }
     },
     ProfileSelectOverlay: {
