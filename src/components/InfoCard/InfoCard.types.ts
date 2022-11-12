@@ -3,7 +3,7 @@
 // Component Props
 export interface InfoCardProps {
   title: string;
-  value: string;
+  value?: string;
 }
 
 // Styled Component Props

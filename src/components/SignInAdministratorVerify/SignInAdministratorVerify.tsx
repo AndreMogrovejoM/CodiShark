@@ -37,9 +37,10 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         password: values?.code
       };
       await mutateAsync(data).then(user => {
-        delete user["token"];
-        setUser(user);
         setCookie("token", user?.token ?? "");
+        delete user["token"];
+        console.log(user);
+        setUser(user);
       });
       reset();
       setIsLoading(false);

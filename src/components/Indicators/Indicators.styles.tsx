@@ -39,6 +39,10 @@ const IndicatorsStyled = styled.div<Props>`
       background-color: var(--palette-primary);
       text-align: center;
       padding: 0.4rem 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 `;
