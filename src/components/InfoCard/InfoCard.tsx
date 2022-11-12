@@ -4,7 +4,7 @@ import Styles from "./InfoCard.styles";
 import { InfoCardProps as Props } from "./InfoCard.types";
 
 const InfoCard: React.FC<Props> = props => {
-  const { title, value } = props;
+  const { title, value = "0" } = props;
 
   return (
     <Styles className="InfoCard">
