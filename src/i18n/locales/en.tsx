@@ -72,6 +72,21 @@ const en = {
       accessing: "You are accessing as"
     }
   },
+  chart: {
+    title: "Year's income",
+    jan: "January",
+    feb: "February",
+    mar: "March",
+    apr: "April",
+    may: "May",
+    jun: "June",
+    jul: "July",
+    aug: "August",
+    sep: "September",
+    oct: "October",
+    nov: "November",
+    dic: "December"
+  },
   signIn: {
     SignInFormUser: {
       title: "Welcome",
@@ -130,7 +145,9 @@ const en = {
     AdministratorPanel: {
       charges1: "Charges made",
       charges2: "Charges in process",
-      footerTitle: "See all"
+      footerTitle: "See all",
+      name: "Customer's name",
+      debt: "Amount of debt"
     },
     Indicator: {
       title: "Here are some indicators",

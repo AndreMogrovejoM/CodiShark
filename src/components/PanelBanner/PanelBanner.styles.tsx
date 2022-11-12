@@ -1,9 +1,13 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PanelBannerStyledProps as Props } from "./PanelBanner.types";
+const { BREAKPOINTS } = CONSTANTS;
+
+console.log(BREAKPOINTS.desktop);
 
 const PanelBannerStyled = styled.div<Props>`
-  width: 72rem;
+  width: 100%;
   height: 12rem;
   display: flex;
   flex-direction: column;
@@ -12,6 +16,7 @@ const PanelBannerStyled = styled.div<Props>`
   border-radius: 0.8rem;
   padding: 1.2rem 2.4rem;
   position: relative;
+  margin: 0 auto;
 
   .PanelBanner {
     &__title {

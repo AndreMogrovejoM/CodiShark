@@ -8,7 +8,6 @@ import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
-// import useI18n from "i18n/i18n.hooks";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useSignInAdminStep2 } from "services/auth/auth.service.hooks";
@@ -18,7 +17,7 @@ import { validCode } from "utils/validations.utils";
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
-const { ENTRY_PATH } = CONSTANTS.ROUTES;
+const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
   const validationCode = validCode();
@@ -45,7 +44,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
       reset();
       setIsLoading(false);
       setSignInStep(0);
-      navigate(ENTRY_PATH);
+      navigate(ADMIN_ENTRY_PATH);
     } catch {
       setIsLoading(false);
     }
@@ -60,7 +59,10 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
 
   const renderFormVerify = () => {
     return (
-      <form onSubmit={handleSubmit(submitHandler)}>
+      <form
+        onSubmit={handleSubmit(submitHandler)}
+        className="SignInAdministratorVerify__form"
+      >
         <Controller
           name={validationCode.name}
           control={control}
@@ -74,7 +76,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
               config={{
                 type: validationCode.type,
                 label: "",
-                variant: "outlined",
+                variant: "filled",
                 margin: "dense",
                 fullWidth: true,
                 focused: true,
@@ -85,7 +87,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
                       <img
                         className="SignInAdministratorVerify__icon"
                         src={iconVerification}
-                        alt="iconVerfication"
+                        alt="iconVerification"
                       />
                     </InputAdornment>
                   )
@@ -94,7 +96,12 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
             />
           )}
         />
-        <Button variant="contained" type="submit" disabled={isLoading}>
+        <Button
+          variant="contained"
+          type="submit"
+          disabled={isLoading}
+          className="SignInAdministratorVerify__button"
+        >
           {t.continue}
         </Button>
       </form>

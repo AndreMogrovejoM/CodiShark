@@ -22,7 +22,8 @@ const palette = {
   darkGrey: "hsl(214, 5%, 72%)",
   deepBlue: "hsl(205, 80%, 10%)",
   greenWeakBackground: "hsla(83, 60%, 73%, 1)",
-  yellowWeakBackground: "hsla(48, 77%, 82%, 1)"
+  yellowWeakBackground: "hsla(48, 77%, 82%, 1)",
+  limeGreen: "hsl(84, 48%, 55%)"
 };
 
 const fonts = {};

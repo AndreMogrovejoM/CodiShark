@@ -23,14 +23,13 @@ const Router: React.FC<Props> = props => {
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
           </Route>
-          <Route path="/AdministratorPanel" element={<AdministratorPanel />} />
           <Route path="/signin" element={<SignInUser />} />
           <Route
             path="/signInAdministrator"
             element={<SignInAdministrator />}
           />
-          <Route path="/AdministratorPanel" element={<AdministratorPanel />} />
-          <Route path="/UserPanel" element={<UserPanel />} />
+          <Route path="/userPanel" element={<UserPanel />} />
+          <Route path="/administratorPanel" element={<AdministratorPanel />} />
           <Route path="/500" element={<FiverZeroZero />} />
           <Route path="*" element={<FourZeroFour />} />
         </Routes>

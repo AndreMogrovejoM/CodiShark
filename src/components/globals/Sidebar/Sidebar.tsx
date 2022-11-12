@@ -2,6 +2,9 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
+import footerImageSideBar from "assets/images/footerImageSideBar.svg";
+import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
+import logoKonecta from "assets/images/logoKonectaSideBar.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
@@ -102,12 +105,39 @@ const Sidebar: React.FC<Props> = props => {
           subheader={
             <div className="Sidebar__header">
               <div className="Sidebar__header-text">
-                <h2>Armando</h2>
-                <h4>Rodriguez Guerra</h4>
+                <img
+                  className="Sidebar__icon"
+                  src={logoKonecta}
+                  alt="logoKonecta"
+                />
+                <div className="Sidebar__sectionContainer">
+                  <img src={iconPersonSideBar} alt="iconPersonSideBar" />
+                  <h2>
+                    Armando <h4>Rodriguez Guerra</h4>{" "}
+                  </h2>
+                </div>
               </div>
             </div>
           }
         >
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            sx={drawerStyle}
+            subheader={
+              <div className="Sidebar__footer">
+                <div className="Sidebar__footer-text">
+                  <div className="Sidebar__sectionContainerFooter">
+                    <img
+                      className="Sidebar__footerImage"
+                      src={footerImageSideBar}
+                      alt="footerImageSideBar"
+                    />
+                  </div>
+                </div>
+              </div>
+            }
+          ></List>
           {renderItem(0, t.start)}
           {renderItem(0, t.myPayments)}
           <div className="Sidebar__divider" />

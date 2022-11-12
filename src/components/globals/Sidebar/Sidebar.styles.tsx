@@ -48,6 +48,26 @@ const SidebarStyled = styled.nav<Props>`
       background-color: var(--palette-white05);
       margin: 0.8rem 0;
     }
+
+    &__icon {
+      padding-bottom: 0.8rem;
+    }
+
+    &__sectionContainer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    &__sectionContainerFooter {
+      position: relative;
+    }
+
+    &__footerImage {
+      position: absolute;
+      top: 57.6rem;
+      left: 2.3rem;
+    }
   }
 `;
 
