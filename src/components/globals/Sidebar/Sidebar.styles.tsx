@@ -66,10 +66,10 @@ const SidebarStyled = styled.nav<Props>`
     &__footerList {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.64rem;
       position: absolute;
       top: 57rem;
-      left: 2rem;
+      left: 2.6rem;
     }
 
     &__footerListTitle {

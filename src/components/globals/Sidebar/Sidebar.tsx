@@ -131,7 +131,7 @@ const Sidebar: React.FC<Props> = props => {
                 <div className="Sidebar__footer-text">
                   <div className="Sidebar__sectionContainerFooter">
                     <div className="Sidebar__footerList">
-                      <h2 className="Sidebar__footerListTitle">Contacto</h2>
+                      <h2 className="Sidebar__footerListTitle">{t.title}</h2>
                       <div className="Sidebar__iconFooter">
                         <LocalPhoneIcon />
                         <p>0800 1652 1254</p>
@@ -142,7 +142,7 @@ const Sidebar: React.FC<Props> = props => {
                       </div>
                       <div className="Sidebar__iconFooter">
                         <FmdGoodIcon />
-                        <p>la Republica 218 - Miraflores</p>
+                        <p>{t.direction}</p>
                       </div>
                       <a href="google.com">www.b12.com</a>
                     </div>

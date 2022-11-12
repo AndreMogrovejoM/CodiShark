@@ -8,7 +8,9 @@ const en = {
     sideBar: {
       start: "Start",
       myPayments: "My payments",
-      logout: "Logout"
+      logout: "Logout",
+      title: "Contact",
+      direction: "la Republica 218 - Miraflores"
     },
     button: {
       text: "Loading..."
