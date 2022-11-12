@@ -1,10 +1,11 @@
+// Interfaces and types from component Table
 import { TableColumn } from "react-data-table-component";
 import { PaginationComponent } from "react-data-table-component/dist/src/DataTable/types";
-// Interfaces and types from component Table
 
 // Component Props
 export interface TableProps {
   columns: TableColumn<any>[];
+  // TODO: tipear desacuerdo a la respuesta de back
   data: any[];
   paginationPerPage: number;
   paginationRowsPerPageOptions: number[];

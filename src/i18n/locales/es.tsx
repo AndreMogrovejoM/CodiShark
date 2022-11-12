@@ -45,6 +45,10 @@ const es: Dictionary = {
           state: "Estado",
           action: ""
         },
+        TableRows: {
+          pay: "Pagado",
+          pending: "Pendiente"
+        },
         Pagination: {
           legend: (begin: number, rowsPage: number, total: number) =>
             `Mostrando registros del ${begin} al ${rowsPage} de un total de ${total} registros.`,

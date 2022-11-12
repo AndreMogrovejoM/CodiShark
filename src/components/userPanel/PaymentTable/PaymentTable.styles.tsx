@@ -20,7 +20,7 @@ const PaymentTableStyled = styled.div<Props>`
       &--field {
         font-weight: 400;
         font-size: 1rem;
-        line-height: 1.4rem;
+        line-height: 1.6rem;
         color: var(--palette-whiteBackgroundTwo);
 
         &-bold {
@@ -31,6 +31,7 @@ const PaymentTableStyled = styled.div<Props>`
 
       &--chip {
         border-radius: 0.8rem;
+
         &-green {
           background: var(--palette-greenWeakBackground);
         }
@@ -70,6 +71,7 @@ const PaymentTableStyled = styled.div<Props>`
         color: var(--palette-darkText);
         padding: 0.4rem 0.8rem;
         cursor: pointer;
+
         &-activated {
           background-color: var(--palette-whiteBackgroundTree);
           border: 1px solid var(--palette-greyBackgroundBorder);
@@ -88,7 +90,7 @@ const PaymentTableStyled = styled.div<Props>`
       &--bold {
         font-weight: 800;
         font-size: 1rem;
-        line-height: 1.4rem;
+        line-height: 1.6rem;
         background-color: var(--palette-greyBackground);
         border: none;
 
