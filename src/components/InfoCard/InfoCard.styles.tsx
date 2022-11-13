@@ -12,6 +12,10 @@ const InfoCardStyled = styled.div<Props>`
   border-radius: 0.8rem;
   padding: 1.2rem 2.4rem;
 
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
   .InfoCard {
     &__title {
       font-weight: 700;

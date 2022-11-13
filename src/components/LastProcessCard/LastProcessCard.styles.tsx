@@ -3,11 +3,17 @@ import styled from "styled-components";
 import { LastProcessCardStyledProps as Props } from "./LastProcessCard.types";
 
 const LastProcessCardStyled = styled.div<Props>`
-  width: 40rem;
+  max-width: 40rem;
+  width: 88%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 0.8rem;
   padding: 1.6rem;
+
+  @media screen and (max-width: 1024px) {
+    width: 88%;
+    max-width: 88%;
+  }
 
   .LastProcessCard {
     &__title {
@@ -41,6 +47,7 @@ const LastProcessCardStyled = styled.div<Props>`
 
     &__container {
       display: flex;
+      justify-content: space-between;
     }
 
     &__sectionContainer {
