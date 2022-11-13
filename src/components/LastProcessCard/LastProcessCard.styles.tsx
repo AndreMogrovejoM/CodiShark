@@ -53,7 +53,6 @@ const LastProcessCardStyled = styled.div<Props>`
     }
 
     &__icon {
-      padding-left: 1.6rem;
     }
 
     &__footerSubtitle {

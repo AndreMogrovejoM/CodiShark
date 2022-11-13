@@ -2,7 +2,10 @@ import { useQuery } from "react-query";
 import { getCookie } from "react-use-cookie";
 
 import { fetchAdministratorSecondPanel } from "./administrator.service";
+import { fetchAdministratorUsers } from "./administrator.service";
+import { fetchAdministratorOperations } from "./administrator.service";
 import { fetchAdministratorFirstPanel } from "./administrator.service";
+import { Status } from "./administrator.service.types";
 
 export const useFetchAdministratorFirstPanel = () => {
   const token = getCookie("token");
@@ -27,6 +30,32 @@ export const useFetchAdministratorSecondPanel = (
       }),
     {
       enabled: !!token && !!dateIni && !!dateEnd,
+      staleTime: 15 * 1000 * 60
+    }
+  );
+};
+
+export const useFetchAdministratorUsers = (rol = 1, take = 4) => {
+  const token = getCookie("token");
+
+  return useQuery(
+    ["users-list", rol, take],
+    () => fetchAdministratorUsers(rol, take),
+    {
+      enabled: !!token,
+      staleTime: 15 * 1000 * 60
+    }
+  );
+};
+
+export const useFetchAdministratorOperations = (status: Status, take = 4) => {
+  const token = getCookie("token");
+
+  return useQuery(
+    ["operations-list", status, take],
+    () => fetchAdministratorOperations(status, take),
+    {
+      enabled: !!token,
       staleTime: 15 * 1000 * 60
     }
   );

@@ -1,7 +1,7 @@
 import InfoCard from "components/InfoCard/InfoCard";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFetchAdministratorSecondPanel } from "services/administrator/administrator.service.hooks";
 
 import Styles from "./Indicators.styles";
@@ -17,7 +17,10 @@ const Indicators: React.FC<Props> = props => {
     dayjs(previous.toLocaleString()).format("YYYY-MM-DD"),
     dayjs(new Date()).format("YYYY-MM-DD")
   ]);
-  const { data } = useFetchAdministratorSecondPanel(dates[0], dates[1]);
+  const { data, refetch } = useFetchAdministratorSecondPanel(
+    dates[0],
+    dates[1]
+  );
   const { calls, connections, payments, charges } = data ?? {};
 
   const handleSetDates = (days: number) => {
@@ -46,6 +49,10 @@ const Indicators: React.FC<Props> = props => {
       </div>
     </>
   );
+
+  useEffect(() => {
+    if (!data) refetch();
+  }, [data, refetch]);
 
   return (
     <Styles className="Indicators">

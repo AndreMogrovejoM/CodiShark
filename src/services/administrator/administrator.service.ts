@@ -3,6 +3,8 @@
 import CONSTANTS from "config/constants";
 import axiosDefault from "utils/axios.utils";
 
+import { Status, UsersListResponse } from "./administrator.service.types";
+import { OperationListResponse } from "./administrator.service.types";
 import { SecondPanelPayload } from "./administrator.service.types";
 import { SecondPanelAdministrator } from "./administrator.service.types";
 import { FirstPanelAdministrator } from "./administrator.service.types";
@@ -29,6 +31,34 @@ export const fetchAdministratorSecondPanel = async (
   try {
     const response = await axiosDefault.get(
       `${REACT_APP_API_URL}/admin/home/panel?dateIni=${dateIni}&dateEnd=${dateEnd}`
+    );
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const fetchAdministratorUsers = async (
+  rol: number,
+  take: number
+): Promise<UsersListResponse> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}`
+    );
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const fetchAdministratorOperations = async (
+  status: Status,
+  take: number
+): Promise<OperationListResponse> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}`
     );
     return response?.data;
   } catch (e: any) {
