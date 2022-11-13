@@ -24,17 +24,6 @@ export interface PaginationInterface {
   onChangeRowsPerPage: (numRows: number, currentPage: number) => void;
 }
 
-// DataTable
-export interface DataRow {
-  id: number;
-  name: string;
-  date: string;
-  amount: number | string;
-  director: string;
-  paymentMethod: string;
-  state: boolean;
-}
-
 // Component Props
 export interface PaymentTableProps {
   // TODO: tipear

@@ -11,6 +11,10 @@ const SidebarStyled = styled.nav<Props>`
   flex: 1;
   color: var(--palette-white);
 
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
+
   * > h2 {
     font-size: 1.4rem;
     line-height: 2rem;

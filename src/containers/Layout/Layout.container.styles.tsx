@@ -16,6 +16,15 @@ const LayoutContainerStyled = styled.div<Props>`
       top: 0;
       margin-left: 20.4rem;
       position: absolute;
+
+      @media screen and (max-width: 1024px) {
+        padding: 2.4rem 0rem;
+      }
+
+      @media screen and (max-width: 720px) {
+        width: 100%;
+        margin-left: 0;
+      }
     }
   }
 `;

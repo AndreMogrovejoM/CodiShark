@@ -39,13 +39,12 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
       await mutateAsync(data).then(user => {
         setCookie("token", user?.token ?? "");
         delete user["token"];
-        console.log(user);
         setUser(user);
+        reset();
+        setIsLoading(false);
+        setSignInStep(0);
+        navigate(ADMIN_ENTRY_PATH);
       });
-      reset();
-      setIsLoading(false);
-      setSignInStep(0);
-      navigate(ADMIN_ENTRY_PATH);
     } catch {
       setIsLoading(false);
     }

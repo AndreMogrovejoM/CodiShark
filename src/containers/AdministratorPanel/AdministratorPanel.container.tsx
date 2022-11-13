@@ -22,8 +22,8 @@ const AdministratorPanelContainer: React.FC<Props> = props => {
         </div>
 
         <div className="AdministratorPanel__section2">
-          <LastProcessCard title={t.charges1} />
-          <LastProcessCard title={t.charges2} />
+          <LastProcessCard title={t.charges1} status={"Pagado"} />
+          <LastProcessCard title={t.charges2} status={"Pendiente"} />
         </div>
       </Styles>
     </LayoutContainer>

@@ -16,7 +16,7 @@ const PanelBanner: React.FC<Props> = props => {
   const renderHeaderPanelBanner = (
     <>
       {/* TODO: usar diccionarios */}
-      <h2 className="PanelBanner__title">{`Hola ${first_name}`}</h2>
+      <h2 className="PanelBanner__title">{`Hola ${first_name ?? ""}`}</h2>
       <h4 className="PanelBanner__subtitle">
         Esta es la actividad de este mes:
       </h4>

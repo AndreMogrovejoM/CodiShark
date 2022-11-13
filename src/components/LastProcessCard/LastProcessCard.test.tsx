@@ -5,6 +5,6 @@ import LastProcessCard from "./LastProcessCard";
 
 describe("LastProcessCard", () => {
   it("renders with default props", () => {
-    render(<LastProcessCard title="title" />);
+    render(<LastProcessCard title="title" status="Pendiente" />);
   });
 });

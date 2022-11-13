@@ -1,103 +1,20 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Table from "components/globals/Table/Table";
 import useI18n from "i18n/i18n.hooks";
-import React, { useCallback } from "react";
+import React from "react";
 import { TableColumn } from "react-data-table-component";
+import { Operation } from "services/administrator/administrator.service.types";
 import { paginationPerPage } from "utils/validations.utils";
 import { paginationRowsPerPageOptions } from "utils/validations.utils";
 
-import { getArrayViews, getNumberOfPages } from "./PaymentTable.helpers";
+import PaginationCustom from "../PaginationCustom/PaginationCustom";
 import Styles from "./PaymentTable.styles";
-import { NumbersComponentProps, RowChipProps } from "./PaymentTable.types";
+import { RowChipProps } from "./PaymentTable.types";
 import { PaginationInterface } from "./PaymentTable.types";
-import { DataRow, PaymentTableProps as Props } from "./PaymentTable.types";
+import { PaymentTableProps as Props } from "./PaymentTable.types";
 
-const PaginationCustom = (props: PaginationInterface) => {
-  const {
-    rowsPerPage,
-    rowCount,
-    currentPage,
-    onChangePage,
-    // TODO:  onChangeRowsPerPage es requerido segun la documentacion de DataTable para un component personalizado de pagination
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    onChangeRowsPerPage
-  } = props;
-
-  const t = useI18n().global.table.TablePaymentUser.Pagination;
-
-  const numPages = getNumberOfPages(rowCount, rowsPerPage);
-  const totalRowCount = getArrayViews(numPages);
-  const lastIndex = currentPage * rowsPerPage;
-  const firstIndex = lastIndex - rowsPerPage + 1;
-  const disabledLesser = currentPage === 1;
-  const disabledGreater = currentPage === numPages;
-
-  const handlePrevious = useCallback(
-    () => onChangePage(currentPage - 1),
-    [currentPage, onChangePage]
-  );
-
-  const handleNext = useCallback(
-    () => onChangePage(currentPage + 1),
-    [currentPage, onChangePage]
-  );
-
-  const handleChangePage = useCallback(
-    (page: number) => onChangePage(page),
-    [onChangePage]
-  );
-
-  const NumbersComponent = (props: NumbersComponentProps) => (
-    <div {...props}>{props?.value}</div>
-  );
-
-  const renderLegend =
-    currentPage === numPages
-      ? t.legend(firstIndex, rowCount, rowCount)
-      : t.legend(firstIndex, rowCount, rowCount);
-
-  const buttonClass = (value: boolean) =>
-    `Pagination__text--bold ${value ? "Pagination__text--disabled" : ""}`;
-
-  const numberClass = (value: number) =>
-    `Pagination__container--numbers ${
-      value === currentPage ? "Pagination__container--numbers-activated" : ""
-    }`;
-
-  return (
-    <Styles className="Pagination">
-      <div className="Pagination__container">
-        <p className="Pagination__text">{renderLegend}</p>
-
-        <div className="Pagination__container--pagination">
-          <button
-            className={buttonClass(disabledLesser)}
-            aria-disabled={disabledLesser}
-            onClick={handlePrevious}
-            disabled={disabledLesser}
-          >
-            {t.back}
-          </button>
-          {totalRowCount.map((page, index) => (
-            <NumbersComponent
-              key={index}
-              value={page}
-              className={numberClass(page)}
-              onClick={() => handleChangePage(page)}
-            />
-          ))}
-          <button
-            className={buttonClass(disabledGreater)}
-            aria-disabled={disabledGreater}
-            onClick={handleNext}
-            disabled={disabledGreater}
-          >
-            {t.next}
-          </button>
-        </div>
-      </div>
-    </Styles>
-  );
+const PaginationCustomHandler = (props: PaginationInterface) => {
+  return <PaginationCustom {...props} />;
 };
 
 const PaymentTable: React.FC<Props> = props => {
@@ -105,42 +22,49 @@ const PaymentTable: React.FC<Props> = props => {
 
   const t = useI18n().global.table.TablePaymentUser.TableHeader;
 
-  const columns: TableColumn<DataRow>[] = [
+  const columns: TableColumn<Operation>[] = [
     {
       name: t.name,
-      selector: row => row.name,
+      selector: row => row.user.first_name ?? "",
       sortable: true,
       maxWidth: "600px", // when using custom you should use width or maxWidth, otherwise, the table will default to flex grow behavior
-      cell: row => <Row content={row.name} bold={true} />
+      cell: row => (
+        <Row
+          content={`${row.user.first_name} ${row.user.last_name}`}
+          bold={true}
+        />
+      )
     },
     {
       name: t.date,
-      selector: row => row.date,
+      selector: row => row.operation_date ?? "",
       wrap: true,
       sortable: true,
-      cell: row => <Row content={row.date} />
+      cell: row => <Row content={row.operation_date ?? ""} />
     },
     {
       name: t.amount,
-      selector: row => row.amount,
+      selector: row => row.amount_paid ?? 0,
       wrap: true,
       sortable: true,
-      cell: row => <Row content={row.amount} />
+      cell: row => <Row content={row.amount_paid ?? 0} />
     },
     {
       name: t.method,
-      selector: row => row.paymentMethod,
-      cell: row => <Row content={row.paymentMethod} />
+      selector: row => row.payment_method ?? "",
+      cell: row => <Row content={row.payment_method ?? ""} />
     },
     {
       name: t.state,
       button: true,
-      cell: row => <RowChip conditional={row.state} />
+      cell: row => (
+        <RowChip conditional={row.payment_status === "Pagado" ? true : false} />
+      )
     },
     {
       name: t.action,
       button: true,
-      cell: row => <RowButton row={row} />
+      cell: row => <RowButton row={row.id} />
     }
   ];
 
@@ -176,10 +100,7 @@ const PaymentTable: React.FC<Props> = props => {
     );
   };
 
-  // TODO: Tipear de acuerdo a un elemento de nuestro arreglo por recibir de backend;
-  const RowButton = (props: any) => {
-    const { row } = props;
-
+  const RowButton = (row: any) => {
     return (
       <Styles
         className="PaymentTable__container--button"
@@ -197,9 +118,8 @@ const PaymentTable: React.FC<Props> = props => {
         data={data}
         paginationPerPage={paginationPerPage}
         paginationRowsPerPageOptions={paginationRowsPerPageOptions}
-        // TODO: Revisar
         //@ts-ignore
-        paginationComponent={PaginationCustom}
+        paginationComponent={PaginationCustomHandler}
       />
     </Styles>
   );

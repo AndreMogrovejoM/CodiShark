@@ -1,10 +1,6 @@
-import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PanelBannerStyledProps as Props } from "./PanelBanner.types";
-const { BREAKPOINTS } = CONSTANTS;
-
-console.log(BREAKPOINTS.desktop);
 
 const PanelBannerStyled = styled.div<Props>`
   width: 100%;
