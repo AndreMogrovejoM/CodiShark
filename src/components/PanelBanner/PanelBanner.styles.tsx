@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import { PanelBannerStyledProps as Props } from "./PanelBanner.types";
 
-
 const PanelBannerStyled = styled.div<Props>`
   width: 100%;
   height: 12rem;

@@ -48,7 +48,7 @@ export const useFetchAdministratorUsers = (rol = 1, take = 4) => {
   );
 };
 
-export const useFetchAdministratorOperations = (status: Status, take = 4) => {
+export const useFetchAdministratorOperations = (status?: Status, take = 4) => {
   const token = getCookie("token");
 
   return useQuery(

@@ -53,13 +53,14 @@ export const fetchAdministratorUsers = async (
 };
 
 export const fetchAdministratorOperations = async (
-  status: Status,
-  take: number
+  status?: Status,
+  take = 4
 ): Promise<OperationListResponse> => {
+  const url = status
+    ? `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}`
+    : `${REACT_APP_API_URL}/admin/operations?take=${take}`;
   try {
-    const response = await axiosDefault.get(
-      `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}`
-    );
+    const response = await axiosDefault.get(url);
     return response?.data;
   } catch (e: any) {
     throw new Error(e.message);
