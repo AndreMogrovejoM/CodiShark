@@ -7,7 +7,9 @@ const es: Dictionary = {
     sideBar: {
       start: "Inicio",
       myPayments: "Mis pagos",
-      logout: "Cerrar sesión"
+      logout: "Cerrar sesión",
+      title: "Contacto",
+      direction: "la Republica 218 - Miraflores"
     },
     button: {
       text: "Cargando..."
