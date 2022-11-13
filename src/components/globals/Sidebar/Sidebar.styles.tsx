@@ -74,6 +74,33 @@ const SidebarStyled = styled.nav<Props>`
       position: absolute;
       top: 55.6rem;
       left: 2.9rem;
+
+      @media screen and (max-width: 912px) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.64rem;
+        position: absolute;
+        top: 106rem;
+        left: 2.9rem;
+      }
+
+      @media screen and (max-width: 820px) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.64rem;
+        position: absolute;
+        top: 88rem;
+        left: 2.9rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.64rem;
+        position: absolute;
+        top: 72rem;
+        left: 2.9rem;
+      }
     }
 
     &__footerListTitle {

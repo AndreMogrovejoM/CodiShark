@@ -20,6 +20,34 @@ const InfoPanelBannerStyled = styled.div<Props>`
       font-weight: 400;
       font-size: 0.8rem;
       line-height: 1.6rem;
+
+      @media screen and (max-width: 414px) {
+        display: flex;
+        font-weight: 600;
+        font-size: 0.6rem;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 375px) {
+        display: flex;
+        font-weight: 600;
+        font-size: 0.6rem;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 360px) {
+        display: flex;
+        font-weight: 600;
+        font-size: 0.58rem;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 280px) {
+        display: flex;
+        font-weight: 600;
+        font-size: 0.48rem;
+        line-height: 1rem;
+      }
     }
   }
 `;

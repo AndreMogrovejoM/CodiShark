@@ -27,6 +27,38 @@ const LastProcessCardStyled = styled.div<Props>`
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.6rem;
+
+      @media screen and (max-width: 912px) {
+        display: flex;
+        font-size: 1.24rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 820px) {
+        display: flex;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 540px) {
+        font-size: 1.24rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 414px) {
+        font-size: 1.24rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 375px) {
+        font-size: 1.24rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
     }
 
     &__name {
@@ -65,6 +97,18 @@ const LastProcessCardStyled = styled.div<Props>`
     &__footerSubtitle {
       text-align: end;
       padding: 1.6rem;
+
+      @media screen and (max-width: 912px) {
+        text-align: end;
+        padding: 2.4rem;
+        font-size: 1.8rem;
+      }
+
+      @media screen and (max-width: 820px) {
+        text-align: end;
+        padding: 1.6rem;
+        font-size: 1.6rem;
+      }
     }
   }
 `;
