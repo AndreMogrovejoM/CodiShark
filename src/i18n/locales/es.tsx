@@ -102,7 +102,13 @@ const es: Dictionary = {
         fieldDNI: "DNI",
         fieldCode: "Cod. Verificador",
         fieldDate: "Fecha de Emisión"
-      }
+      },
+      benefitTitle: "Conoce los beneficios de",
+      benefitSubTitle: "Estar al día en tus pagos",
+      ul1: "Lineas de créditos",
+      ul2: "Préstamos personales",
+      ul3: "Créditos hipotecarios",
+      ul4: "Créditos vehiculares"
     },
     SignInValidation: {
       greeting: "Bienvenido",
