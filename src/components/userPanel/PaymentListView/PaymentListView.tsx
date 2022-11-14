@@ -1,3 +1,5 @@
+import Button from "components/globals/Button/Button";
+import SearchInput from "components/globals/SearchInput/SearchInput";
 import React from "react";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 
@@ -15,7 +17,37 @@ const PaymentListView: React.FC<Props> = props => {
 
   return (
     <Styles className={`PaymentListView`}>
-      <PaymentTable data={operationsList} />
+      {/* TODO: Primer componente */}
+      <h1 className="PaymentListView__text--title">Listado de pagos</h1>
+      <>
+        <div className="PaymentListView__container--actions">
+          <div className="PaymentListView__container--button">
+            <Button
+              variant="contained"
+              className="PaymentListView__component--button"
+            >
+              PDF
+            </Button>
+            <Button
+              variant="contained"
+              className="PaymentListView__component--button"
+            >
+              Excel
+            </Button>
+            <Button
+              variant="contained"
+              className="PaymentListView__component--button"
+            >
+              Imprimir
+            </Button>
+          </div>
+
+          <SearchInput />
+        </div>
+        <PaymentTable data={operationsList} />
+      </>
+      {/* TODO: Segundo componente */}
+      <></>
     </Styles>
   );
 };
