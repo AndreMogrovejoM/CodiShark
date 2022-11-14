@@ -59,21 +59,39 @@ const SignIn: React.FC<Props> = props => {
     <p className="SignIn__container--copyright">{t.copyright}</p>
   );
 
+  const renderList = () => {
+    return (
+      <div className="SignIn__renderList">
+        <h2 className="SignIn__renderList--h2">{t.benefitTitle}</h2>
+        <h1 className="SignIn__renderList--h1">{t.benefitSubTitle}</h1>
+        <ul className="SignIn__renderList--ul">
+          <li className="SignIn__renderList--h2">{t.ul1}</li>
+          <li className="SignIn__renderList--h2">{t.ul2}</li>
+          <li className="SignIn__renderList--h2">{t.ul3}</li>
+          <li className="SignIn__renderList--h2">{t.ul4}</li>
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <Styles className="SignIn">
       <Grid container component="main" className="SignIn__container">
-        <Grid item xs={false} sm={4} md={8} className="SignIn__image" />
+        <Grid item xs={false} sm={4} md={6} className="SignIn__image">
+          {renderList()}
+        </Grid>
         <Grid
           item
           xs={12}
           sm={8}
-          md={4}
+          md={6}
           component={Paper}
           elevation={4}
           square
           container
           alignItems="center"
           justifyContent="center"
+          flexDirection="column"
         >
           <Box className="SignIn__container--form">
             <Box className="SignIn__container--center   SignIn__container--content">

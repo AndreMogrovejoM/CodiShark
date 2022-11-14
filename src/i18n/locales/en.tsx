@@ -103,7 +103,13 @@ const en = {
         fieldDNI: "DNI",
         fieldCode: "Verification code",
         fieldDate: "Date of issue"
-      }
+      },
+      benefitTitle: "Know the benefits of",
+      benefitSubTitle: "Be up to date with your payments",
+      ul1: "Credit lines",
+      ul2: "Personal loans",
+      ul3: "Mortgage credits",
+      ul4: "Vehicle credits"
     },
     SignInValidation: {
       greeting: "Welcome",
