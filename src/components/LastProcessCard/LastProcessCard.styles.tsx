@@ -36,25 +36,11 @@ const LastProcessCardStyled = styled.div<Props>`
       }
 
       @media screen and (max-width: 820px) {
-        display: flex;
         font-size: 1.6rem;
-        font-weight: 600;
         line-height: 1.6rem;
       }
 
       @media screen and (max-width: 540px) {
-        font-size: 1.24rem;
-        font-weight: 600;
-        line-height: 1.6rem;
-      }
-
-      @media screen and (max-width: 414px) {
-        font-size: 1.24rem;
-        font-weight: 600;
-        line-height: 1.6rem;
-      }
-
-      @media screen and (max-width: 375px) {
         font-size: 1.24rem;
         font-weight: 600;
         line-height: 1.6rem;

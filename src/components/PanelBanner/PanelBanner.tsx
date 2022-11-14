@@ -17,7 +17,6 @@ const PanelBanner: React.FC<Props> = props => {
 
   const renderHeaderPanelBanner = (
     <>
-      {/* TODO: usar diccionarios */}
       <h2 className="PanelBanner__title">
         {t.greetings}
         {`${first_name ?? ""}`}
@@ -30,7 +29,6 @@ const PanelBanner: React.FC<Props> = props => {
     <Styles className="PanelBanner">
       {renderHeaderPanelBanner}
       <div className="PanelBanner__textContent">
-        {/* TODO: usar diccionarios */}
         <InfoPanelBanner subtitle={t.connections} value={connections} />
         <InfoPanelBanner subtitle={t.payments} value={payments} />
         <InfoPanelBanner subtitle={t.calls} value={calls} />
