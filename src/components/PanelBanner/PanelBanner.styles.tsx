@@ -1,10 +1,6 @@
-import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PanelBannerStyledProps as Props } from "./PanelBanner.types";
-const { BREAKPOINTS } = CONSTANTS;
-
-console.log(BREAKPOINTS.desktop);
 
 const PanelBannerStyled = styled.div<Props>`
   width: 100%;
@@ -47,6 +43,13 @@ const PanelBannerStyled = styled.div<Props>`
       top: 0;
       right: 2.4rem;
       width: 12.4rem;
+
+      @media screen and (max-width: 280px) {
+        position: absolute;
+        top: 1rem;
+        right: 0.4rem;
+        width: 10.4rem;
+      }
     }
   }
 `;

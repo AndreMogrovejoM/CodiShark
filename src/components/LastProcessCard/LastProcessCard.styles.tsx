@@ -3,11 +3,17 @@ import styled from "styled-components";
 import { LastProcessCardStyledProps as Props } from "./LastProcessCard.types";
 
 const LastProcessCardStyled = styled.div<Props>`
-  width: 40rem;
+  max-width: 40rem;
+  width: 88%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 0.8rem;
   padding: 1.6rem;
+
+  @media screen and (max-width: 1024px) {
+    width: 88%;
+    max-width: 88%;
+  }
 
   .LastProcessCard {
     &__title {
@@ -21,6 +27,24 @@ const LastProcessCardStyled = styled.div<Props>`
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.6rem;
+
+      @media screen and (max-width: 912px) {
+        display: flex;
+        font-size: 1.24rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 820px) {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+      }
+
+      @media screen and (max-width: 540px) {
+        font-size: 1.24rem;
+        font-weight: 600;
+        line-height: 1.6rem;
+      }
     }
 
     &__name {
@@ -41,6 +65,7 @@ const LastProcessCardStyled = styled.div<Props>`
 
     &__container {
       display: flex;
+      justify-content: space-between;
     }
 
     &__sectionContainer {
@@ -53,12 +78,23 @@ const LastProcessCardStyled = styled.div<Props>`
     }
 
     &__icon {
-      padding-left: 1.6rem;
     }
 
     &__footerSubtitle {
       text-align: end;
       padding: 1.6rem;
+
+      @media screen and (max-width: 912px) {
+        text-align: end;
+        padding: 2.4rem;
+        font-size: 1.8rem;
+      }
+
+      @media screen and (max-width: 820px) {
+        text-align: end;
+        padding: 1.6rem;
+        font-size: 1.6rem;
+      }
     }
   }
 `;

@@ -7,7 +7,9 @@ const es: Dictionary = {
     sideBar: {
       start: "Inicio",
       myPayments: "Mis pagos",
-      logout: "Cerrar sesión"
+      logout: "Cerrar sesión",
+      title: "Contacto",
+      direction: "la Republica 218 - Miraflores"
     },
     button: {
       text: "Cargando..."
@@ -157,6 +159,13 @@ const es: Dictionary = {
       card2: "Ingresos al Sistema",
       card3: "Solicitudes de contacto por llamada",
       card4: "Pagos por transferencia"
+    },
+    PanelBanner: {
+      greetings: "Hola",
+      activity: "Esta es la actividad de este mes:",
+      connections: "Ingresos",
+      payments: "Pagos registrados",
+      calls: "Solicitudes de llamadas"
     }
   },
   utils: {
