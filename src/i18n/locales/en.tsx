@@ -160,6 +160,13 @@ const en = {
       card2: "Income to the System",
       card3: "Contact requests by call",
       card4: "Payments by wire transfer"
+    },
+    PanelBanner: {
+      greetings: "Hello",
+      activity: "This is this month's activity:",
+      connections: "Revenues",
+      payments: "Recorded payments",
+      calls: "Call requests"
     }
   },
   utils: {
