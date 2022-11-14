@@ -1,4 +1,4 @@
-import React, { createContext, useMemo } from "react";
+import React, { createContext, useMemo, useState } from "react";
 
 import { GlobalsProviderProps as Props } from "./globals.context.types";
 import { GlobalsProviderValue } from "./globals.context.types";
@@ -7,9 +7,11 @@ import { GlobalsProviderValue } from "./globals.context.types";
 export const GlobalsContext = createContext<GlobalsProviderValue>({});
 
 const GlobalsProvider: React.FC<Props> = props => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const value: GlobalsProviderValue = useMemo(() => {
-    return {};
-  }, []);
+    return { isLoading, setIsLoading };
+  }, [isLoading]);
 
   return (
     <GlobalsContext.Provider value={value}>

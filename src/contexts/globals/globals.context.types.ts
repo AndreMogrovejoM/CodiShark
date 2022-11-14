@@ -7,4 +7,7 @@ export interface GlobalsProviderProps {
 }
 
 // Provider value
-export interface GlobalsProviderValue {}
+export interface GlobalsProviderValue {
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}

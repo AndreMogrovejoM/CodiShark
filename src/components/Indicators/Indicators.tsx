@@ -1,7 +1,7 @@
 import InfoCard from "components/InfoCard/InfoCard";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFetchAdministratorSecondPanel } from "services/administrator/administrator.service.hooks";
 
 import Styles from "./Indicators.styles";
@@ -17,10 +17,7 @@ const Indicators: React.FC<Props> = props => {
     dayjs(previous.toLocaleString()).format("YYYY-MM-DD"),
     dayjs(new Date()).format("YYYY-MM-DD")
   ]);
-  const { data, refetch } = useFetchAdministratorSecondPanel(
-    dates[0],
-    dates[1]
-  );
+  const { data } = useFetchAdministratorSecondPanel(dates[0], dates[1]);
   const { calls, connections, payments, charges } = data ?? {};
 
   const handleSetDates = (days: number) => {
@@ -50,18 +47,14 @@ const Indicators: React.FC<Props> = props => {
     </>
   );
 
-  useEffect(() => {
-    if (!data) refetch();
-  }, [data, refetch]);
-
   return (
     <Styles className="Indicators">
       {renderHeaderIndicators}
       <div className="Indicators__cardsContainer">
-        <InfoCard title={t.card1} value={`${connections}`} />
-        <InfoCard title={t.card2} value={`${charges}`} />
-        <InfoCard title={t.card3} value={`${calls}`} />
-        <InfoCard title={t.card4} value={`${payments}`} />
+        <InfoCard title={t.card1} value={`${connections ?? 0}`} />
+        <InfoCard title={t.card2} value={`${charges ?? 0}`} />
+        <InfoCard title={t.card3} value={`${calls ?? 0}`} />
+        <InfoCard title={t.card4} value={`${payments ?? 0}`} />
       </div>
     </Styles>
   );
