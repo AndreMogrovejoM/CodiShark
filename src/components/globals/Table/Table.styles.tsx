@@ -14,12 +14,14 @@ const TableStyled = styled(DataTable)((props: Props) => ({
     lineHeight: "1.6rem",
     borderRadius: "0.8rem",
     borderBottom: "none",
-    marginBottom: "0.4rem"
+    marginBottom: "0.4rem",
+    height: "49px"
   },
   ".rdt_TableRow": {
     borderRadius: "0.8rem",
     borderBottom: "none",
-    marginBottom: "0.4rem"
+    marginBottom: "0.4rem",
+    height: "49px"
   }
 }));
 

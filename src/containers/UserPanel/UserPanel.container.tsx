@@ -19,11 +19,7 @@ const UserPanelContainer: React.FC<Props> = props => {
         return <div />;
     }
   };
-  return (
-    <LayoutContainer>
-      <div style={{ padding: "2rem" }}>{renderView()} </div>
-    </LayoutContainer>
-  );
+  return <LayoutContainer>{renderView()}</LayoutContainer>;
 };
 
 UserPanelContainer.defaultProps = {};

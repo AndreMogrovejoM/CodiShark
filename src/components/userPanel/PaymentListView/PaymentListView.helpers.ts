@@ -62,5 +62,53 @@ export const data = [
     amount: "3600.00",
     paymentMethod: "Tarjeta de Crédito",
     state: false
+  },
+  {
+    id: 8,
+    name: "Armando Rodriguez Guerra",
+    date: "05/09/2022",
+    amount: "3600.00",
+    paymentMethod: "Tarjeta de Crédito",
+    state: true
+  },
+  {
+    id: 9,
+    name: "Armando Rodriguez Guerra",
+    date: "05/09/2022",
+    amount: "3600.00",
+    paymentMethod: "Tarjeta de Crédito",
+    state: false
+  },
+  {
+    id: 10,
+    name: "Armando Rodriguez Guerra",
+    date: "05/09/2022",
+    amount: "3600.00",
+    paymentMethod: "Tarjeta de Crédito",
+    state: true
+  },
+  {
+    id: 11,
+    name: "Armando Rodriguez Guerra",
+    date: "05/09/2022",
+    amount: "3600.00",
+    paymentMethod: "Tarjeta de Crédito",
+    state: false
+  },
+  {
+    id: 12,
+    name: "Armando Rodriguez Guerra",
+    date: "05/09/2022",
+    amount: "3600.00",
+    paymentMethod: "Tarjeta de Crédito",
+    state: true
+  },
+  {
+    id: 13,
+    name: "Armando Rodriguez Guerra",
+    date: "05/09/2022",
+    amount: "3600.00",
+    paymentMethod: "Tarjeta de Crédito",
+    state: false
   }
 ];
