@@ -61,6 +61,12 @@ const SignInCodeStyled = styled.div<Props>`
       &--color {
         color: var(--palette-skyBlue);
       }
+
+      &--clickable {
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 `;

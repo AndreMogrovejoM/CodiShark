@@ -2,7 +2,7 @@
 
 // Component Props
 export interface InfoPanelBannerProps {
-  value: number;
+  value?: number;
   subtitle: string;
 }
 

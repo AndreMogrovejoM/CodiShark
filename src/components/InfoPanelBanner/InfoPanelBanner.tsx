@@ -4,7 +4,7 @@ import Styles from "./InfoPanelBanner.styles";
 import { InfoPanelBannerProps as Props } from "./InfoPanelBanner.types";
 
 const InfoPanelBanner: React.FC<Props> = props => {
-  const { value, subtitle } = props;
+  const { value = 0, subtitle } = props;
 
   return (
     <Styles className={`InfoPanelBanner`}>

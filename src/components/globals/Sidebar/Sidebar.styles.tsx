@@ -11,6 +11,10 @@ const SidebarStyled = styled.nav<Props>`
   flex: 1;
   color: var(--palette-white);
 
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
+
   * > h2 {
     font-size: 1.4rem;
     line-height: 2rem;
@@ -47,6 +51,50 @@ const SidebarStyled = styled.nav<Props>`
       height: 0.01rem;
       background-color: var(--palette-white05);
       margin: 0.8rem 0;
+    }
+
+    &__icon {
+      padding-bottom: 0.8rem;
+    }
+
+    &__sectionContainer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    &__sectionContainerFooter {
+      position: relative;
+    }
+
+    &__footerList {
+      display: flex;
+      flex-direction: column;
+      gap: 0.64rem;
+      position: absolute;
+      top: 55.6rem;
+      left: 2.9rem;
+
+      @media screen and (max-width: 912px) {
+        top: 106rem;
+      }
+
+      @media screen and (max-width: 820px) {
+        top: 88rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        top: 72rem;
+      }
+    }
+
+    &__footerListTitle {
+      padding-bottom: 0.8rem;
+    }
+
+    &__iconFooter {
+      display: flex;
+      gap: 0.6rem;
     }
   }
 `;

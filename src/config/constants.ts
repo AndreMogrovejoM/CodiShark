@@ -1,8 +1,6 @@
 // Kioscos Dashboard Project constants
 
-import { FamilyRestroomOutlined } from "@mui/icons-material";
-
-export const platform = "web";
+export const platform = "WEB";
 
 const CONSTANTS = {
   // HTML title tag text
@@ -12,6 +10,7 @@ const CONSTANTS = {
   ROUTES: {
     // Router where the user will land initially to check authentication
     ENTRY_PATH: "/",
+    ADMIN_ENTRY_PATH: "/administratorPanel",
     // Router where the user will land if not authenticated
     NO_AUTH_PATH: "/signin"
   },
@@ -19,7 +18,7 @@ const CONSTANTS = {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
     REACT_APP_PLATFORM: "WEB",
     // Mock services, change to false if you don't want to mock
-    MOCK_SERVICES: FamilyRestroomOutlined,
+    MOCK_SERVICES: false,
     // TODO: If true a registered user with address, billing data and orders will be present
     MOCK_WITH_INITIAL_USER_DATA: false,
     // Default max waiting time for a request reply
@@ -38,7 +37,9 @@ const CONSTANTS = {
     hd: 2560
   },
   // Time format
-  FORMAT: "mm:ss"
+  FORMAT: "mm:ss",
+  INTERVAL: 1000,
+  INITIAL_TIME: 5 * 1000 * 60
 };
 
 export default CONSTANTS;

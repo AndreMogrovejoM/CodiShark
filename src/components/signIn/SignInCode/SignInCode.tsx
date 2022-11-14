@@ -2,19 +2,22 @@ import Button from "components/globals/Button/Button";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import useCountDown from "react-countdown-hook";
 import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { useSignInUserStep3 } from "services/auth/auth.service.hooks";
+import { formatMillisecondsToSeconds } from "utils/common.utils";
 import { minInputsCode } from "utils/validations.utils";
 
 import Styles from "./SignInCode.styles";
 import { SignInCodeProps as Props } from "./SignInCode.types";
 
 const { ENTRY_PATH } = CONSTANTS.ROUTES;
+const { INTERVAL, INITIAL_TIME } = CONSTANTS;
 
 const SignInCode: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormCode;
@@ -26,12 +29,15 @@ const SignInCode: React.FC<Props> = props => {
   const { mutateAsync: mutateStep2, reset: resetStep2 } = useSignInUserStep2();
   const { mutateAsync, reset } = useSignInUserStep3();
 
+  const [timeLeft, { start }] = useCountDown(INITIAL_TIME, INTERVAL);
+
   const handleChange = (otp: any) => setOTP(otp);
 
   const handleResetCode = async () => {
     try {
       setIsLoading(true);
       mutateStep2({ dni: user?.dni, type: signInMethod });
+      start();
       resetStep2();
       setIsLoading(false);
     } catch (error) {
@@ -60,6 +66,10 @@ const SignInCode: React.FC<Props> = props => {
     <span className="SignInCode__container--separator" />
   );
 
+  useEffect(() => {
+    start();
+  }, [start]);
+
   return (
     <Styles className={`SignInCode`}>
       <OtpInput
@@ -72,8 +82,9 @@ const SignInCode: React.FC<Props> = props => {
         focusStyle="SignInCode__input--focus"
       />
       <div className="SignInCode__container--time">
-        {/*  TODO: Remove this when integrated time */}
-        <p className="SignInCode__text SignInCode__text--time">(3:44)</p>
+        <p className="SignInCode__text SignInCode__text--time">
+          ({formatMillisecondsToSeconds(timeLeft / 1000)})
+        </p>
       </div>
       <div className="SignInCode__container--button">
         <Button
@@ -90,11 +101,19 @@ const SignInCode: React.FC<Props> = props => {
       <div className="SignInCode__container--text">
         <p className="SignInCode__text">
           {t.question}
-          <span onClick={handleResetCode} className="SignInCode__text--color">
+          <span
+            onClick={handleResetCode}
+            className="SignInCode__text--color SignInCode__text--clickable"
+          >
             {t.answer}
           </span>
         </p>
-        <p className="SignInCode__text">{t.method}</p>
+        <p
+          className="SignInCode__text SignInCode__text--clickable"
+          onClick={() => setSignInStep(1)}
+        >
+          {t.method}
+        </p>
       </div>
     </Styles>
   );

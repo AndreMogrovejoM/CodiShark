@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PanelBannerStyledProps as Props } from "./PanelBanner.types";
 
 const PanelBannerStyled = styled.div<Props>`
-  width: 72rem;
+  width: 100%;
   height: 12rem;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@ const PanelBannerStyled = styled.div<Props>`
   border-radius: 0.8rem;
   padding: 1.2rem 2.4rem;
   position: relative;
+  margin: 0 auto;
 
   .PanelBanner {
     &__title {
@@ -42,6 +43,13 @@ const PanelBannerStyled = styled.div<Props>`
       top: 0;
       right: 2.4rem;
       width: 12.4rem;
+
+      @media screen and (max-width: 280px) {
+        position: absolute;
+        top: 1rem;
+        right: 0.4rem;
+        width: 10.4rem;
+      }
     }
   }
 `;

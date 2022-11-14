@@ -1,7 +1,12 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LogoutIcon from "@mui/icons-material/Logout";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
+import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
+import logoKonecta from "assets/images/logoKonectaSideBar.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
@@ -20,10 +25,8 @@ const Sidebar: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
   const [openList, setOpenList] = useState(true);
-  const { setSignInStep, setUser, user } = useAuth();
+  const { setSignInStep, setUser } = useAuth();
   const { mutateAsync, reset } = useLogout();
-
-  console.log(user);
 
   const handleClick = (idx: number) => {
     setOpenList(!openList);
@@ -37,6 +40,7 @@ const Sidebar: React.FC<Props> = props => {
       setUser(undefined);
       setCookie("token", "");
       navigate(NO_AUTH_PATH);
+      document.location.reload();
     } catch (error) {
       console.warn(error);
     }
@@ -102,12 +106,50 @@ const Sidebar: React.FC<Props> = props => {
           subheader={
             <div className="Sidebar__header">
               <div className="Sidebar__header-text">
-                <h2>Armando</h2>
-                <h4>Rodriguez Guerra</h4>
+                <img
+                  className="Sidebar__icon"
+                  src={logoKonecta}
+                  alt="logoKonecta"
+                />
+                <div className="Sidebar__sectionContainer">
+                  <img src={iconPersonSideBar} alt="iconPersonSideBar" />
+                  <h2>
+                    Armando <h4>Rodriguez Guerra</h4>{" "}
+                  </h2>
+                </div>
               </div>
             </div>
           }
         >
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            sx={drawerStyle}
+            subheader={
+              <div className="Sidebar__footer">
+                <div className="Sidebar__footer-text">
+                  <div className="Sidebar__sectionContainerFooter">
+                    <div className="Sidebar__footerList">
+                      <h2 className="Sidebar__footerListTitle">{t.title}</h2>
+                      <div className="Sidebar__iconFooter">
+                        <LocalPhoneIcon />
+                        <p>0800 1652 1254</p>
+                      </div>
+                      <div className="Sidebar__iconFooter">
+                        <WhatsAppIcon />
+                        <p>info@b12.com</p>
+                      </div>
+                      <div className="Sidebar__iconFooter">
+                        <FmdGoodIcon />
+                        <p>{t.direction}</p>
+                      </div>
+                      <a href="google.com">www.b12.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          ></List>
           {renderItem(0, t.start)}
           {renderItem(0, t.myPayments)}
           <div className="Sidebar__divider" />

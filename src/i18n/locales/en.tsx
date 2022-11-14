@@ -8,7 +8,9 @@ const en = {
     sideBar: {
       start: "Start",
       myPayments: "My payments",
-      logout: "Logout"
+      logout: "Logout",
+      title: "Contact",
+      direction: "la Republica 218 - Miraflores"
     },
     button: {
       text: "Loading..."
@@ -36,6 +38,26 @@ const en = {
       TableError: {
         title: "An error occurred while trying to load your records",
         buttonText: "Try again"
+      },
+      TablePaymentUser: {
+        TableHeader: {
+          name: "Name",
+          date: "Payment date",
+          amount: "Amount paid",
+          method: "Payment method",
+          state: "State",
+          action: ""
+        },
+        TableRows: {
+          pay: "Payout",
+          pending: "Pending"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Showing records from ${begin} to ${rowsPage}  of a total of ${total} records.`,
+          back: "Back",
+          next: "Next"
+        }
       }
     },
     ProfileSelectOverlay: {
@@ -51,6 +73,21 @@ const en = {
       subtitle: "Request access or use an account that allows you to access.",
       accessing: "You are accessing as"
     }
+  },
+  chart: {
+    title: "Year's income",
+    jan: "January",
+    feb: "February",
+    mar: "March",
+    apr: "April",
+    may: "May",
+    jun: "June",
+    jul: "July",
+    aug: "August",
+    sep: "September",
+    oct: "October",
+    nov: "November",
+    dic: "December"
   },
   signIn: {
     SignInFormUser: {
@@ -110,7 +147,9 @@ const en = {
     AdministratorPanel: {
       charges1: "Charges made",
       charges2: "Charges in process",
-      footerTitle: "See all"
+      footerTitle: "See all",
+      name: "Customer's name",
+      debt: "Amount of debt"
     },
     Indicator: {
       title: "Here are some indicators",
@@ -121,6 +160,13 @@ const en = {
       card2: "Income to the System",
       card3: "Contact requests by call",
       card4: "Payments by wire transfer"
+    },
+    PanelBanner: {
+      greetings: "Hello",
+      activity: "This is this month's activity:",
+      connections: "Revenues",
+      payments: "Recorded payments",
+      calls: "Call requests"
     }
   },
   utils: {

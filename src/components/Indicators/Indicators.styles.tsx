@@ -3,13 +3,11 @@ import styled from "styled-components";
 import { IndicatorsStyledProps as Props } from "./Indicators.types";
 
 const IndicatorsStyled = styled.div<Props>`
-  width: 72rem;
-  height: 24rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.8rem;
-  margin-top: 2.4rem;
+  margin: 2.4rem 0;
 
   .Indicators {
     &__title {
@@ -41,6 +39,10 @@ const IndicatorsStyled = styled.div<Props>`
       background-color: var(--palette-primary);
       text-align: center;
       padding: 0.4rem 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 `;

@@ -9,10 +9,6 @@ import { validLoginUserValidation } from "utils/validations.utils";
 import Styles from "./SignInValidate.styles";
 import { SignInValidateProps as Props } from "./SignInValidate.types";
 
-const name = "Roberto Flores Perez";
-const phone = "938296302";
-const email = "daprimovaria@gmail.com";
-
 const SignInValidate: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInValidation;
   const fields = validLoginUserValidation();
@@ -20,6 +16,7 @@ const SignInValidate: React.FC<Props> = props => {
   const { setSignInStep, user, setSignInMethod } = useAuth();
   const { register, handleSubmit } = useForm();
   const { mutateAsync, reset } = useSignInUserStep2();
+  const { first_name, last_name, phone, email } = user ?? {};
 
   const submitHandler = async (values: FieldValues) => {
     try {
@@ -67,9 +64,9 @@ const SignInValidate: React.FC<Props> = props => {
             value={field.value}
             label={field.label}
             labelExtension={
-              field.value === "phone"
-                ? `*** *** ${phone.slice(phone.length - 3)}`
-                : `********${email.slice(email.length - 15)}`
+              field.value === "SMS"
+                ? ` *** *** ${phone?.slice(phone?.length - 3)}`
+                : ` ********${email?.slice(email?.length - 15)}`
             }
           />
         ))}
@@ -94,7 +91,7 @@ const SignInValidate: React.FC<Props> = props => {
       <p className="SignInValidate__text--greeting">
         {t.greeting}
         <span className="SignInValidate__text--greeting__bold">
-          {` ${name}`}
+          {` ${first_name ?? ""} ${last_name ?? ""}`}
         </span>
       </p>
       <p className="SignInValidate__text--indication">{t.instructions}</p>

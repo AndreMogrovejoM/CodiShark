@@ -16,7 +16,6 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
   .SignInAdministratorVerify {
     &__container {
       width: 48rem;
-      height: 40rem;
       background-color: var(--palette-grey);
       margin: 0 auto;
       border-radius: 1.6rem;
@@ -54,7 +53,7 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
     &__textField {
       background-color: var(--palette-white);
       width: 80%;
-      margin: 0 auto;
+      margin: 0.4rem auto;
       border-radius: 0.8rem;
       overflow: hidden;
       margin-bottom: 0.8rem;
@@ -77,6 +76,7 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
       width: 80%;
       margin: 0 auto;
       border-radius: 0.8rem;
+      padding: 1rem 0;
       color: var(--palette-white);
       margin-bottom: 4rem;
     }
@@ -85,8 +85,7 @@ const SignInAdministratorVerifyStyled = styled.div<Props>`
       font-size: 1rem;
       line-height: 1.6rem;
       font-weight: 300;
-      margin: 0 auto;
-      margin-top: auto;
+      margin: -0.8rem auto;
     }
   }
 `;

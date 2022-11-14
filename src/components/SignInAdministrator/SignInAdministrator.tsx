@@ -68,6 +68,7 @@ const SignInAdministrator: React.FC<Props> = props => {
                 type: dniField.type,
                 label: "",
                 variant: "filled",
+                margin: "dense",
                 fullWidth: true,
                 focused: true,
                 placeholder: t.user,

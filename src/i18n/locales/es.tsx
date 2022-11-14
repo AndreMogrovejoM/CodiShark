@@ -7,7 +7,9 @@ const es: Dictionary = {
     sideBar: {
       start: "Inicio",
       myPayments: "Mis pagos",
-      logout: "Cerrar sesión"
+      logout: "Cerrar sesión",
+      title: "Contacto",
+      direction: "la Republica 218 - Miraflores"
     },
     button: {
       text: "Cargando..."
@@ -35,6 +37,26 @@ const es: Dictionary = {
       TableError: {
         title: "Ocurrió un error mientras cargábamos tus datos",
         buttonText: "Volver a intentar"
+      },
+      TablePaymentUser: {
+        TableHeader: {
+          name: "Nombre",
+          date: "Fecha de pago",
+          amount: "Monto pagado",
+          method: "Método de pago",
+          state: "Estado",
+          action: ""
+        },
+        TableRows: {
+          pay: "Pagado",
+          pending: "Pendiente"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Mostrando registros del ${begin} al ${rowsPage} de un total de ${total} registros.`,
+          back: "Anterior",
+          next: "Siguiente"
+        }
       }
     },
     ProfileSelectOverlay: {
@@ -50,6 +72,21 @@ const es: Dictionary = {
       subtitle: "Solicita acceso o usa una cuenta que te permita acceder.",
       accessing: "Estás accediendo como"
     }
+  },
+  chart: {
+    title: "Ingresos de este año",
+    jan: "Enero",
+    feb: "Febrero",
+    mar: "Marzo",
+    apr: "Abril",
+    may: "Mayo",
+    jun: "Junio",
+    jul: "Julio",
+    aug: "Agosto",
+    sep: "Septiembre",
+    oct: "Octubre",
+    nov: "Noviembre",
+    dic: "Diciembre"
   },
   signIn: {
     SignInFormUser: {
@@ -109,7 +146,9 @@ const es: Dictionary = {
     AdministratorPanel: {
       charges1: "Cobros realizados",
       charges2: "Cobros en proceso",
-      footerTitle: "Ver todos"
+      footerTitle: "Ver todos",
+      name: "Nombres del cliente",
+      debt: "Monto de deuda"
     },
     Indicator: {
       title: "Te mostramos algunos indicadores",
@@ -120,6 +159,13 @@ const es: Dictionary = {
       card2: "Ingresos al Sistema",
       card3: "Solicitudes de contacto por llamada",
       card4: "Pagos por transferencia"
+    },
+    PanelBanner: {
+      greetings: "Hola",
+      activity: "Esta es la actividad de este mes:",
+      connections: "Ingresos",
+      payments: "Pagos registrados",
+      calls: "Solicitudes de llamadas"
     }
   },
   utils: {
