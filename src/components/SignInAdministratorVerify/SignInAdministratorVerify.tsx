@@ -9,7 +9,7 @@ import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { setCookie } from "react-use-cookie";
+import useCookie from "react-use-cookie";
 import { useSignInAdminStep2 } from "services/auth/auth.service.hooks";
 import { Login } from "services/auth/auth.service.types";
 import { validCode } from "utils/validations.utils";
@@ -23,6 +23,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
   const validationCode = validCode();
   const { control, handleSubmit } = useForm();
   const [isLoading, setIsLoading] = useState(false);
+  const [, setUserToken] = useCookie("token", "0");
   const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useSignInAdminStep2();
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         password: values?.code
       };
       await mutateAsync(data).then(user => {
-        setCookie("token", user?.token ?? "");
+        setUserToken(user?.token ?? "");
         delete user["token"];
         setUser(user);
         reset();

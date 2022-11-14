@@ -25,10 +25,8 @@ const Sidebar: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
   const [openList, setOpenList] = useState(true);
-  const { setSignInStep, setUser, user } = useAuth();
+  const { setSignInStep, setUser } = useAuth();
   const { mutateAsync, reset } = useLogout();
-
-  console.log(user);
 
   const handleClick = (idx: number) => {
     setOpenList(!openList);
@@ -42,6 +40,7 @@ const Sidebar: React.FC<Props> = props => {
       setUser(undefined);
       setCookie("token", "");
       navigate(NO_AUTH_PATH);
+      document.location.reload();
     } catch (error) {
       console.warn(error);
     }
