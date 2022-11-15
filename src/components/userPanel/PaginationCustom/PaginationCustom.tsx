@@ -64,10 +64,9 @@ const PaginationCustom: React.FC<Props> = props => {
     }`;
 
   return (
-    <Styles className="PaginationCustom">
+    <Styles className="Pagination">
       <div className="Pagination__container">
         <p className="Pagination__text">{renderLegend}</p>
-
         <div className="Pagination__container--pagination">
           <button
             className={buttonClass(disabledLesser)}
