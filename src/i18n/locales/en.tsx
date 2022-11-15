@@ -92,7 +92,8 @@ const en = {
   signIn: {
     SignInFormUser: {
       title: "Welcome",
-      subtitle: "We need to identify you in order to continue",
+      subtitle:
+        "We send a code according to the selected method, enter it below to continue:",
       titleAlt: "Enter the received code",
       subtitleAlt: "We send a code according to the selected method.",
       subtitleAltTwo: "Enter it below to continue:",

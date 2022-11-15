@@ -5,6 +5,10 @@ import { SignInValidateStyledProps as Props } from "./SignInValidate.types";
 const SignInValidateStyled = styled.div<Props>`
   .SignInValidate {
     &__container {
+      &--button {
+        padding: 1rem 0;
+      }
+
       &__input {
         outline: 0.1rem solid var(--palette-skyBlue);
         appearance: none;

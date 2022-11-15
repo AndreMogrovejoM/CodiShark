@@ -12,7 +12,7 @@ const IndicatorsStyled = styled.div<Props>`
   .Indicators {
     &__title {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 2.4rem;
     }
 
