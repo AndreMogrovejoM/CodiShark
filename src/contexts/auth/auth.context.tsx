@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useEffect } from "react";
 import { useMemo, useState } from "react";
 import { SignInMethod } from "services/auth/auth.service.types";
 import { User } from "types/user.types";
@@ -15,14 +15,12 @@ const AuthProvider: React.FC<Props> = props => {
   const [user, setUser] = useState<User>();
   const [signInMethod, setSignInMethod] = useState<SignInMethod>("SMS");
 
-  // useEffect(() => {
-  //   if (user) {
-  //     setIsAnonymous(false);
-  //   }
-  //   return () => {
-  //     setIsAnonymous(true);
-  //   };
-  // }, [user]);
+  useEffect(() => {
+    const localUser = window.localStorage.getItem("user");
+    if (localUser) {
+      setUser(JSON.parse(localUser));
+    }
+  }, []);
 
   const value: AuthProviderValue = useMemo(() => {
     return {
