@@ -1,9 +1,12 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PaginationCustomStyledProps as Props } from "./PaginationCustom.types";
 
+const { BREAKPOINTS } = CONSTANTS;
+
 const PaginationCustomStyled = styled.div<Props>`
-  .PaginationCustom {
+  .Pagination {
     background-color: var(--palette-greyBackground);
     padding: 0.8rem 0;
 
@@ -15,6 +18,11 @@ const PaginationCustomStyled = styled.div<Props>`
         display: flex;
         justify-content: space-between;
         gap: 2.4rem;
+
+        @media screen and (max-width: ${BREAKPOINTS.mobile}px) {
+          width: 100%;
+          justify-content: space-evenly;
+        }
       }
 
       &--numbers {
@@ -37,6 +45,10 @@ const PaginationCustomStyled = styled.div<Props>`
       line-height: 1.4rem;
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: ${BREAKPOINTS.mobile}px) {
+        display: none;
+      }
 
       &--bold {
         font-weight: 800;

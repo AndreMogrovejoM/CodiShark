@@ -16,6 +16,7 @@ const LayoutContainerStyled = styled.div<Props>`
       top: 0;
       margin-left: 20.4rem;
       position: absolute;
+      background-color: var(--palette-greyBackground);
 
       @media screen and (max-width: 1024px) {
         padding: 2.4rem 0rem;

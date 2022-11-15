@@ -27,7 +27,7 @@ const PaymentTable: React.FC<Props> = props => {
       name: t.name,
       selector: row => row.user.first_name ?? "",
       sortable: true,
-      maxWidth: "600px", // when using custom you should use width or maxWidth, otherwise, the table will default to flex grow behavior
+
       cell: row => (
         <Row
           content={`${row.user.first_name} ${row.user.last_name}`}

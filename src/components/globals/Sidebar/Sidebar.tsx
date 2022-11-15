@@ -18,7 +18,7 @@ import { useLogout } from "services/auth/auth.service.hooks";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
-const { NO_AUTH_PATH } = CONSTANTS.ROUTES;
+const { NO_AUTH_PATH, USER_PANEL } = CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
@@ -46,11 +46,19 @@ const Sidebar: React.FC<Props> = props => {
     }
   };
 
-  const renderItem = (idx: number, text: string, subItems?: string[]) => {
+  const renderItem = (
+    idx: number,
+    text: string,
+    url: string,
+    subItems?: string[]
+  ) => {
     return (
       <>
         <ListItemButton
-          onClick={() => handleClick(idx)}
+          onClick={() => {
+            navigate(url);
+            handleClick(idx);
+          }}
           sx={{ padding: "1.2rem 2.4rem" }}
         >
           <ListItemIcon>
@@ -150,8 +158,8 @@ const Sidebar: React.FC<Props> = props => {
               </div>
             }
           ></List>
-          {renderItem(0, t.start)}
-          {renderItem(0, t.myPayments)}
+          {renderItem(0, t.start, USER_PANEL)}
+          {renderItem(0, t.myPayments, USER_PANEL)}
           <div className="Sidebar__divider" />
           {renderLogout()}
         </List>

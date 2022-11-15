@@ -9,7 +9,7 @@ export const fieldMaxLength = 50;
 export const passwordMinLength = 8;
 export const minInputsCode = 6;
 export const voidValue = 0;
-export const paginationPerPage = 7;
+export const paginationPerPage = 10;
 export const paginationRowsPerPageOptions = [7, 14, 21, 28, 35];
 
 export const requiredField = () => {
