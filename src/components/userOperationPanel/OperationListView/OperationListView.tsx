@@ -5,8 +5,8 @@ import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React from "react";
-import { exportUsersExcel } from "services/administrator/administrator.service";
-import { exportUsersPdf } from "services/administrator/administrator.service";
+import { exportOperationsExcel } from "services/administrator/administrator.service";
+import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 
 import PaymentTable from "../PaymentTable/PaymentTable";
@@ -24,7 +24,7 @@ const OperationListView: React.FC<Props> = props => {
 
   const handlePDF = async () => {
     try {
-      const response = await exportUsersPdf();
+      const response = await exportOperationsPdf();
       FileDownload(response, "report.pdf");
     } catch (error) {
       console.log("Error at trying to print pdf");
@@ -33,7 +33,7 @@ const OperationListView: React.FC<Props> = props => {
 
   const handleExcel = async () => {
     try {
-      const response = await exportUsersExcel();
+      const response = await exportOperationsExcel();
       FileDownload(response, "report.csv");
     } catch (error) {
       console.log("Error at trying to print excel");

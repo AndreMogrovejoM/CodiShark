@@ -78,7 +78,7 @@ const PaymentListViewStyled = styled.div<Props>`
       &--button {
         font-weight: 800;
         font-size: 1rem;
-        line-height: 1.4rem;
+        line-height: 1.6rem;
         border-radius: 0.8rem;
       }
 
