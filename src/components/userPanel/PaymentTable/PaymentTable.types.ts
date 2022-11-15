@@ -1,5 +1,7 @@
 // Interfaces and types from component PaymentTable
 
+import { TableColumn } from "react-data-table-component";
+
 export interface NumbersComponentProps {
   key: number;
   value: number;
@@ -26,8 +28,8 @@ export interface PaginationInterface {
 
 // Component Props
 export interface PaymentTableProps {
-  // TODO: tipear
   data: any[];
+  columns: TableColumn<any>[];
 }
 
 // Styled Component Props

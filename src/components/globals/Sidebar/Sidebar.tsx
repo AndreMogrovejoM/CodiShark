@@ -39,6 +39,7 @@ const Sidebar: React.FC<Props> = props => {
       mutateAsync();
       reset();
       setSignInStep(0);
+      window.localStorage.setItem("user", "");
       setUser(undefined);
       setCookie("token", "");
       navigate(NO_AUTH_PATH);
