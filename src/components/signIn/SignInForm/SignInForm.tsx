@@ -1,4 +1,6 @@
 import { Box, Grid, InputAdornment } from "@mui/material";
+import iconAlert from "assets/images/iconAlertSignIn.svg";
+import iconPerson from "assets/images/iconUserAdministrator.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useAuth from "contexts/auth/auth.hooks";
@@ -12,8 +14,6 @@ import { validLoginUser } from "utils/validations.utils";
 import Styles from "./SignInForm.styles";
 import { SignInFormProps as Props } from "./SignInForm.types";
 
-import iconAlert from "../../../assets/images/iconAlertSignIn.svg";
-import iconPerson from "../../../assets/images/iconUserAdministrator.svg";
 
 const SignInForm: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormUser;
