@@ -49,6 +49,14 @@ const en = {
           state: "State",
           action: ""
         },
+        TableHeader2: {
+          name: "Name",
+          capitalDebt: "Capital debt",
+          interests: "Interests",
+          bills: "Bills",
+          punishmentDate: "Punishment date",
+          action: ""
+        },
         TableRows: {
           pay: "Payout",
           pending: "Pending"

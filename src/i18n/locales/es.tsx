@@ -48,6 +48,14 @@ const es: Dictionary = {
           state: "Estado",
           action: ""
         },
+        TableHeader2: {
+          name: "Nombre",
+          capitalDebt: "Deuda de capital",
+          interests: "Intereses",
+          bills: "Cuentas",
+          punishmentDate: "Fecha de castigo",
+          action: ""
+        },
         TableRows: {
           pay: "Pagado",
           pending: "Pendiente"
@@ -75,20 +83,20 @@ const es: Dictionary = {
       accessing: "Estás accediendo como"
     },
     UserPayPanel: {
-      title: "Listado de pagos",
-      buttonExcel: "Excel",
-      buttonPdf: "Pdf",
-      buttonPrint: "Imprimir",
-      titleDetails: "Detalles del pago",
-      paragraphDetails: "Seleccione un pago para ver los detalles"
-    },
-    UserOperationPanel: {
       title: "Listado de clientes",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
       buttonPrint: "Imprimir",
       titleDetails: "Detalles del cliente",
       paragraphDetails: "Seleccione un cliente para ver los detalles"
+    },
+    UserOperationPanel: {
+      title: "Listado de pagos",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del pago",
+      paragraphDetails: "Seleccione un pago para ver los detalles"
     }
   },
   chart: {

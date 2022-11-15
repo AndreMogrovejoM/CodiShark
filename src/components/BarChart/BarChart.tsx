@@ -40,6 +40,16 @@ const BarChart: React.FC<Props> = props => {
         backgroundColor: palette.primary
       }
     ]
+    // datasets: [
+    //   {
+    //     data: labels.map(() => genRandomNumber(0, 1000)),
+    //     backgroundColor: palette.primary
+    //   },
+    //   {
+    //     data: labels.map(() => genRandomNumber(0, 1000)),
+    //     backgroundColor: palette.limeGreen
+    //   }
+    // ]
   };
 
   return (

@@ -31,8 +31,8 @@ const Router: React.FC<Props> = props => {
             path="/signInAdministrator"
             element={<SignInAdministrator />}
           />
-          <Route path="/userPaymentList" element={<UserPanel />} />
-          <Route path="/userClientList" element={<UserOperationsPanel />} />
+          <Route path="/userPaymentList" element={<UserOperationsPanel />} />
+          <Route path="/userClientList" element={<UserPanel />} />
           <Route path="/administratorPanel" element={<AdministratorPanel />} />
           <Route path="/500" element={<FiverZeroZero />} />
           <Route path="*" element={<FourZeroFour />} />

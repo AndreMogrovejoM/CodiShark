@@ -5,7 +5,7 @@ import { FourZeroFourStyledProps as Props } from "./404.page.types";
 const FourZeroFourStyled = styled.div<Props>`
   max-width: var(--sizes-page-maxWidth);
   min-width: 100%;
-  min-height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 
@@ -14,11 +14,11 @@ const FourZeroFourStyled = styled.div<Props>`
     }
 
     &__main {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      height: 88%;
     }
 
     &__icon {

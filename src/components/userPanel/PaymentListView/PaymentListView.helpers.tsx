@@ -1,10 +1,11 @@
+import dayjs from "dayjs";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { User } from "types/user.types";
 
-import { Row, RowButton, RowChip } from "../PaymentTable/PaymentTable.helpers";
+import { Row, RowButton } from "../PaymentTable/PaymentTable.helpers";
 
-const t = getI18n().global.table.TablePaymentUser.TableHeader;
+const t = getI18n().global.table.TablePaymentUser.TableHeader2;
 
 export const columns: TableColumn<User>[] = [
   {
@@ -17,29 +18,31 @@ export const columns: TableColumn<User>[] = [
     )
   },
   {
-    name: t.date,
-    selector: row => row.first_name ?? "",
+    name: t.capitalDebt,
+    selector: row => row.capital_debt ?? "",
     wrap: true,
     sortable: true,
-    cell: row => <Row content={row.first_name ?? ""} />
+    cell: row => <Row content={row.capital_debt ?? ""} />
   },
   {
-    name: t.amount,
-    selector: row => row.first_name ?? 0,
+    name: t.interests,
+    selector: row => row.interests ?? 0,
     wrap: true,
     sortable: true,
-    cell: row => <Row content={row.first_name ?? 0} />
+    cell: row => <Row content={row.interests ?? 0} />
   },
   {
-    name: t.method,
-    selector: row => row.first_name ?? "",
-    cell: row => <Row content={row.first_name ?? ""} />
+    name: t.bills,
+    selector: row => row.bills ?? "",
+    cell: row => <Row content={row.bills ?? ""} />
   },
   {
-    name: t.state,
+    name: t.punishmentDate,
     button: true,
     cell: row => (
-      <RowChip conditional={row.first_name === "Pagado" ? true : false} />
+      <Row
+        content={dayjs(row.date_punishment).format("YY-MM-DD HH:mm a") ?? ""}
+      />
     )
   },
   {

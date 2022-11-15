@@ -1,4 +1,4 @@
-import UsersIcon from "assets/images/usersIcon.svg";
+import DetailsPay from "assets/images/detailsPay.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import PaymentTable from "components/userPanel/PaymentTable/PaymentTable";
@@ -80,7 +80,7 @@ const OperationListView: React.FC<Props> = props => {
       <div className="OperationListView__component--details">
         <div className="OperationListView__component--details-content">
           <img
-            src={UsersIcon}
+            src={DetailsPay}
             alt="logoKonecta"
             className="OperationListView__container--image"
           />

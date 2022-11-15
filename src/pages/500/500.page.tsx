@@ -1,4 +1,5 @@
 import { ReactComponent as FiveZeroZeroSVG } from "assets/500.svg";
+import Button from "components/globals/Button/Button";
 import CONSTANTS from "config/constants";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,9 +22,7 @@ const FiveZeroZero: React.FC<Props> = props => {
       <main className="FiveZeroZero__main">
         <div className="FiveZeroZero__wrapper">
           <FiveZeroZeroSVG className="FiveZeroZero__icon" />
-          <button className="FiveZeroZero__cta" onClick={reload}>
-            Recargar
-          </button>
+          <Button onClick={reload}>Recargar</Button>
         </div>
       </main>
       <footer className="FiveZeroZero__footer" />

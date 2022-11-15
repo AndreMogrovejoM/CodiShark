@@ -1,4 +1,4 @@
-import DetailsPay from "assets/images/detailsPay.svg";
+import UsersIcon from "assets/images/usersIcon.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -80,7 +80,7 @@ const PaymentListView: React.FC<Props> = props => {
       <div className="PaymentListView__component--details">
         <div className="PaymentListView__component--details-content">
           <img
-            src={DetailsPay}
+            src={UsersIcon}
             alt="logoKonecta"
             className="PaymentListView__container--image"
           />
