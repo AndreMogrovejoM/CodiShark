@@ -65,8 +65,8 @@ const SignInValidate: React.FC<Props> = props => {
             label={field.label}
             labelExtension={
               field.value === "SMS"
-                ? ` *** *** ${phone?.slice(phone?.length - 3)}`
-                : ` ********${email?.slice(email?.length - 15)}`
+                ? ` *** *** ${phone?.slice(phone?.length - 3) ?? ""}`
+                : ` ********${email?.slice(email?.length - 15) ?? ""}`
             }
           />
         ))}

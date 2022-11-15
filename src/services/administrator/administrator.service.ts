@@ -3,6 +3,7 @@
 import CONSTANTS from "config/constants";
 import axiosDefault from "utils/axios.utils";
 
+import { GraphicsResponse } from "./administrator.service.types";
 import { Status, UsersListResponse } from "./administrator.service.types";
 import { OperationListResponse } from "./administrator.service.types";
 import { SecondPanelPayload } from "./administrator.service.types";
@@ -61,6 +62,75 @@ export const fetchAdministratorOperations = async (
     : `${REACT_APP_API_URL}/admin/operations?take=${take}`;
   try {
     const response = await axiosDefault.get(url);
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const fetchAdministratorGraphics = async (
+  year: string
+): Promise<GraphicsResponse> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/home/grafic/income?year=${year}`
+    );
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const exportUsersPdf = async (): Promise<File> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/export/users/pdf`,
+      {
+        responseType: "blob"
+      }
+    );
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const exportUsersExcel = async (): Promise<File> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/export/users/excel`,
+      {
+        responseType: "blob"
+      }
+    );
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const exportOperationsPdf = async (): Promise<File> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/export/operations/pdf`,
+      {
+        responseType: "blob"
+      }
+    );
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const exportOperationsExcel = async (): Promise<File> => {
+  try {
+    const response = await axiosDefault.get(
+      `${REACT_APP_API_URL}/admin/export/operations/excel`,
+      {
+        responseType: "blob"
+      }
+    );
     return response?.data;
   } catch (e: any) {
     throw new Error(e.message);
