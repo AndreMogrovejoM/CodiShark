@@ -14,7 +14,6 @@ import { validLoginUser } from "utils/validations.utils";
 import Styles from "./SignInForm.styles";
 import { SignInFormProps as Props } from "./SignInForm.types";
 
-
 const SignInForm: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormUser;
   const [dniField, codeField, dateField] = validLoginUser();

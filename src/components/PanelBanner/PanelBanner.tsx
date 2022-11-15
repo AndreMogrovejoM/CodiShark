@@ -19,7 +19,7 @@ const PanelBanner: React.FC<Props> = props => {
     <>
       <h2 className="PanelBanner__title">
         {t.greetings}
-        {`${first_name ?? ""}`}
+        {` ${first_name ?? ""}`}
       </h2>
       <h4 className="PanelBanner__subtitle">{t.activity}</h4>
     </>
