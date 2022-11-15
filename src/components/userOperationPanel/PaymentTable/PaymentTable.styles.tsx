@@ -11,6 +11,7 @@ const PaymentTableStyled = styled.div<Props>`
         display: flex;
         align-items: center;
         color: var(--palette-white);
+        cursor: pointer;
 
         &-icon {
           font-size: 1.6rem;
