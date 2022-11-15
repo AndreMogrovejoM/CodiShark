@@ -98,6 +98,7 @@ const OperationListViewStyled = styled.div<Props>`
         font-weight: 800;
         font-size: 1.6rem;
         line-height: 2.4rem;
+        text-transform: unset;
       }
 
       &--subtitle {

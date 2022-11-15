@@ -2,6 +2,7 @@ import DetailsPay from "assets/images/detailsPay.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
+import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
@@ -15,6 +16,8 @@ import { PaymentListViewProps as Props } from "./PaymentListView.types";
 const PaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
   const { data: operationsList } = data ?? {};
+
+  const t = useI18n().pages.UserPayPanel;
 
   const { setIsLoading } = useGlobals();
   setIsLoading(isLoading);
@@ -45,21 +48,21 @@ const PaymentListView: React.FC<Props> = props => {
           className="PaymentListView__component--button"
           onClick={handlePDF}
         >
-          PDF
+          {t.buttonPdf}
         </Button>
         <Button
           variant="contained"
           className="PaymentListView__component--button"
           onClick={handleExcel}
         >
-          Excel
+          {t.buttonExcel}
         </Button>
         <Button
           variant="contained"
           className="PaymentListView__component--button"
           onClick={() => window.print()}
         >
-          Imprimir
+          {t.buttonPrint}
         </Button>
       </div>
 
@@ -70,7 +73,7 @@ const PaymentListView: React.FC<Props> = props => {
   const renderDetails = () => (
     <>
       <h2 className="PaymentListView__text--subtitle PaymentListView__container--separate">
-        Detalles del pago
+        {t.titleDetails}
       </h2>
 
       <div className="PaymentListView__component--details">
@@ -81,7 +84,7 @@ const PaymentListView: React.FC<Props> = props => {
             className="PaymentListView__container--image"
           />
           <p className="PaymentListView__text--paragraph">
-            Seleccione un pago para ver los detalles
+            {t.paragraphDetails}
           </p>
         </div>
       </div>
@@ -96,7 +99,7 @@ const PaymentListView: React.FC<Props> = props => {
     <Styles className={`PaymentListView `}>
       <div className="PaymentListView__container">
         <div className="PaymentListView__container--separate">
-          <h1 className="PaymentListView__text--title">Listado de pagos</h1>
+          <h1 className="PaymentListView__text--title">{t.title}</h1>
         </div>
 
         <div className="PaymentListView__container--layout">

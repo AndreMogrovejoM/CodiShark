@@ -1,7 +1,8 @@
-import DetailsPay from "assets/images/detailsPay.svg";
+import UsersIcon from "assets/images/usersIcon.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
+import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
@@ -15,6 +16,8 @@ import { OperationListViewProps as Props } from "./OperationListView.types";
 const OperationListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
   const { data: operationsList } = data ?? {};
+
+  const t = useI18n().pages.UserOperationPanel;
 
   const { setIsLoading } = useGlobals();
   setIsLoading(isLoading);
@@ -45,21 +48,21 @@ const OperationListView: React.FC<Props> = props => {
           className="OperationListView__component--button"
           onClick={handlePDF}
         >
-          PDF
+          {t.buttonPdf}
         </Button>
         <Button
           variant="contained"
           className="OperationListView__component--button"
           onClick={handleExcel}
         >
-          Excel
+          {t.buttonExcel}
         </Button>
         <Button
           variant="contained"
           className="OperationListView__component--button"
           onClick={() => window.print()}
         >
-          Imprimir
+          {t.buttonPrint}
         </Button>
       </div>
 
@@ -70,18 +73,18 @@ const OperationListView: React.FC<Props> = props => {
   const renderDetails = () => (
     <>
       <h2 className="OperationListView__text--subtitle OperationListView__container--separate">
-        Detalles del pago
+        {t.titleDetails}
       </h2>
 
       <div className="OperationListView__component--details">
         <div className="OperationListView__component--details-content">
           <img
-            src={DetailsPay}
+            src={UsersIcon}
             alt="logoKonecta"
             className="OperationListView__container--image"
           />
           <p className="OperationListView__text--paragraph">
-            Seleccione un pago para ver los detalles
+            {t.paragraphDetails}
           </p>
         </div>
       </div>
@@ -96,9 +99,7 @@ const OperationListView: React.FC<Props> = props => {
     <Styles className={`OperationListView `}>
       <div className="OperationListView__container">
         <div className="OperationListView__container--separate">
-          <h1 className="OperationListView__text--title">
-            Listado de operaciones
-          </h1>
+          <h1 className="OperationListView__text--title">{t.title}</h1>
         </div>
 
         <div className="OperationListView__container--layout">
