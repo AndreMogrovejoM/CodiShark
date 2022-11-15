@@ -14,7 +14,8 @@ const CONSTANTS = {
     // Router where the user will land if not authenticated
     NO_AUTH_PATH: "/signin",
     // admin panel
-    USER_PANEL: "/userPanel"
+    USER_PAY_PANEL: "/userPanel",
+    USER_OPERATION_PANEL: "/userOperationPage"
   },
   API: {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
