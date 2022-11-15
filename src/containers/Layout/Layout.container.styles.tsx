@@ -11,7 +11,7 @@ const LayoutContainerStyled = styled.div<Props>`
   .LayoutContainer {
     &__children {
       width: calc(100% - 20.4rem);
-      height: 100%;
+      height: 100vh;
       padding: 2.4rem;
       top: 0;
       margin-left: 20.4rem;

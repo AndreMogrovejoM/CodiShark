@@ -1,10 +1,20 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PaymentListViewStyledProps as Props } from "./PaymentListView.types";
 
+const { BREAKPOINTS } = CONSTANTS;
+
 const PaymentListViewStyled = styled.div<Props>`
   .PaymentListView {
     &__container {
+      margin: auto 2.4rem;
+      height: 100vh;
+
+      @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+        margin: auto;
+      }
+
       &--actions {
         display: flex;
         justify-content: space-between;
@@ -30,15 +40,37 @@ const PaymentListViewStyled = styled.div<Props>`
 
       &--layout {
         display: flex;
-        gap: 0.8rem;
+        gap: 1.6rem;
+        flex-flow: row wrap;
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          gap: 2%;
+        }
       }
 
       &--details {
-        min-width: 32rem;
+        min-width: 28rem;
         width: 100%;
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          width: 38%;
+        }
+
+        @media screen and (min-width: ${BREAKPOINTS.wide}px) {
+          width: 28%;
+        }
       }
 
       &--table {
+        width: 100%;
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          min-width: 46rem;
+          width: 60%;
+        }
+
+        @media screen and (min-width: ${BREAKPOINTS.wide}px) {
+          width: 70%;
+        }
       }
     }
 
