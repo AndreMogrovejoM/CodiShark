@@ -93,19 +93,21 @@ const PaymentListView: React.FC<Props> = props => {
   const renderTable = () => <PaymentTable data={operationsList} />;
 
   return (
-    <Styles className={`PaymentListView`}>
-      <div className="PaymentListView__container--separate">
-        <h1 className="PaymentListView__text--title">Listado de pagos</h1>
-      </div>
-
-      <div className="PaymentListView__container--layout">
-        <div className="PaymentListView__container--table">
-          {renderActions()}
-          {renderTable()}
+    <Styles className={`PaymentListView `}>
+      <div className="PaymentListView__container">
+        <div className="PaymentListView__container--separate">
+          <h1 className="PaymentListView__text--title">Listado de pagos</h1>
         </div>
 
-        <div className="PaymentListView__container--details">
-          {renderDetails()}
+        <div className="PaymentListView__container--layout">
+          <div className="PaymentListView__container--table">
+            {renderActions()}
+            {renderTable()}
+          </div>
+
+          <div className="PaymentListView__container--details">
+            {renderDetails()}
+          </div>
         </div>
       </div>
     </Styles>
