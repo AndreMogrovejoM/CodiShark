@@ -1,6 +1,7 @@
 import UsersIcon from "assets/images/usersIcon.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
+import PaymentTable from "components/userPanel/PaymentTable/PaymentTable";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
@@ -9,7 +10,7 @@ import { exportOperationsExcel } from "services/administrator/administrator.serv
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 
-import PaymentTable from "../PaymentTable/PaymentTable";
+import { columns } from "./OperationListView.helpers";
 import Styles from "./OperationListView.styles";
 import { OperationListViewProps as Props } from "./OperationListView.types";
 
@@ -93,7 +94,9 @@ const OperationListView: React.FC<Props> = props => {
 
   if (!operationsList) return null;
 
-  const renderTable = () => <PaymentTable data={operationsList} />;
+  const renderTable = () => (
+    <PaymentTable data={operationsList} columns={columns} />
+  );
 
   return (
     <Styles className={`OperationListView `}>

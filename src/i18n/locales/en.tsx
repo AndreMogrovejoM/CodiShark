@@ -84,7 +84,7 @@ const en = {
       paragraphDetails: "Select a payment to view details"
     },
     UserOperationPanel: {
-      title: "List of payments",
+      title: "List of clients",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
       buttonPrint: "Print",

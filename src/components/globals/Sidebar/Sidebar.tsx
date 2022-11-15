@@ -18,7 +18,7 @@ import { useLogout } from "services/auth/auth.service.hooks";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
-const { NO_AUTH_PATH, USER_PAY_PANEL, ADMIN_ENTRY_PATH, USER_OPERATION_PANEL } =
+const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH, USER_CLIENT_LIST } =
   CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
@@ -39,6 +39,7 @@ const Sidebar: React.FC<Props> = props => {
       mutateAsync();
       reset();
       setSignInStep(0);
+      window.localStorage.setItem("user", "");
       setUser(undefined);
       setCookie("token", "");
       navigate(NO_AUTH_PATH);
@@ -162,8 +163,8 @@ const Sidebar: React.FC<Props> = props => {
             }
           ></List>
           {renderItem(0, t.start, ADMIN_ENTRY_PATH)}
-          {renderItem(0, t.myPayments, USER_PAY_PANEL)}
-          {renderItem(0, t.myClients, USER_OPERATION_PANEL)}
+          {renderItem(0, t.myPayments, USER_PAYMENT_LIST)}
+          {renderItem(0, t.myClients, USER_CLIENT_LIST)}
           <div className="Sidebar__divider" />
           {renderLogout()}
         </List>

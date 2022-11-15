@@ -4,6 +4,6 @@ import PaymentTable from "./PaymentTable";
 
 describe("PaymentTable", () => {
   it("renders with default props", () => {
-    render(<PaymentTable data={[]} />);
+    render(<PaymentTable data={[]} columns={[]} />);
   });
 });

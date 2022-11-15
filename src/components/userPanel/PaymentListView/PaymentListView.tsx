@@ -7,15 +7,16 @@ import FileDownload from "js-file-download";
 import React from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
 import { exportUsersPdf } from "services/administrator/administrator.service";
-import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
+import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
 
 import PaymentTable from "../PaymentTable/PaymentTable";
+import { columns } from "./PaymentListView.helpers";
 import Styles from "./PaymentListView.styles";
 import { PaymentListViewProps as Props } from "./PaymentListView.types";
 
 const PaymentListView: React.FC<Props> = props => {
-  const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
-  const { data: operationsList } = data ?? {};
+  const { data, isLoading } = useFetchAdministratorUsers(1, 50);
+  const { data: usersList } = data ?? {};
 
   const t = useI18n().pages.UserPayPanel;
 
@@ -91,9 +92,9 @@ const PaymentListView: React.FC<Props> = props => {
     </>
   );
 
-  if (!operationsList) return null;
+  if (!usersList) return null;
 
-  const renderTable = () => <PaymentTable data={operationsList} />;
+  const renderTable = () => <PaymentTable data={usersList} columns={columns} />;
 
   return (
     <Styles className={`PaymentListView `}>
