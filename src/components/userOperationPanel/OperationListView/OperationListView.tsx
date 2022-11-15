@@ -1,30 +1,30 @@
-import DetailsPay from "assets/images/detailsPay.svg";
+import UsersIcon from "assets/images/usersIcon.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React from "react";
-import { exportUsersExcel } from "services/administrator/administrator.service";
-import { exportUsersPdf } from "services/administrator/administrator.service";
+import { exportOperationsExcel } from "services/administrator/administrator.service";
+import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 
 import PaymentTable from "../PaymentTable/PaymentTable";
-import Styles from "./PaymentListView.styles";
-import { PaymentListViewProps as Props } from "./PaymentListView.types";
+import Styles from "./OperationListView.styles";
+import { OperationListViewProps as Props } from "./OperationListView.types";
 
-const PaymentListView: React.FC<Props> = props => {
+const OperationListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
   const { data: operationsList } = data ?? {};
 
-  const t = useI18n().pages.UserPayPanel;
+  const t = useI18n().pages.UserOperationPanel;
 
   const { setIsLoading } = useGlobals();
   setIsLoading(isLoading);
 
   const handlePDF = async () => {
     try {
-      const response = await exportUsersPdf();
+      const response = await exportOperationsPdf();
       FileDownload(response, "report.pdf");
     } catch (error) {
       console.log("Error at trying to print pdf");
@@ -33,7 +33,7 @@ const PaymentListView: React.FC<Props> = props => {
 
   const handleExcel = async () => {
     try {
-      const response = await exportUsersExcel();
+      const response = await exportOperationsExcel();
       FileDownload(response, "report.csv");
     } catch (error) {
       console.log("Error at trying to print excel");
@@ -41,25 +41,25 @@ const PaymentListView: React.FC<Props> = props => {
   };
 
   const renderActions = () => (
-    <div className="PaymentListView__container--actions PaymentListView__container--separate">
-      <div className="PaymentListView__container--button">
+    <div className="OperationListView__container--actions OperationListView__container--separate">
+      <div className="OperationListView__container--button">
         <Button
           variant="contained"
-          className="PaymentListView__component--button"
+          className="OperationListView__component--button"
           onClick={handlePDF}
         >
           {t.buttonPdf}
         </Button>
         <Button
           variant="contained"
-          className="PaymentListView__component--button"
+          className="OperationListView__component--button"
           onClick={handleExcel}
         >
           {t.buttonExcel}
         </Button>
         <Button
           variant="contained"
-          className="PaymentListView__component--button"
+          className="OperationListView__component--button"
           onClick={() => window.print()}
         >
           {t.buttonPrint}
@@ -72,18 +72,18 @@ const PaymentListView: React.FC<Props> = props => {
 
   const renderDetails = () => (
     <>
-      <h2 className="PaymentListView__text--subtitle PaymentListView__container--separate">
+      <h2 className="OperationListView__text--subtitle OperationListView__container--separate">
         {t.titleDetails}
       </h2>
 
-      <div className="PaymentListView__component--details">
-        <div className="PaymentListView__component--details-content">
+      <div className="OperationListView__component--details">
+        <div className="OperationListView__component--details-content">
           <img
-            src={DetailsPay}
+            src={UsersIcon}
             alt="logoKonecta"
-            className="PaymentListView__container--image"
+            className="OperationListView__container--image"
           />
-          <p className="PaymentListView__text--paragraph">
+          <p className="OperationListView__text--paragraph">
             {t.paragraphDetails}
           </p>
         </div>
@@ -96,19 +96,19 @@ const PaymentListView: React.FC<Props> = props => {
   const renderTable = () => <PaymentTable data={operationsList} />;
 
   return (
-    <Styles className={`PaymentListView `}>
-      <div className="PaymentListView__container">
-        <div className="PaymentListView__container--separate">
-          <h1 className="PaymentListView__text--title">{t.title}</h1>
+    <Styles className={`OperationListView `}>
+      <div className="OperationListView__container">
+        <div className="OperationListView__container--separate">
+          <h1 className="OperationListView__text--title">{t.title}</h1>
         </div>
 
-        <div className="PaymentListView__container--layout">
-          <div className="PaymentListView__container--table">
+        <div className="OperationListView__container--layout">
+          <div className="OperationListView__container--table">
             {renderActions()}
             {renderTable()}
           </div>
 
-          <div className="PaymentListView__container--details">
+          <div className="OperationListView__container--details">
             {renderDetails()}
           </div>
         </div>
@@ -117,6 +117,6 @@ const PaymentListView: React.FC<Props> = props => {
   );
 };
 
-PaymentListView.defaultProps = {};
+OperationListView.defaultProps = {};
 
-export default PaymentListView;
+export default OperationListView;

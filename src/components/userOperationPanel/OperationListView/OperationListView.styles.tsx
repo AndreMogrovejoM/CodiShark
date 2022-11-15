@@ -1,12 +1,12 @@
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
-import { PaymentListViewStyledProps as Props } from "./PaymentListView.types";
+import { OperationListViewStyledProps as Props } from "./OperationListView.types";
 
 const { BREAKPOINTS } = CONSTANTS;
 
-const PaymentListViewStyled = styled.div<Props>`
-  .PaymentListView {
+const OperationListViewStyled = styled.div<Props>`
+  .OperationListView {
     &__container {
       margin: auto 2.4rem;
       height: 100vh;
@@ -116,4 +116,4 @@ const PaymentListViewStyled = styled.div<Props>`
   }
 `;
 
-export default PaymentListViewStyled;
+export default OperationListViewStyled;

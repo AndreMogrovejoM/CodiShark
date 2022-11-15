@@ -63,7 +63,8 @@ const es: Dictionary = {
       user: "Configuraciones de usuario",
       signOut: "Cerrar Sesión"
     },
-    select: "Seleccionar"
+    select: "Seleccionar",
+    inputSearch: "Buscar"
   },
   home: {},
   pages: {
@@ -71,6 +72,22 @@ const es: Dictionary = {
       title: "Necesitas accesos",
       subtitle: "Solicita acceso o usa una cuenta que te permita acceder.",
       accessing: "Estás accediendo como"
+    },
+    UserPayPanel: {
+      title: "Listado de pagos",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del pago",
+      paragraphDetails: "Seleccione un pago para ver los detalles"
+    },
+    UserOperationPanel: {
+      title: "Listado de pagos",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del cliente",
+      paragraphDetails: "Seleccione un cliente para ver los detalles"
     }
   },
   chart: {
@@ -174,6 +191,7 @@ const es: Dictionary = {
       calls: "Solicitudes de llamadas"
     }
   },
+
   utils: {
     validations: {
       fieldRequired: "Este campo es requerido",

@@ -64,7 +64,8 @@ const en = {
       user: "User settings",
       signOut: "Sign out"
     },
-    select: "Select"
+    select: "Select",
+    inputSearch: "Search"
   },
   home: {},
   pages: {
@@ -72,6 +73,22 @@ const en = {
       title: "You need access",
       subtitle: "Request access or use an account that allows you to access.",
       accessing: "You are accessing as"
+    },
+    UserPayPanel: {
+      title: "List of payments",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Print",
+      titleDetails: "Payment details",
+      paragraphDetails: "Select a payment to view details"
+    },
+    UserOperationPanel: {
+      title: "List of payments",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Print",
+      titleDetails: "Customer details",
+      paragraphDetails: "Select a customer to view details"
     }
   },
   chart: {
