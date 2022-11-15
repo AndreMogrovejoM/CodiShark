@@ -71,18 +71,17 @@ const SignInValidate: React.FC<Props> = props => {
           />
         ))}
       </div>
-      <div className="SignInForm__container--button">
-        <Button
-          type="submit"
-          variant="contained"
-          size="large"
-          color="info"
-          fullWidth
-          disabled={isLoading}
-        >
-          {t.button}
-        </Button>
-      </div>
+      <Button
+        type="submit"
+        variant="contained"
+        size="large"
+        color="info"
+        fullWidth
+        disabled={isLoading}
+        className="SignInValidate__container--button"
+      >
+        {t.button}
+      </Button>
     </form>
   );
 

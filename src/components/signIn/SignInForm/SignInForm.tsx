@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, InputAdornment } from "@mui/material";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useAuth from "contexts/auth/auth.hooks";
@@ -11,6 +11,9 @@ import { validLoginUser } from "utils/validations.utils";
 
 import Styles from "./SignInForm.styles";
 import { SignInFormProps as Props } from "./SignInForm.types";
+
+import iconAlert from "../../../assets/images/iconAlertSignIn.svg";
+import iconPerson from "../../../assets/images/iconUserAdministrator.svg";
 
 const SignInForm: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormUser;
@@ -59,7 +62,18 @@ const SignInForm: React.FC<Props> = props => {
                     margin: "dense",
                     fullWidth: true,
                     focused: true,
-                    maxLength: dniField?.maxLength
+                    maxLength: dniField?.maxLength,
+                    InputProps: {
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <img
+                            className="SignInForm__icon"
+                            src={iconPerson}
+                            alt="iconPerson"
+                          />
+                        </InputAdornment>
+                      )
+                    }
                   }}
                 />
               )}
@@ -82,7 +96,18 @@ const SignInForm: React.FC<Props> = props => {
                     margin: "dense",
                     fullWidth: true,
                     focused: true,
-                    maxLength: codeField?.maxLength
+                    maxLength: codeField?.maxLength,
+                    InputProps: {
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <img
+                            className="SignInForm__icon"
+                            src={iconAlert}
+                            alt="iconAlert"
+                          />
+                        </InputAdornment>
+                      )
+                    }
                   }}
                 />
               )}
@@ -112,7 +137,7 @@ const SignInForm: React.FC<Props> = props => {
             />
           </Grid>
         </Grid>
-        <Box className="SignInForm__container--button">
+        <Box>
           <Button
             type="submit"
             variant="contained"
@@ -120,6 +145,7 @@ const SignInForm: React.FC<Props> = props => {
             color="info"
             fullWidth
             disabled={isLoading}
+            className="SignInForm__container--button"
           >
             {t.button}
           </Button>

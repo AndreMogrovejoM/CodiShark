@@ -86,18 +86,17 @@ const SignInCode: React.FC<Props> = props => {
           ({formatMillisecondsToSeconds(timeLeft / 1000)})
         </p>
       </div>
-      <div className="SignInCode__container--button">
-        <Button
-          variant="contained"
-          size="large"
-          color="info"
-          fullWidth
-          onClick={submitHandler}
-          disabled={isLoading}
-        >
-          {t.button}
-        </Button>
-      </div>
+      <Button
+        variant="contained"
+        size="large"
+        color="info"
+        fullWidth
+        onClick={submitHandler}
+        disabled={isLoading}
+        className="SignInCode__container--button"
+      >
+        {t.button}
+      </Button>
       <div className="SignInCode__container--text">
         <p className="SignInCode__text">
           {t.question}

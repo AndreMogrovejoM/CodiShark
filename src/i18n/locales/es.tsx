@@ -109,7 +109,8 @@ const es: Dictionary = {
   signIn: {
     SignInFormUser: {
       title: "Bienvenido(a)",
-      subtitle: "Necesitamos identificarte para poder continuar",
+      subtitle:
+        "Enviamos un código según el método seleccionado, Ingréselo a continuación para continuar:",
       titleAlt: "Ingrese el código recibido",
       subtitleAlt: "Enviamos un código según el método seleccionado.",
       subtitleAltTwo: "Ingreselo a continuación para continuar:",
