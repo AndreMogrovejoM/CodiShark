@@ -14,7 +14,7 @@ export const getI18NHelper = <D extends Dictionary = Dictionary>(
     case "es":
       return es;
     default:
-      return en;
+      return es;
   }
 };
 

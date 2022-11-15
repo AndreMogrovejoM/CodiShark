@@ -26,8 +26,9 @@ const Sidebar: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
   const [openList, setOpenList] = useState(true);
-  const { setSignInStep, setUser } = useAuth();
+  const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useLogout();
+  const { first_name, last_name, mother_last_name } = user ?? {};
 
   const handleClick = (idx: number) => {
     setOpenList(!openList);
@@ -122,9 +123,10 @@ const Sidebar: React.FC<Props> = props => {
                 />
                 <div className="Sidebar__sectionContainer">
                   <img src={iconPersonSideBar} alt="iconPersonSideBar" />
-                  <h2>
-                    Armando <h4>Rodriguez Guerra</h4>{" "}
-                  </h2>
+                  <div>
+                    <h2>{first_name}</h2>
+                    <h4>{`${last_name} ${mother_last_name}`}</h4>
+                  </div>
                 </div>
               </div>
             </div>
