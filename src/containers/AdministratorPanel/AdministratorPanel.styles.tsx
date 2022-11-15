@@ -11,7 +11,7 @@ const AdministratorPanelStyled = styled.div<Props>`
 
   .AdministratorPanel {
     &__section1 {
-      width: 64%;
+      width: 68%;
 
       @media screen and (max-width: 1366px) {
         width: 88%;
@@ -20,6 +20,10 @@ const AdministratorPanelStyled = styled.div<Props>`
     }
 
     &__section2 {
+      margin-right: 2.6rem;
+      margin-left: 2.6rem;
+      width: 70;
+      justify-content: center;
       flex: 1;
       display: flex;
       flex-direction: column;

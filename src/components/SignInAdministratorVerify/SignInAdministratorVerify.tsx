@@ -41,6 +41,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         setUserToken(user?.token ?? "");
         delete user["token"];
         setUser(user);
+        window.localStorage.setItem("user", JSON.stringify(user));
         reset();
         setIsLoading(false);
         setSignInStep(0);

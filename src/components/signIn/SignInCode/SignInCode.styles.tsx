@@ -11,6 +11,7 @@ const SignInCodeStyled = styled.div<Props>`
       }
 
       &--button {
+        padding: 1rem 0;
         margin-bottom: 1.6rem;
       }
 

@@ -52,3 +52,8 @@ export interface OperationListResponse {
   take: number;
   data: Operation[];
 }
+
+export interface GraphicsResponse {
+  status: number;
+  months: Record<string, number>[];
+}

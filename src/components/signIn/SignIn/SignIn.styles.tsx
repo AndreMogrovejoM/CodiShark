@@ -1,10 +1,37 @@
-import BG_USER from "assets/images/loginImageUser.webp";
+import BG_USER from "assets/images/loginImageUser.jpg";
+import BG_USER_WEBP from "assets/images/loginImageUser.webp";
 import styled from "styled-components";
 
 import { SignInStyledProps as Props } from "./SignIn.types";
 
 const SignInStyled = styled.div<Props>`
   .SignIn {
+    &__renderList {
+      width: 48%;
+      margin-left: 4rem;
+      position: absolute;
+      top: calc(48% - 3.2rem);
+      color: var(--palette-white);
+
+      &--ul {
+        margin: 1.6rem 2.4rem;
+      }
+
+      &--h1 {
+        color: inherit;
+        font-weight: 700;
+        font-size: 2.6rem;
+        line-height: 3.2rem;
+      }
+
+      &--h2 {
+        color: inherit;
+        font-weight: 300;
+        font-size: 2rem;
+        line-height: 2.4rem;
+      }
+    }
+
     &__container {
       height: 100vh;
 
@@ -33,8 +60,8 @@ const SignInStyled = styled.div<Props>`
       &--form {
         margin-top: 6.4rem;
         margin-bottom: 6.4rem;
-        margin-left: 3.2rem;
-        margin-right: 3.2rem;
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
       }
     }
 
@@ -43,6 +70,8 @@ const SignInStyled = styled.div<Props>`
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      position: relative;
+      background-image: -webkit-image-set(url(${BG_USER_WEBP}));
     }
 
     &__title {

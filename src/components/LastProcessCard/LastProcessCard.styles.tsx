@@ -4,7 +4,7 @@ import { LastProcessCardStyledProps as Props } from "./LastProcessCard.types";
 
 const LastProcessCardStyled = styled.div<Props>`
   max-width: 40rem;
-  width: 88%;
+  width: 100%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 0.8rem;
@@ -24,7 +24,7 @@ const LastProcessCardStyled = styled.div<Props>`
     }
 
     &__subtitle {
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       line-height: 1.6rem;
 

@@ -18,15 +18,17 @@ import { useLogout } from "services/auth/auth.service.hooks";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
-const { NO_AUTH_PATH } = CONSTANTS.ROUTES;
+const { NO_AUTH_PATH, USER_PAY_PANEL, ADMIN_ENTRY_PATH, USER_OPERATION_PANEL } =
+  CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
   const [openList, setOpenList] = useState(true);
-  const { setSignInStep, setUser } = useAuth();
+  const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useLogout();
+  const { first_name, last_name, mother_last_name } = user ?? {};
 
   const handleClick = (idx: number) => {
     setOpenList(!openList);
@@ -46,11 +48,19 @@ const Sidebar: React.FC<Props> = props => {
     }
   };
 
-  const renderItem = (idx: number, text: string, subItems?: string[]) => {
+  const renderItem = (
+    idx: number,
+    text: string,
+    url: string,
+    subItems?: string[]
+  ) => {
     return (
       <>
         <ListItemButton
-          onClick={() => handleClick(idx)}
+          onClick={() => {
+            navigate(url);
+            handleClick(idx);
+          }}
           sx={{ padding: "1.2rem 2.4rem" }}
         >
           <ListItemIcon>
@@ -113,9 +123,10 @@ const Sidebar: React.FC<Props> = props => {
                 />
                 <div className="Sidebar__sectionContainer">
                   <img src={iconPersonSideBar} alt="iconPersonSideBar" />
-                  <h2>
-                    Armando <h4>Rodriguez Guerra</h4>{" "}
-                  </h2>
+                  <div>
+                    <h2>{first_name}</h2>
+                    <h4>{`${last_name} ${mother_last_name}`}</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -150,8 +161,9 @@ const Sidebar: React.FC<Props> = props => {
               </div>
             }
           ></List>
-          {renderItem(0, t.start)}
-          {renderItem(0, t.myPayments)}
+          {renderItem(0, t.start, ADMIN_ENTRY_PATH)}
+          {renderItem(0, t.myPayments, USER_PAY_PANEL)}
+          {renderItem(0, t.myClients, USER_OPERATION_PANEL)}
           <div className="Sidebar__divider" />
           {renderLogout()}
         </List>

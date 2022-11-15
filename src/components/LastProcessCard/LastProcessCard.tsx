@@ -13,18 +13,18 @@ const LastProcessCard: React.FC<Props> = props => {
   const { data } = useFetchAdministratorOperations(status);
   const { data: operationsList } = data ?? {};
 
-  const renderUser = (name: string) => {
+  const renderUser = (name: string, idx?: number) => {
     return (
-      <div className="LastProcessCard__sectionContainer">
+      <div className="LastProcessCard__sectionContainer" key={idx}>
         <img className="LastProcessCard__icon" src={iconCard} alt="iconCard" />
         <h2 className="LastProcessCard__name">{name?.slice(0, 24)}</h2>
       </div>
     );
   };
 
-  const renderDebt = (debt?: number) => {
+  const renderDebt = (debt?: number, idx?: number) => {
     return (
-      <div className="LastProcessCard__sectionContainer">
+      <div className="LastProcessCard__sectionContainer" key={idx}>
         <h3 className="LastProcessCard__debt">{`S/. ${debt ?? 0}`}</h3>
         <img
           className="LastProcessCard__iconDebt"
@@ -46,7 +46,8 @@ const LastProcessCard: React.FC<Props> = props => {
               const { user } = operation ?? {};
               const { first_name, last_name, mother_last_name } = user ?? {};
               return renderUser(
-                `${first_name} ${last_name} ${mother_last_name}`
+                `${first_name} ${last_name} ${mother_last_name}`,
+                idx
               );
             })}
           </div>
@@ -55,7 +56,7 @@ const LastProcessCard: React.FC<Props> = props => {
           <h3 className="LastProcessCard__subtitle">{t.debt}</h3>
           {operationsList?.map((operation, idx) => {
             const { amount_paid } = operation ?? {};
-            return renderDebt(amount_paid);
+            return renderDebt(amount_paid, idx);
           })}
         </div>
       </div>

@@ -8,6 +8,7 @@ const en = {
     sideBar: {
       start: "Start",
       myPayments: "My payments",
+      myClients: "My clients",
       logout: "Logout",
       title: "Contact",
       direction: "la Republica 218 - Miraflores"
@@ -64,7 +65,8 @@ const en = {
       user: "User settings",
       signOut: "Sign out"
     },
-    select: "Select"
+    select: "Select",
+    inputSearch: "Search"
   },
   home: {},
   pages: {
@@ -72,6 +74,22 @@ const en = {
       title: "You need access",
       subtitle: "Request access or use an account that allows you to access.",
       accessing: "You are accessing as"
+    },
+    UserPayPanel: {
+      title: "List of payments",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Print",
+      titleDetails: "Payment details",
+      paragraphDetails: "Select a payment to view details"
+    },
+    UserOperationPanel: {
+      title: "List of payments",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Print",
+      titleDetails: "Customer details",
+      paragraphDetails: "Select a customer to view details"
     }
   },
   chart: {
@@ -92,7 +110,8 @@ const en = {
   signIn: {
     SignInFormUser: {
       title: "Welcome",
-      subtitle: "We need to identify you in order to continue",
+      subtitle:
+        "We send a code according to the selected method, enter it below to continue:",
       titleAlt: "Enter the received code",
       subtitleAlt: "We send a code according to the selected method.",
       subtitleAltTwo: "Enter it below to continue:",
@@ -103,7 +122,13 @@ const en = {
         fieldDNI: "DNI",
         fieldCode: "Verification code",
         fieldDate: "Date of issue"
-      }
+      },
+      benefitTitle: "Know the benefits of",
+      benefitSubTitle: "Be up to date with your payments",
+      ul1: "Credit lines",
+      ul2: "Personal loans",
+      ul3: "Mortgage credits",
+      ul4: "Vehicle credits"
     },
     SignInValidation: {
       greeting: "Welcome",

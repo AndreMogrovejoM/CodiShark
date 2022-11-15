@@ -65,24 +65,23 @@ const SignInValidate: React.FC<Props> = props => {
             label={field.label}
             labelExtension={
               field.value === "SMS"
-                ? ` *** *** ${phone?.slice(phone?.length - 3)}`
-                : ` ********${email?.slice(email?.length - 15)}`
+                ? ` *** *** ${phone?.slice(phone?.length - 3) ?? ""}`
+                : ` ********${email?.slice(email?.length - 15) ?? ""}`
             }
           />
         ))}
       </div>
-      <div className="SignInForm__container--button">
-        <Button
-          type="submit"
-          variant="contained"
-          size="large"
-          color="info"
-          fullWidth
-          disabled={isLoading}
-        >
-          {t.button}
-        </Button>
-      </div>
+      <Button
+        type="submit"
+        variant="contained"
+        size="large"
+        color="info"
+        fullWidth
+        disabled={isLoading}
+        className="SignInValidate__container--button"
+      >
+        {t.button}
+      </Button>
     </form>
   );
 

@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { getCookie } from "react-use-cookie";
 
 import { fetchAdministratorSecondPanel } from "./administrator.service";
+import { fetchAdministratorGraphics } from "./administrator.service";
 import { fetchAdministratorUsers } from "./administrator.service";
 import { fetchAdministratorOperations } from "./administrator.service";
 import { fetchAdministratorFirstPanel } from "./administrator.service";
@@ -50,10 +51,21 @@ export const useFetchAdministratorUsers = (rol = 1, take = 4) => {
 
 export const useFetchAdministratorOperations = (status?: Status, take = 4) => {
   const token = getCookie("token");
-
   return useQuery(
     ["operations-list", status, take],
     () => fetchAdministratorOperations(status, take),
+    {
+      enabled: !!token,
+      staleTime: 15 * 1000 * 60
+    }
+  );
+};
+
+export const useFetchAdministratorGraphics = (year: string) => {
+  const token = getCookie("token");
+  return useQuery(
+    ["graphics-income", year],
+    () => fetchAdministratorGraphics(year),
     {
       enabled: !!token,
       staleTime: 15 * 1000 * 60

@@ -7,6 +7,7 @@ const es: Dictionary = {
     sideBar: {
       start: "Inicio",
       myPayments: "Mis pagos",
+      myClients: "Mis clientes",
       logout: "Cerrar sesión",
       title: "Contacto",
       direction: "la Republica 218 - Miraflores"
@@ -63,7 +64,8 @@ const es: Dictionary = {
       user: "Configuraciones de usuario",
       signOut: "Cerrar Sesión"
     },
-    select: "Seleccionar"
+    select: "Seleccionar",
+    inputSearch: "Buscar"
   },
   home: {},
   pages: {
@@ -71,6 +73,22 @@ const es: Dictionary = {
       title: "Necesitas accesos",
       subtitle: "Solicita acceso o usa una cuenta que te permita acceder.",
       accessing: "Estás accediendo como"
+    },
+    UserPayPanel: {
+      title: "Listado de pagos",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del pago",
+      paragraphDetails: "Seleccione un pago para ver los detalles"
+    },
+    UserOperationPanel: {
+      title: "Listado de pagos",
+      buttonExcel: "Excel",
+      buttonPdf: "Pdf",
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del cliente",
+      paragraphDetails: "Seleccione un cliente para ver los detalles"
     }
   },
   chart: {
@@ -91,7 +109,8 @@ const es: Dictionary = {
   signIn: {
     SignInFormUser: {
       title: "Bienvenido(a)",
-      subtitle: "Necesitamos identificarte para poder continuar",
+      subtitle:
+        "Enviamos un código según el método seleccionado, Ingréselo a continuación para continuar:",
       titleAlt: "Ingrese el código recibido",
       subtitleAlt: "Enviamos un código según el método seleccionado.",
       subtitleAltTwo: "Ingreselo a continuación para continuar:",
@@ -102,7 +121,13 @@ const es: Dictionary = {
         fieldDNI: "DNI",
         fieldCode: "Cod. Verificador",
         fieldDate: "Fecha de Emisión"
-      }
+      },
+      benefitTitle: "Conoce los beneficios de",
+      benefitSubTitle: "Estar al día en tus pagos",
+      ul1: "Lineas de créditos",
+      ul2: "Préstamos personales",
+      ul3: "Créditos hipotecarios",
+      ul4: "Créditos vehiculares"
     },
     SignInValidation: {
       greeting: "Bienvenido",
@@ -168,6 +193,7 @@ const es: Dictionary = {
       calls: "Solicitudes de llamadas"
     }
   },
+
   utils: {
     validations: {
       fieldRequired: "Este campo es requerido",
