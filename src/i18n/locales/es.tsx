@@ -83,7 +83,7 @@ const es: Dictionary = {
       paragraphDetails: "Seleccione un pago para ver los detalles"
     },
     UserOperationPanel: {
-      title: "Listado de pagos",
+      title: "Listado de clientes",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
       buttonPrint: "Imprimir",
