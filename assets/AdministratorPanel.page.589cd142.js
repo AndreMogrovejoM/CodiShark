@@ -1,4 +1,4 @@
-import{u as en,a as lo,b as co,c as ho,d as sn,L as uo}from"./Layout.container.9310e30f.js";import{r as et,a as D,s as Et,a0 as Zt,a1 as fo,j as Y,K as nn}from"./index.0ad64858.js";import{m as go,e as Ve}from"./i18n.hooks.67cbff6b.js";import{u as po}from"./auth.service.hooks.07f29f8a.js";import"./constants.00022566.js";/*!
+import{u as en,L as lo}from"./Layout.container.3c3c301f.js";import{r as et,a as D,s as Et,a4 as Zt,a5 as co,j as Y,N as sn}from"./index.f98bbdbf.js";import{u as ho,a as uo,b as fo,c as nn}from"./administrator.service.hooks.2aeb4ec3.js";import{o as go,e as Ve}from"./i18n.hooks.84f8b483.js";import{j as po}from"./auth.service.hooks.bea03bd7.js";import"./constants.00022566.js";/*!
  * Chart.js v3.9.1
  * https://www.chartjs.org
  * (c) 2022 Chart.js Contributors
@@ -26,7 +26,7 @@ import{u as en,a as lo,b as co,c as ho,d as sn,L as uo}from"./Layout.container.9
       margin-top: -2.4rem;
     }
   }
-`,{palette:Nc}=fo;pe.register(Ne,$i,Ue,ic,hc,tc);const no=i=>{const t=Zt(new Date).format("YYYY"),{setIsLoading:e}=en(),{data:s,isLoading:n}=lo(t),{months:o}=s!=null?s:{},a=o==null?void 0:o.map(l=>Object==null?void 0:Object.values(l)[0]);if(e(n),!a)return null;const r={labels:Fc,datasets:[{data:a,backgroundColor:Nc.primary}]};return D(Bc,{className:"BarChart",children:D(Ic,{options:zc,data:r,className:"BarChart__chart"})})};no.defaultProps={};const Wc=Et.div`
+`,{palette:Nc}=co;pe.register(Ne,$i,Ue,ic,hc,tc);const no=i=>{const t=Zt(new Date).format("YYYY"),{setIsLoading:e}=en(),{data:s,isLoading:n}=ho(t),{months:o}=s!=null?s:{},a=o==null?void 0:o.map(l=>Object==null?void 0:Object.values(l)[0]);if(e(n),!a)return null;const r={labels:Fc,datasets:[{data:a,backgroundColor:Nc.primary}]};return D(Bc,{className:"BarChart",children:D(Ic,{options:zc,data:r,className:"BarChart__chart"})})};no.defaultProps={};const Wc=Et.div`
   background-color: var(--palette-white);
   display: flex;
   align-items: flex-start;
@@ -97,7 +97,7 @@ import{u as en,a as lo,b as co,c as ho,d as sn,L as uo}from"./Layout.container.9
       }
     }
   }
-`,oo=i=>{const t=Ve().signIn.Indicator,e=new Date,s=new Date(e.getTime());s.setDate(e.getDate()-30);const[n,o]=et.exports.useState([Zt(s.toLocaleString()).format("YYYY-MM-DD"),Zt(new Date).format("YYYY-MM-DD")]),{data:a}=co(n[0],n[1]),{calls:r,connections:l,payments:c,charges:h}=a!=null?a:{},d=f=>{const g=new Date,p=new Date(g.getTime());p.setDate(g.getDate()-f),o([Zt(p.toLocaleString()).format("YYYY-MM-DD"),Zt(new Date).format("YYYY-MM-DD")])},u=Y(nn,{children:[D("h3",{className:"Indicators__title",children:t.title}),Y("div",{className:"Indicators__spanContainer",children:[D("span",{className:"Indicators__span",onClick:()=>d(30),children:t.month}),D("span",{className:"Indicators__span",onClick:()=>d(365),children:t.year}),D("span",{className:"Indicators__span",onClick:()=>d(1),children:t.day})]})]});return Y(Vc,{className:"Indicators",children:[u,Y("div",{className:"Indicators__cardsContainer",children:[D(te,{title:t.card1,value:`${l!=null?l:0}`}),D(te,{title:t.card2,value:`${h!=null?h:0}`}),D(te,{title:t.card3,value:`${r!=null?r:0}`}),D(te,{title:t.card4,value:`${c!=null?c:0}`})]})]})};oo.defaultProps={};const Hc="/CodiShark/assets/iconArrowCard.4184de52.svg",jc="/CodiShark/assets/iconCard.ea096ace.svg",Yc=Et.div`
+`,oo=i=>{const t=Ve().signIn.Indicator,e=new Date,s=new Date(e.getTime());s.setDate(e.getDate()-30);const[n,o]=et.exports.useState([Zt(s.toLocaleString()).format("YYYY-MM-DD"),Zt(new Date).format("YYYY-MM-DD")]),{data:a}=uo(n[0],n[1]),{calls:r,connections:l,payments:c,charges:h}=a!=null?a:{},d=f=>{const g=new Date,p=new Date(g.getTime());p.setDate(g.getDate()-f),o([Zt(p.toLocaleString()).format("YYYY-MM-DD"),Zt(new Date).format("YYYY-MM-DD")])},u=Y(sn,{children:[D("h3",{className:"Indicators__title",children:t.title}),Y("div",{className:"Indicators__spanContainer",children:[D("span",{className:"Indicators__span",onClick:()=>d(30),children:t.month}),D("span",{className:"Indicators__span",onClick:()=>d(365),children:t.year}),D("span",{className:"Indicators__span",onClick:()=>d(1),children:t.day})]})]});return Y(Vc,{className:"Indicators",children:[u,Y("div",{className:"Indicators__cardsContainer",children:[D(te,{title:t.card1,value:`${l!=null?l:0}`}),D(te,{title:t.card2,value:`${h!=null?h:0}`}),D(te,{title:t.card3,value:`${r!=null?r:0}`}),D(te,{title:t.card4,value:`${c!=null?c:0}`})]})]})};oo.defaultProps={};const Hc="/CodiShark/assets/iconArrowCard.4184de52.svg",jc="/CodiShark/assets/iconCard.ea096ace.svg",Yc=Et.div`
   max-width: 40rem;
   width: 100%;
   background-color: var(--palette-white);
@@ -192,7 +192,7 @@ import{u as en,a as lo,b as co,c as ho,d as sn,L as uo}from"./Layout.container.9
       }
     }
   }
-`,Mi=i=>{const{title:t,status:e}=i,s=Ve().signIn.AdministratorPanel,{data:n}=ho(e),{data:o}=n!=null?n:{},a=(l,c)=>Y("div",{className:"LastProcessCard__sectionContainer",children:[D("img",{className:"LastProcessCard__icon",src:jc,alt:"iconCard"}),D("h2",{className:"LastProcessCard__name",children:l==null?void 0:l.slice(0,24)})]},c),r=(l,c)=>Y("div",{className:"LastProcessCard__sectionContainer",children:[D("h3",{className:"LastProcessCard__debt",children:`S/. ${l!=null?l:0}`}),D("img",{className:"LastProcessCard__iconDebt",src:Hc,alt:"iconArrowCard"})]},c);return Y(Yc,{className:"LastProcessCard",children:[D("h1",{className:"LastProcessCard__title",children:t}),Y("div",{className:"LastProcessCard__container",children:[Y("div",{children:[D("h3",{className:"LastProcessCard__subtitle",children:s.name}),D("div",{className:"LastProcessCard__names",children:o==null?void 0:o.map((l,c)=>{const{user:h}=l!=null?l:{},{first_name:d,last_name:u,mother_last_name:f}=h!=null?h:{};return a(`${d} ${u} ${f}`,c)})})]}),Y("div",{className:"LastProcessCard__debs",children:[D("h3",{className:"LastProcessCard__subtitle",children:s.debt}),o==null?void 0:o.map((l,c)=>{const{amount_paid:h}=l!=null?l:{};return r(h,c)})]})]}),D("h3",{className:"LastProcessCard__footerSubtitle",onClick:()=>{},children:s.footerTitle})]})};Mi.defaultProps={};const $c="/CodiShark/assets/LogoPanelBanner.e7f4da7d.svg",Uc=Et.div`
+`,Mi=i=>{const{title:t,status:e}=i,s=Ve().signIn.AdministratorPanel,{data:n}=fo(e),{data:o}=n!=null?n:{},a=(l,c)=>Y("div",{className:"LastProcessCard__sectionContainer",children:[D("img",{className:"LastProcessCard__icon",src:jc,alt:"iconCard"}),D("h2",{className:"LastProcessCard__name",children:l==null?void 0:l.slice(0,24)})]},c),r=(l,c)=>Y("div",{className:"LastProcessCard__sectionContainer",children:[D("h3",{className:"LastProcessCard__debt",children:`S/. ${l!=null?l:0}`}),D("img",{className:"LastProcessCard__iconDebt",src:Hc,alt:"iconArrowCard"})]},c);return Y(Yc,{className:"LastProcessCard",children:[D("h1",{className:"LastProcessCard__title",children:t}),Y("div",{className:"LastProcessCard__container",children:[Y("div",{children:[D("h3",{className:"LastProcessCard__subtitle",children:s.name}),D("div",{className:"LastProcessCard__names",children:o==null?void 0:o.map((l,c)=>{const{user:h}=l!=null?l:{},{first_name:d,last_name:u,mother_last_name:f}=h!=null?h:{};return a(`${d} ${u} ${f}`,c)})})]}),Y("div",{className:"LastProcessCard__debs",children:[D("h3",{className:"LastProcessCard__subtitle",children:s.debt}),o==null?void 0:o.map((l,c)=>{const{amount_paid:h}=l!=null?l:{};return r(h,c)})]})]}),D("h3",{className:"LastProcessCard__footerSubtitle",onClick:()=>{},children:s.footerTitle})]})};Mi.defaultProps={};const $c="/CodiShark/assets/LogoPanelBanner.e7f4da7d.svg",Uc=Et.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -278,12 +278,13 @@ import{u as en,a as lo,b as co,c as ho,d as sn,L as uo}from"./Layout.container.9
       }
     }
   }
-`,ao=i=>{const{data:t}=sn(),{calls:e,connections:s,payments:n}=t!=null?t:{},{user:o}=po(),{first_name:a}=o!=null?o:{},r=Ve().signIn.PanelBanner,l=Y(nn,{children:[Y("h2",{className:"PanelBanner__title",children:[r.greetings,` ${a!=null?a:""}`]}),D("h4",{className:"PanelBanner__subtitle",children:r.activity})]});return Y(Xc,{className:"PanelBanner",children:[l,Y("div",{className:"PanelBanner__textContent",children:[D(Ae,{subtitle:r.connections,value:s}),D(Ae,{subtitle:r.payments,value:n}),D(Ae,{subtitle:r.calls,value:e})]}),D("img",{className:"PanelBanner__image",src:$c,alt:"LogoPanelBanner"})]})};ao.defaultProps={};const Kc=Et.div`
+`,ao=i=>{const{data:t}=nn(),{calls:e,connections:s,payments:n}=t!=null?t:{},{user:o}=po(),{first_name:a}=o!=null?o:{},r=Ve().signIn.PanelBanner,l=Y(sn,{children:[Y("h2",{className:"PanelBanner__title",children:[r.greetings,` ${a!=null?a:""}`]}),D("h4",{className:"PanelBanner__subtitle",children:r.activity})]});return Y(Xc,{className:"PanelBanner",children:[l,Y("div",{className:"PanelBanner__textContent",children:[D(Ae,{subtitle:r.connections,value:s}),D(Ae,{subtitle:r.payments,value:n}),D(Ae,{subtitle:r.calls,value:e})]}),D("img",{className:"PanelBanner__image",src:$c,alt:"LogoPanelBanner"})]})};ao.defaultProps={};const Kc=Et.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  min-height: 100vh;
 
   .AdministratorPanel {
     &__section1 {
@@ -319,4 +320,4 @@ import{u as en,a as lo,b as co,c as ho,d as sn,L as uo}from"./Layout.container.9
       }
     }
   }
-`,ro=i=>{const t=Ve().signIn.AdministratorPanel,{data:e,isFetched:s,isLoading:n}=sn(),{status:o}=e!=null?e:{},{setIsLoading:a}=en();return a(n),et.exports.useEffect(()=>{o!==200&&s&&document.location.reload()},[o,s]),D(uo,{children:Y(Kc,{className:"AdministratorPanel",children:[Y("div",{className:"AdministratorPanel__section1",children:[D(ao,{}),D(oo,{}),D(no,{})]}),Y("div",{className:"AdministratorPanel__section2",children:[D(Mi,{title:t.charges1,status:"Pagado"}),D(Mi,{title:t.charges2,status:"Pendiente"})]})]})})};ro.defaultProps={};const th=ro;export{th as default};
+`,ro=i=>{const t=Ve().signIn.AdministratorPanel,{data:e,isFetched:s,isLoading:n}=nn(),{status:o}=e!=null?e:{},{setIsLoading:a}=en();return a(n),et.exports.useEffect(()=>{o!==200&&s&&document.location.reload()},[o,s]),D(lo,{children:Y(Kc,{className:"AdministratorPanel",children:[Y("div",{className:"AdministratorPanel__section1",children:[D(ao,{}),D(oo,{}),D(no,{})]}),Y("div",{className:"AdministratorPanel__section2",children:[D(Mi,{title:t.charges1,status:"Pagado"}),D(Mi,{title:t.charges2,status:"Pendiente"})]})]})})};ro.defaultProps={};const eh=ro;export{eh as default};
