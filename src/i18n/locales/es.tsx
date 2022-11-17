@@ -199,6 +199,24 @@ const es: Dictionary = {
       connections: "Ingresos",
       payments: "Pagos registrados",
       calls: "Solicitudes de llamadas"
+    },
+
+    PanelBannerClient: {
+      title: "CONOCE LAS PROMOCIONES QUE TENEMOS PARA TI:",
+      parrafo1: "-Reducción de hasta el 70% de la deuda",
+      parrafo2: "-Campañas para nuevos crédito",
+      parrafo3: "-Nivelación en las centrales de riesgo"
+    },
+
+    CardImageOne: {
+      title: "Vive la vida libre de deudas",
+      subtitle: "Vivir tranquilo no tiene precio"
+    },
+
+    CardImageTwo: {
+      subtitle1: "“pagar mi deuda fue alcanzar la",
+      subtitle2: "libertad financiera, y esa libertad",
+      subtitle3: "me ayudó a alcanzar mis sueños”"
     }
   },
 

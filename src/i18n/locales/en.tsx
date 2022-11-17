@@ -200,6 +200,23 @@ const en = {
       connections: "Revenues",
       payments: "Recorded payments",
       calls: "Call requests"
+    },
+    PanelBannerClient: {
+      title: "KNOW THE PROMOTIONS WE HAVE FOR YOU:",
+      parrafo1: "-Reduction of up to 70% of debt",
+      parrafo2: "-Campaigns for new credit",
+      parrafo3: "-Leveling in credit bureaus"
+    },
+
+    CardImageOne: {
+      title: "Live a debt-free life",
+      subtitle: "Living peacefully is priceless"
+    },
+
+    CardImageTwo: {
+      subtitle1: "“pagar mi deuda fue alcanzar la",
+      subtitle2: "libertad financiera, y esa libertad",
+      subtitle3: "me ayudó a alcanzar mis sueños”"
     }
   },
   utils: {
