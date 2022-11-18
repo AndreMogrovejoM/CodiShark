@@ -10,7 +10,7 @@ const CardImageOne: React.FC<Props> = props => {
   return (
     <Styles className="CardImageOne">
       <img
-        className="CardImageOne__container"
+        className="CardImageOne__image"
         src={fotoMujerOne}
         alt="fotoMujerOne"
       />

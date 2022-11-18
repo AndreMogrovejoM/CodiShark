@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { CardImageOneStyledProps as Props } from "./CardImageOne.types";
 
 const CardImageOneStyled = styled.div<Props>`
+  position: relative;
   max-width: 33rem;
   width: 100%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 0.8rem;
-  margin-top: 3rem;
 
   .CardImageOne {
     &__title {
@@ -16,8 +16,8 @@ const CardImageOneStyled = styled.div<Props>`
       font-weight: 800;
       font-size: 1.4rem;
       line-height: 2.4rem;
-      top: 20rem;
-      left: 4rem;
+      top: 3rem;
+      left: 3.2rem;
     }
 
     &__subtitle {
@@ -26,12 +26,11 @@ const CardImageOneStyled = styled.div<Props>`
       font-weight: 300;
       font-size: 1rem;
       line-height: 2.4rem;
-      top: 18rem;
-      left: 4rem;
+      top: 1rem;
+      left: 3.2rem;
     }
 
-    &__container {
-      position: relative;
+    &__image {
       width: 100%;
       height: 100%;
     }
