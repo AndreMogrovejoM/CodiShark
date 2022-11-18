@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CardImageTwoStyledProps as Props } from "./CardImageTwo.types";
 
 const CardImageTwoStyled = styled.div<Props>`
-  max-width: 33rem;
+  max-width: 32rem;
   width: 100%;
   height: 100%;
   background-color: var(--palette-white);
@@ -23,14 +23,14 @@ const CardImageTwoStyled = styled.div<Props>`
       color: var(--palette-white);
       font-weight: 400;
       font-size: 1.3rem;
-      line-height: 2.2rem;
+      line-height: 2.4rem;
     }
 
     &__subtitle2 {
       color: var(--palette-white);
       font-weight: 400;
       font-size: 1.3rem;
-      line-height: 2.2rem;
+      line-height: 2.4rem;
     }
 
     &__subtitle3 {

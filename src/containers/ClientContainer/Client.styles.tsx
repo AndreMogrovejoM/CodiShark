@@ -20,8 +20,8 @@ const ClientContainerStyled = styled.div<Props>`
     }
 
     &__section2 {
-      margin-right: 2.6rem;
-      margin-left: 2.6rem;
+      margin-right: 2.4rem;
+      margin-left: 2.4rem;
       width: 70%;
       justify-content: center;
       flex: 1;

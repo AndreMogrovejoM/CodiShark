@@ -5,11 +5,7 @@ import { IndicatorsClientOneStyledProps as Props } from "./IndicatorsClientOne.t
 const IndicatorsClientOneStyled = styled.div<Props>`
   .IndicatorsClientOne {
     &__title {
-      font-size: 22px;
-    }
-
-    &__subtitle {
-      font-size: 16px;
+      font-size: 2.2rem;
     }
   }
 `;

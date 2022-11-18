@@ -217,6 +217,9 @@ const es: Dictionary = {
       subtitle1: "“pagar mi deuda fue alcanzar la",
       subtitle2: "libertad financiera, y esa libertad",
       subtitle3: "me ayudó a alcanzar mis sueños”"
+    },
+    IndicatorsClientOne: {
+      greetings: "Bienvenido(a)"
     }
   },
 

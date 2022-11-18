@@ -15,7 +15,7 @@ const InfoCardClientStyled = styled.div<Props>`
     &__name {
       font-weight: 800;
       font-size: 1.6rem;
-      line-height: 2.7rem;
+      line-height: 3.2rem;
     }
 
     &__dni {
@@ -27,7 +27,7 @@ const InfoCardClientStyled = styled.div<Props>`
     &__value {
       font-weight: 800;
       font-size: 2.2rem;
-      line-height: 2.7rem;
+      line-height: 3.2rem;
       color: var(--palette-primary);
     }
 

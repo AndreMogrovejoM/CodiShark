@@ -4,7 +4,7 @@ import { CardImageOneStyledProps as Props } from "./CardImageOne.types";
 
 const CardImageOneStyled = styled.div<Props>`
   position: relative;
-  max-width: 33rem;
+  max-width: 32rem;
   width: 100%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
@@ -16,7 +16,7 @@ const CardImageOneStyled = styled.div<Props>`
       font-weight: 800;
       font-size: 1.4rem;
       line-height: 2.4rem;
-      top: 3rem;
+      top: 3.2rem;
       left: 3.2rem;
     }
 

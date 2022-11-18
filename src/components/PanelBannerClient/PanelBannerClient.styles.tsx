@@ -21,7 +21,7 @@ const PanelBannerClientStyled = styled.div<Props>`
       font-size: 22px;
       font-weight: 800;
       font-size: 1.6rem;
-      line-height: 2.7rem;
+      line-height: 3.2rem;
     }
 
     &__section {

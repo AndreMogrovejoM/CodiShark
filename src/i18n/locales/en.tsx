@@ -214,9 +214,12 @@ const en = {
     },
 
     CardImageTwo: {
-      subtitle1: "“pagar mi deuda fue alcanzar la",
-      subtitle2: "libertad financiera, y esa libertad",
-      subtitle3: "me ayudó a alcanzar mis sueños”"
+      subtitle1: "“to pay off my debt was to reach the",
+      subtitle2: "financial freedom, and that freedom",
+      subtitle3: "helped me achieve my dreams”"
+    },
+    IndicatorsClientOne: {
+      greetings: "Welcome"
     }
   },
   utils: {
