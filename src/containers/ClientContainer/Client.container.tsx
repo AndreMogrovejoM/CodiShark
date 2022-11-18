@@ -1,6 +1,7 @@
 import CardImageOne from "components/CardImageOne/CardImageOne";
 import CardImageTwo from "components/CardImageTwo/CardImageTwo";
 import IndicatorsClientOne from "components/IndicatorsClientOne/IndicatorsClientOne";
+import IndicatorsClientTwo from "components/IndicatorsClientTwo/IndicatorsClientTwo";
 import PanelBannerClient from "components/PanelBannerClient/PanelBannerClient";
 import LayoutContainer from "containers/Layout/Layout.container";
 import React from "react";
@@ -15,6 +16,7 @@ const ClientContainerContainer: React.FC<Props> = props => {
         <div className="ClientContainer__section1">
           <PanelBannerClient />
           <IndicatorsClientOne />
+          <IndicatorsClientTwo />
         </div>
         <div className="ClientContainer__section2">
           <CardImageOne />
