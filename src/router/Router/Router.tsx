@@ -1,6 +1,6 @@
 import SetupProvider from "containers/SetupProvider/SetupProvider";
 import React, { lazy, memo, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { RouterProps as Props } from "./Router.types";
 
@@ -22,6 +22,7 @@ const Router: React.FC<Props> = props => {
   return (
     <SetupProvider>
       <Suspense fallback={null}>
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
@@ -37,6 +38,7 @@ const Router: React.FC<Props> = props => {
           <Route path="/500" element={<FiverZeroZero />} />
           <Route path="*" element={<FourZeroFour />} />
         </Routes>
+      </BrowserRouter>
       </Suspense>
     </SetupProvider>
   );
