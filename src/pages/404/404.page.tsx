@@ -1,13 +1,13 @@
 import { ReactComponent as FourZeroFourSVG } from "assets/404.svg";
 import Button from "components/globals/Button/Button";
 import React from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "utils/useNavigate";
 
 import { FourZeroFourProps as Props } from "./404.page.types";
 import Styles from "./404.styles.page";
 
 const FourZeroFour: React.FC<Props> = props => {
-  const navigate = useNavigate();
+  const { navigate } = useNavigate();
   return (
     <Styles className="FourZeroFour">
       <header className="FourZeroFour__header" />

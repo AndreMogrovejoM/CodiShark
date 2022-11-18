@@ -1,6 +1,6 @@
 import SetupProvider from "containers/SetupProvider/SetupProvider";
 import React, { lazy, memo, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { RouterProps as Props } from "./Router.types";
 
@@ -23,22 +23,23 @@ const Router: React.FC<Props> = props => {
     <SetupProvider>
       <Suspense fallback={null}>
         <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-          <Route path="/signin" element={<SignInUser />} />
-          <Route
-            path="/signInAdministrator"
-            element={<SignInAdministrator />}
-          />
-          <Route path="/userPaymentList" element={<UserOperationsPanel />} />
-          <Route path="/userClientList" element={<UserPanel />} />
-          <Route path="/administratorPanel" element={<AdministratorPanel />} />
-          <Route path="/500" element={<FiverZeroZero />} />
-          <Route path="*" element={<FourZeroFour />} />
-        </Routes>
-      </BrowserRouter>
+          <Switch>
+            <Route path="/" children={<Home />} />
+            <Route path="/signin" children={<SignInUser />} />
+            <Route
+              path="/signInAdministrator"
+              children={<SignInAdministrator />}
+            />
+            <Route path="/userPaymentList" children={<UserOperationsPanel />} />
+            <Route path="/userClientList" children={<UserPanel />} />
+            <Route
+              path="/administratorPanel"
+              children={<AdministratorPanel />}
+            />
+            <Route path="/500" children={<FiverZeroZero />} />
+            <Route path="*" children={<FourZeroFour />} />
+          </Switch>
+        </BrowserRouter>
       </Suspense>
     </SetupProvider>
   );

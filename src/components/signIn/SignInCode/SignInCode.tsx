@@ -6,11 +6,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import useCountDown from "react-countdown-hook";
 import OtpInput from "react-otp-input";
-import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { useSignInUserStep3 } from "services/auth/auth.service.hooks";
 import { formatMillisecondsToSeconds } from "utils/common.utils";
+import { useNavigate } from "utils/useNavigate";
 import { minInputsCode } from "utils/validations.utils";
 
 import Styles from "./SignInCode.styles";
@@ -23,7 +23,7 @@ const SignInCode: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormCode;
   const [isLoading, setIsLoading] = useState(false);
   const [OTP, setOTP] = useState("");
-  const navigate = useNavigate();
+  const { navigate } = useNavigate();
   const { setSignInStep, user, setUser } = useAuth();
   const { signInMethod } = useAuth();
   const { mutateAsync: mutateStep2, reset: resetStep2 } = useSignInUserStep2();
