@@ -4,7 +4,7 @@ import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useEffect } from "react";
-import { useNavigate } from "utils/useNavigate";
+import { useNavigate } from "react-router-dom";
 
 import SignInCode from "../SignInCode/SignInCode";
 import SignInForm from "../SignInForm/SignInForm";
@@ -18,7 +18,7 @@ const SignIn: React.FC<Props> = props => {
   const { isAnonymous, signInStep } = useAuth();
   const t = useI18n().signIn.SignInFormUser;
 
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isAnonymous) {

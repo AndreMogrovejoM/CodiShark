@@ -2,7 +2,7 @@ import { ReactComponent as FiveZeroZeroSVG } from "assets/500.svg";
 import Button from "components/globals/Button/Button";
 import CONSTANTS from "config/constants";
 import React from "react";
-import { useNavigate } from "utils/useNavigate";
+import { useNavigate } from "react-router-dom";
 
 import { FiveZeroZeroProps as Props } from "./500.page.types";
 import Styles from "./500.styles.page";
@@ -10,7 +10,7 @@ import Styles from "./500.styles.page";
 const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const FiveZeroZero: React.FC<Props> = props => {
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const reload = () => {
     navigate(ENTRY_PATH);
     window.location.reload();

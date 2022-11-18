@@ -11,9 +11,9 @@ import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useLogout } from "services/auth/auth.service.hooks";
-import { useNavigate } from "utils/useNavigate";
 
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
@@ -24,7 +24,7 @@ const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH, USER_CLIENT_LIST } =
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
   const t = useI18n().global.sideBar;
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const [openList, setOpenList] = useState(true);
   const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useLogout();
