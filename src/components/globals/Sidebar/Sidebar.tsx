@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useLogout } from "services/auth/auth.service.hooks";
+import { useLocalStorage } from "utils/useLocalStorage";
 
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
@@ -28,6 +29,7 @@ const Sidebar: React.FC<Props> = props => {
   const [openList, setOpenList] = useState(true);
   const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useLogout();
+  const [, setLocalUser] = useLocalStorage("user");
   const { first_name, last_name, mother_last_name } = user ?? {};
 
   const handleClick = (idx: number) => {
@@ -39,7 +41,7 @@ const Sidebar: React.FC<Props> = props => {
       mutateAsync();
       reset();
       setSignInStep(0);
-      window.localStorage.setItem("user", "");
+      setLocalUser("");
       setUser(undefined);
       setCookie("token", "");
       navigate(NO_AUTH_PATH);

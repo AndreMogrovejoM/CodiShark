@@ -5,7 +5,7 @@ import PaymentTable from "components/userPanel/PaymentTable/PaymentTable";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React from "react";
+import React, { useEffect } from "react";
 import { exportOperationsExcel } from "services/administrator/administrator.service";
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
@@ -21,7 +21,10 @@ const OperationListView: React.FC<Props> = props => {
   const t = useI18n().pages.UserOperationPanel;
 
   const { setIsLoading } = useGlobals();
-  setIsLoading(isLoading);
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading, setIsLoading]);
 
   const handlePDF = async () => {
     try {

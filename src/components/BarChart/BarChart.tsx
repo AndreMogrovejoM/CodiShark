@@ -2,7 +2,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale } from "chart.js";
 import { BarElement, Title, Tooltip, Legend } from "chart.js";
 import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
-import React from "react";
+import React, { useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { useFetchAdministratorGraphics } from "services/administrator/administrator.service.hooks";
 import variables from "styles/utils/variables";
@@ -28,7 +28,10 @@ const BarChart: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorGraphics(year);
   const { months } = data ?? {};
   const formattedData = months?.map(month => Object?.values(month)[0]);
-  setIsLoading(isLoading);
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading, setIsLoading]);
 
   if (!formattedData) return null;
 

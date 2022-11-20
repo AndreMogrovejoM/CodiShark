@@ -2,6 +2,7 @@ import React, { createContext, useEffect } from "react";
 import { useMemo, useState } from "react";
 import { SignInMethod } from "services/auth/auth.service.types";
 import { User } from "types/user.types";
+import { useLocalStorage } from "utils/useLocalStorage";
 
 import { AuthProviderProps as Props, SignInStep } from "./auth.context.types";
 import { AuthProviderValue } from "./auth.context.types";
@@ -10,17 +11,25 @@ import { AuthProviderValue } from "./auth.context.types";
 export const AuthContext = createContext<AuthProviderValue>();
 
 const AuthProvider: React.FC<Props> = props => {
-  const [isAnonymous] = useState(true);
+  const [isAnonymous, setIsAnonymous] = useState(true);
   const [signInStep, setSignInStep] = useState<SignInStep>();
   const [user, setUser] = useState<User>();
   const [signInMethod, setSignInMethod] = useState<SignInMethod>("SMS");
+  const [localUser] = useLocalStorage("user");
 
   useEffect(() => {
-    const localUser = window.localStorage.getItem("user");
-    if (localUser) {
-      setUser(JSON.parse(localUser));
+    if (user?.id) {
+      setIsAnonymous(false);
+    } else {
+      setIsAnonymous(true);
     }
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    if (localUser) {
+      setUser(localUser);
+    }
+  }, [localUser]);
 
   const value: AuthProviderValue = useMemo(() => {
     return {

@@ -7,15 +7,13 @@ const { DEFAULT_REQUEST_TIMEOUT, INCLUDED_LOGGER_ENVS } = API;
 const { EXCLUDED_LOGGER_STATUS_CODES } = API;
 const { REACT_APP_API_URL, REACT_APP_PLATFORM } = API;
 
-const token = getCookie("token");
-
 const axiosDefault = axios.create({
   baseURL: REACT_APP_API_URL,
   timeout: DEFAULT_REQUEST_TIMEOUT,
   headers: {
     Platform: REACT_APP_PLATFORM as string,
     "Content-Type": "application/json",
-    Authorization: token ? `Bearer ${token}` : "",
+    Authorization: `Bearer ${await getCookie("token")}`,
     responseType: "json"
   }
 });

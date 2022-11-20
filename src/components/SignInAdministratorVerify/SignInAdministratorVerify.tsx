@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import useCookie from "react-use-cookie";
 import { useSignInAdminStep2 } from "services/auth/auth.service.hooks";
 import { Login } from "services/auth/auth.service.types";
+import { useLocalStorage } from "utils/useLocalStorage";
 import { validCode } from "utils/validations.utils";
 
 import Styles from "./SignInAdministratorVerify.styles";
@@ -24,6 +25,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
   const { control, handleSubmit } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [, setUserToken] = useCookie("token", "0");
+  const [, setLocalUser] = useLocalStorage("user");
   const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useSignInAdminStep2();
   const navigate = useNavigate();
@@ -41,7 +43,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         setUserToken(user?.token ?? "");
         delete user["token"];
         setUser(user);
-        window.localStorage.setItem("user", JSON.stringify(user));
+        setLocalUser(user);
         reset();
         setIsLoading(false);
         setSignInStep(0);
