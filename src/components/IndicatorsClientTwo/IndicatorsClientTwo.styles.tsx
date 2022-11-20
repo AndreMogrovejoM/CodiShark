@@ -9,6 +9,7 @@ const IndicatorsClientTwoStyled = styled.div<Props>`
   align-items: center;
   margin: 2.4rem 0;
   position: relative;
+
   .IndicatorsClientTwo {
     &__cardsContainer {
       display: flex;

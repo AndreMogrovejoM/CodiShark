@@ -10,13 +10,13 @@ const InfoCardClientOneStyled = styled.div<Props>`
   width: 100%;
   height: 100%;
   border-radius: 0.8rem;
-  padding: 4rem 4rem;
+  padding: 4rem;
 
   .InfoCardClientOne {
     &__name {
       font-weight: 800;
       font-size: 1.6rem;
-      line-height: 1.8rem;
+      line-height: 1.6rem;
       padding-bottom: 0.8rem;
       padding-top: 0.8rem;
     }
@@ -24,7 +24,7 @@ const InfoCardClientOneStyled = styled.div<Props>`
     &__dni {
       font-weight: 600;
       font-size: 1.1rem;
-      line-height: 1.8rem;
+      line-height: 1.6rem;
     }
   }
 `;

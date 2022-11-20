@@ -9,6 +9,7 @@ const IndicatorsClientOneStyled = styled.div<Props>`
   align-items: flex-start;
   margin: 2.4rem 0;
   position: relative;
+
   .IndicatorsClientOne {
     &__title {
       position: absolute;

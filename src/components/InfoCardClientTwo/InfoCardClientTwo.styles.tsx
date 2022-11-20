@@ -10,13 +10,13 @@ const InfoCardClientTwoStyled = styled.div<Props>`
   width: 100%;
   height: 100%;
   border-radius: 0.8rem;
-  padding: 4rem 4rem;
+  padding: 4rem;
 
   .InfoCardClientTwo {
     &__title {
       font-weight: 700;
       font-size: 1.4rem;
-      line-height: 1.8rem;
+      line-height: 1.6rem;
       margin-bottom: 1.6rem;
     }
 
@@ -24,7 +24,7 @@ const InfoCardClientTwoStyled = styled.div<Props>`
       color: var(--palette-primary);
       font-weight: 800;
       font-size: 2.2rem;
-      line-height: 1.8rem;
+      line-height: 1.6rem;
     }
   }
 `;
