@@ -12,7 +12,7 @@ export interface NumbersComponentProps {
 
 export interface RowProps {
   content: string;
-  bold: boolean;
+  bold?: boolean;
 }
 
 export interface PaginationInterface {

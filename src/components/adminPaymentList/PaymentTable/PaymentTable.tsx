@@ -16,6 +16,7 @@ const PaymentTable: React.FC<Props> = props => {
   const { data, columns, expandableRows, expandableRowsComponent } = props;
   const { expandOnRowClicked } = props;
 
+  // TODO: check
   return (
     <Styles className={`PaymentTable`}>
       <Table

@@ -1,7 +1,8 @@
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 
-import { Row, RowButton } from "../PaymentTable/PaymentTable.helpers";
+import ButtonRowsComponent from "../ButtonRowsComponent/ButtonRowsComponent";
+import { Row } from "../PaymentTable/PaymentTable.helpers";
 
 const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
 
@@ -43,12 +44,12 @@ export const columns: TableColumn<any>[] = [
     wrap: true,
     sortable: true,
     center: true,
-    cell: () => <RowButton />
+    cell: () => <ButtonRowsComponent />
   },
   {
     name: "",
     center: true,
-    cell: () => <RowButton data-tag="allowRowEvents" icon={true} />
+    cell: () => <ButtonRowsComponent data-tag="allowRowEvents" icon={true} />
   }
 ];
 

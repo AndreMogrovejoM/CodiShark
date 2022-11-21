@@ -1,8 +1,7 @@
 import useI18n from "i18n/i18n.hooks";
 import React, { useCallback } from "react";
+import { getArrayViews, getNumberOfPages } from "utils/common.utils";
 
-import { getNumberOfPages } from "../PaymentTable/PaymentTable.helpers";
-import { getArrayViews } from "../PaymentTable/PaymentTable.helpers";
 import { NumbersComponentProps } from "../PaymentTable/PaymentTable.types";
 import Styles from "./PaginationCustom.styles";
 import { PaginationCustomProps as Props } from "./PaginationCustom.types";

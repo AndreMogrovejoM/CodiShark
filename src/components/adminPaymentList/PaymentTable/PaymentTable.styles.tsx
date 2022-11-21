@@ -53,25 +53,12 @@ const PaymentTableStyled = styled.div<Props>`
       &--icon {
         display: flex;
         align-items: center;
-        margin-right: 0.6rem;
+        margin-right: 0.64rem;
       }
 
       &__text {
         display: flex;
         align-items: center;
-      }
-
-      &__expand {
-        width: 16rem;
-
-        &-static {
-          width: 10rem;
-        }
-
-        &-text {
-          display: -webkit-box;
-          margin-bottom: 1rem;
-        }
       }
     }
   }

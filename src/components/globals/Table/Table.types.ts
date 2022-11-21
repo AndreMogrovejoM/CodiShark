@@ -1,9 +1,6 @@
 import { TableColumn } from "react-data-table-component";
-import {
-  ExpandableRowsComponent,
-  PaginationComponent
-} from "react-data-table-component/dist/src/DataTable/types";
-
+import { ExpandableRowsComponent } from "react-data-table-component/dist/src/DataTable/types";
+import { PaginationComponent } from "react-data-table-component/dist/src/DataTable/types";
 // Interfaces and types from component Table
 
 // Component Props

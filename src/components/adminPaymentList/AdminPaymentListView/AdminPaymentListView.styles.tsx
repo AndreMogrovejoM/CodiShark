@@ -42,6 +42,7 @@ const AdminPaymentListViewStyled = styled.div<Props>`
         display: flex;
         gap: 1.6rem;
         flex-flow: row wrap;
+
         @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
           gap: 2%;
         }
