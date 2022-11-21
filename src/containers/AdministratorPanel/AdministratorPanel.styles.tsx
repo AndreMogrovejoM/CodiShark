@@ -8,6 +8,7 @@ const AdministratorPanelStyled = styled.div<Props>`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  min-height: 100vh;
 
   .AdministratorPanel {
     &__section1 {

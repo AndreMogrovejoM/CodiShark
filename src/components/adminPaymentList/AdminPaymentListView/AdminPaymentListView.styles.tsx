@@ -1,12 +1,12 @@
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
-import { PaymentListViewStyledProps as Props } from "./PaymentListView.types";
+import { AdminPaymentListViewStyledProps as Props } from "./AdminPaymentListView.types";
 
 const { BREAKPOINTS } = CONSTANTS;
 
-const PaymentListViewStyled = styled.div<Props>`
-  .PaymentListView {
+const AdminPaymentListViewStyled = styled.div<Props>`
+  .AdminPaymentListView {
     &__container {
       margin: auto 2.4rem;
       height: 100vh;
@@ -36,13 +36,13 @@ const PaymentListViewStyled = styled.div<Props>`
         justify-content: center;
         align-items: center;
         margin: auto;
-        margin-bottom: 1.2rem;
       }
 
       &--layout {
         display: flex;
         gap: 1.6rem;
         flex-flow: row wrap;
+
         @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
           gap: 2%;
         }
@@ -117,4 +117,4 @@ const PaymentListViewStyled = styled.div<Props>`
   }
 `;
 
-export default PaymentListViewStyled;
+export default AdminPaymentListViewStyled;

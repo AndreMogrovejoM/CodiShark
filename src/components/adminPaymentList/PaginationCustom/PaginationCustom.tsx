@@ -21,7 +21,7 @@ const PaginationCustom: React.FC<Props> = props => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } = props;
 
-  const t = useI18n().global.table.TablePaymentUser.Pagination;
+  const t = useI18n().global.table.TablePaymentAdmin.Pagination;
 
   const numPages = getNumberOfPages(rowCount, rowsPerPage);
   const totalRowCount = getArrayViews(numPages);

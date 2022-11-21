@@ -4,17 +4,6 @@ import getI18n from "i18n/i18n.helpers";
 import Styles from "./PaymentTable.styles";
 import { RowChipProps } from "./PaymentTable.types";
 
-export function getNumberOfPages(
-  rowCount: number,
-  rowsPerPage: number
-): number {
-  return Math.ceil(rowCount / rowsPerPage);
-}
-
-export function getArrayViews(numPages: number) {
-  return Array.from({ length: numPages }, (_, i) => i + 1);
-}
-
 export const Row = (props: any) => {
   const { content, bold = false } = props;
 

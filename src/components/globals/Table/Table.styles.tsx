@@ -15,13 +15,21 @@ const TableStyled = styled(DataTable)((props: Props) => ({
     borderRadius: "0.8rem",
     borderBottom: "none",
     marginBottom: "0.4rem",
-    height: "49px"
+    height: "4.8rem"
   },
   ".rdt_TableRow": {
     borderRadius: "0.8rem",
     borderBottom: "none",
     marginBottom: "0.4rem",
-    height: "49px"
+    height: "4.8rem",
+    cursor: "auto"
+  },
+  ".rdt_ExpanderRow": {
+    padding: "1.6rem 2.4rem",
+    paddingRight: "auto",
+    marginTop: "-0.1rem",
+    marginBottom: "0.8rem",
+    borderRadius: "0.8rem"
   }
 }));
 
