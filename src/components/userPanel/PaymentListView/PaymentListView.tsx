@@ -4,7 +4,7 @@ import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React from "react";
+import React, { useEffect } from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
 import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
@@ -21,7 +21,10 @@ const PaymentListView: React.FC<Props> = props => {
   const t = useI18n().pages.UserPayPanel;
 
   const { setIsLoading } = useGlobals();
-  setIsLoading(isLoading);
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading, setIsLoading]);
 
   const handlePDF = async () => {
     try {

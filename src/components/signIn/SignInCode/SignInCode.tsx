@@ -11,6 +11,7 @@ import { setCookie } from "react-use-cookie";
 import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { useSignInUserStep3 } from "services/auth/auth.service.hooks";
 import { formatMillisecondsToSeconds } from "utils/common.utils";
+import { useLocalStorage } from "utils/useLocalStorage";
 import { minInputsCode } from "utils/validations.utils";
 
 import Styles from "./SignInCode.styles";
@@ -26,6 +27,7 @@ const SignInCode: React.FC<Props> = props => {
   const navigate = useNavigate();
   const { setSignInStep, user, setUser } = useAuth();
   const { signInMethod } = useAuth();
+  const [, setLocalUser] = useLocalStorage("user");
   const { mutateAsync: mutateStep2, reset: resetStep2 } = useSignInUserStep2();
   const { mutateAsync, reset } = useSignInUserStep3();
 
@@ -51,6 +53,7 @@ const SignInCode: React.FC<Props> = props => {
       await mutateAsync({ password: OTP, dni: user?.dni }).then(response => {
         const { access_token, user } = response ?? {};
         setUser(user);
+        setLocalUser(user);
         setCookie("token", access_token);
       });
       reset();

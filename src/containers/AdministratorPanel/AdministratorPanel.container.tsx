@@ -16,13 +16,16 @@ const AdministratorPanelContainer: React.FC<Props> = props => {
   const { data, isFetched, isLoading } = useFetchAdministratorFirstPanel();
   const { status } = data ?? {};
   const { setIsLoading } = useGlobals();
-  setIsLoading(isLoading);
 
   useEffect(() => {
     if (status !== 200 && isFetched) {
       document.location.reload();
     }
   }, [status, isFetched]);
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading, setIsLoading]);
 
   return (
     <LayoutContainer>
