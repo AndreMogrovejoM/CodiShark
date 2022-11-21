@@ -218,8 +218,19 @@ const es: Dictionary = {
       subtitle2: "libertad financiera, y esa libertad",
       subtitle3: "me ayudó a alcanzar mis sueños”"
     },
+
     IndicatorsClientOne: {
       greetings: "Bienvenido(a)"
+    },
+
+    Summary: {
+      title:
+        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:",
+      subtitle: "Préstamos Banco Interbank",
+      summary1: "Monto original",
+      summary2: "Monto original",
+      summary3: "Fecha límite de pago",
+      button: "VER DETALLE"
     }
   },
 
