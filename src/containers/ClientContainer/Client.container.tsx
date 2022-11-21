@@ -2,6 +2,7 @@ import CardImageOne from "components/CardImageOne/CardImageOne";
 import CardImageTwo from "components/CardImageTwo/CardImageTwo";
 import IndicatorsClientOne from "components/IndicatorsClientOne/IndicatorsClientOne";
 import IndicatorsClientTwo from "components/IndicatorsClientTwo/IndicatorsClientTwo";
+import InformationClient from "components/InformationClient/InformationClient";
 import PanelBannerClient from "components/PanelBannerClient/PanelBannerClient";
 import Summary from "components/Summary/Summary";
 import LayoutContainer from "containers/Layout/Layout.container";
@@ -25,6 +26,7 @@ const ClientContainerContainer: React.FC<Props> = props => {
           </div>
           <h2 className="ClientContainer__title">{t.title}</h2>
           <Summary />
+          <InformationClient />
         </div>
         <div className="ClientContainer__section3">
           <CardImageOne />
