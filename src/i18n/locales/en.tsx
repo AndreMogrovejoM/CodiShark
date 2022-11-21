@@ -220,6 +220,15 @@ const en = {
     },
     IndicatorsClientOne: {
       greetings: "Welcome"
+    },
+    Summary: {
+      title:
+        "Here we provide the amount of your debt and the deadlines to make your payments:",
+      subtitle: "Banco Interbank Loans",
+      summary1: "Original amount",
+      summary2: "Original amount",
+      summary3: "Payment deadline",
+      button: "VER DETALLE"
     }
   },
   utils: {

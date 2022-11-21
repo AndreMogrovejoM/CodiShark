@@ -8,8 +8,17 @@ const ClientContainerStyled = styled.div<Props>`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  position: relative;
 
   .ClientContainer {
+    &__title {
+      left: 0.26rem;
+      top: 27.5rem;
+      position: absolute;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6rem;
+    }
     &__section1 {
       width: 72%;
 
@@ -20,6 +29,17 @@ const ClientContainerStyled = styled.div<Props>`
     }
 
     &__section2 {
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+
+      @media screen and (max-width: 1366px) {
+        width: 88%;
+        margin: 0 auto;
+      }
+    }
+
+    &__section3 {
       margin-right: 2.4rem;
       margin-left: 2.4rem;
       width: 70%;
