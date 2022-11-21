@@ -7,7 +7,7 @@ import { RouterProps as Props } from "./Router.types";
 // Root routes
 const FiverZeroZero = lazy(() => import("pages/500/500.page"));
 const FourZeroFour = lazy(() => import("pages/404/404.page"));
-// const Home = lazy(() => import("pages/home.page"));
+const Home = lazy(() => import("pages/home.page"));
 const SignInAdministrator = lazy(
   () => import("pages/signInAdministrator.page")
 );
@@ -26,8 +26,8 @@ const Router: React.FC<Props> = props => {
     <SetupProvider>
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<SignInAdministrator />}>
-            <Route index element={<SignInAdministrator />} />
+          <Route path="/" element={<Home />}>
+            <Route index element={<Home />} />
           </Route>
           <Route path="/signin" element={<SignInUser />} />
           <Route

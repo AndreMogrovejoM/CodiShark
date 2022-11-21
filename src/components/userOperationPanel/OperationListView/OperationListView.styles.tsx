@@ -36,6 +36,7 @@ const OperationListViewStyled = styled.div<Props>`
         justify-content: center;
         align-items: center;
         margin: auto;
+        margin-bottom: 1.2rem;
       }
 
       &--layout {
