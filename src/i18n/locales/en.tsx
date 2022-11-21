@@ -67,6 +67,32 @@ const en = {
           back: "Back",
           next: "Next"
         }
+      },
+      TablePaymentAdmin: {
+        TableHeader: {
+          concept: "Concept",
+          originalAmount: "Original amount",
+          amountPaid: "Amount paid",
+          paymentDate: "Payment date",
+          actions: "Actions",
+          details: ""
+        },
+        TableRows: {
+          buttonAction: "Download component",
+          buttonDetail: "View details"
+        },
+        TableRowsExpand: {
+          entity: "Banking entity:",
+          typeDebt: "Type of debt:",
+          typeExchange: "Currency type: ",
+          date: "Date:"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Showing payments from ${begin} to ${rowsPage}  of a total of ${total} payments.`,
+          back: "Back",
+          next: "Next"
+        }
       }
     },
     ProfileSelectOverlay: {

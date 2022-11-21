@@ -66,6 +66,32 @@ const es: Dictionary = {
           back: "Anterior",
           next: "Siguiente"
         }
+      },
+      TablePaymentAdmin: {
+        TableHeader: {
+          concept: "Concepto",
+          originalAmount: "Monto original",
+          amountPaid: "Monto pagado",
+          paymentDate: "Fecha de pago",
+          actions: "Acciones",
+          details: ""
+        },
+        TableRows: {
+          buttonAction: "Descargar comprobante",
+          buttonDetail: "Ver detalles"
+        },
+        TableRowsExpand: {
+          entity: "Entidad bancaria:",
+          typeDebt: "Tipo de deuda:",
+          typeExchange: "Tipo de moneda:",
+          date: "Fecha:"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Mostrando pagos del ${begin} al ${rowsPage} de un total de ${total} pagos.`,
+          back: "Anterior",
+          next: "Siguiente"
+        }
       }
     },
     ProfileSelectOverlay: {
