@@ -1,7 +1,7 @@
 // Administrator services
 
 import CONSTANTS from "config/constants";
-import axiosDefault from "utils/axios.utils";
+import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
 import { GraphicsResponse } from "./administrator.service.types";
 import { Status, UsersListResponse } from "./administrator.service.types";
@@ -17,7 +17,10 @@ export const fetchAdministratorFirstPanel =
   async (): Promise<FirstPanelAdministrator> => {
     try {
       const response = await axiosDefault.get(
-        `${REACT_APP_API_URL}/admin/home/panel/month`
+        `${REACT_APP_API_URL}/admin/home/panel/month`,
+        {
+          headers: buildHeaders()
+        }
       );
       return response?.data;
     } catch (e: any) {
@@ -31,7 +34,10 @@ export const fetchAdministratorSecondPanel = async (
   const { dateIni, dateEnd } = data;
   try {
     const response = await axiosDefault.get(
-      `${REACT_APP_API_URL}/admin/home/panel?dateIni=${dateIni}&dateEnd=${dateEnd}`
+      `${REACT_APP_API_URL}/admin/home/panel?dateIni=${dateIni}&dateEnd=${dateEnd}`,
+      {
+        headers: buildHeaders()
+      }
     );
     return response?.data;
   } catch (e: any) {
@@ -45,7 +51,10 @@ export const fetchAdministratorUsers = async (
 ): Promise<UsersListResponse> => {
   try {
     const response = await axiosDefault.get(
-      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}`
+      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}`,
+      {
+        headers: buildHeaders()
+      }
     );
     return response?.data;
   } catch (e: any) {
@@ -61,7 +70,9 @@ export const fetchAdministratorOperations = async (
     ? `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}`
     : `${REACT_APP_API_URL}/admin/operations?take=${take}`;
   try {
-    const response = await axiosDefault.get(url);
+    const response = await axiosDefault.get(url, {
+      headers: buildHeaders()
+    });
     return response?.data;
   } catch (e: any) {
     throw new Error(e.message);
@@ -73,7 +84,10 @@ export const fetchAdministratorGraphics = async (
 ): Promise<GraphicsResponse> => {
   try {
     const response = await axiosDefault.get(
-      `${REACT_APP_API_URL}/admin/home/grafic/income?year=${year}`
+      `${REACT_APP_API_URL}/admin/home/grafic/income?year=${year}`,
+      {
+        headers: buildHeaders()
+      }
     );
     return response?.data;
   } catch (e: any) {
@@ -86,7 +100,8 @@ export const exportUsersPdf = async (): Promise<File> => {
     const response = await axiosDefault.get(
       `${REACT_APP_API_URL}/admin/export/users/pdf`,
       {
-        responseType: "blob"
+        responseType: "blob",
+        headers: buildHeaders()
       }
     );
     return response?.data;
@@ -100,7 +115,8 @@ export const exportUsersExcel = async (): Promise<File> => {
     const response = await axiosDefault.get(
       `${REACT_APP_API_URL}/admin/export/users/excel`,
       {
-        responseType: "blob"
+        responseType: "blob",
+        headers: buildHeaders()
       }
     );
     return response?.data;
@@ -114,7 +130,8 @@ export const exportOperationsPdf = async (): Promise<File> => {
     const response = await axiosDefault.get(
       `${REACT_APP_API_URL}/admin/export/operations/pdf`,
       {
-        responseType: "blob"
+        responseType: "blob",
+        headers: buildHeaders()
       }
     );
     return response?.data;
@@ -128,7 +145,8 @@ export const exportOperationsExcel = async (): Promise<File> => {
     const response = await axiosDefault.get(
       `${REACT_APP_API_URL}/admin/export/operations/excel`,
       {
-        responseType: "blob"
+        responseType: "blob",
+        headers: buildHeaders()
       }
     );
     return response?.data;

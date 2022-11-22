@@ -48,4 +48,13 @@ axiosDefault.interceptors.response.use(
   }
 );
 
+export const buildHeaders = () => {
+  return {
+    Platform: REACT_APP_PLATFORM as string,
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${getCookie("token")}`,
+    responseType: "json"
+  };
+};
+
 export default axiosDefault;
