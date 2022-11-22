@@ -13,7 +13,7 @@ type Color =
 
 // Component Props
 export interface ButtonProps {
-  children: string;
+  children: string | JSX.Element;
   color?: Color;
   variant?: Variant;
   size?: Size;

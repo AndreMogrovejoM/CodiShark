@@ -14,12 +14,21 @@ const Summary: React.FC<Props> = props => {
     <Styles className="Summary">
       <h2 className="Summary__subtitle">{t.subtitle}</h2>
       <div className="Summary__cardsContainer">
-        <SummaryCard title={t.summary1} value={"S/8200.00"} />
-        <SummaryCard title={t.summary2} value={"S/6750.00"} />
-        <SummaryCard title={t.summary3} value={"10/09/2022"} />
+        <SummaryCard title={t.summary1}>
+          <h3 className="Summary__h3">S/ 8200</h3>
+        </SummaryCard>
+        <SummaryCard title={t.summary2}>
+          <div className="Summary__sectionDate">
+            <h3 className="Summary__h3 Summary__primary-color">S/6750.00</h3>
+            <span className="Summary__span">-35%</span>
+          </div>
+        </SummaryCard>
+        <SummaryCard title={t.summary3}>
+          <h4 className="Summary__h4">10/09/2022</h4>
+        </SummaryCard>
       </div>
       <Button className="Summary__button" variant="contained">
-        {t.button}
+        <h3 className="Summary__text">{t.button}</h3>
       </Button>
       <img className="Summary__line1" src={lineSummary} alt="lineSummary" />
       <img className="Summary__line2" src={lineSummary} alt="lineSummary" />

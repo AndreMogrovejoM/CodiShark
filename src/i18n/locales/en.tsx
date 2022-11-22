@@ -255,6 +255,20 @@ const en = {
       summary2: "Original amount",
       summary3: "Payment deadline",
       button: "VER DETALLE"
+    },
+    InformationClient: {
+      title: "Card payment ",
+      subtitle: "We accept the following payment methods:",
+      subtitle2: "You can also pay with your debit cards",
+      title2: "Bank transfer",
+      subtitle3: "BANK",
+      subtitle4: "Checking account soles",
+      subtitle5: "Interbank account soles",
+      parrafo:
+        "After making the deposit, please send us the voucher to 900 415 521 or to atencion@b12.pe, indicating the transaction number.",
+      subtitle6: "Generate your transaction number to make your payment",
+      button: "PAY",
+      button2: "GENERATE TRANSACTION NUMBER"
     }
   },
   utils: {

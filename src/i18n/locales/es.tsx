@@ -257,6 +257,21 @@ const es: Dictionary = {
       summary2: "Monto original",
       summary3: "Fecha límite de pago",
       button: "VER DETALLE"
+    },
+
+    InformationClient: {
+      title: "Pago con tarjeta",
+      subtitle: "Aceptamos los siguientes métodos de pago:",
+      subtitle2: "También puedes pagar con tus tarjetas de débito",
+      title2: "Transferencia bancaria",
+      subtitle3: "BANCO",
+      subtitle4: "Cuenta corriente soles",
+      subtitle5: "Cuenta interbancaria soles",
+      parrafo:
+        "Después de realizar el depósito, envíanos el voucher al número 900 415 521 oal correo atencion@b12.pe, indicando el número de operación.",
+      subtitle6: "Genera tu número de operación para realizar el pago",
+      button: "PAGAR",
+      button2: "GENERAR NÚMERO DE OPERACIÓN"
     }
   },
 
