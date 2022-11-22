@@ -3,7 +3,7 @@
 // Component Props
 export interface SummaryCardProps {
   title: string;
-  value: string;
+  children: JSX.Element;
 }
 
 // Styled Component Props

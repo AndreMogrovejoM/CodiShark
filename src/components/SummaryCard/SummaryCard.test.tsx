@@ -4,6 +4,6 @@ import SummaryCard from "./SummaryCard";
 
 describe("SummaryCard", () => {
   it("renders with default props", () => {
-    render(<SummaryCard title={""} value={""} />);
+    render(<SummaryCard title={""} children={<></>} />);
   });
 });

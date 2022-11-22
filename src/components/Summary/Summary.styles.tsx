@@ -42,6 +42,13 @@ const SummaryStyled = styled.div<Props>`
       bottom: 3.8rem;
     }
 
+    &__text {
+      color: var(--palette-blueText);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6rem;
+    }
+
     &__line1 {
       position: absolute;
       left: 16rem;
@@ -50,8 +57,43 @@ const SummaryStyled = styled.div<Props>`
 
     &__line2 {
       position: absolute;
-      left: 32rem;
+      left: 34rem;
       top: 3.6rem;
+    }
+
+    &__sectionDate {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &__span {
+      display: flex;
+      font-weight: 700;
+      align-items: center;
+      line-height: 1.6rem;
+      font-size: 1.2rem;
+      background-color: var(--palette-yellow);
+      border-radius: 0.8rem;
+      width: 5rem;
+      padding: 0 auto;
+      justify-content: center;
+    }
+
+    &__h3 {
+      color: var(--palette-grayText);
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+    }
+
+    &__primary-color {
+      color: var(--palette-primary);
+    }
+
+    &__h4 {
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
     }
   }
 `;

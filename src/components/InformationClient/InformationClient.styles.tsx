@@ -4,13 +4,13 @@ import { InformationClientStyledProps as Props } from "./InformationClient.types
 
 const InformationClientStyled = styled.div<Props>`
   width: 100%;
-  height: 30rem;
+  height: 32rem;
   display: flex;
   flex-direction: row;
   background-color: var(--palette-white);
   border-radius: 0.8rem;
   padding: 1.2rem 2.4rem;
-  margin: 3rem auto;
+  margin: 3.2rem auto;
   position: relative;
   gap: 4rem;
 
@@ -33,6 +33,7 @@ const InformationClientStyled = styled.div<Props>`
       font-size: 1.6rem;
       line-height: 2.4rem;
       margin-left: 16rem;
+      margin-top: 1rem;
     }
 
     &__title2 {
@@ -41,7 +42,8 @@ const InformationClientStyled = styled.div<Props>`
       font-size: 1.6rem;
       line-height: 2.4rem;
       margin-left: 12rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
 
     &__subtitle {
@@ -49,7 +51,7 @@ const InformationClientStyled = styled.div<Props>`
       font-weight: 400;
       font-size: 0.9rem;
       line-height: 1.6rem;
-      margin-left: 13.4rem;
+      margin-left: 13.6rem;
       margin-bottom: 1rem;
     }
 
@@ -58,21 +60,20 @@ const InformationClientStyled = styled.div<Props>`
       font-weight: 700;
       font-size: 1rem;
       line-height: 1.6rem;
-      margin-left: 11.4rem;
-      margin-bottom: 1rem;
+      margin-left: 11.2rem;
       margin-top: 1rem;
     }
 
     &__subtitle3 {
       margin-bottom: 1rem;
-      margin-left: 7rem;
+      margin-left: 7.2rem;
       font-weight: 800;
       font-size: 1.6rem;
       line-height: 2.4rem;
     }
 
     &__subtitle4 {
-      margin-left: 7rem;
+      margin-left: 7.2rem;
       margin-bottom: 0.2rem;
       font-weight: 300;
       font-size: 0.9rem;
@@ -82,14 +83,14 @@ const InformationClientStyled = styled.div<Props>`
     &__subtitle6 {
       margin-top: 1rem;
       margin-bottom: 1rem;
-      margin-left: 7rem;
+      margin-left: 7.2rem;
       font-weight: 800;
       font-size: 0.9rem;
       line-height: 1.6rem;
     }
 
     &__cuenta1 {
-      margin-left: 7rem;
+      margin-left: 7.2rem;
       font-weight: 700;
       font-size: 1.3rem;
       line-height: 1.6rem;
@@ -97,7 +98,7 @@ const InformationClientStyled = styled.div<Props>`
 
     &__parrafo {
       margin-top: 1rem;
-      margin-left: 7rem;
+      margin-left: 7.2rem;
       font-weight: 300;
       font-size: 0.9rem;
       line-height: 1.6rem;
@@ -105,15 +106,28 @@ const InformationClientStyled = styled.div<Props>`
 
     &__button {
       background-color: var(--palette-limeGreen);
-      width: 16rem;
-      margin-left: 14.6rem;
+      width: 12rem;
+      margin-top: 2.6rem;
+      margin-left: 16.6rem;
+    }
+    &__text1 {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.6rem;
     }
 
     &__button2 {
-      margin-left: 7rem;
+      margin-left: 7.2rem;
       display: flex;
       background-color: var(--palette-primary);
-      width: 26rem;
+      width: 24rem;
+    }
+
+    &__text2 {
+      color: var(--palette-white);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.6rem;
     }
 
     &__image1 {
@@ -126,13 +140,23 @@ const InformationClientStyled = styled.div<Props>`
       gap: 4rem;
       margin-left: 16rem;
       display: flex;
-      margin-bottom: 2rem;
+      margin-top: 2rem;
     }
 
     &__line {
       position: absolute;
-      left: 50rem;
+      left: 50.5rem;
       top: 3.6rem;
+    }
+
+    &__p {
+      color: var(--palette-grayText);
+      position: absolute;
+      font-weight: 400;
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+      top: 11.2rem;
+      right: 67.6rem;
     }
   }
 `;
