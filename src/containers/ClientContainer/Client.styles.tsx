@@ -9,6 +9,7 @@ const ClientContainerStyled = styled.div<Props>`
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
+  min-height: 100vh;
 
   .ClientContainer {
     &__title {
@@ -18,6 +19,9 @@ const ClientContainerStyled = styled.div<Props>`
       font-weight: 400;
       font-size: 1rem;
       line-height: 1.6rem;
+      @media screen and (max-width: 1366px) {
+        left: 7rem;
+      }
     }
     &__section1 {
       width: 72%;
@@ -34,8 +38,10 @@ const ClientContainerStyled = styled.div<Props>`
       width: 100%;
 
       @media screen and (max-width: 1366px) {
-        width: 88%;
+        width: 100%;
         margin: 0 auto;
+      }
+      @media screen and (max-width: 978px) {
       }
     }
 
@@ -43,23 +49,14 @@ const ClientContainerStyled = styled.div<Props>`
       margin-right: 2.4rem;
       margin-left: 2.4rem;
       width: 70%;
-      justify-content: center;
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      flex-wrap: wrap;
 
       @media screen and (max-width: 1366px) {
-        width: 88%;
-        align-items: center;
-        justify-content: center;
-        gap: 2%;
-        flex-direction: row;
-        margin: 3.2rem auto;
-      }
-
-      @media screen and (max-width: 1024px) {
-        flex-direction: column;
+        display: none;
       }
     }
   }
