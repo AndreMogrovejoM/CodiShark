@@ -96,6 +96,12 @@ const SidebarStyled = styled.nav<Props>`
       display: flex;
       gap: 0.6rem;
     }
+
+    &__list {
+      &--icon {
+        min-width: 3.6rem;
+      }
+    }
   }
 `;
 

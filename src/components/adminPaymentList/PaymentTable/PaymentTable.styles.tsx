@@ -53,7 +53,12 @@ const PaymentTableStyled = styled.div<Props>`
       &--icon {
         display: flex;
         align-items: center;
-        margin-right: 0.64rem;
+        margin-right: none;
+        pointer-events: none;
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          margin-right: 0.64rem;
+        }
       }
 
       &__text {

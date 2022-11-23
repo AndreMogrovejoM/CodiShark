@@ -6,8 +6,8 @@ const es: Dictionary = {
   global: {
     sideBar: {
       start: "Inicio",
-      myPayments: "Mis pagos",
-      myClients: "Mis clientes",
+      myPayments: "Listado de pagos",
+      myClients: "Listado de clientes",
       logout: "Cerrar sesión",
       title: "Contacto",
       direction: "la Republica 218 - Miraflores"

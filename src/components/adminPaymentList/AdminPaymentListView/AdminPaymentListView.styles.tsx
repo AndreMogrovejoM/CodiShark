@@ -6,6 +6,8 @@ import { AdminPaymentListViewStyledProps as Props } from "./AdminPaymentListView
 const { BREAKPOINTS } = CONSTANTS;
 
 const AdminPaymentListViewStyled = styled.div<Props>`
+  margin: 2rem;
+
   .AdminPaymentListView {
     &__container {
       margin: auto 2.4rem;
