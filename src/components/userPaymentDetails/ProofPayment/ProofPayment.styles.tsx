@@ -78,7 +78,7 @@ const ProofPaymentStyled = styled.div<Props>`
       &--code {
         width: 18rem;
         height: 7.2rem;
-        border: 0.5px solid var(--palette-darkText);
+        border: 0.4rem solid var(--palette-darkText);
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -135,7 +135,7 @@ const ProofPaymentStyled = styled.div<Props>`
         &-superBold {
           font-weight: 800;
           font-size: 2rem;
-          line-height: 2.7rem;
+          line-height: 2.64rem;
           color: var(--palette-blue);
         }
       }
