@@ -13,6 +13,7 @@ const AdministratorPanelStyled = styled.div<Props>`
   .AdministratorPanel {
     &__section1 {
       width: 68%;
+      background-color: red;
 
       @media screen and (max-width: 1366px) {
         width: 88%;

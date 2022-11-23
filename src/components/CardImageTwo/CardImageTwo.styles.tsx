@@ -17,6 +17,17 @@ const CardImageTwoStyled = styled.div<Props>`
       flex-direction: column;
       top: 36rem;
       left: 4rem;
+      @media screen and (max-width: 1515px) {
+        top: 34rem;
+      }
+      @media screen and (max-width: 1470px) {
+        top: 32rem;
+        left: 3.6rem;
+      }
+      @media screen and (max-width: 1410px) {
+        left: 3.2rem;
+        top: 30rem;
+      }
     }
 
     &__subtitle1 {
