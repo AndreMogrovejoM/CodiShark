@@ -1,4 +1,4 @@
-import { LinearProgress } from "@mui/material";
+import Backdrop from "components/Backdrop/Backdrop";
 import React, { lazy, memo, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const UserPaymentDetails = lazy(() => import("pages/userPaymentDetails.page"));
 
 const Router: React.FC<Props> = props => {
   return (
-    <Suspense fallback={<LinearProgress />}>
+    <Suspense fallback={<Backdrop isLoading={true} />}>
       <Routes>
         <Route path="/" element={<Client />} />
         <Route path="/signin" element={<SignInUser />} />

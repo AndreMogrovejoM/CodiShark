@@ -1,4 +1,4 @@
-import { Backdrop, CircularProgress } from "@mui/material";
+import Backdrop from "components/Backdrop/Backdrop";
 import Sidebar from "components/globals/Sidebar/Sidebar";
 import useGlobals from "contexts/globals/globals.hooks";
 import React from "react";
@@ -14,12 +14,7 @@ const LayoutContainer: React.FC<Props> = props => {
     <Styles className="LayoutContainer">
       <Sidebar />
       <main className="LayoutContainer__children">{children}</main>
-      <Backdrop
-        sx={{ color: "#fff", zIndex: theme => theme.zIndex.drawer + 1 }}
-        open={isLoading}
-      >
-        <CircularProgress color="primary" />
-      </Backdrop>
+      <Backdrop isLoading={isLoading} />
     </Styles>
   );
 };

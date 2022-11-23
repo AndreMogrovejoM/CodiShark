@@ -13,15 +13,8 @@ import { AdministratorPanelContainerProps as Props } from "./AdministratorPanel.
 
 const AdministratorPanelContainer: React.FC<Props> = props => {
   const t = useI18n().signIn.AdministratorPanel;
-  const { data, isFetched, isLoading } = useFetchAdministratorFirstPanel();
-  const { status } = data ?? {};
+  const { isLoading } = useFetchAdministratorFirstPanel();
   const { setIsLoading } = useGlobals();
-
-  useEffect(() => {
-    if (status !== 200 && isFetched) {
-      document.location.reload();
-    }
-  }, [status, isFetched]);
 
   useEffect(() => {
     setIsLoading(isLoading);
