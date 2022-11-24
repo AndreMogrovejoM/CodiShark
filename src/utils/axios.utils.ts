@@ -13,7 +13,7 @@ const axiosDefault = axios.create({
   headers: {
     Platform: REACT_APP_PLATFORM as string,
     "Content-Type": "application/json",
-    Authorization: `Bearer ${await getCookie("token")}`,
+    Authorization: `Bearer ${getCookie("token")}`,
     responseType: "json"
   }
 });
