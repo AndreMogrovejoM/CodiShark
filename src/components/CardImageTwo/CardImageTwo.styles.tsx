@@ -3,12 +3,16 @@ import styled from "styled-components";
 import { CardImageTwoStyledProps as Props } from "./CardImageTwo.types";
 
 const CardImageTwoStyled = styled.div<Props>`
-  max-width: 32rem;
-  width: 100%;
-  height: 100%;
-  background-color: var(--palette-white);
-  border-radius: 1.6rem;
   position: relative;
+  max-width: 32rem;
+  max-height: 30rem;
+  width: 100%;
+  background-color: var(--palette-white);
+  margin-bottom: 3.2rem;
+  border-radius: 1.6rem;
+  @media screen and (max-width: 1366px) {
+    width: 20rem;
+  }
 
   .CardImageTwo {
     &__section {

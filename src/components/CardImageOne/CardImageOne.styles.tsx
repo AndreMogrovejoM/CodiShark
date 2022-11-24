@@ -10,7 +10,9 @@ const CardImageOneStyled = styled.div<Props>`
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 0.8rem;
-
+  @media screen and (max-width: 1366px) {
+    width: 100%;
+  }
   .CardImageOne {
     &__title {
       position: absolute;

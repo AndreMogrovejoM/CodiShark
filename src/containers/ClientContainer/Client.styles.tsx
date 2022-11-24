@@ -19,8 +19,9 @@ const ClientContainerStyled = styled.div<Props>`
       font-weight: 400;
       font-size: 1rem;
       line-height: 1.6rem;
+
       @media screen and (max-width: 1366px) {
-        left: 7rem;
+        left: 9.2rem;
       }
     }
     &__section1 {
@@ -41,8 +42,6 @@ const ClientContainerStyled = styled.div<Props>`
         width: 100%;
         margin: 0 auto;
       }
-      @media screen and (max-width: 978px) {
-      }
     }
 
     &__section3 {
@@ -54,10 +53,6 @@ const ClientContainerStyled = styled.div<Props>`
       flex-direction: column;
       align-items: flex-end;
       flex-wrap: wrap;
-
-      @media screen and (max-width: 1366px) {
-        display: none;
-      }
     }
   }
 `;
