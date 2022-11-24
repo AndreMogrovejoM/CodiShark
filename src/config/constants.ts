@@ -15,7 +15,9 @@ const CONSTANTS = {
     NO_AUTH_PATH: "/signin",
     // admin panel
     USER_PAYMENT_LIST: "/userPaymentList",
-    USER_CLIENT_LIST: "/userClientList"
+    USER_CLIENT_LIST: "/userClientList",
+    USER_PAYMENT_DETAILS: "/userPaymentDetails",
+    ADMIN_PAYMENT_LIST: "/administratorPaymentList"
   },
   API: {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",

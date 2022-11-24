@@ -7,8 +7,8 @@ const en = {
   global: {
     sideBar: {
       start: "Start",
-      myPayments: "My payments",
-      myClients: "My clients",
+      myPayments: "Payment list",
+      myClients: "Customer list",
       logout: "Logout",
       title: "Contact",
       direction: "la Republica 218 - Miraflores"
@@ -124,6 +124,33 @@ const en = {
       buttonPrint: "Print",
       titleDetails: "Customer details",
       paragraphDetails: "Select a customer to view details"
+    },
+    AdminPaymentDetails: {
+      proof: {
+        title: "Proof of payment",
+        name: "Names",
+        bankEntity: "Bank entity",
+        debtType: "Debt type",
+        currencyType: "Currency type",
+        paymentMethod: "Payment method",
+        date: "Date",
+        hour: "Hour",
+        paymentcode: "Payment code",
+        originalAmount: "original amount",
+        discount: "Discount",
+        subtotal: "Subtotal",
+        amountPaid: "Amount paid",
+        buttons: {
+          pdf: "Download PDF",
+          email: "Sent by mail",
+          back: "Back"
+        }
+      },
+      card: {
+        title: "¡Thank you for your payment!",
+        subtitle: "Now, you can a lot of the benefits that go",
+        alt: "Profile photo"
+      }
     }
   },
   chart: {
@@ -233,12 +260,10 @@ const en = {
       parrafo2: "-Campaigns for new credit",
       parrafo3: "-Leveling in credit bureaus"
     },
-
     CardImageOne: {
       title: "Live a debt-free life",
       subtitle: "Living peacefully is priceless"
     },
-
     CardImageTwo: {
       subtitle1: "“to pay off my debt was to reach the",
       subtitle2: "financial freedom, and that freedom",

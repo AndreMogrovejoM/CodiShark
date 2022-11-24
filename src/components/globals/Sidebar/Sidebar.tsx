@@ -19,7 +19,8 @@ import { useLocalStorage } from "utils/useLocalStorage";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
-const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH, USER_CLIENT_LIST } =
+const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
+const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS, ADMIN_PAYMENT_LIST } =
   CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
@@ -66,7 +67,7 @@ const Sidebar: React.FC<Props> = props => {
           }}
           sx={{ padding: "1.2rem 2.4rem" }}
         >
-          <ListItemIcon>
+          <ListItemIcon className="Sidebar__list--icon">
             <ChevronRightIcon sx={{ color: "white" }} fontSize="large" />
           </ListItemIcon>
           <ListItemText>
@@ -92,7 +93,7 @@ const Sidebar: React.FC<Props> = props => {
   const renderLogout = () => {
     return (
       <ListItemButton onClick={handleLogout} sx={{ padding: "1.2rem 2.4rem" }}>
-        <ListItemIcon>
+        <ListItemIcon className="Sidebar__list--icon">
           <LogoutIcon sx={{ color: "white" }} fontSize="medium" />
         </ListItemIcon>
         <ListItemText>
@@ -167,6 +168,10 @@ const Sidebar: React.FC<Props> = props => {
           {renderItem(0, t.start, ADMIN_ENTRY_PATH)}
           {renderItem(0, t.myPayments, USER_PAYMENT_LIST)}
           {renderItem(0, t.myClients, USER_CLIENT_LIST)}
+          {/* TODO: Temp  */}
+          {renderItem(0, "Detalles pago", USER_PAYMENT_DETAILS)}
+          {renderItem(0, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
+
           <div className="Sidebar__divider" />
           {renderLogout()}
         </List>

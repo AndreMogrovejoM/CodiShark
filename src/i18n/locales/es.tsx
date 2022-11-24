@@ -6,8 +6,8 @@ const es: Dictionary = {
   global: {
     sideBar: {
       start: "Inicio",
-      myPayments: "Mis pagos",
-      myClients: "Mis clientes",
+      myPayments: "Listado de pagos",
+      myClients: "Listado de clientes",
       logout: "Cerrar sesión",
       title: "Contacto",
       direction: "la Republica 218 - Miraflores"
@@ -123,6 +123,33 @@ const es: Dictionary = {
       buttonPrint: "Imprimir",
       titleDetails: "Detalles del pago",
       paragraphDetails: "Seleccione un pago para ver los detalles"
+    },
+    AdminPaymentDetails: {
+      proof: {
+        title: "Comprobante de pago",
+        name: "Nombres",
+        bankEntity: "Entidad bancaria",
+        debtType: "Tipo de deuda",
+        currencyType: "Tipo de moneda",
+        paymentMethod: "Método de pago",
+        date: "Fecha",
+        hour: "Hora",
+        paymentcode: "Codigo de pago",
+        originalAmount: "Monto original",
+        discount: "Descuento",
+        subtotal: "Subtotal",
+        amountPaid: "Monto pagado",
+        buttons: {
+          pdf: "Descargar PDF",
+          email: "Enviar por correo",
+          back: "Regresar"
+        }
+      },
+      card: {
+        title: "¡Gracias por realizar su pago!",
+        subtitle: "Ahora podrá disfrutar de muchos beneficios",
+        alt: "Foto de usuario"
+      }
     }
   },
   chart: {
