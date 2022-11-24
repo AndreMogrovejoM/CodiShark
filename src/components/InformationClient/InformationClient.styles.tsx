@@ -25,6 +25,10 @@ const InformationClientStyled = styled.div<Props>`
       width: 100%;
       display: flex;
       flex-direction: column;
+
+      @media screen and (max-width: 1518px) {
+        margin-left: 4rem;
+      }
     }
 
     &__title {
@@ -147,6 +151,10 @@ const InformationClientStyled = styled.div<Props>`
       position: absolute;
       left: 50.5rem;
       top: 3.6rem;
+
+      @media screen and (max-width: 1518px) {
+        margin-left: -3.2rem;
+      }
     }
 
     &__p {
@@ -157,6 +165,10 @@ const InformationClientStyled = styled.div<Props>`
       line-height: 0.8rem;
       top: 11.2rem;
       right: 67.6rem;
+
+      @media screen and (max-width: 1518px) {
+        display: none;
+      }
     }
   }
 `;
