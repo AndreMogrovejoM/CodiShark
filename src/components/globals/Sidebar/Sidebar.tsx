@@ -168,7 +168,7 @@ const Sidebar: React.FC<Props> = props => {
           {renderItem(0, t.start, ADMIN_ENTRY_PATH)}
           {renderItem(0, t.myPayments, USER_PAYMENT_LIST)}
           {renderItem(0, t.myClients, USER_CLIENT_LIST)}
-          {/* TODO: Delete when is approved PR  */}
+          {/* TODO: Temp  */}
           {renderItem(0, "Detalles pago", USER_PAYMENT_DETAILS)}
           {renderItem(0, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
 

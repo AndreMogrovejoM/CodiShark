@@ -80,7 +80,7 @@ const PaymentDetailsStyled = styled.div<Props>`
       &--title {
         font-weight: 800;
         font-size: 1.6rem;
-        line-height: 2.2rem;
+        line-height: 2.4rem;
         text-align: center;
         font-style: normal;
       }
@@ -88,7 +88,7 @@ const PaymentDetailsStyled = styled.div<Props>`
       &--subtitle {
         font-weight: 300;
         font-size: 1.4rem;
-        line-height: 1.9rem;
+        line-height: 2rem;
         text-align: center;
         font-style: normal;
       }
