@@ -6,9 +6,10 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
 import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
-import logoKonecta from "assets/images/logoKonectaSideBar.svg";
+import logoKonecta from "assets/images/logoKonectaSidebar.png";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
+import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,20 +21,23 @@ import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
-const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS, ADMIN_PAYMENT_LIST } =
-  CONSTANTS.ROUTES;
+const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
+const { ADMIN_PAYMENT_LIST, ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
-  const [openList, setOpenList] = useState(true);
   const { setSignInStep, setUser, user } = useAuth();
+  const { selectedIndex } = useGlobals();
   const { mutateAsync, reset } = useLogout();
   const [, setLocalUser] = useLocalStorage("user");
   const { first_name, last_name, mother_last_name } = user ?? {};
 
+  const [openList, setOpenList] = useState(true);
+
   const handleClick = (idx: number) => {
+    console.log(selectedIndex.current, idx);
     setOpenList(!openList);
   };
 
@@ -61,17 +65,28 @@ const Sidebar: React.FC<Props> = props => {
     return (
       <>
         <ListItemButton
-          onClick={() => {
+          onClick={event => {
             navigate(url);
             handleClick(idx);
+            selectedIndex.current = idx;
           }}
           sx={{ padding: "1.2rem 2.4rem" }}
+          key={idx}
+          className="Sidebar__listButton"
         >
           <ListItemIcon className="Sidebar__list--icon">
-            <ChevronRightIcon sx={{ color: "white" }} fontSize="large" />
+            <ChevronRightIcon
+              sx={{ color: "white" }}
+              className={selectedIndex.current === idx ? "Sidebar__active" : ""}
+              fontSize="large"
+            />
           </ListItemIcon>
           <ListItemText>
-            <h3>{text}</h3>
+            <h3
+              className={selectedIndex.current === idx ? "Sidebar__active" : ""}
+            >
+              {text}
+            </h3>
           </ListItemText>
         </ListItemButton>
         {subItems && (
@@ -92,7 +107,11 @@ const Sidebar: React.FC<Props> = props => {
 
   const renderLogout = () => {
     return (
-      <ListItemButton onClick={handleLogout} sx={{ padding: "1.2rem 2.4rem" }}>
+      <ListItemButton
+        onClick={handleLogout}
+        sx={{ padding: "1.2rem 2.4rem" }}
+        className="Sidebar__listButton"
+      >
         <ListItemIcon className="Sidebar__list--icon">
           <LogoutIcon sx={{ color: "white" }} fontSize="medium" />
         </ListItemIcon>
@@ -124,6 +143,7 @@ const Sidebar: React.FC<Props> = props => {
                   className="Sidebar__icon"
                   src={logoKonecta}
                   alt="logoKonecta"
+                  width={140}
                 />
                 <div className="Sidebar__sectionContainer">
                   <img src={iconPersonSideBar} alt="iconPersonSideBar" />
@@ -165,12 +185,13 @@ const Sidebar: React.FC<Props> = props => {
               </div>
             }
           ></List>
-          {renderItem(0, t.start, ADMIN_ENTRY_PATH)}
-          {renderItem(0, t.myPayments, USER_PAYMENT_LIST)}
-          {renderItem(0, t.myClients, USER_CLIENT_LIST)}
+          {renderItem(0, t.start, ENTRY_PATH)}
+          {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
+          {renderItem(2, t.myPayments, USER_PAYMENT_LIST)}
+          {renderItem(3, t.myClients, USER_CLIENT_LIST)}
           {/* TODO: Temp  */}
-          {renderItem(0, "Detalles pago", USER_PAYMENT_DETAILS)}
-          {renderItem(0, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
+          {renderItem(4, "Detalles pago", USER_PAYMENT_DETAILS)}
+          {renderItem(5, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
 
           <div className="Sidebar__divider" />
           {renderLogout()}

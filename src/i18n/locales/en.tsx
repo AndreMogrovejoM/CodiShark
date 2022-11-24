@@ -7,6 +7,7 @@ const en = {
   global: {
     sideBar: {
       start: "Start",
+      startAdmin: "Start Admin",
       myPayments: "Payment list",
       myClients: "Customer list",
       logout: "Logout",

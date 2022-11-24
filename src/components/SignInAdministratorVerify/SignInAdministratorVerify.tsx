@@ -1,6 +1,6 @@
 import { InputAdornment } from "@mui/material";
 import iconVerification from "assets/images/iconVerification.svg";
-import LogoKonecta from "assets/images/logoKonecta.svg";
+import LogoKonecta from "assets/images/logoKonecta.png";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import CONSTANTS from "config/constants";
@@ -119,6 +119,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
           src={LogoKonecta}
           alt="logoKonecta"
           className="SignInAdministratorVerify__logo"
+          width={154}
         />
         {renderHeaderVerify}
         {renderFormVerify()}

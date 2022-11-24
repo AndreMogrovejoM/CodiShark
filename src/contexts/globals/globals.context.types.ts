@@ -1,5 +1,5 @@
 // Interfaces and types from context Globals
-import { ReactNode } from "react";
+import { Dispatch, MutableRefObject, ReactNode, SetStateAction } from "react";
 
 // Provider Props
 export interface GlobalsProviderProps {
@@ -9,5 +9,6 @@ export interface GlobalsProviderProps {
 // Provider value
 export interface GlobalsProviderValue {
   isLoading: boolean;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  selectedIndex: MutableRefObject<number>;
 }

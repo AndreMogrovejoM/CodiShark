@@ -1,5 +1,5 @@
 import { Grid, Paper, Box } from "@mui/material";
-import Logo from "assets/images/logoKonecta.webp";
+import Logo from "assets/images/logoKonecta.png";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
@@ -42,7 +42,7 @@ const SignIn: React.FC<Props> = props => {
 
   const renderFormHeader = () => (
     <>
-      <img src={Logo} alt={t.altLogo} />
+      <img src={Logo} alt={t.altLogo} width={188} />
       <h1 className="SignIn__title">
         {signInStep !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
       </h1>

@@ -1,7 +1,7 @@
 import { InputAdornment } from "@mui/material";
 import iconUserAdministrator from "assets/images/iconUserAdministrator.svg";
 import iconPasswordAdministrator from "assets/images/iconVerification.svg";
-import LogoKonecta from "assets/images/logoKonecta.svg";
+import LogoKonecta from "assets/images/logoKonecta.png";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useAuth from "contexts/auth/auth.hooks";
@@ -141,6 +141,7 @@ const SignInAdministrator: React.FC<Props> = props => {
           src={LogoKonecta}
           alt="logoKonecta"
           className="SignInAdministrator__logo"
+          width={154}
         />
         {renderHeader}
         {renderForm()}

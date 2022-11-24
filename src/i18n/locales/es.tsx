@@ -6,6 +6,7 @@ const es: Dictionary = {
   global: {
     sideBar: {
       start: "Inicio",
+      startAdmin: "Inicio Admin",
       myPayments: "Listado de pagos",
       myClients: "Listado de clientes",
       logout: "Cerrar sesión",

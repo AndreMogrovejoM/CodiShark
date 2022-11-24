@@ -84,8 +84,6 @@ const SignInAdministratorStyled = styled.div<Props>`
 
     &__logo {
       margin: 0 auto;
-      width: 16rem;
-      height: 4.8rem;
     }
   }
 `;

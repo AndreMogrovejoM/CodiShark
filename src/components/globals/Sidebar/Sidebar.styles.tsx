@@ -38,6 +38,41 @@ const SidebarStyled = styled.nav<Props>`
   }
 
   .Sidebar {
+    &__active {
+      color: var(--palette-primary);
+    }
+
+    &__listButton {
+      &:focus,
+      &:hover {
+        color: var(--palette-primary);
+        transition: opacity 0.4s, transform 0.4s;
+        opacity: 1;
+        transform: translate3d(0, 0.2rem, 0);
+      }
+
+      position: relative;
+      text-decoration: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        margin: 0 2.4rem;
+        height: 0.01rem;
+        bottom: 0;
+        left: 0;
+        background-color: var(--palette-primary);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
+
     &__header {
       display: flex;
       align-items: center;
@@ -54,13 +89,14 @@ const SidebarStyled = styled.nav<Props>`
     }
 
     &__icon {
-      padding-bottom: 0.8rem;
+      padding-bottom: 2rem;
     }
 
     &__sectionContainer {
       display: flex;
       align-items: center;
       gap: 0.8rem;
+      margin: 2rem 0;
     }
 
     &__sectionContainerFooter {
@@ -72,7 +108,7 @@ const SidebarStyled = styled.nav<Props>`
       flex-direction: column;
       gap: 0.64rem;
       position: absolute;
-      top: 55.6rem;
+      top: 48rem;
       left: 2.9rem;
 
       @media screen and (max-width: 912px) {
