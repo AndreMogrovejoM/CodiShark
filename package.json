@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": ".",
+  "homepage": "https://github.com/AndreMogrovejoM/CodiShark/",
   "scripts": {
     "start": "vite",
     "test": "vitest run",
@@ -16,7 +16,7 @@
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
     "format": "yarn prettier --write",
     "check-format": "yarn prettier --list-different",
-    "build": "vite build ",
+    "build": "vite build --base=/CodiShark/",
     "preview": "vite preview",
     "validate": "cross-env CI=true npm-run-all --parallel test check-types check-format lint build",
     "validate:ci": "npm-run-all --parallel check-types check-format lint",
