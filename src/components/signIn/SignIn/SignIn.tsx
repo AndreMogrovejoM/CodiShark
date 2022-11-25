@@ -1,5 +1,4 @@
 import { Grid, Paper, Box } from "@mui/material";
-import LogoKonecta from "assets/images/logoKonecta.png";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
@@ -11,6 +10,8 @@ import SignInForm from "../SignInForm/SignInForm";
 import SignInValidate from "../SignInValidate/SignInValidate";
 import Styles from "./SignIn.styles";
 import { SignInProps as Props } from "./SignIn.types";
+
+import LogoKonecta from "../../../assets/images/LogoKonecta.png";
 
 const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
