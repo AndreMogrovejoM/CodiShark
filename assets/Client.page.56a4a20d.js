@@ -1,4 +1,4 @@
-import{s as r,j as i,a as e}from"./index.dca11cd2.js";import{u as a}from"./i18n.hooks.49042583.js";import{B as m}from"./Button.b0ef1397.js";import{L as I}from"./Layout.container.bc38d7d7.js";import"./auth.service.hooks.7ae8d686.js";import"./constants.03d913e0.js";const b="/assets/fotoMujerOne.cadd13a3.svg",x=r.div`
+import{s as r,j as i,a as e}from"./index.e27e5144.js";import{u as a}from"./i18n.hooks.55174426.js";import{B as m}from"./Button.498cd13b.js";import{L as I}from"./Layout.container.13490796.js";import"./auth.service.hooks.157c29e7.js";import"./constants.03d913e0.js";const b="/CodiShark/assets/fotoMujerOne.cadd13a3.svg",x=r.div`
   position: relative;
   max-width: 32rem;
   max-height: 30rem;
@@ -34,7 +34,7 @@ import{s as r,j as i,a as e}from"./index.dca11cd2.js";import{u as a}from"./i18n.
       height: 100%;
     }
   }
-`,d=n=>{const t=a().signIn.CardImageOne;return i(x,{className:"CardImageOne",children:[e("img",{className:"CardImageOne__image",src:b,alt:"fotoMujerOne"}),e("h2",{className:"CardImageOne__subtitle",children:t.subtitle}),e("h2",{className:"CardImageOne__title",children:t.title})]})};d.defaultProps={};const y="/assets/fotoMujerTwo.ed1bc8b5.svg",v=r.div`
+`,d=n=>{const t=a().signIn.CardImageOne;return i(x,{className:"CardImageOne",children:[e("img",{className:"CardImageOne__image",src:b,alt:"fotoMujerOne"}),e("h2",{className:"CardImageOne__subtitle",children:t.subtitle}),e("h2",{className:"CardImageOne__title",children:t.title})]})};d.defaultProps={};const y="/CodiShark/assets/fotoMujerTwo.ed1bc8b5.svg",v=r.div`
   position: relative;
   max-width: 32rem;
   max-height: 30rem;
@@ -181,7 +181,7 @@ import{s as r,j as i,a as e}from"./index.dca11cd2.js";import{u as a}from"./i18n.
       width: 100%;
     }
   }
-`,g=n=>e(T,{className:"IndicatorsClientTwo",children:e("div",{className:"IndicatorsClientTwo__cardsContainer",children:e(f,{title:"Deuda Actual",value:"S/. 5750.00"})})});g.defaultProps={};const O="/assets/iconMasterCardInformation.1c2014dd.svg",P="/assets/iconVisaInformation.b7bad2af.svg",B="/assets/imagePayInformation.de64d6a1.svg",j="/assets/lineInformation.84349c20.svg",k=r.div`
+`,g=n=>e(T,{className:"IndicatorsClientTwo",children:e("div",{className:"IndicatorsClientTwo__cardsContainer",children:e(f,{title:"Deuda Actual",value:"S/. 5750.00"})})});g.defaultProps={};const O="/CodiShark/assets/iconMasterCardInformation.1c2014dd.svg",P="/CodiShark/assets/iconVisaInformation.b7bad2af.svg",k="/CodiShark/assets/imagePayInformation.de64d6a1.svg",B="/CodiShark/assets/lineInformation.84349c20.svg",j=r.div`
   width: 100%;
   height: 32rem;
   display: flex;
@@ -350,7 +350,7 @@ import{s as r,j as i,a as e}from"./index.dca11cd2.js";import{u as a}from"./i18n.
       }
     }
   }
-`,p=n=>{const t=a().signIn.InformationClient;return i(k,{className:"InformationClient",children:[i("div",{className:"InformationClient__section1",children:[e("h2",{className:"InformationClient__title",children:t.title}),e("h2",{className:"InformationClient__subtitle",children:t.subtitle}),e("img",{className:"InformationClient__image1",src:B,alt:"ImagePayInformation"}),i("div",{className:"InformationClient__p",children:[e("p",{children:"Paga con todas las billeteras"}),e("p",{children:"electr\xF3nicas como Yape, Plim, etc"})]}),e("h2",{className:"InformationClient__subtitle2",children:t.subtitle2}),i("div",{className:"InformationClient__imageSection",children:[e("img",{className:"InformationClient__image2",src:P,alt:"iconVisaInformation"}),e("img",{className:"InformationClient__image3",src:O,alt:"iconMasterCardInformation"})]}),e(m,{className:"InformationClient__button",variant:"contained",children:e("h3",{className:"InformationClient__text1",children:t.button})})]}),i("div",{className:"InformationClient__section2",children:[e("h2",{className:"InformationClient__title2",children:t.title2}),e("h2",{className:"InformationClient__subtitle3",children:t.subtitle3}),e("h2",{className:"InformationClient__subtitle4",children:t.subtitle4}),e("p",{className:"InformationClient__cuenta1",children:"191 5264 8452 1254"}),e("h2",{className:"InformationClient__subtitle4",children:t.subtitle5}),e("p",{className:"InformationClient__cuenta1",children:"191 55044 00541 14460"}),e("p",{className:"InformationClient__parrafo",children:t.parrafo}),e("h2",{className:"InformationClient__subtitle6",children:t.subtitle6}),e(m,{className:"InformationClient__button2",variant:"contained",children:e("h3",{className:"InformationClient__text2",children:t.button2})})]}),e("img",{className:"InformationClient__line",src:j,alt:"lineInformation"})]})};p.defaultProps={};const M="/assets/PersonIconPanelBannerClient.014016bb.svg",D=r.div`
+`,p=n=>{const t=a().signIn.InformationClient;return i(j,{className:"InformationClient",children:[i("div",{className:"InformationClient__section1",children:[e("h2",{className:"InformationClient__title",children:t.title}),e("h2",{className:"InformationClient__subtitle",children:t.subtitle}),e("img",{className:"InformationClient__image1",src:k,alt:"ImagePayInformation"}),i("div",{className:"InformationClient__p",children:[e("p",{children:"Paga con todas las billeteras"}),e("p",{children:"electr\xF3nicas como Yape, Plim, etc"})]}),e("h2",{className:"InformationClient__subtitle2",children:t.subtitle2}),i("div",{className:"InformationClient__imageSection",children:[e("img",{className:"InformationClient__image2",src:P,alt:"iconVisaInformation"}),e("img",{className:"InformationClient__image3",src:O,alt:"iconMasterCardInformation"})]}),e(m,{className:"InformationClient__button",variant:"contained",children:e("h3",{className:"InformationClient__text1",children:t.button})})]}),i("div",{className:"InformationClient__section2",children:[e("h2",{className:"InformationClient__title2",children:t.title2}),e("h2",{className:"InformationClient__subtitle3",children:t.subtitle3}),e("h2",{className:"InformationClient__subtitle4",children:t.subtitle4}),e("p",{className:"InformationClient__cuenta1",children:"191 5264 8452 1254"}),e("h2",{className:"InformationClient__subtitle4",children:t.subtitle5}),e("p",{className:"InformationClient__cuenta1",children:"191 55044 00541 14460"}),e("p",{className:"InformationClient__parrafo",children:t.parrafo}),e("h2",{className:"InformationClient__subtitle6",children:t.subtitle6}),e(m,{className:"InformationClient__button2",variant:"contained",children:e("h3",{className:"InformationClient__text2",children:t.button2})})]}),e("img",{className:"InformationClient__line",src:B,alt:"lineInformation"})]})};p.defaultProps={};const M="/CodiShark/assets/PersonIconPanelBannerClient.014016bb.svg",D=r.div`
   width: 100%;
   height: 12rem;
   display: flex;
@@ -397,7 +397,7 @@ import{s as r,j as i,a as e}from"./index.dca11cd2.js";import{u as a}from"./i18n.
       }
     }
   }
-`,u=n=>{const t=a().signIn.PanelBannerClient;return i(D,{className:"PanelBannerClient",children:[i("div",{className:"PanelBannerClient__container",children:[e("h1",{className:"PanelBannerClient__title",children:t.title}),i("div",{className:"PanelBannerClient__section",children:[e("p",{children:t.parrafo1}),e("p",{children:t.parrafo2}),e("p",{children:t.parrafo3})]})]}),e("img",{className:"PanelBannerClient__image",src:M,alt:"personIcon"})]})};u.defaultProps={};const s="/assets/lineSummary.409f9737.svg",R=r.div`
+`,u=n=>{const t=a().signIn.PanelBannerClient;return i(D,{className:"PanelBannerClient",children:[i("div",{className:"PanelBannerClient__container",children:[e("h1",{className:"PanelBannerClient__title",children:t.title}),i("div",{className:"PanelBannerClient__section",children:[e("p",{children:t.parrafo1}),e("p",{children:t.parrafo2}),e("p",{children:t.parrafo3})]})]}),e("img",{className:"PanelBannerClient__image",src:M,alt:"personIcon"})]})};u.defaultProps={};const s="/CodiShark/assets/lineSummary.409f9737.svg",R=r.div`
   .SummaryCard {
     &__title {
       color: var(--palette-grayText);

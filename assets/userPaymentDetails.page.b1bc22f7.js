@@ -1,4 +1,4 @@
-import{s as m,a as e,j as a,F as y}from"./index.dca11cd2.js";import{u as l}from"./i18n.hooks.49042583.js";import{B as i}from"./Button.b0ef1397.js";import{C as c}from"./constants.03d913e0.js";import{L as _}from"./Layout.container.bc38d7d7.js";import"./auth.service.hooks.7ae8d686.js";const u="/assets/iconUserPhoto.6809db68.svg",{BREAKPOINTS:n}=c,x=m.div`
+import{s as m,a as e,j as a,F as y}from"./index.e27e5144.js";import{u as l}from"./i18n.hooks.55174426.js";import{B as i}from"./Button.498cd13b.js";import{C as c}from"./constants.03d913e0.js";import{L as _}from"./Layout.container.13490796.js";import"./auth.service.hooks.157c29e7.js";const u="/CodiShark/assets/iconUserPhoto.6809db68.svg",{BREAKPOINTS:n}=c,x=m.div`
   .ProofPayment {
     &__separator {
       &--paragraph {
