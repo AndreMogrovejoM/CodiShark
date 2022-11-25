@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://github.com/AndreMogrovejoM/CodiShark",
+  "homepage": ".",
   "scripts": {
     "start": "vite",
     "test": "vitest run",
