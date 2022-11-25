@@ -14,7 +14,7 @@ import { validLoginUser, validPassword } from "utils/validations.utils";
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
-import LogoKonecta from "../../../assets/images/LogoKonecta.png";
+import LogoKonecta from "../../assets/images/LogoKonecta.png";
 
 const SignInAdministrator: React.FC<Props> = props => {
   const [dniField] = validLoginUser();
