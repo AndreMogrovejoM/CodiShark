@@ -6,7 +6,7 @@ import i18n from "i18n/i18n";
 import React from "react";
 import { I18nextProvider } from "react-i18next";
 import { QueryClientProvider } from "react-query";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Router from "router/Router/Router";
 import GlobalStyles from "styles/base/index";
 import { theme } from "styles/theme";
@@ -22,9 +22,9 @@ const Providers: React.FC<Props> = props => {
         <ThemeProvider theme={theme}>
           <GlobalsProvider>
             <AuthProvider>
-              <BrowserRouter>
+              <HashRouter>
                 <Router />
-              </BrowserRouter>
+              </HashRouter>
             </AuthProvider>
           </GlobalsProvider>
         </ThemeProvider>
