@@ -6,7 +6,6 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
 import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
-import logoKonecta from "assets/images/logoKonectaSidebar.png";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -19,6 +18,8 @@ import { useLocalStorage } from "utils/useLocalStorage";
 
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
+
+import logoKonecta from "../../../assets/images/logoKonectaSidebar.png";
 
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
