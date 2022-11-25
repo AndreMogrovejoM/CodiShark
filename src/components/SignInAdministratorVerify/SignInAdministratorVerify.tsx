@@ -17,7 +17,7 @@ import { validCode } from "utils/validations.utils";
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
-import LogoKonecta from "../../assets/images/LogoKonecta.png";
+const LogoKonecta = "./LogoKonecta.png";
 
 const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 

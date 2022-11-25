@@ -19,11 +19,11 @@ import { useLocalStorage } from "utils/useLocalStorage";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
-import logoKonecta from "../../../assets/images/logoKonectaSidebar.png";
-
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
 const { ADMIN_PAYMENT_LIST, ENTRY_PATH } = CONSTANTS.ROUTES;
+
+const LogoKonecta = "./logoKonectaSidebar.png";
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
@@ -142,7 +142,7 @@ const Sidebar: React.FC<Props> = props => {
               <div className="Sidebar__header-text">
                 <img
                   className="Sidebar__icon"
-                  src={logoKonecta}
+                  src={LogoKonecta}
                   alt="logoKonecta"
                   width={140}
                 />
