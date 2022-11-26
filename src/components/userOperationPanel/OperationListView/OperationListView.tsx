@@ -84,7 +84,7 @@ const OperationListView: React.FC<Props> = props => {
         <div className="OperationListView__component--details-content">
           <img
             src={DetailsPay}
-            alt="logoKonecta"
+            alt={t.alt}
             className="OperationListView__container--image"
           />
           <p className="OperationListView__text--paragraph">

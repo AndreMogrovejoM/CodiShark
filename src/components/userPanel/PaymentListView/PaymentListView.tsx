@@ -84,7 +84,7 @@ const PaymentListView: React.FC<Props> = props => {
         <div className="PaymentListView__component--details-content">
           <img
             src={UsersIcon}
-            alt="logoKonecta"
+            alt={t.alt}
             className="PaymentListView__container--image"
           />
           <p className="PaymentListView__text--paragraph">
