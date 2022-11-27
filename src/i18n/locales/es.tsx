@@ -115,7 +115,8 @@ const es: Dictionary = {
       buttonPdf: "Pdf",
       buttonPrint: "Imprimir",
       titleDetails: "Detalles del cliente",
-      paragraphDetails: "Seleccione un cliente para ver los detalles"
+      paragraphDetails: "Seleccione un cliente para ver los detalles",
+      alt: "Detalle de pago"
     },
     UserOperationPanel: {
       title: "Listado de pagos",
@@ -123,7 +124,8 @@ const es: Dictionary = {
       buttonPdf: "Pdf",
       buttonPrint: "Imprimir",
       titleDetails: "Detalles del pago",
-      paragraphDetails: "Seleccione un pago para ver los detalles"
+      paragraphDetails: "Seleccione un pago para ver los detalles",
+      alt: "Detalle de pago"
     },
     AdminPaymentDetails: {
       proof: {
