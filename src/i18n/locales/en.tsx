@@ -116,7 +116,8 @@ const en = {
       buttonPdf: "Pdf",
       buttonPrint: "Print",
       titleDetails: "Payment details",
-      paragraphDetails: "Select a payment to view details"
+      paragraphDetails: "Select a payment to view details",
+      alt: "Payment details"
     },
     UserOperationPanel: {
       title: "List of clients",
@@ -124,7 +125,8 @@ const en = {
       buttonPdf: "Pdf",
       buttonPrint: "Print",
       titleDetails: "Customer details",
-      paragraphDetails: "Select a customer to view details"
+      paragraphDetails: "Select a customer to view details",
+      alt: "Payment details"
     },
     AdminPaymentDetails: {
       proof: {

@@ -23,7 +23,7 @@ const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
 const { ADMIN_PAYMENT_LIST, ENTRY_PATH } = CONSTANTS.ROUTES;
 
-const LogoKonecta = "./LogoKonectaSidebar.png";
+const LogoKonecta = "./logoKonectaSidebar.png";
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;

@@ -11,7 +11,7 @@ import SignInValidate from "../SignInValidate/SignInValidate";
 import Styles from "./SignIn.styles";
 import { SignInProps as Props } from "./SignIn.types";
 
-const LogoKonecta = "./LogoKonecta.png";
+const LogoKonecta = "./logoKonecta.png";
 
 const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
