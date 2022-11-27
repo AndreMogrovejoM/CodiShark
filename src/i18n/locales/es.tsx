@@ -300,6 +300,15 @@ const es: Dictionary = {
       subtitle6: "Genera tu número de operación para realizar el pago",
       button: "PAGAR",
       button2: "GENERAR NÚMERO DE OPERACIÓN"
+    },
+
+    PaymentRejected: {
+      button: "Volver a intentar",
+      title: "Detalles del pago",
+      parrafo1: "Monto Pagado:",
+      parrafo2: "Fecha:",
+      parrafo3: "Hora:",
+      parrafo4: "Monto Pagado:"
     }
   },
 

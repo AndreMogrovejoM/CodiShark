@@ -23,7 +23,7 @@ const PaymentSuccesStyled = styled.div<Props>`
     &__section {
       display: flex;
       flex-direction: column;
-      margin-top: 4.6rem;
+      margin-top: 4.8rem;
       padding-left: 18rem;
       padding-right: 4rem;
     }
@@ -36,16 +36,16 @@ const PaymentSuccesStyled = styled.div<Props>`
       font-weight: 800;
       font-size: 2rem;
       line-height: 2.4rem;
-      margin-left: 6.8rem;
-      margin-top: 6.2rem;
-      margin-bottom: 2.6rem;
+      margin-left: 6.4rem;
+      margin-top: 6.4rem;
+      margin-bottom: 2.4rem;
     }
 
     &__image {
-      margin-bottom: 3rem;
-      width: 6rem;
-      height: 6rem;
-      margin-left: 4.6rem;
+      margin-bottom: 3.2rem;
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-left: 4.8rem;
     }
 
     &__p1div {
@@ -127,7 +127,7 @@ const PaymentSuccesStyled = styled.div<Props>`
     &__line {
       position: absolute;
       left: 50rem;
-      top: 7rem;
+      top: 7.2rem;
     }
   }
 `;
