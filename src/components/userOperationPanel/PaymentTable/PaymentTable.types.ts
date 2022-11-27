@@ -1,5 +1,8 @@
 // Interfaces and types from component PaymentTable
 
+import { TableColumn } from "react-data-table-component";
+import { Operation } from "services/administrator/administrator.service.types";
+
 export interface NumbersComponentProps {
   key: number;
   value: number;
@@ -26,8 +29,9 @@ export interface PaginationInterface {
 
 // Component Props
 export interface PaymentTableProps {
-  // TODO: tipear
-  data: any[];
+  data: Operation[];
+  onRowClicked: (row: Operation) => void;
+  columns: TableColumn<Operation>[];
 }
 
 // Styled Component Props

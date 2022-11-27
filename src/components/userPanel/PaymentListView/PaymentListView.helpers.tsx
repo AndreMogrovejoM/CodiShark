@@ -12,7 +12,7 @@ export const columns: TableColumn<User>[] = [
     name: t.name,
     selector: row => row.first_name ?? "",
     sortable: true,
-
+    ignoreRowClick: true,
     cell: row => (
       <Row content={`${row.first_name} ${row.last_name}`} bold={true} />
     )
@@ -22,6 +22,7 @@ export const columns: TableColumn<User>[] = [
     selector: row => row.capital_debt ?? "",
     wrap: true,
     sortable: true,
+    ignoreRowClick: true,
     cell: row => <Row content={row.capital_debt ?? ""} />
   },
   {
@@ -29,16 +30,19 @@ export const columns: TableColumn<User>[] = [
     selector: row => row.interests ?? 0,
     wrap: true,
     sortable: true,
+    ignoreRowClick: true,
     cell: row => <Row content={row.interests ?? 0} />
   },
   {
     name: t.bills,
     selector: row => row.bills ?? "",
+    ignoreRowClick: true,
     cell: row => <Row content={row.bills ?? ""} />
   },
   {
     name: t.punishmentDate,
     button: true,
+    ignoreRowClick: true,
     cell: row => (
       <Row
         content={dayjs(row.date_punishment).format("YY-MM-DD HH:mm a") ?? ""}
@@ -47,7 +51,7 @@ export const columns: TableColumn<User>[] = [
   },
   {
     name: t.action,
-    button: true,
+    center: true,
     cell: row => <RowButton row={row.id} />
   }
 ];

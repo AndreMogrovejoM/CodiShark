@@ -5,7 +5,7 @@ import PaymentTable from "components/userPanel/PaymentTable/PaymentTable";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { exportOperationsExcel } from "services/administrator/administrator.service";
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
@@ -17,6 +17,10 @@ import { OperationListViewProps as Props } from "./OperationListView.types";
 const OperationListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
   const { data: operationsList } = data ?? {};
+
+  // TODO: Pending
+  const [idRow, setIdRow] = useState(0);
+  console.log("🚀 ~ file: PaymentListView.tsx ~ line 23 ~ idRow", idRow);
 
   const t = useI18n().pages.UserOperationPanel;
 
@@ -98,7 +102,11 @@ const OperationListView: React.FC<Props> = props => {
   if (!operationsList) return null;
 
   const renderTable = () => (
-    <PaymentTable data={operationsList} columns={columns} />
+    <PaymentTable
+      data={operationsList}
+      columns={columns}
+      onRowClicked={row => setIdRow(row?.id)}
+    />
   );
 
   return (

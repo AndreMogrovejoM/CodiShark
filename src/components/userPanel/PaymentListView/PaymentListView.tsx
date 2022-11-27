@@ -4,7 +4,7 @@ import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
 import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
@@ -17,6 +17,10 @@ import { PaymentListViewProps as Props } from "./PaymentListView.types";
 const PaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorUsers(1, 50);
   const { data: usersList } = data ?? {};
+
+  // TODO: Pending
+  const [idRow, setIdRow] = useState(0);
+  console.log("🚀 ~ file: PaymentListView.tsx ~ line 23 ~ idRow", idRow);
 
   const t = useI18n().pages.UserPayPanel;
 
@@ -97,7 +101,13 @@ const PaymentListView: React.FC<Props> = props => {
 
   if (!usersList) return null;
 
-  const renderTable = () => <PaymentTable data={usersList} columns={columns} />;
+  const renderTable = () => (
+    <PaymentTable
+      data={usersList}
+      columns={columns}
+      onRowClicked={row => setIdRow(row?.id)}
+    />
+  );
 
   return (
     <Styles className={`PaymentListView `}>

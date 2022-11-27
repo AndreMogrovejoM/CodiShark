@@ -7,6 +7,7 @@ const Table: React.FC<Props> = props => {
   const { columns, data, paginationComponent, expandableRows } = props;
   const { paginationPerPage, paginationRowsPerPageOptions } = props;
   const { expandableRowsComponent, expandOnRowClicked } = props;
+  const { onRowClicked } = props;
 
   return (
     <DataTableCustom
@@ -20,6 +21,7 @@ const Table: React.FC<Props> = props => {
       expandableRows={expandableRows}
       expandableRowsComponent={expandableRowsComponent}
       expandOnRowClicked={expandOnRowClicked}
+      onRowClicked={onRowClicked}
     />
   );
 };

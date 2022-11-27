@@ -28,8 +28,10 @@ export interface PaginationInterface {
 
 // Component Props
 export interface PaymentTableProps {
+  // TODO: Pending
   data: any[];
   columns: TableColumn<any>[];
+  onRowClicked: (row: any) => void;
 }
 
 // Styled Component Props

@@ -12,7 +12,7 @@ export const columns: TableColumn<Operation>[] = [
     name: t.name,
     selector: row => row.user.first_name ?? "",
     sortable: true,
-
+    ignoreRowClick: true,
     cell: row => (
       <Row
         content={`${row.user.first_name} ${row.user.last_name}`}
@@ -25,6 +25,7 @@ export const columns: TableColumn<Operation>[] = [
     selector: row => row.operation_date ?? "",
     wrap: true,
     sortable: true,
+    ignoreRowClick: true,
     cell: row => <Row content={row.operation_date ?? ""} />
   },
   {
@@ -32,23 +33,26 @@ export const columns: TableColumn<Operation>[] = [
     selector: row => row.amount_paid ?? 0,
     wrap: true,
     sortable: true,
+    ignoreRowClick: true,
     cell: row => <Row content={row.amount_paid ?? 0} />
   },
   {
     name: t.method,
     selector: row => row.payment_method ?? "",
+    ignoreRowClick: true,
     cell: row => <Row content={row.payment_method ?? ""} />
   },
   {
     name: t.state,
     button: true,
+    ignoreRowClick: true,
     cell: row => (
       <RowChip conditional={row.payment_status === "Pagado" ? true : false} />
     )
   },
   {
     name: t.action,
-    button: true,
+    center: true,
     cell: row => <RowButton row={row.id} />
   }
 ];
