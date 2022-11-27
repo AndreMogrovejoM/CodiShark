@@ -10,6 +10,11 @@ const ClientContainerStyled = styled.div<Props>`
   align-items: flex-start;
   position: relative;
   min-height: 100vh;
+  display: flex;
+
+  @media screen and (max-width: 1366px) {
+    flex-direction: column;
+  }
 
   .ClientContainer {
     &__title {
@@ -21,7 +26,7 @@ const ClientContainerStyled = styled.div<Props>`
       line-height: 1.6rem;
 
       @media screen and (max-width: 1366px) {
-        left: 9.2rem;
+        left: 7.2rem;
       }
     }
     &__section1 {
@@ -53,6 +58,15 @@ const ClientContainerStyled = styled.div<Props>`
       flex-direction: column;
       align-items: flex-end;
       flex-wrap: wrap;
+
+      @media screen and (max-width: 1366px) {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 `;
