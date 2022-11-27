@@ -10,11 +10,13 @@ const PaymentTableStyled = styled.div<Props>`
         border-radius: 50%;
         display: flex;
         align-items: center;
-        color: var(--palette-white);
         cursor: pointer;
+        padding: 0.08rem;
 
         &-icon {
-          font-size: 1.6rem;
+          width: 1.6rem;
+          height: 1.6rem;
+          fill: var(--palette-white);
         }
       }
 

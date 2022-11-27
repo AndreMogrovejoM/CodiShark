@@ -14,6 +14,8 @@ export interface TableProps {
   expandableRows?: boolean;
   expandableRowsComponent?: ExpandableRowsComponent<any>;
   expandOnRowClicked?: boolean;
+  // TODO: Pending
+  onRowClicked?: (row: any) => void;
 }
 
 // Styled Component Props

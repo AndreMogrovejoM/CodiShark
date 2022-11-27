@@ -1,5 +1,5 @@
 import rightArrow from "assets/images/rightArrow.svg";
-import getI18n from "i18n/i18n.helpers";
+import useI18n from "i18n/i18n.hooks";
 
 import Styles from "./PaymentTable.styles";
 import { RowChipProps } from "./PaymentTable.types";
@@ -18,7 +18,7 @@ export const Row = (props: any) => {
 export const RowChip = (props: RowChipProps) => {
   const { conditional } = props;
 
-  const t = getI18n().global.table.TablePaymentUser.TableRows;
+  const t = useI18n().global.table.TablePaymentUser.TableRows;
 
   const styleClass = (value: boolean) =>
     `PaymentTable__container--chip ${
@@ -36,7 +36,7 @@ export const RowChip = (props: RowChipProps) => {
   );
 };
 
-export const RowButton = (props: any) => {
+export const RowButton = (row: any) => {
   return (
     <Styles
       className="PaymentTable__container--button"

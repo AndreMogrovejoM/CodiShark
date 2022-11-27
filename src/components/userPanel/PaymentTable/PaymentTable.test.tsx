@@ -4,6 +4,12 @@ import PaymentTable from "./PaymentTable";
 
 describe("PaymentTable", () => {
   it("renders with default props", () => {
-    render(<PaymentTable data={[]} columns={[]} />);
+    render(
+      <PaymentTable
+        data={[]}
+        columns={[]}
+        onRowClicked={(row: any) => console.log(row)}
+      />
+    );
   });
 });

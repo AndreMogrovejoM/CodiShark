@@ -13,7 +13,7 @@ const PaginationCustomHandler = (props: PaginationInterface) => {
 };
 
 const PaymentTable: React.FC<Props> = props => {
-  const { data, columns } = props;
+  const { data, columns, onRowClicked } = props;
 
   return (
     <Styles className={`PaymentTable`}>
@@ -22,6 +22,7 @@ const PaymentTable: React.FC<Props> = props => {
         data={data}
         paginationPerPage={paginationPerPage}
         paginationRowsPerPageOptions={paginationRowsPerPageOptions}
+        onRowClicked={onRowClicked}
         //@ts-ignore
         paginationComponent={PaginationCustomHandler}
       />
