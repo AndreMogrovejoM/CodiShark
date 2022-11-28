@@ -1,3 +1,4 @@
+import DetailsPay from "assets/images/detailsPay.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import PaymentTable from "components/userPanel/PaymentTable/PaymentTable";
@@ -9,7 +10,6 @@ import { exportOperationsExcel } from "services/administrator/administrator.serv
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 
-import OperationDetails from "../OperationDetails/OperationDetails";
 import { columns } from "./OperationListView.helpers";
 import Styles from "./OperationListView.styles";
 import { OperationListViewProps as Props } from "./OperationListView.types";
@@ -78,6 +78,27 @@ const OperationListView: React.FC<Props> = props => {
     </div>
   );
 
+  const renderDetails = () => (
+    <>
+      <h2 className="OperationListView__text--subtitle OperationListView__container--separate">
+        {t.titleDetails}
+      </h2>
+
+      <div className="OperationListView__component--details">
+        <div className="OperationListView__component--details-content">
+          <img
+            src={DetailsPay}
+            alt={t.alt}
+            className="OperationListView__container--image"
+          />
+          <p className="OperationListView__text--paragraph">
+            {t.paragraphDetails}
+          </p>
+        </div>
+      </div>
+    </>
+  );
+
   if (!operationsList) return null;
 
   const renderTable = () => (
@@ -102,8 +123,7 @@ const OperationListView: React.FC<Props> = props => {
           </div>
 
           <div className="OperationListView__container--details">
-            {/* TODO: Pass data or id  */}
-            <OperationDetails id={idRow} />
+            {renderDetails()}
           </div>
         </div>
       </div>

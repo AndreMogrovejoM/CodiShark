@@ -113,13 +113,19 @@ const es: Dictionary = {
       title: "Listado de clientes",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
-      buttonPrint: "Imprimir"
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del cliente",
+      paragraphDetails: "Seleccione un cliente para ver los detalles",
+      alt: "Detalle de pago"
     },
     UserOperationPanel: {
       title: "Listado de pagos",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
-      buttonPrint: "Imprimir"
+      buttonPrint: "Imprimir",
+      titleDetails: "Detalles del pago",
+      paragraphDetails: "Seleccione un pago para ver los detalles",
+      alt: "Detalle de pago"
     },
     AdminPaymentDetails: {
       proof: {
@@ -272,6 +278,7 @@ const es: Dictionary = {
     IndicatorsClientOne: {
       greetings: "Bienvenido(a)"
     },
+
     Summary: {
       title:
         "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:",
@@ -281,6 +288,7 @@ const es: Dictionary = {
       summary3: "Fecha límite de pago",
       button: "VER DETALLE"
     },
+
     InformationClient: {
       title: "Pago con tarjeta",
       subtitle: "Aceptamos los siguientes métodos de pago:",
@@ -296,36 +304,7 @@ const es: Dictionary = {
       button2: "GENERAR NÚMERO DE OPERACIÓN"
     }
   },
-  components: {
-    UserDetails: {
-      titleDetails: "Detalles del cliente",
-      paragraphDetails: "Seleccione un cliente para ver los detalles",
-      alt: "Detalle de pago",
-      name: "Nombres:",
-      lastName: "Apellidos:",
-      documentType: "Tipo de documento:",
-      documentNumber: "Número documento:",
-      birthDate: "Fecha de nacimiento:",
-      gender: "Género:",
-      district: "Distrito:",
-      address: "Dirección:",
-      email: "Email:",
-      phone: "Teléfono:",
-      mobile: "Celular:"
-    },
-    OperationalDetails: {
-      titleDetails: "Detalles del pago",
-      paragraphDetails: "Seleccione un pago para ver los detalles",
-      alt: "Detalle de pago",
-      customerName: "Nombre del cliente:",
-      amountPaid: "Monto pagado:",
-      date: "Fecha:",
-      hour: "Hora:",
-      paymentMedium: "Medio de pago:",
-      paymentStatus: "Estado del pago",
-      button: "Ver comprobante de pago"
-    }
-  },
+
   utils: {
     validations: {
       fieldRequired: "Este campo es requerido",

@@ -12,7 +12,6 @@ const palette = {
   greyBackground: "hsla(0, 0%, 93%, 1)",
   greyBackgroundBorder: "hsla(0, 0%, 79%, 1)",
   greyBackgroundSearch: "hsla(0, 0%, 88%, 1)",
-  grayTextBold: "hsla(205, 1%, 50%, 1)",
   error: "hsla(0, 100%, 44%, 1)",
   blue: "hsla(205, 80%, 10%, 1)",
   skyBlue: "hsla(193, 100%, 45%, 1)",
