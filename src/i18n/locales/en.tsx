@@ -297,6 +297,15 @@ const en = {
       subtitle6: "Generate your transaction number to make your payment",
       button: "PAY",
       button2: "GENERATE TRANSACTION NUMBER"
+    },
+
+    PaymentRejected: {
+      button: "Try again",
+      title: "Payment details",
+      parrafo1: "Amount Paid:",
+      parrafo2: "Date:",
+      parrafo3: "Time:",
+      parrafo4: "Amount Paid:"
     }
   },
   utils: {
