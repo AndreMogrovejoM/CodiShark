@@ -31,14 +31,6 @@ const OperationListViewStyled = styled.div<Props>`
         margin-bottom: 1.6rem;
       }
 
-      &--image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        margin-bottom: 1.2rem;
-      }
-
       &--layout {
         display: flex;
         gap: 1.6rem;
@@ -81,16 +73,6 @@ const OperationListViewStyled = styled.div<Props>`
         font-size: 1rem;
         line-height: 1.6rem;
         border-radius: 0.8rem;
-      }
-
-      &--details {
-        border-radius: 0.8rem;
-        min-height: 40rem;
-        height: 100%;
-        background-color: var(--palette-white);
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
     }
 
