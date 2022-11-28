@@ -1,4 +1,3 @@
-import UsersIcon from "assets/images/usersIcon.svg";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -10,6 +9,7 @@ import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
 
 import PaymentTable from "../PaymentTable/PaymentTable";
+import UserDetails from "../UserDetails/UserDetails";
 import { columns } from "./PaymentListView.helpers";
 import Styles from "./PaymentListView.styles";
 import { PaymentListViewProps as Props } from "./PaymentListView.types";
@@ -20,7 +20,6 @@ const PaymentListView: React.FC<Props> = props => {
 
   // TODO: Pending
   const [idRow, setIdRow] = useState(0);
-  console.log("🚀 ~ file: PaymentListView.tsx ~ line 23 ~ idRow", idRow);
 
   const t = useI18n().pages.UserPayPanel;
 
@@ -78,27 +77,6 @@ const PaymentListView: React.FC<Props> = props => {
     </div>
   );
 
-  const renderDetails = () => (
-    <>
-      <h2 className="PaymentListView__text--subtitle PaymentListView__container--separate">
-        {t.titleDetails}
-      </h2>
-
-      <div className="PaymentListView__component--details">
-        <div className="PaymentListView__component--details-content">
-          <img
-            src={UsersIcon}
-            alt={t.alt}
-            className="PaymentListView__container--image"
-          />
-          <p className="PaymentListView__text--paragraph">
-            {t.paragraphDetails}
-          </p>
-        </div>
-      </div>
-    </>
-  );
-
   if (!usersList) return null;
 
   const renderTable = () => (
@@ -110,7 +88,7 @@ const PaymentListView: React.FC<Props> = props => {
   );
 
   return (
-    <Styles className={`PaymentListView `}>
+    <Styles className={`PaymentListView`}>
       <div className="PaymentListView__container">
         <div className="PaymentListView__container--separate">
           <h1 className="PaymentListView__text--title">{t.title}</h1>
@@ -123,7 +101,8 @@ const PaymentListView: React.FC<Props> = props => {
           </div>
 
           <div className="PaymentListView__container--details">
-            {renderDetails()}
+            {/* TODO: Pass data or id ?  */}
+            <UserDetails id={idRow} />
           </div>
         </div>
       </div>

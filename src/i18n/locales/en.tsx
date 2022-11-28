@@ -114,19 +114,13 @@ const en = {
       title: "List of payments",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
-      buttonPrint: "Print",
-      titleDetails: "Payment details",
-      paragraphDetails: "Select a payment to view details",
-      alt: "Payment details"
+      buttonPrint: "Print"
     },
     UserOperationPanel: {
       title: "List of clients",
       buttonExcel: "Excel",
       buttonPdf: "Pdf",
-      buttonPrint: "Print",
-      titleDetails: "Customer details",
-      paragraphDetails: "Select a customer to view details",
-      alt: "Payment details"
+      buttonPrint: "Print"
     },
     AdminPaymentDetails: {
       proof: {
@@ -306,6 +300,36 @@ const en = {
       parrafo2: "Date:",
       parrafo3: "Time:",
       parrafo4: "Amount Paid:"
+    }
+  },
+  components: {
+    UserDetails: {
+      titleDetails: "Customer details",
+      paragraphDetails: "Select a customer to view details",
+      alt: "Payment details",
+      name: "Name:",
+      lastName: "Last names:",
+      documentType: "Document type:",
+      documentNumber: "Document number:",
+      birthDate: "Birth date:",
+      gender: "Gender:",
+      district: "District:",
+      address: "Address:",
+      email: "Email:",
+      phone: "Phone:",
+      mobile: "Mobile:"
+    },
+    OperationalDetails: {
+      titleDetails: "Payment details",
+      paragraphDetails: "Select a payment to view details",
+      alt: "Payment details",
+      customerName: "Customer Name:",
+      amountPaid: "Amount Paid:",
+      date: "Date:",
+      hour: "Hour:",
+      paymentMedium: "Payment Medium:",
+      paymentStatus: "Payment Status:",
+      button: "View payment receipt"
     }
   },
   utils: {
