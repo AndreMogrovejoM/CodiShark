@@ -13,6 +13,7 @@ export const columns: TableColumn<any>[] = [
     selector: row => row.concept ?? "",
     wrap: true,
     sortable: true,
+    ignoreRowClick: true,
     cell: row => <Row content={`${row.concept}`} bold={true} />
   },
   {
@@ -20,6 +21,7 @@ export const columns: TableColumn<any>[] = [
     selector: row => row.amount ?? "",
     wrap: true,
     sortable: true,
+    ignoreRowClick: true,
     cell: row => <Row content={`S/ ${row.amount ?? ""}`} />
   },
   {
@@ -28,6 +30,7 @@ export const columns: TableColumn<any>[] = [
     wrap: true,
     sortable: true,
     center: true,
+    ignoreRowClick: true,
     cell: row => <Row content={`S/ ${row.amountPay ?? 0}`} bold={true} />
   },
   {
@@ -36,6 +39,7 @@ export const columns: TableColumn<any>[] = [
     wrap: true,
     sortable: true,
     center: true,
+    ignoreRowClick: true,
     cell: row => <Row content={row.datePay ?? ""} />
   },
   {
@@ -44,11 +48,13 @@ export const columns: TableColumn<any>[] = [
     wrap: true,
     sortable: true,
     center: true,
+    ignoreRowClick: true,
     cell: () => <ButtonRowsComponent />
   },
   {
     name: "",
     center: true,
+    ignoreRowClick: true,
     cell: () => <ButtonRowsComponent data-tag="allowRowEvents" icon={true} />
   }
 ];
