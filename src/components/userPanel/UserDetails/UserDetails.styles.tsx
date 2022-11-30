@@ -1,6 +1,9 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { UserDetailsStyledProps as Props } from "./UserDetails.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const UserDetails = styled.div<Props>`
   .UserDetails {
@@ -21,12 +24,12 @@ const UserDetails = styled.div<Props>`
     &__component {
       &--details {
         border-radius: 0.8rem;
-        min-height: 57rem;
         height: 100%;
         background-color: var(--palette-white);
         display: flex;
         justify-content: center;
         align-items: center;
+        min-height: 57rem;
 
         &-component {
           flex-direction: column;
@@ -35,6 +38,15 @@ const UserDetails = styled.div<Props>`
           padding-left: 3.2rem;
           padding-top: 2rem;
           gap: 0.8rem;
+        }
+
+        &-user {
+          min-height: auto;
+          padding-bottom: 2rem;
+
+          @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+            min-height: 57rem;
+          }
         }
       }
 

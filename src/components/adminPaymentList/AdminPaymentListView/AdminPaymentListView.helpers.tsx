@@ -48,13 +48,15 @@ export const columns: TableColumn<any>[] = [
     wrap: true,
     sortable: true,
     center: true,
-    ignoreRowClick: true,
+    button: true,
+    minWidth: "150px",
     cell: () => <ButtonRowsComponent />
   },
   {
     name: "",
     center: true,
-    ignoreRowClick: true,
+    button: true,
+    minWidth: "150px",
     cell: () => <ButtonRowsComponent data-tag="allowRowEvents" icon={true} />
   }
 ];

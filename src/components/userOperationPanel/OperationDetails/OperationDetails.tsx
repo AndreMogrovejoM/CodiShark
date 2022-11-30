@@ -40,7 +40,7 @@ const OperationDetails: React.FC<Props> = props => {
   );
 
   const renderContent = () => (
-    <div className="OperationDetails__component--details OperationDetails__component--details-component">
+    <div className="OperationDetails__component--details OperationDetails__component--details-component OperationDetails__component--details-operation">
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.customerName}
         {/* TODO: Pending */}

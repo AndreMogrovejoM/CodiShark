@@ -24,7 +24,7 @@ const UserDetails: React.FC<Props> = props => {
   );
 
   const renderContent = () => (
-    <div className="UserDetails__component--details UserDetails__component--details-component">
+    <div className="UserDetails__component--details UserDetails__component--details-component UserDetails__component--details-user">
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.name}
         {/* TODO: Pending */}
