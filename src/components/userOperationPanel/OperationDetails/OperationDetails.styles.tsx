@@ -1,6 +1,9 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { OperationDetailsStyledProps as Props } from "./OperationDetails.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const OperationDetailsStyled = styled.div<Props>`
   .OperationDetails {
@@ -35,6 +38,15 @@ const OperationDetailsStyled = styled.div<Props>`
           padding-left: 3.2rem;
           padding-top: 2rem;
           gap: 0.8rem;
+        }
+
+        &-operation {
+          min-height: auto;
+          padding-bottom: 2rem;
+
+          @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+            min-height: 57rem;
+          }
         }
       }
     }

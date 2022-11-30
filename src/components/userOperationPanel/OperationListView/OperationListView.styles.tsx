@@ -69,7 +69,7 @@ const OperationListViewStyled = styled.div<Props>`
 
     &__component {
       &--button {
-        font-weight: 800;
+        font-weight: 600;
         font-size: 1rem;
         line-height: 1.6rem;
         border-radius: 0.8rem;
