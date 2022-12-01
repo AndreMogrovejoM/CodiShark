@@ -23,20 +23,25 @@ const ClientContainerStyled = styled.div<Props>`
   .ClientContainer {
     &__section1 {
       width: 70%;
+
       @media screen and (max-width: 1366px) {
         width: 88%;
         margin: 0 auto;
       }
     }
+
     &__section2 {
       justify-content: space-between;
       display: flex;
       width: 100%;
-      @media screen and (max-width: 1366px) {
-        width: 100%;
-        margin: 0 auto;
+      flex-direction: column;
+      gap: 1.6rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+        flex-direction: row;
       }
     }
+
     &__section3 {
       width: 28%;
       flex: 1;

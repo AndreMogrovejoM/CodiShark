@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { IndicatorsClientTwoStyledProps as Props } from "./IndicatorsClientTwo.types";
 
 const IndicatorsClientTwoStyled = styled.div<Props>`
-  width: 49%;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,15 +21,18 @@ const IndicatorsClientTwoStyled = styled.div<Props>`
         border-radius: 0.8rem;
         padding: 2.4rem;
         padding-right: 4rem;
-        gap: 1.6rem;
+        height: 100%;
+        justify-content: center;
       }
     }
+
     &__text {
       &--bold {
         font-weight: 700;
         font-size: 1.6rem;
         line-height: 2.4rem;
       }
+
       &--blue {
         color: var(--palette-primary);
         font-weight: 800;

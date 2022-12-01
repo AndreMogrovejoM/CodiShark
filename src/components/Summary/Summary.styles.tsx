@@ -1,12 +1,14 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { SummaryStyledProps as Props } from "./Summary.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const SummaryStyled = styled.div<Props>`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   background-color: var(--palette-white);
   border-radius: 0.8rem;
   padding: 2rem 2.4rem;
@@ -25,37 +27,46 @@ const SummaryStyled = styled.div<Props>`
       font-weight: 600;
       font-size: 1rem;
       line-height: 1.6rem;
+      text-align: center;
+
+      @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+        text-align: left;
+      }
     }
 
     &__cardsContainer {
       display: flex;
-      flex-direction: row;
-      gap: 9rem;
+      flex-flow: column wrap;
+      justify-content: center;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        gap: 2.4rem;
+        flex-flow: row wrap;
+      }
+
+      @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+        gap: 4.8rem;
+      }
+
+      @media screen and (min-width: ${BREAKPOINTS.wide}px) {
+        gap: 9.6rem;
+      }
     }
 
     &__button {
-      display: flex;
-      justify-content: left;
       background-color: var(--palette-greyBackground);
+      padding: 0.4rem 2.4rem;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &__text {
       color: var(--palette-blueText);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 1.6rem;
-    }
-
-    &__line1 {
-      position: absolute;
-      left: 16rem;
-      top: 3.6rem;
-    }
-
-    &__line2 {
-      position: absolute;
-      left: 34rem;
-      top: 3.6rem;
     }
 
     &__sectionDate {
@@ -91,6 +102,45 @@ const SummaryStyled = styled.div<Props>`
       font-weight: 300;
       font-size: 1.4rem;
       line-height: 2.4rem;
+    }
+
+    &__icon {
+      color: var(--palette-blueText);
+      font-size: 1.4rem;
+    }
+
+    &__image {
+      display: none;
+
+      @media screen and (min-width: 500px) {
+        display: block;
+      }
+    }
+
+    &__container {
+      &--content {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 1.6rem;
+        flex-flow: column wrap;
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          flex-flow: row wrap;
+        }
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          justify-content: space-between;
+        }
+      }
+
+      &--button {
+        margin: auto;
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          margin: 0;
+        }
+      }
     }
   }
 `;
