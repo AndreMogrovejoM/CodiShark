@@ -1,4 +1,4 @@
-import{s as a,j as i,a as e}from"./index.c13680c4.js";import{u as r}from"./i18n.hooks.12df7c97.js";import{B as s}from"./Button.54ea91a6.js";import{L as N}from"./Layout.container.1478b770.js";import"./auth.service.hooks.6523a2f5.js";import"./constants.03d913e0.js";const I="/CodiShark/assets/fotoMujerOne.cadd13a3.svg",S=a.div`
+import{s as a,j as i,a as e}from"./index.9c85feef.js";import{u as r}from"./i18n.hooks.65690834.js";import{B as s}from"./Button.dc0ac8ef.js";import{L as N}from"./Layout.container.2fe0abc4.js";import"./auth.service.hooks.1571f05e.js";import"./constants.03d913e0.js";const I="/CodiShark/assets/fotoMujerOne.cadd13a3.svg",S=a.div`
   position: relative;
   max-width: 32rem;
   max-height: 30rem;
