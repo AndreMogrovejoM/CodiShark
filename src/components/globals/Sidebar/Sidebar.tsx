@@ -6,6 +6,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
 import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
+import logoKonecta from "assets/images/logoKonectaSidebar.png";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -22,8 +23,6 @@ import { SidebarProps as Props } from "./Sidebar.types";
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
 const { ADMIN_PAYMENT_LIST, ENTRY_PATH } = CONSTANTS.ROUTES;
-
-const LogoKonecta = "./logoKonectaSidebar.png";
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
@@ -142,7 +141,7 @@ const Sidebar: React.FC<Props> = props => {
               <div className="Sidebar__header-text">
                 <img
                   className="Sidebar__icon"
-                  src={LogoKonecta}
+                  src={logoKonecta}
                   alt="logoKonecta"
                   width={140}
                 />

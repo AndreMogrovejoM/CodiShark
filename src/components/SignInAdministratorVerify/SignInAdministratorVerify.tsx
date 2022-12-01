@@ -1,5 +1,6 @@
 import { InputAdornment } from "@mui/material";
 import iconVerification from "assets/images/iconVerification.svg";
+import logoKonecta from "assets/images/logoKonecta.png";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import CONSTANTS from "config/constants";
@@ -16,8 +17,6 @@ import { validCode } from "utils/validations.utils";
 
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
-
-const LogoKonecta = "./logoKonecta.png";
 
 const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 
@@ -117,7 +116,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
     <Styles className="SignInAdministratorVerify">
       <div className="SignInAdministratorVerify__container">
         <img
-          src={LogoKonecta}
+          src={logoKonecta}
           alt="logoKonecta"
           className="SignInAdministratorVerify__logo"
           width={154}

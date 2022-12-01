@@ -1,4 +1,5 @@
 import { Grid, Paper, Box } from "@mui/material";
+import logoKonecta from "assets/images/logoKonecta.png";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
@@ -10,8 +11,6 @@ import SignInForm from "../SignInForm/SignInForm";
 import SignInValidate from "../SignInValidate/SignInValidate";
 import Styles from "./SignIn.styles";
 import { SignInProps as Props } from "./SignIn.types";
-
-const LogoKonecta = "./logoKonecta.png";
 
 const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
@@ -43,7 +42,7 @@ const SignIn: React.FC<Props> = props => {
 
   const renderFormHeader = () => (
     <>
-      <img src={LogoKonecta} alt={t.altLogo} width={188} />
+      <img src={logoKonecta} alt={t.altLogo} width={188} />
       <h1 className="SignIn__title">
         {signInStep !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
       </h1>
