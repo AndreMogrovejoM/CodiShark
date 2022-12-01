@@ -38,10 +38,6 @@ const InformationClientStyled = styled.div<Props>`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
-      /* @media screen and (max-width: 1518px) {
-        margin-left: 4rem;
-      } */
     }
 
     &__title {
@@ -109,7 +105,7 @@ const InformationClientStyled = styled.div<Props>`
       line-height: 1.6rem;
     }
 
-    &__parrafo {
+    &__paragraph {
       margin-top: 1rem;
       font-weight: 300;
       font-size: 0.9rem;
@@ -121,6 +117,7 @@ const InformationClientStyled = styled.div<Props>`
       width: 12rem;
       margin-top: 2.6rem;
     }
+
     &__text1 {
       font-weight: 700;
       font-size: 1rem;
@@ -141,6 +138,7 @@ const InformationClientStyled = styled.div<Props>`
           justify-content: left;
         }
       }
+
       &--content {
         padding: 0;
         @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
@@ -178,20 +176,6 @@ const InformationClientStyled = styled.div<Props>`
 
       @media screen and (max-width: 1518px) {
         margin-left: -3.2rem;
-      }
-    }
-
-    &__p {
-      color: var(--palette-grayText);
-      position: absolute;
-      font-weight: 400;
-      font-size: 0.8rem;
-      line-height: 0.8rem;
-      top: 11.2rem;
-      right: 67.6rem;
-
-      @media screen and (max-width: 1518px) {
-        display: none;
       }
     }
   }

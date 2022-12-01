@@ -289,7 +289,7 @@ const es: Dictionary = {
       subtitle3: "BANCO",
       subtitle4: "Cuenta corriente soles",
       subtitle5: "Cuenta interbancaria soles",
-      parrafo:
+      paragraph:
         "Después de realizar el depósito, envíanos el voucher al número 900 415 521 oal correo atencion@b12.pe, indicando el número de operación.",
       subtitle6: "Genera tu número de operación para realizar el pago",
       button: "PAGAR",
@@ -299,10 +299,10 @@ const es: Dictionary = {
     PaymentRejected: {
       button: "Volver a intentar",
       title: "Detalles del pago",
-      parrafo1: "Monto Pagado:",
-      parrafo2: "Fecha:",
-      parrafo3: "Hora:",
-      parrafo4: "Monto Pagado:"
+      paragraph1: "Monto Pagado:",
+      paragraph2: "Fecha:",
+      paragraph3: "Hora:",
+      paragraph4: "Monto Pagado:"
     }
   },
   components: {

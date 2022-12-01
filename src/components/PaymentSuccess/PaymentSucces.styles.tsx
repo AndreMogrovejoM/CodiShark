@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { PaymentSuccesStyledProps as Props } from "./PaymentSucces.types";
+import { PaymentSuccessStyledProps as Props } from "./PaymentSucces.types";
 
-const PaymentSuccesStyled = styled.div<Props>`
+const PaymentSuccessStyled = styled.div<Props>`
   width: 100%;
   height: 32rem;
   display: flex;
@@ -13,7 +13,7 @@ const PaymentSuccesStyled = styled.div<Props>`
   position: relative;
   gap: 4rem;
 
-  .PaymentSucces {
+  .PaymentSuccess {
     &__container {
       display: flex;
       gap: 22rem;
@@ -120,7 +120,7 @@ const PaymentSuccesStyled = styled.div<Props>`
       line-height: 1.6rem;
     }
 
-    &__parrafos {
+    &__paragraph {
       margin-left: 2rem;
     }
 
@@ -132,4 +132,4 @@ const PaymentSuccesStyled = styled.div<Props>`
   }
 `;
 
-export default PaymentSuccesStyled;
+export default PaymentSuccessStyled;

@@ -16,10 +16,6 @@ const IndicatorsClientOne: React.FC<Props> = props => {
         </h2>
         <h2 className="InfoCardClientOne__normal">DNI N° 86752459</h2>
       </div>
-      {/*   <h2 className="IndicatorsClientOne__text--extraLight">
-        Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus
-        pagos:
-      </h2> */}
     </Styles>
   );
 };

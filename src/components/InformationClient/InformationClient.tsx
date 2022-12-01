@@ -21,10 +21,6 @@ const InformationClient: React.FC<Props> = props => {
           src={ImagePayInformation}
           alt="ImagePayInformation"
         />
-        <div className="InformationClient__p">
-          <p>Paga con todas las billeteras</p>
-          <p>electrónicas como Yape, Plim, etc</p>
-        </div>
         <h2 className="InformationClient__subtitle2">{t.subtitle2}</h2>
         <div className="InformationClient__imageSection">
           <img
@@ -50,7 +46,7 @@ const InformationClient: React.FC<Props> = props => {
           <p className="InformationClient__cuenta1">191 5264 8452 1254</p>
           <h2 className="InformationClient__subtitle4">{t.subtitle5}</h2>
           <p className="InformationClient__cuenta1">191 55044 00541 14460</p>
-          <p className="InformationClient__parrafo">{t.parrafo}</p>
+          <p className="InformationClient__paragraph">{t.paragraph}</p>
           <h2 className="InformationClient__subtitle6">{t.subtitle6}</h2>
         </div>
         <div className="InformationClient__container--button">

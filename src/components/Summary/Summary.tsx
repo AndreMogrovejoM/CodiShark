@@ -15,7 +15,6 @@ const Summary: React.FC<Props> = props => {
     <Styles className="Summary">
       <h2 className="Summary__subtitle">{t.subtitle}</h2>
       <div className="Summary__container--content">
-        {/* Primer div */}
         <div className="Summary__cardsContainer">
           <SummaryCard title={t.summary1}>
             <h3 className="Summary__h3">S/ 8200</h3>
@@ -37,7 +36,6 @@ const Summary: React.FC<Props> = props => {
           </SummaryCard>
         </div>
 
-        {/* Segundo div */}
         <div className="Summary__container--button">
           <Button
             className="Summary__button Summary__text"

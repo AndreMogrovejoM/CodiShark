@@ -1,14 +1,20 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { IndicatorsClientTwoStyledProps as Props } from "./IndicatorsClientTwo.types";
 
+const { BREAKPOINTS } = CONSTANTS;
+
 const IndicatorsClientTwoStyled = styled.div<Props>`
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1.6rem 0;
+  margin-bottom: 1.6rem;
+
+  @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+    margin: 1.6rem 0;
+  }
 
   .IndicatorsClientTwo {
     &__component {

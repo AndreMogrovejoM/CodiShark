@@ -3,21 +3,16 @@ import styled from "styled-components";
 import { PanelBannerClientStyledProps as Props } from "./PanelBannerClient.types";
 
 const PanelBannerClientStyled = styled.div<Props>`
-  /*  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: var(--palette-primary);
-  border-radius: 0.8rem;
-  padding: 1.2rem 2.4rem;
-  margin: 0 auto; */
-
   .PanelBannerClient {
     &__container {
       &--image {
-        position: relative;
-        width: 156px;
-        height: inherit;
+        display: none;
+        @media screen and (min-width: 920px) {
+          position: relative;
+          width: 156px;
+          height: inherit;
+          display: block;
+        }
       }
 
       &--component {
