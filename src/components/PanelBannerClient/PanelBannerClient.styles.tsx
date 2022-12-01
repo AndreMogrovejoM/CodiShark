@@ -4,7 +4,6 @@ import { PanelBannerClientStyledProps as Props } from "./PanelBannerClient.types
 
 const PanelBannerClientStyled = styled.div<Props>`
   width: 100%;
-  height: 12rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -38,14 +37,14 @@ const PanelBannerClientStyled = styled.div<Props>`
     &__image {
       position: absolute;
       top: -3rem;
-      left: 2.4rem;
-      width: 17rem;
+      left: 2rem;
+      width: 20rem;
 
-      @media screen and (max-width: 280px) {
+      @media screen and (min-width: 960px) {
         position: absolute;
-        top: 1rem;
-        right: 0.4rem;
-        width: 10.4rem;
+        top: -3rem;
+        left: 2.4rem;
+        width: 16rem;
       }
     }
   }

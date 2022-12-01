@@ -7,23 +7,44 @@ const IndicatorsClientOneStyled = styled.div<Props>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2.4rem 0;
-  position: relative;
+  margin: 1.6rem 0;
 
   .IndicatorsClientOne {
-    &__title {
-      position: absolute;
-      font-weight: 300;
-      font-size: 1.4rem;
-      line-height: 2.4rem;
-      left: 4rem;
-      top: 2rem;
+    &__component {
+      &--card {
+        background-color: var(--palette-white);
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 0.8rem;
+        padding: 2.4rem;
+        padding-right: 4rem;
+      }
     }
+    &__text {
+      &--normal {
+        font-weight: 600;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+      &--bold {
+        font-weight: 800;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+      }
+      &--light {
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
 
-    &__cardsContainer {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
+      &--extraLight {
+        margin-top: 1rem;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.6rem;
+      }
     }
   }
 `;
