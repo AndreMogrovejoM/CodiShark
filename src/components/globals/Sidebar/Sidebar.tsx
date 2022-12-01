@@ -6,7 +6,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Collapse, Drawer, List } from "@mui/material";
 import iconPersonSideBar from "assets/images/iconPersonSideBar.svg";
-import logoKonecta from "assets/images/logoKonectaSidebar.png";
+import logoKonecta from "assets/images/logoKonectaSidebar.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";

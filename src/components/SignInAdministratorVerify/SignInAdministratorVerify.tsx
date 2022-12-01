@@ -1,6 +1,6 @@
 import { InputAdornment } from "@mui/material";
 import iconVerification from "assets/images/iconVerification.svg";
-import logoKonecta from "assets/images/logoKonecta.png";
+import logoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import CONSTANTS from "config/constants";

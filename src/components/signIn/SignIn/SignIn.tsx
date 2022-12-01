@@ -1,5 +1,5 @@
 import { Grid, Paper, Box } from "@mui/material";
-import logoKonecta from "assets/images/logoKonecta.png";
+import logoKonecta from "assets/images/logoKonecta.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";

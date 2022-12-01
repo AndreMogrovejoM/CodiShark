@@ -1,7 +1,7 @@
 import { InputAdornment } from "@mui/material";
 import iconUserAdministrator from "assets/images/iconUserAdministrator.svg";
 import iconPasswordAdministrator from "assets/images/iconVerification.svg";
-import logoKonecta from "assets/images/logoKonecta.png";
+import logoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
 import useAuth from "contexts/auth/auth.hooks";
