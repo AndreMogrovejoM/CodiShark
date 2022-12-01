@@ -26,7 +26,7 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
       <div className="ExpandableRowsComponent__container__expand">
         {/* TODO: Pending data response from backend */}
         {renderContent(t.entity, "Banco BCP")}
-        {renderContent(t.typeDebt, "Préstmo personal")}
+        {renderContent(t.typeDebt, "Préstamo personal")}
         {renderContent(t.typeExchange, "Sol peruano")}
         {renderContent(t.date, "27-03-2022")}
       </div>

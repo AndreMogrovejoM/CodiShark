@@ -4,6 +4,8 @@ import IndicatorsClientOne from "components/IndicatorsClientOne/IndicatorsClient
 import IndicatorsClientTwo from "components/IndicatorsClientTwo/IndicatorsClientTwo";
 import InformationClient from "components/InformationClient/InformationClient";
 import PanelBannerClient from "components/PanelBannerClient/PanelBannerClient";
+import PaymentRejected from "components/PaymentRejected/PaymentRejected";
+import PaymentSuccess from "components/PaymentSuccess/PaymentSuccess";
 import Summary from "components/Summary/Summary";
 import LayoutContainer from "containers/Layout/Layout.container";
 import useI18n from "i18n/i18n.hooks";
@@ -27,6 +29,8 @@ const ClientContainerContainer: React.FC<Props> = props => {
           <h2 className="ClientContainer__title">{t.title}</h2>
           <Summary />
           <InformationClient />
+          <PaymentSuccess />
+          <PaymentRejected />
         </div>
         <div className="ClientContainer__section3">
           <CardImageOne />
