@@ -253,9 +253,9 @@ const es: Dictionary = {
 
     PanelBannerClient: {
       title: "CONOCE LAS PROMOCIONES QUE TENEMOS PARA TI:",
-      parrafo1: "-Reducción de hasta el 70% de la deuda",
-      parrafo2: "-Campañas para nuevos crédito",
-      parrafo3: "-Nivelación en las centrales de riesgo"
+      paragraph1: "-Reducción de hasta el 70% de la deuda",
+      paragraph2: "-Campañas para nuevos crédito",
+      paragraph3: "-Nivelación en las centrales de riesgo"
     },
 
     CardImageOne: {
@@ -302,7 +302,16 @@ const es: Dictionary = {
       paragraph1: "Monto Pagado:",
       paragraph2: "Fecha:",
       paragraph3: "Hora:",
-      paragraph4: "Monto Pagado:"
+      paragraph4: "Monto Pagado:",
+      success: "Pago Exitoso",
+      approved: "Se ha aprobado su pago con éxito",
+      rejected: "Payment Rejected",
+      disapproved: "Payment could not be processed"
+    },
+
+    ClientContainer: {
+      title:
+        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:"
     }
   },
   components: {

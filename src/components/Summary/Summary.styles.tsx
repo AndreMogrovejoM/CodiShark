@@ -11,7 +11,7 @@ const SummaryStyled = styled.div<Props>`
   flex-direction: column;
   background-color: var(--palette-white);
   border-radius: 0.8rem;
-  padding: 2rem 2.4rem;
+  padding: 1rem 2.4rem;
   margin: 0 auto;
 
   .Summary {
@@ -49,7 +49,7 @@ const SummaryStyled = styled.div<Props>`
       }
 
       @media screen and (min-width: ${BREAKPOINTS.wide}px) {
-        gap: 9.6rem;
+        gap: 5.6rem;
       }
     }
 

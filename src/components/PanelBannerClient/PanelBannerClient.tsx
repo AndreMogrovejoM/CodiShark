@@ -21,9 +21,9 @@ const PanelBannerClient: React.FC<Props> = props => {
         <div className="PanelBannerClient__container">
           <h1 className="PanelBannerClient__title">{t.title}</h1>
           <div className="PanelBannerClient__section">
-            <p>{t.parrafo1}</p>
-            <p>{t.parrafo2}</p>
-            <p>{t.parrafo3}</p>
+            <p>{t.paragraph1}</p>
+            <p>{t.paragraph2}</p>
+            <p>{t.paragraph3}</p>
           </div>
         </div>
       </div>

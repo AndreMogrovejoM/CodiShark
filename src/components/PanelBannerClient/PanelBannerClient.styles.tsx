@@ -5,8 +5,11 @@ import { PanelBannerClientStyledProps as Props } from "./PanelBannerClient.types
 const PanelBannerClientStyled = styled.div<Props>`
   .PanelBannerClient {
     &__container {
+      margin-left: 2rem;
+
       &--image {
         display: none;
+
         @media screen and (min-width: 920px) {
           position: relative;
           width: 156px;
@@ -28,7 +31,7 @@ const PanelBannerClientStyled = styled.div<Props>`
     &__title {
       display: flex;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 1.6rem;
       line-height: 3.2rem;
     }
@@ -38,9 +41,10 @@ const PanelBannerClientStyled = styled.div<Props>`
       display: flex;
       flex-direction: column;
       font-size: 22px;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1rem;
       line-height: 1.6rem;
+      gap: 0.24rem;
     }
 
     &__image {

@@ -1,6 +1,5 @@
 import lineSuccess from "assets/images/lineSucces.svg";
 import rejectedImage from "assets/images/rejectedImage.svg";
-import ClientPayment from "components/ClientPayment/ClientPayment";
 import Button from "components/globals/Button/Button";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
@@ -13,27 +12,26 @@ const PaymentRejected: React.FC<Props> = props => {
   return (
     <Styles className="PaymentRejected">
       <div className="PaymentRejected__container">
-        <img
-          className="PaymentRejected__line"
-          src={lineSuccess}
-          alt="lineSuccess"
-        />
         <div className="PaymentRejected__section">
           <img
             className="PaymentRejected__image"
             src={rejectedImage}
             alt="rejectedImage"
           />
-          <ClientPayment
-            title={"Pago Rechazado"}
-            subtitle={"No se pudo procesar el pago"}
-          />
+          <h2 className="PaymentRejected__title">{t.rejected}</h2>
+          <h2 className="PaymentRejected__subtitle">{t.disapproved}</h2>
+
           <Button className="PaymentRejected__button" variant="contained">
             <h3 className="PaymentRejected__text">{t.button}</h3>
           </Button>
         </div>
+        <img
+          className="PaymentRejected__line"
+          src={lineSuccess}
+          alt="lineSuccess"
+        />
         <div className="PaymentRejected__section2">
-          <h2 className="PaymentRejected__title">{t.title}</h2>
+          <h2 className="PaymentRejected__title2">{t.title}</h2>
           <div className="PaymentRejected__paragraph">
             <div className="PaymentRejected__p1div">
               <p className="PaymentRejected__p1">{t.paragraph1}</p>

@@ -31,16 +31,16 @@ const IndicatorsClientOneStyled = styled.div<Props>`
     }
 
     &__text {
-      &--normal {
-        font-weight: 600;
-        font-size: 1.2rem;
-        line-height: 1.6rem;
-      }
-
       &--bold {
         font-weight: 800;
         font-size: 1.6rem;
-        line-height: 2.2rem;
+        line-height: 2.4rem;
+      }
+
+      &--normal {
+        font-weight: 600;
+        font-size: 1.1rem;
+        line-height: 1.6rem;
       }
 
       &--light {

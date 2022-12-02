@@ -253,9 +253,9 @@ const en = {
     },
     PanelBannerClient: {
       title: "KNOW THE PROMOTIONS WE HAVE FOR YOU:",
-      parrafo1: "-Reduction of up to 70% of debt",
-      parrafo2: "-Campaigns for new credit",
-      parrafo3: "-Leveling in credit bureaus"
+      paragraph1: "-Reduction of up to 70% of debt",
+      paragraph2: "-Campaigns for new credit",
+      paragraph3: "-Leveling in credit bureaus"
     },
     CardImageOne: {
       title: "Live a debt-free life",
@@ -299,7 +299,16 @@ const en = {
       paragraph1: "Amount Paid:",
       paragraph2: "Date:",
       paragraph3: "Time:",
-      paragraph4: "Amount Paid:"
+      paragraph4: "Amount Paid:",
+      success: "Successful Payment",
+      approved: "Your payment has been successfully approved",
+      rejected: "Pago Rechazado",
+      disapproved: "No se pudo procesar el pago"
+    },
+
+    ClientContainer: {
+      title:
+        "Here we provide the amount of your debt and the deadlines to make your payments:"
     }
   },
   components: {
