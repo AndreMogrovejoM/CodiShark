@@ -8,15 +8,12 @@ import PaymentRejected from "components/PaymentRejected/PaymentRejected";
 import PaymentSuccess from "components/PaymentSuccess/PaymentSuccess";
 import Summary from "components/Summary/Summary";
 import LayoutContainer from "containers/Layout/Layout.container";
-import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
 import Styles from "./Client.styles";
 import { ClientContainerContainerProps as Props } from "./Client.types";
 
 const ClientContainerContainer: React.FC<Props> = props => {
-  const t = useI18n().signIn.Summary;
-
   return (
     <LayoutContainer>
       <Styles className="ClientContainer">
@@ -26,7 +23,6 @@ const ClientContainerContainer: React.FC<Props> = props => {
             <IndicatorsClientOne />
             <IndicatorsClientTwo />
           </div>
-          <h2 className="ClientContainer__title">{t.title}</h2>
           <Summary />
           <InformationClient />
           <PaymentSuccess />

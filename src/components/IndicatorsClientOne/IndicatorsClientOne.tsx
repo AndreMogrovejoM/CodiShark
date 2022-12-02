@@ -1,4 +1,3 @@
-import InfoCardClient from "components/InfoCardClientOne/InfoCardClientOne";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
@@ -7,14 +6,15 @@ import { IndicatorsClientOneProps as Props } from "./IndicatorsClientOne.types";
 
 const IndicatorsClientOne: React.FC<Props> = props => {
   const t = useI18n().signIn.IndicatorsClientOne;
+
   return (
     <Styles className="IndicatorsClientOne">
-      <h2 className="IndicatorsClientOne__title">{t.greetings}</h2>
-      <div className="IndicatorsClientOne__cardsContainer">
-        <InfoCardClient
-          name={"ARMANDO RODRIGUEZ GUERRA"}
-          dni={"DNI N° 86752459"}
-        />
+      <div className="IndicatorsClientOne__component--card">
+        <h2 className="IndicatorsClientOne__text--light">{t.greetings}</h2>
+        <h2 className="IndicatorsClientOne__text--bold">
+          ARMANDO RODRIGUEZ GUERRA
+        </h2>
+        <h2 className="InfoCardClientOne__normal">DNI N° 86752459</h2>
       </div>
     </Styles>
   );

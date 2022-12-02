@@ -5,6 +5,7 @@ import { SummaryCardProps as Props } from "./SummaryCard.types";
 
 const SummaryCard: React.FC<Props> = props => {
   const { title, children } = props;
+
   return (
     <Styles className="SummaryCard">
       <h2 className="SummaryCard__title">{title}</h2>

@@ -286,7 +286,7 @@ const en = {
       subtitle3: "BANK",
       subtitle4: "Checking account soles",
       subtitle5: "Interbank account soles",
-      parrafo:
+      paragraph:
         "After making the deposit, please send us the voucher to 900 415 521 or to atencion@b12.pe, indicating the transaction number.",
       subtitle6: "Generate your transaction number to make your payment",
       button: "PAY",
@@ -296,10 +296,10 @@ const en = {
     PaymentRejected: {
       button: "Try again",
       title: "Payment details",
-      parrafo1: "Amount Paid:",
-      parrafo2: "Date:",
-      parrafo3: "Time:",
-      parrafo4: "Amount Paid:"
+      paragraph1: "Amount Paid:",
+      paragraph2: "Date:",
+      paragraph3: "Time:",
+      paragraph4: "Amount Paid:"
     }
   },
   components: {

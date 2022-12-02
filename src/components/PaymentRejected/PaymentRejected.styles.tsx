@@ -120,7 +120,7 @@ const PaymentRejectedStyled = styled.div<Props>`
       line-height: 1.6rem;
     }
 
-    &__parrafos {
+    &__paragraph {
       margin-left: 2.4rem;
     }
 
