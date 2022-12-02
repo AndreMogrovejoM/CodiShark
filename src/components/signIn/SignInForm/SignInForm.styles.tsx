@@ -11,6 +11,13 @@ const SignInFormStyled = styled.div<Props>`
         margin-bottom: 1.6rem;
       }
     }
+
+    &__error {
+      color: var(--palette-error);
+      font-weight: 600;
+      text-align: center;
+      margin-top: 0.4rem;
+    }
   }
 `;
 

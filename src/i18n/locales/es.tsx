@@ -112,13 +112,13 @@ const es: Dictionary = {
     UserPayPanel: {
       title: "Listado de clientes",
       buttonExcel: "Excel",
-      buttonPdf: "Pdf",
+      buttonPdf: "PDF",
       buttonPrint: "Imprimir"
     },
     UserOperationPanel: {
       title: "Listado de pagos",
       buttonExcel: "Excel",
-      buttonPdf: "Pdf",
+      buttonPdf: "PDF",
       buttonPrint: "Imprimir"
     },
     AdminPaymentDetails: {
@@ -253,9 +253,9 @@ const es: Dictionary = {
 
     PanelBannerClient: {
       title: "CONOCE LAS PROMOCIONES QUE TENEMOS PARA TI:",
-      parrafo1: "-Reducción de hasta el 70% de la deuda",
-      parrafo2: "-Campañas para nuevos crédito",
-      parrafo3: "-Nivelación en las centrales de riesgo"
+      paragraph1: "-Reducción de hasta el 70% de la deuda",
+      paragraph2: "-Campañas para nuevos crédito",
+      paragraph3: "-Nivelación en las centrales de riesgo"
     },
 
     CardImageOne: {

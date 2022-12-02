@@ -64,13 +64,6 @@ const PaymentListView: React.FC<Props> = props => {
         >
           {t.buttonExcel}
         </Button>
-        <Button
-          variant="contained"
-          className="PaymentListView__component--button"
-          onClick={() => window.print()}
-        >
-          {t.buttonPrint}
-        </Button>
       </div>
 
       <SearchInput />

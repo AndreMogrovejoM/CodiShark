@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-<<<<<<<< HEAD:src/components/PaymentSuccess/PaymentSuccess.styles.tsx
 import { PaymentSuccessStyledProps as Props } from "./PaymentSuccess.types";
-========
-import { PaymentSuccessStyledProps as Props } from "./PaymentSucces.types";
->>>>>>>> f05648186e89a0d2e3575a61384031598fc2e2cd:src/components/PaymentSuccess/PaymentSucces.styles.tsx
 
 const PaymentSuccessStyled = styled.div<Props>`
   width: 100%;

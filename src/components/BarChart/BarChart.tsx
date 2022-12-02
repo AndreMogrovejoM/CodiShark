@@ -1,8 +1,9 @@
+import { DatePicker } from "antd";
 import { Chart as ChartJS, CategoryScale, LinearScale } from "chart.js";
 import { BarElement, Title, Tooltip, Legend } from "chart.js";
-import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
-import React, { useEffect } from "react";
+import moment from "moment";
+import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { useFetchAdministratorGraphics } from "services/administrator/administrator.service.hooks";
 import variables from "styles/utils/variables";
@@ -23,17 +24,11 @@ ChartJS.register(
 );
 
 const BarChart: React.FC<Props> = props => {
-  const year = dayjs(new Date()).format("YYYY");
-  const { setIsLoading } = useGlobals();
-  const { data, isLoading } = useFetchAdministratorGraphics(year);
+  const plainYear = dayjs(new Date()).format("YYYY");
+  const [year, setYear] = useState(plainYear);
+  const { data } = useFetchAdministratorGraphics(year);
   const { months } = data ?? {};
   const formattedData = months?.map(month => Object?.values(month)[0]);
-
-  useEffect(() => {
-    setIsLoading(isLoading);
-  }, [isLoading, setIsLoading]);
-
-  if (!formattedData) return null;
 
   const displayData = {
     labels,
@@ -56,9 +51,18 @@ const BarChart: React.FC<Props> = props => {
   };
 
   return (
-    <Styles className="BarChart">
-      <Bar options={options} data={displayData} className="BarChart__chart" />
-    </Styles>
+    <>
+      <DatePicker
+        onChange={(_, date) => setYear(date)}
+        defaultValue={moment(year)}
+        allowClear={false}
+        className="BarChart__datePicker"
+        picker="year"
+      />
+      <Styles className="BarChart">
+        <Bar options={options} data={displayData} className="BarChart__chart" />
+      </Styles>
+    </>
   );
 };
 

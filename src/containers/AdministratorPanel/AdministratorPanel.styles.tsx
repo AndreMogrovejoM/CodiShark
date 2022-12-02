@@ -10,6 +10,13 @@ const AdministratorPanelStyled = styled.div<Props>`
   align-items: flex-start;
   min-height: 100vh;
 
+  .BarChart__datePicker {
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    padding: 0.4rem 1.2rem;
+  }
+
   .AdministratorPanel {
     &__section1 {
       width: 68%;

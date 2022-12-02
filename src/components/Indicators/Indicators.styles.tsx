@@ -16,6 +16,13 @@ const IndicatorsStyled = styled.div<Props>`
       line-height: 2.4rem;
     }
 
+    &__rangePicker {
+      border-radius: 0.4rem;
+      font-size: 1.2rem;
+      line-height: 2.4rem;
+      padding: 0.4rem 1.2rem;
+    }
+
     &__cardsContainer {
       display: flex;
       flex-wrap: wrap;

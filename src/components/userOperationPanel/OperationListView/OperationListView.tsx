@@ -65,13 +65,6 @@ const OperationListView: React.FC<Props> = props => {
         >
           {t.buttonExcel}
         </Button>
-        <Button
-          variant="contained"
-          className="OperationListView__component--button"
-          onClick={() => window.print()}
-        >
-          {t.buttonPrint}
-        </Button>
       </div>
 
       <SearchInput />

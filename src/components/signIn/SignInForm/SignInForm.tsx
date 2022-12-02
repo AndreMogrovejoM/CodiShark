@@ -20,6 +20,7 @@ const SignInForm: React.FC<Props> = props => {
   const [isLoading, setIsLoading] = useState(false);
   const { setSignInStep, setUser } = useAuth();
   const { mutateAsync, reset } = useSignInUserStep1();
+  const [error, setError] = useState("");
 
   const { control, handleSubmit } = useForm();
 
@@ -35,7 +36,14 @@ const SignInForm: React.FC<Props> = props => {
       reset();
       setIsLoading(false);
       setSignInStep(1);
-    } catch {
+    } catch (error) {
+      if (error?.toString()?.includes("422")) {
+        setError("No se encontró el usuario en el registro.");
+      } else {
+        setError(
+          "Hubo un error en la información ingresada, por favor inténtelo de nuevo."
+        );
+      }
       setIsLoading(false);
     }
   };
@@ -149,6 +157,9 @@ const SignInForm: React.FC<Props> = props => {
             {t.button}
           </Button>
         </Box>
+        {error?.length > 0 ? (
+          <h3 className="SignInForm__error">{error}</h3>
+        ) : null}
       </Box>
     </Styles>
   );

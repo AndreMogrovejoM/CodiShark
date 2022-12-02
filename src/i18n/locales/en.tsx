@@ -113,13 +113,13 @@ const en = {
     UserPayPanel: {
       title: "List of payments",
       buttonExcel: "Excel",
-      buttonPdf: "Pdf",
+      buttonPdf: "PDF",
       buttonPrint: "Print"
     },
     UserOperationPanel: {
       title: "List of clients",
       buttonExcel: "Excel",
-      buttonPdf: "Pdf",
+      buttonPdf: "PDF",
       buttonPrint: "Print"
     },
     AdminPaymentDetails: {
@@ -253,9 +253,9 @@ const en = {
     },
     PanelBannerClient: {
       title: "KNOW THE PROMOTIONS WE HAVE FOR YOU:",
-      parrafo1: "-Reduction of up to 70% of debt",
-      parrafo2: "-Campaigns for new credit",
-      parrafo3: "-Leveling in credit bureaus"
+      paragraph1: "-Reduction of up to 70% of debt",
+      paragraph2: "-Campaigns for new credit",
+      paragraph3: "-Leveling in credit bureaus"
     },
     CardImageOne: {
       title: "Live a debt-free life",

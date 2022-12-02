@@ -7,6 +7,8 @@ const BarChartStyled = styled.div<Props>`
   padding: 1.6rem 2.4rem;
   border-radius: 0.8rem;
   height: 32rem;
+  margin-top: 0.8rem;
+  min-height: 32rem;
 
   .BarChart {
     &__chart {
