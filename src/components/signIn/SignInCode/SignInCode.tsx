@@ -89,20 +89,22 @@ const SignInCode: React.FC<Props> = props => {
           ({formatMillisecondsToSeconds(timeLeft / 1000)})
         </p>
       </div>
-      <Button
-        variant="contained"
-        size="large"
-        color="info"
-        fullWidth
-        onClick={submitHandler}
-        disabled={isLoading}
-        className="SignInCode__container--button"
-      >
-        {t.button}
-      </Button>
+      <div className="SignInCode__container--button">
+        <Button
+          variant="contained"
+          size="large"
+          color="info"
+          fullWidth
+          onClick={submitHandler}
+          disabled={isLoading}
+          className="SignInCode__component--button"
+        >
+          {t.button}
+        </Button>
+      </div>
       <div className="SignInCode__container--text">
         <p className="SignInCode__text">
-          {t.question}
+          {`${t.question} `}
           <span
             onClick={handleResetCode}
             className="SignInCode__text--color SignInCode__text--clickable"

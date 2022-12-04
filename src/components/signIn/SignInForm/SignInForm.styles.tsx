@@ -6,9 +6,14 @@ const SignInFormStyled = styled.div<Props>`
   .SignInForm {
     &__container {
       &--button {
-        padding: 1rem 0;
         margin-top: 2.4rem;
         margin-bottom: 1.6rem;
+      }
+    }
+
+    &__component {
+      &--button {
+        padding: 0.8rem 0;
       }
     }
 

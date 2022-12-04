@@ -6,7 +6,8 @@ const SignInValidateStyled = styled.div<Props>`
   .SignInValidate {
     &__container {
       &--button {
-        padding: 1rem 0;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
       }
 
       &__input {
@@ -56,6 +57,12 @@ const SignInValidateStyled = styled.div<Props>`
         & > * {
           margin-bottom: 0.8rem;
         }
+      }
+    }
+
+    &__component {
+      &--button {
+        padding: 0.8rem 0;
       }
     }
 

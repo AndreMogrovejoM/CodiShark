@@ -167,8 +167,7 @@ const es: Dictionary = {
   signIn: {
     SignInFormUser: {
       title: "Bienvenido(a)",
-      subtitle:
-        "Enviamos un código según el método seleccionado, Ingréselo a continuación para continuar:",
+      subtitle: "Necesitamos identificarte para poder continuar",
       titleAlt: "Ingrese el código recibido",
       subtitleAlt: "Enviamos un código según el método seleccionado.",
       subtitleAltTwo: "Ingreselo a continuación para continuar:",
@@ -197,7 +196,7 @@ const es: Dictionary = {
       }
     },
     SignInFormCode: {
-      question: "No recibió ningun código? Reenviar código de verificación ",
+      question: "No recibió ningun código?",
       answer: "Reenviar código de verificación ",
       method: "Probar otro método de verificación",
       button: "Continuar"

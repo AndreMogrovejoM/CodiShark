@@ -11,7 +11,7 @@ const SignInCodeStyled = styled.div<Props>`
       }
 
       &--button {
-        padding: 1rem 0;
+        margin-top: 1.2rem;
         margin-bottom: 1.6rem;
       }
 
@@ -29,6 +29,11 @@ const SignInCodeStyled = styled.div<Props>`
       }
     }
 
+    &__component {
+      &--button {
+        padding: 0.8rem 0;
+      }
+    }
     &__input {
       background: var(--palette-white);
       border: 0.04rem solid var(--palette-black);
