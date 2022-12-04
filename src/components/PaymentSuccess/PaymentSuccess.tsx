@@ -1,5 +1,5 @@
-import successImage from "assets/images/SuccessImage.svg";
 import lineSuccess from "assets/images/lineSucces.svg";
+import successImage from "assets/images/successImage.svg";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
