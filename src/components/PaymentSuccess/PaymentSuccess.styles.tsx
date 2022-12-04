@@ -3,49 +3,58 @@ import styled from "styled-components";
 import { PaymentSuccessStyledProps as Props } from "./PaymentSuccess.types";
 
 const PaymentSuccessStyled = styled.div<Props>`
-  width: 100%;
-  height: 32rem;
-  display: flex;
-  background-color: var(--palette-white);
-  border-radius: 0.8rem;
-  padding: 1.2rem 2.4rem;
-  margin: 3.2rem auto;
-  position: relative;
-  gap: 4rem;
-
   .PaymentSuccess {
     &__container {
+      width: 100%;
       display: flex;
-      gap: 22rem;
-      position: relative;
+      background-color: var(--palette-white);
+      border-radius: 0.8rem;
+      padding: 4rem 2.4rem;
+      margin: 3.2rem auto;
+      justify-content: space-evenly;
     }
 
     &__section {
       display: flex;
       flex-direction: column;
-      margin-top: 4.8rem;
-      padding-left: 18rem;
-      padding-right: 4rem;
-    }
-
-    &__section2 {
-      padding-right: 16rem;
+      justify-content: space-between;
+      width: 25%;
     }
 
     &__title {
       font-weight: 800;
       font-size: 2rem;
       line-height: 2.4rem;
-      margin-left: 6.4rem;
-      margin-top: 6.4rem;
-      margin-bottom: 2.4rem;
+      text-align: center;
+    }
+
+    &__subtitle {
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 2.4rem;
+      text-align: center;
+    }
+
+    &__section2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 3.2rem;
+      width: 25%;
+    }
+
+    &__title2 {
+      font-weight: 800;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      text-align: center;
     }
 
     &__image {
-      margin-bottom: 3.2rem;
+      display: flex;
+      align-self: center;
       width: 6.4rem;
       height: 6.4rem;
-      margin-left: 4.8rem;
     }
 
     &__p1div {
@@ -121,13 +130,9 @@ const PaymentSuccessStyled = styled.div<Props>`
     }
 
     &__paragraph {
-      margin-left: 2rem;
-    }
-
-    &__line {
-      position: absolute;
-      left: 50rem;
-      top: 7.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 `;

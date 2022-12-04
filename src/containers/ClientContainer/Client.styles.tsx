@@ -11,7 +11,6 @@ const ClientContainerStyled = styled.div<Props>`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  position: relative;
   min-height: 100vh;
   display: flex;
   gap: 2%;
@@ -28,6 +27,14 @@ const ClientContainerStyled = styled.div<Props>`
         width: 88%;
         margin: 0 auto;
       }
+    }
+
+    &__title {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6rem;
+      margin-top: -1rem;
+      margin-bottom: 0.6rem;
     }
 
     &__section2 {

@@ -14,7 +14,7 @@ const IndicatorsClientOne: React.FC<Props> = props => {
         <h2 className="IndicatorsClientOne__text--bold">
           ARMANDO RODRIGUEZ GUERRA
         </h2>
-        <h2 className="InfoCardClientOne__normal">DNI N° 86752459</h2>
+        <h2 className="IndicatorsClientOne__text--normal">DNI N° 86752459</h2>
       </div>
     </Styles>
   );

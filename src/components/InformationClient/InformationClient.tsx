@@ -1,6 +1,7 @@
 import iconMasterCardInformation from "assets/images/iconMasterCardInformation.svg";
 import iconVisaInformation from "assets/images/iconVisaInformation.svg";
 import ImagePayInformation from "assets/images/imagePayInformation.svg";
+import lineInformation from "assets/images/lineInformation.svg";
 import Button from "components/globals/Button/Button";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
@@ -38,6 +39,11 @@ const InformationClient: React.FC<Props> = props => {
           <h3 className="InformationClient__text1">{t.button}</h3>
         </Button>
       </div>
+      <img
+        className="InformationClient__line"
+        src={lineInformation}
+        alt="lineInformation"
+      />
       <div className="InformationClient__section2">
         <h2 className="InformationClient__title2">{t.title2}</h2>
         <div className="InformationClient__container--content">

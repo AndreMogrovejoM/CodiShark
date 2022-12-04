@@ -292,14 +292,22 @@ const en = {
       button: "PAY",
       button2: "GENERATE TRANSACTION NUMBER"
     },
-
     PaymentRejected: {
       button: "Try again",
       title: "Payment details",
       paragraph1: "Amount Paid:",
       paragraph2: "Date:",
       paragraph3: "Time:",
-      paragraph4: "Amount Paid:"
+      paragraph4: "Amount Paid:",
+      success: "Successful Payment",
+      approved: "Your payment has been successfully approved",
+      rejected: "Payment Rejected",
+      disapproved: "Payment could not be processed"
+    },
+
+    ClientContainer: {
+      title:
+        "Here we provide the amount of your debt and the deadlines to make your payments:"
     }
   },
   components: {
