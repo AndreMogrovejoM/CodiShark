@@ -13,7 +13,6 @@ const InformationClientStyled = styled.div<Props>`
   border-radius: 0.8rem;
   padding: 2.4rem;
   margin: 3.2rem auto;
-  position: relative;
   gap: 2rem;
 
   @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
@@ -54,10 +53,12 @@ const InformationClientStyled = styled.div<Props>`
       font-size: 1.6rem;
       line-height: 2.4rem;
       margin-bottom: 1rem;
+
       @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
         flex-direction: row;
         gap: 4rem;
       }
+
       text-align: center;
     }
 
@@ -119,7 +120,7 @@ const InformationClientStyled = styled.div<Props>`
     }
 
     &__text1 {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1rem;
       line-height: 1.6rem;
     }
@@ -134,6 +135,7 @@ const InformationClientStyled = styled.div<Props>`
       &--button {
         display: flex;
         justify-content: center;
+
         @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
           justify-content: left;
         }
@@ -141,10 +143,12 @@ const InformationClientStyled = styled.div<Props>`
 
       &--content {
         padding: 0;
+
         @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
           padding-left: 3.6rem;
           padding-right: 3.6rem;
         }
+
         @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
           padding: 0;
         }
@@ -170,12 +174,10 @@ const InformationClientStyled = styled.div<Props>`
     }
 
     &__line {
-      position: absolute;
-      left: 50.5rem;
-      top: 3.6rem;
+      display: none;
 
-      @media screen and (max-width: 1518px) {
-        margin-left: -3.2rem;
+      @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+        display: block;
       }
     }
   }

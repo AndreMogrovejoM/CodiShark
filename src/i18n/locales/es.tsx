@@ -294,14 +294,22 @@ const es: Dictionary = {
       button: "PAGAR",
       button2: "GENERAR NÚMERO DE OPERACIÓN"
     },
-
     PaymentRejected: {
       button: "Volver a intentar",
       title: "Detalles del pago",
       paragraph1: "Monto Pagado:",
       paragraph2: "Fecha:",
       paragraph3: "Hora:",
-      paragraph4: "Monto Pagado:"
+      paragraph4: "Monto Pagado:",
+      success: "Pago Exitoso",
+      approved: "Se ha aprobado su pago con éxito",
+      rejected: "Pago Rechazado",
+      disapproved: "No se pudo procesar el pago"
+    },
+
+    ClientContainer: {
+      title:
+        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:"
     }
   },
   components: {

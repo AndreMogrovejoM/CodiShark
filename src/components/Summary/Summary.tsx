@@ -25,7 +25,9 @@ const Summary: React.FC<Props> = props => {
           <SummaryCard title={t.summary2}>
             <div className="Summary__sectionDate">
               <h3 className="Summary__h3 Summary__primary-color">S/6750.00</h3>
-              <span className="Summary__span">-35%</span>
+              <div>
+                <span className="Summary__span">-35%</span>
+              </div>
             </div>
           </SummaryCard>
 
