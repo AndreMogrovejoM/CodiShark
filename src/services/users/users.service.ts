@@ -1,10 +1,10 @@
 // Users services
-import { OperationListResponse } from "services/administrator/administrator.service.types";
+import { Status } from "services/administrator/administrator.service.types";
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
-import { UserDebt } from "./users.service.types";
+import { OperationUserDebt, UserDebtResponse } from "./users.service.types";
 
-export const userDebts = async (): Promise<UserDebt[]> => {
+export const userDebts = async (): Promise<UserDebtResponse> => {
   try {
     const response = await axiosDefault.get(`/debts`, {
       headers: buildHeaders()
@@ -15,7 +15,10 @@ export const userDebts = async (): Promise<UserDebt[]> => {
   }
 };
 
-export const fetchUserOperations = async (): Promise<OperationListResponse> => {
+export const fetchUserOperations = async (
+  status?: Status,
+  take = 4
+): Promise<OperationUserDebt[]> => {
   try {
     const response = await axiosDefault.get("/operations", {
       headers: buildHeaders()
