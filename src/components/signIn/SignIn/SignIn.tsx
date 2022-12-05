@@ -15,9 +15,8 @@ import { SignInProps as Props } from "./SignIn.types";
 const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignIn: React.FC<Props> = props => {
-  const { isAnonymous, signInStep, setSignInStep } = useAuth();
+  const { isAnonymous, signInStep } = useAuth();
   const t = useI18n().signIn.SignInFormUser;
-  setSignInStep(1);
   const navigate = useNavigate();
 
   useEffect(() => {
