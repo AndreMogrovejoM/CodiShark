@@ -3,6 +3,7 @@
 import CONSTANTS from "config/constants";
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
+import { SecondFaResponse } from "./administrator.service.types";
 import { GraphicsResponse } from "./administrator.service.types";
 import { Status, UsersListResponse } from "./administrator.service.types";
 import { OperationListResponse } from "./administrator.service.types";
@@ -150,6 +151,36 @@ export const exportOperationsExcel = async (): Promise<File> => {
       }
     );
     return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const generate2fa = async (): Promise<SecondFaResponse> => {
+  try {
+    return await axiosDefault.post(`/admin/generate2fa`, {
+      headers: buildHeaders()
+    });
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const activate2fa = async (): Promise<void> => {
+  try {
+    return await axiosDefault.get(`/admin/generate2fa/activate`, {
+      headers: buildHeaders()
+    });
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const deactivate2fa = async (): Promise<void> => {
+  try {
+    return await axiosDefault.get(`/admin/generate2fa/desactive`, {
+      headers: buildHeaders()
+    });
   } catch (e: any) {
     throw new Error(e.message);
   }

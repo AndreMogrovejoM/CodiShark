@@ -22,7 +22,7 @@ import { SidebarProps as Props } from "./Sidebar.types";
 
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
-const { ADMIN_PAYMENT_LIST, ENTRY_PATH } = CONSTANTS.ROUTES;
+const { ADMIN_PAYMENT_LIST, ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
@@ -37,7 +37,6 @@ const Sidebar: React.FC<Props> = props => {
   const [openList, setOpenList] = useState(true);
 
   const handleClick = (idx: number) => {
-    console.log(selectedIndex.current, idx);
     setOpenList(!openList);
   };
 
@@ -192,6 +191,7 @@ const Sidebar: React.FC<Props> = props => {
           {/* TODO: Temp  */}
           {renderItem(4, "Detalles pago", USER_PAYMENT_DETAILS)}
           {renderItem(5, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
+          {renderItem(6, t.setting, SETTINGS)}
 
           <div className="Sidebar__divider" />
           {renderLogout()}

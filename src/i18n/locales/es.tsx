@@ -11,7 +11,8 @@ const es: Dictionary = {
       myClients: "Listado de clientes",
       logout: "Cerrar sesión",
       title: "Contacto",
-      direction: "la Republica 218 - Miraflores"
+      direction: "la Republica 218 - Miraflores",
+      setting: "Configuración 2FA"
     },
     button: {
       text: "Cargando..."

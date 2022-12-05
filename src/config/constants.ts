@@ -17,7 +17,8 @@ const CONSTANTS = {
     USER_PAYMENT_LIST: "/userPaymentList",
     USER_CLIENT_LIST: "/userClientList",
     USER_PAYMENT_DETAILS: "/userPaymentDetails",
-    ADMIN_PAYMENT_LIST: "/administratorPaymentList"
+    ADMIN_PAYMENT_LIST: "/administratorPaymentList",
+    SETTINGS: "/settings"
   },
   API: {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",

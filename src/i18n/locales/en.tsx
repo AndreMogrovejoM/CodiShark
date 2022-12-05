@@ -12,7 +12,8 @@ const en = {
       myClients: "Customer list",
       logout: "Logout",
       title: "Contact",
-      direction: "la Republica 218 - Miraflores"
+      direction: "la Republica 218 - Miraflores",
+      setting: "Setting 2FA"
     },
     button: {
       text: "Loading..."

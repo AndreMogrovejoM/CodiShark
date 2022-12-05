@@ -4,13 +4,15 @@ import CONSTANTS from "config/constants";
 import { LoginResponse, TemporalAdminUser, User } from "types/user.types";
 import axiosDefault from "utils/axios.utils";
 
-import { Login } from "./auth.service.types";
+import { Login, SignInAdministratorResponse } from "./auth.service.types";
 import { RegisterUserConfig, VerifyMethod } from "./auth.service.types";
 
 const { API } = CONSTANTS;
 const { REACT_APP_API_URL } = API;
 
-export const signInAdmin = async (data: Login): Promise<void> => {
+export const signInAdmin = async (
+  data: Login
+): Promise<SignInAdministratorResponse> => {
   try {
     return await axiosDefault.post(
       `${REACT_APP_API_URL}/admin/auth/login`,
@@ -28,7 +30,7 @@ export const signInAdminStep2 = async (
   try {
     return await axiosDefault
       .post(`${REACT_APP_API_URL}/admin/auth/verified`, { dni, code: password })
-      .then(response => response.data.data);
+      .then(response => response.data);
   } catch (e: any) {
     throw new Error(e.message);
   }

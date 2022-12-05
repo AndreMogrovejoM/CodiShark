@@ -39,9 +39,9 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         dni: user?.dni,
         password: values?.code
       };
-      await mutateAsync(data).then(user => {
-        setUserToken(user?.token ?? "");
-        delete user["token"];
+      await mutateAsync(data).then(data => {
+        const { user, access_token } = data ?? {};
+        setUserToken(access_token ?? "");
         setUser(user);
         setLocalUser(user);
         reset();

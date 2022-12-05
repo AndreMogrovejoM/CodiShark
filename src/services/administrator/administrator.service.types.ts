@@ -57,3 +57,8 @@ export interface GraphicsResponse {
   status: number;
   months: Record<string, number>[];
 }
+
+export interface SecondFaResponse {
+  secretCode: string;
+  google2FaUrl: string;
+}

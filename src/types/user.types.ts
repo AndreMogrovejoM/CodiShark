@@ -31,7 +31,10 @@ export interface User {
 }
 
 export interface TemporalAdminUser extends User {
-  token?: string;
+  access_token?: string;
+  token_type: string;
+  expires_in: number;
+  user: User;
 }
 
 export interface LoginResponse {

@@ -4,10 +4,12 @@ import iconPasswordAdministrator from "assets/images/iconVerification.svg";
 import logoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
+import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useSignInAdmin } from "services/auth/auth.service.hooks";
 import { Login } from "services/auth/auth.service.types";
 import { validLoginUser, validPassword } from "utils/validations.utils";
@@ -15,9 +17,12 @@ import { validLoginUser, validPassword } from "utils/validations.utils";
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
+const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
+
 const SignInAdministrator: React.FC<Props> = props => {
   const [dniField] = validLoginUser();
   const passwordField = validPassword();
+  const navigate = useNavigate();
   const { control, handleSubmit } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const { setSignInStep, setUser } = useAuth();
@@ -31,11 +36,17 @@ const SignInAdministrator: React.FC<Props> = props => {
         dni: values?.dni,
         password: values?.password
       };
-      await mutateAsync(data);
+      const response = await mutateAsync(data);
       reset();
-      setUser({ dni: values?.dni });
+      const { status } = response ?? {};
       setIsLoading(false);
-      setSignInStep(1);
+      if (status === 202) {
+        setUser({ dni: values?.dni });
+        setSignInStep(1);
+      } else {
+        setSignInStep(0);
+        navigate(ADMIN_ENTRY_PATH);
+      }
     } catch {
       setIsLoading(false);
     }

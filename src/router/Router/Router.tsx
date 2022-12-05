@@ -15,6 +15,7 @@ const AdminPaymentListPage = lazy(() => import("pages/AdminPaymentListPage"));
 const Client = lazy(() => import("pages/Client.page"));
 const SignInUser = lazy(() => import("pages/signInUser.page"));
 const UserPanel = lazy(() => import("pages/userPanel.page"));
+const Settings = lazy(() => import("pages/settings.page"));
 const UserOperationsPanel = lazy(
   () => import("pages/userOperationalPanel.page")
 );
@@ -35,6 +36,7 @@ const Router: React.FC<Props> = props => {
           path="/administratorPaymentList"
           element={<AdminPaymentListPage />}
         />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/500" element={<FiverZeroZero />} />
         <Route path="*" element={<FourZeroFour />} />
       </Routes>
