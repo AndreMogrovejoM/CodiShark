@@ -170,7 +170,7 @@ const en = {
       title: "Welcome",
       subtitle:
         "We send a code according to the selected method, enter it below to continue:",
-      titleAlt: "Enter the received code",
+      titleAlt: "We need to identify you to continue",
       subtitleAlt: "We send a code according to the selected method.",
       subtitleAltTwo: "Enter it below to continue:",
       button: "Continue",

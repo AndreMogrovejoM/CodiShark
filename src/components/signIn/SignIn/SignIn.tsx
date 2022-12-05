@@ -1,4 +1,4 @@
-import { Grid, Paper, Box } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import logoKonecta from "assets/images/logoKonecta.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
@@ -17,7 +17,6 @@ const { ENTRY_PATH } = CONSTANTS.ROUTES;
 const SignIn: React.FC<Props> = props => {
   const { isAnonymous, signInStep } = useAuth();
   const t = useI18n().signIn.SignInFormUser;
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,20 +39,29 @@ const SignIn: React.FC<Props> = props => {
     }
   };
 
-  const renderFormHeader = () => (
-    <>
-      <img src={logoKonecta} alt={t.altLogo} width={188} />
-      <h1 className="SignIn__title">
-        {signInStep !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
-      </h1>
-      <p className="SignIn__subtitle">
-        {signInStep !== 2 ? t.subtitle : t.subtitleAlt}
-      </p>
-      {signInStep === 2 && (
-        <p className="SignIn__subtitle">{t.subtitleAltTwo}</p>
-      )}
-    </>
-  );
+  const renderFormHeader = () => {
+    const styleClass = () =>
+      signInStep === 2 ? "SignIn__container--separate" : "";
+
+    return (
+      <>
+        <img src={logoKonecta} alt={t.altLogo} width={188} />
+        <h1 className="SignIn__title">
+          {signInStep !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
+        </h1>
+        <div className={styleClass()}>
+          <p className="SignIn__subtitle">
+            {signInStep !== 2 ? t.subtitle : t.subtitleAlt}
+          </p>
+          {signInStep === 2 && (
+            <p className="SignIn__subtitle SignIn__subtitle-sepa">
+              {t.subtitleAltTwo}
+            </p>
+          )}
+        </div>
+      </>
+    );
+  };
 
   const renderCopyright = () => (
     <p className="SignIn__container--copyright">{t.copyright}</p>
@@ -93,12 +101,12 @@ const SignIn: React.FC<Props> = props => {
           justifyContent="center"
           flexDirection="column"
         >
-          <Box className="SignIn__container--form">
-            <Box className="SignIn__container--center   SignIn__container--content">
+          <div className="SignIn__container--form">
+            <div className="SignIn__container--center SignIn__container--content">
               {renderFormHeader()}
-            </Box>
+            </div>
             {renderForm()}
-          </Box>
+          </div>
           {renderCopyright()}
         </Grid>
       </Grid>

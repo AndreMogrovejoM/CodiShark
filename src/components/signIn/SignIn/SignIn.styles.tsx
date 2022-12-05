@@ -58,10 +58,11 @@ const SignInStyled = styled.div<Props>`
       }
 
       &--form {
-        margin-top: 6.4rem;
-        margin-bottom: 6.4rem;
-        margin-left: 0.8rem;
-        margin-right: 0.8rem;
+        width: 36rem;
+      }
+
+      &--separate {
+        margin-top: 1.6rem;
       }
     }
 

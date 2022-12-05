@@ -144,7 +144,7 @@ const SignInForm: React.FC<Props> = props => {
             />
           </Grid>
         </Grid>
-        <Box>
+        <div className="SignInForm__container--button">
           <Button
             type="submit"
             variant="contained"
@@ -152,11 +152,11 @@ const SignInForm: React.FC<Props> = props => {
             color="info"
             fullWidth
             disabled={isLoading}
-            className="SignInForm__container--button"
+            className="SignInForm__component--button"
           >
             {t.button}
           </Button>
-        </Box>
+        </div>
         {error?.length > 0 ? (
           <h3 className="SignInForm__error">{error}</h3>
         ) : null}
