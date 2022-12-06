@@ -1,24 +1,26 @@
+import { OperationUserDebt } from "services/users/users.service.types";
 import { render } from "setupTests";
 
 import ExpandableRowsComponent from "./ExpandableRowsComponent";
-const data = {
+
+const data: OperationUserDebt = {
   id: 2,
   user_id: 6,
   debt_id: 3,
-  operation_number: null,
+  operation_number: "",
   operation_date: "2022-11-12",
   operation_time: "18:02:00",
   amount_paid: 2000,
   payment_method: "Tarjeta de crédito",
   payment_status: "Pendiente",
-  created_at: null,
-  updated_at: null,
+  created_at: "",
+  updated_at: "",
   debt: {
     id: 3,
     user_id: 6,
     cu: "00000003",
     cj: "00000003",
-    banking_entity: null,
+    banking_entity: "",
     product: "06 CRED EFECTIVO",
     situation: "CASTIGO",
     currency: "PEN",
@@ -38,7 +40,6 @@ const data = {
 
 describe("ExpandableRowsComponent", () => {
   it("renders with default props", () => {
-    /* @ts-ignore */
     render(<ExpandableRowsComponent data={data} />);
   });
 });

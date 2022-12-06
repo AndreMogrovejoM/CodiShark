@@ -1,9 +1,7 @@
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
-import {
-  OperationUserDebt,
-  PaymentStatus
-} from "services/users/users.service.types";
+import { OperationUserDebt } from "services/users/users.service.types";
+import { PaymentStatus } from "services/users/users.service.types";
 
 import ButtonRowsComponent from "../ButtonRowsComponent/ButtonRowsComponent";
 import { Row } from "../PaymentTable/PaymentTable.helpers";
@@ -11,36 +9,36 @@ import { Row } from "../PaymentTable/PaymentTable.helpers";
 const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
 
 const disabledButton = (value: PaymentStatus) => {
-  return value === "Pagado" ? false : true;
+  return value !== "Pagado";
 };
 
 export const columns: TableColumn<OperationUserDebt>[] = [
   {
     name: t.concept,
-    selector: row => row.debt.banking_entity ?? "",
+    selector: row => row?.debt?.banking_entity ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
     cell: row => (
-      <Row content={`${row.debt.banking_entity ?? "-"}`} bold={true} />
+      <Row content={`${row?.debt?.banking_entity ?? "-"}`} bold={true} />
     )
   },
   {
     name: t.originalAmount,
-    selector: row => row.debt.capital_debt ?? "",
+    selector: row => row?.debt?.capital_debt ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`S/ ${row.debt.capital_debt ?? ""}`} />
+    cell: row => <Row content={`S/ ${row?.debt?.capital_debt ?? ""}`} />
   },
   {
     name: t.amountPaid,
-    selector: row => row.amount_paid ?? 0,
+    selector: row => row?.amount_paid ?? 0,
     wrap: true,
     sortable: true,
     center: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`S/ ${row.amount_paid ?? 0}`} bold={true} />
+    cell: row => <Row content={`S/ ${row?.amount_paid ?? 0}`} bold={true} />
   },
   {
     name: t.paymentDate,

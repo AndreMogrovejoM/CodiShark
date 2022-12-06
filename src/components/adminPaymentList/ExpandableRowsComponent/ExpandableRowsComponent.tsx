@@ -1,7 +1,6 @@
 import getI18n from "i18n/i18n.helpers";
 import React from "react";
 
-import { getCurrency } from "./ExpandableRowsComponent.helper";
 import Styles from "./ExpandableRowsComponent.styles";
 import { ExpandableRowsComponentProps as Props } from "./ExpandableRowsComponent.types";
 
@@ -32,7 +31,7 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
       <div className="ExpandableRowsComponent__container__expand">
         {renderContent(t.entity, debt?.banking_entity)}
         {renderContent(t.typeDebt, "Préstamo personal")}
-        {renderContent(t.typeExchange, getCurrency(debt?.currency))}
+        {renderContent(t.typeExchange, debt?.currency)}
         {renderContent(t.date, "27-03-2022")}
       </div>
     </Styles>

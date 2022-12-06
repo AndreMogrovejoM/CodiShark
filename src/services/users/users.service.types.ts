@@ -5,8 +5,8 @@ export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado";
 export interface UserDebt {
   id: number;
   user_id: number;
-  cu: number;
-  cj: number;
+  cu: string;
+  cj: string;
   banking_entity?: string;
   product: string;
   situation: string;
