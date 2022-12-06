@@ -102,7 +102,8 @@ const en = {
       signOut: "Sign out"
     },
     select: "Select",
-    inputSearch: "Search"
+    inputSearch: "Search",
+    progress: "Loading..."
   },
   home: {},
   pages: {

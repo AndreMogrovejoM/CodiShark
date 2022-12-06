@@ -10,6 +10,7 @@ describe("PaymentTable", () => {
         columns={[]}
         expandableRows={true}
         expandOnRowClicked={true}
+        progressPending={true}
       />
     );
   });

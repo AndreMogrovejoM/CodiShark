@@ -101,7 +101,8 @@ const es: Dictionary = {
       signOut: "Cerrar Sesión"
     },
     select: "Seleccionar",
-    inputSearch: "Buscar"
+    inputSearch: "Buscar",
+    progress: "Cargando..."
   },
   home: {},
   pages: {

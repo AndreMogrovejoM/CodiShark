@@ -3,10 +3,14 @@ import { ExpandableRowsComponent } from "react-data-table-component/dist/src/Dat
 import { PaginationComponent } from "react-data-table-component/dist/src/DataTable/types";
 // Interfaces and types from component Table
 
+type ExpandibleIcon = {
+  collapsed: null;
+  expanded: null;
+};
+
 // Component Props
 export interface TableProps {
   columns: TableColumn<any>[];
-  // TODO: tipear desacuerdo a la respuesta de back
   data: any[];
   paginationPerPage: number;
   paginationRowsPerPageOptions: number[];
@@ -16,6 +20,9 @@ export interface TableProps {
   expandOnRowClicked?: boolean;
   // TODO: Pending
   onRowClicked?: (row: any) => void;
+  expandableIcon?: ExpandibleIcon;
+  progressPending?: boolean;
+  progressComponent?: React.ReactNode;
 }
 
 // Styled Component Props

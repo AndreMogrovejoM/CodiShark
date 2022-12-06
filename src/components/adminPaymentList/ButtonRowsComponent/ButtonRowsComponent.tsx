@@ -8,7 +8,7 @@ import { ButtonRowsComponentProps as Props } from "./ButtonRowsComponent.types";
 
 // TODO: Pending get data payment
 const ButtonRowsComponent: React.FC<Props> = props => {
-  const { icon = false } = props;
+  const { icon = false, disabled } = props;
   const [open, setOpen] = useState(false);
   const t = getI18n().global.table.TablePaymentAdmin.TableRows;
 
@@ -32,11 +32,12 @@ const ButtonRowsComponent: React.FC<Props> = props => {
   const styleClass = (value: boolean) =>
     `PaymentTable__container--button ${
       value ? "PaymentTable__container--button-icon" : ""
-    }`;
+    } ${disabled ? "PaymentTable__container--button-disabled" : ""}`;
 
   return (
     <Styles
       className={`${styleClass(icon)}`}
+      disabled={disabled}
       onClick={handleExpandRow}
       {...props}
     >

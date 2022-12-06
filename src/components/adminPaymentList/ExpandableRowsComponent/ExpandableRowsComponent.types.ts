@@ -1,7 +1,11 @@
 // Interfaces and types from component ExpandableRowsComponent
 
+import { OperationUserDebt } from "services/users/users.service.types";
+
 // Component Props
-export interface ExpandableRowsComponentProps {}
+export interface ExpandableRowsComponentProps {
+  data: OperationUserDebt;
+}
 
 // Styled Component Props
 export interface ExpandableRowsComponentStyledProps {

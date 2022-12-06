@@ -1,5 +1,7 @@
 // Users service interfaces and types
 
+export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado";
+
 export interface UserDebt {
   id: number;
   user_id: number;
@@ -19,7 +21,7 @@ export interface UserDebt {
   pct_dscto_cancellation: number;
   date_last_contact: string;
   limit_date: string;
-  debt_status: string;
+  debt_status: PaymentStatus;
 }
 
 export interface UserDebtResponse {
@@ -37,8 +39,16 @@ export interface OperationUserDebt {
   operation_time: string;
   amount_paid: number;
   payment_method: string;
-  payment_status: string;
+  payment_status: PaymentStatus;
   created_at?: string;
   updated_at?: string;
   debt: UserDebt;
+}
+
+export interface OperationUserDebtResponse {
+  data: OperationUserDebt[];
+  skip: number;
+  status: number;
+  take: number;
+  total: number;
 }

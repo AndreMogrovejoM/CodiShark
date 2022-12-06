@@ -1,5 +1,6 @@
 import React from "react";
 
+import ProgressComponent from "../ProgressComponent/ProgressComponent";
 import DataTableCustom from "./Table.styles";
 import { TableProps as Props } from "./Table.types";
 
@@ -7,7 +8,7 @@ const Table: React.FC<Props> = props => {
   const { columns, data, paginationComponent, expandableRows } = props;
   const { paginationPerPage, paginationRowsPerPageOptions } = props;
   const { expandableRowsComponent, expandOnRowClicked } = props;
-  const { onRowClicked } = props;
+  const { onRowClicked, expandableIcon, progressPending } = props;
 
   return (
     <DataTableCustom
@@ -22,6 +23,9 @@ const Table: React.FC<Props> = props => {
       expandableRowsComponent={expandableRowsComponent}
       expandOnRowClicked={expandOnRowClicked}
       onRowClicked={onRowClicked}
+      expandableIcon={expandableIcon}
+      progressPending={progressPending}
+      progressComponent={<ProgressComponent />}
     />
   );
 };

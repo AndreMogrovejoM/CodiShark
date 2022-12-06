@@ -31,6 +31,13 @@ const PaymentTableStyled = styled.div<Props>`
           font-size: 0.8rem;
           line-height: 1rem;
         }
+
+        &-disabled {
+          cursor: not-allowed;
+          background-color: var(--palette-greyBackground);
+          color: var(--palette-darkText);
+          opacity: 0.8;
+        }
       }
 
       &--field {

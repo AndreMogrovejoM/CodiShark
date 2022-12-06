@@ -2,7 +2,8 @@
 import { Status } from "services/administrator/administrator.service.types";
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
-import { OperationUserDebt, UserDebtResponse } from "./users.service.types";
+import { OperationUserDebtResponse } from "./users.service.types";
+import { UserDebtResponse } from "./users.service.types";
 
 export const userDebts = async (): Promise<UserDebtResponse> => {
   try {
@@ -18,7 +19,7 @@ export const userDebts = async (): Promise<UserDebtResponse> => {
 export const fetchUserOperations = async (
   status?: Status,
   take = 4
-): Promise<OperationUserDebt[]> => {
+): Promise<OperationUserDebtResponse> => {
   try {
     const response = await axiosDefault.get("/operations", {
       headers: buildHeaders()

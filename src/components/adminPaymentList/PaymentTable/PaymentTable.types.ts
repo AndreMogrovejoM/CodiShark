@@ -2,6 +2,7 @@
 
 import { TableColumn } from "react-data-table-component";
 import { ExpandableRowsComponent } from "react-data-table-component/dist/src/DataTable/types";
+import { OperationUserDebt } from "services/users/users.service.types";
 
 export interface NumbersComponentProps {
   key: number;
@@ -25,11 +26,12 @@ export interface PaginationInterface {
 
 // Component Props
 export interface PaymentTableProps {
-  data: any[];
-  columns: TableColumn<any>[];
+  data: OperationUserDebt[];
+  columns: TableColumn<OperationUserDebt>[];
   expandableRows: boolean;
-  expandableRowsComponent?: ExpandableRowsComponent<any>;
+  expandableRowsComponent?: ExpandableRowsComponent<OperationUserDebt>;
   expandOnRowClicked: boolean;
+  progressPending: boolean;
 }
 
 // Styled Component Props

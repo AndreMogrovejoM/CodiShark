@@ -1,56 +1,64 @@
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
+import {
+  OperationUserDebt,
+  PaymentStatus
+} from "services/users/users.service.types";
 
 import ButtonRowsComponent from "../ButtonRowsComponent/ButtonRowsComponent";
 import { Row } from "../PaymentTable/PaymentTable.helpers";
 
 const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
 
-// TODO: Pending to response data from backend
-export const columns: TableColumn<any>[] = [
+const disabledButton = (value: PaymentStatus) => {
+  return value === "Pagado" ? false : true;
+};
+
+export const columns: TableColumn<OperationUserDebt>[] = [
   {
     name: t.concept,
-    selector: row => row.concept ?? "",
+    selector: row => row.debt.banking_entity ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`${row.concept}`} bold={true} />
+    cell: row => (
+      <Row content={`${row.debt.banking_entity ?? "-"}`} bold={true} />
+    )
   },
   {
     name: t.originalAmount,
-    selector: row => row.amount ?? "",
+    selector: row => row.debt.capital_debt ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`S/ ${row.amount ?? ""}`} />
+    cell: row => <Row content={`S/ ${row.debt.capital_debt ?? ""}`} />
   },
   {
     name: t.amountPaid,
-    selector: row => row.amountPay ?? 0,
+    selector: row => row.amount_paid ?? 0,
     wrap: true,
     sortable: true,
     center: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`S/ ${row.amountPay ?? 0}`} bold={true} />
+    cell: row => <Row content={`S/ ${row.amount_paid ?? 0}`} bold={true} />
   },
   {
     name: t.paymentDate,
-    selector: row => row.datePay ?? "",
+    selector: row => row?.operation_date ?? "",
     wrap: true,
     sortable: true,
     center: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row.datePay ?? ""} />
+    cell: row => <Row content={row?.operation_date ?? ""} />
   },
   {
     name: t.actions,
-    selector: row => row.year ?? 0,
-    wrap: true,
-    sortable: true,
     center: true,
     button: true,
     minWidth: "150px",
-    cell: () => <ButtonRowsComponent />
+    cell: row => (
+      <ButtonRowsComponent disabled={disabledButton(row?.payment_status)} />
+    )
   },
   {
     name: "",
@@ -58,71 +66,5 @@ export const columns: TableColumn<any>[] = [
     button: true,
     minWidth: "150px",
     cell: () => <ButtonRowsComponent data-tag="allowRowEvents" icon={true} />
-  }
-];
-
-export const data = [
-  {
-    id: 1,
-    concept: "Prestamos Banco Interbank",
-    amount: "8,200.00",
-    amountPay: "1,750.00",
-    datePay: "20/09/2022"
-  },
-  {
-    id: 2,
-    concept: "Prestamos Banco BCP",
-    amount: "15,500.00",
-    amountPay: "2,300.00",
-    datePay: "32/09/2022"
-  },
-  {
-    id: 3,
-    concept: "Prestamos Banco Interbank",
-    amount: "20,000.00",
-    amountPay: "950.00",
-    datePay: "12/10/2022"
-  },
-  {
-    id: 4,
-    concept: "Prestamos Banco Interbank",
-    amount: "8,200.00",
-    amountPay: "1,750.00",
-    datePay: "20/09/2022"
-  },
-  {
-    id: 5,
-    concept: "Prestamos Banco BCP",
-    amount: "15,500.00",
-    amountPay: "2,300.00",
-    datePay: "32/09/2022"
-  },
-  {
-    id: 6,
-    concept: "Prestamos Banco Interbank",
-    amount: "20,000.00",
-    amountPay: "950.00",
-    datePay: "12/10/2022"
-  },
-  {
-    id: 7,
-    concept: "Prestamos Banco Interbank",
-    amount: "8,200.00",
-    amountPay: "1,750.00",
-    datePay: "20/09/2022"
-  },
-  {
-    id: 8,
-    concept: "Prestamos Banco BCP",
-    amount: "15,500.00",
-    amountPay: "2,300.00",
-    datePay: "32/09/2022"
-  },
-  {
-    id: 9,
-    concept: "Prestamos Banco Interbank",
-    amount: "20,000.00",
-    amountPay: "950.00",
-    datePay: "12/10/2022"
   }
 ];
