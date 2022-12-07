@@ -2,15 +2,17 @@ import iconMasterCardInformation from "assets/images/iconMasterCardInformation.s
 import iconVisaInformation from "assets/images/iconVisaInformation.svg";
 import ImagePayInformation from "assets/images/imagePayInformation.svg";
 import lineInformation from "assets/images/lineInformation.svg";
+import OperationNumberModal from "components/OperationNumberModal/OperationNumberModal";
 import Button from "components/globals/Button/Button";
 import useI18n from "i18n/i18n.hooks";
-import React from "react";
+import React, { useState } from "react";
 
 import Styles from "./InformationClient.styles";
 import { InformationClientProps as Props } from "./InformationClient.types";
 
 const InformationClient: React.FC<Props> = props => {
   const t = useI18n().signIn.InformationClient;
+  const [openOperationModal, setOpenOperationModal] = useState(false);
 
   return (
     <Styles className="InformationClient">
@@ -36,7 +38,9 @@ const InformationClient: React.FC<Props> = props => {
           />
         </div>
         <Button className="InformationClient__button" variant="contained">
-          <h3 className="InformationClient__text1">{t.button}</h3>
+          <h3 className="InformationClient__text1">
+            {t.button.toLocaleUpperCase()}
+          </h3>
         </Button>
       </div>
       <img
@@ -56,11 +60,21 @@ const InformationClient: React.FC<Props> = props => {
           <h2 className="InformationClient__subtitle6">{t.subtitle6}</h2>
         </div>
         <div className="InformationClient__container--button">
-          <Button className="InformationClient__button2" variant="contained">
-            <h3 className="InformationClient__text2">{t.button2}</h3>
+          <Button
+            className="InformationClient__button2"
+            variant="contained"
+            onClick={() => setOpenOperationModal(!openOperationModal)}
+          >
+            <h3 className="InformationClient__text2">
+              {t.button2.toLocaleUpperCase()}
+            </h3>
           </Button>
         </div>
       </div>
+      <OperationNumberModal
+        open={openOperationModal}
+        setOpen={setOpenOperationModal}
+      />
     </Styles>
   );
 };

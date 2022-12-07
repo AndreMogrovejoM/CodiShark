@@ -297,8 +297,8 @@ const es: Dictionary = {
       paragraph:
         "Después de realizar el depósito, envíanos el voucher al número 900 415 521 oal correo atencion@b12.pe, indicando el número de operación.",
       subtitle6: "Genera tu número de operación para realizar el pago",
-      button: "PAGAR",
-      button2: "GENERAR NÚMERO DE OPERACIÓN"
+      button: "Pagar",
+      button2: "Generar número de operación"
     },
     PaymentRejected: {
       button: "Volver a intentar",
@@ -316,6 +316,15 @@ const es: Dictionary = {
     ClientContainer: {
       title:
         "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:"
+    },
+    OperationNumberModal: {
+      operation: "Su numero de operación es",
+      current: "Cuenta corriente soles",
+      interbank: "Cuenta interbancaria soles",
+      amount: "Monto a pagar",
+      offer: "Oferta disponible hasta el 09/08/2022",
+      paragraph:
+        "Acérquese a la agencia mas cercana y realice el deposito indicando el numero de operación, también puede realizar transferencias interbancarias desde la App de su preferencia."
     }
   },
   components: {
