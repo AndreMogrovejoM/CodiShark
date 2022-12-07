@@ -14,7 +14,7 @@ const PaginationCustomHandler = (props: PaginationInterface) => {
 
 const PaymentTable: React.FC<Props> = props => {
   const { data, columns, expandableRows, expandableRowsComponent } = props;
-  const { expandOnRowClicked } = props;
+  const { expandOnRowClicked, progressPending } = props;
 
   // TODO: check
   return (
@@ -29,6 +29,8 @@ const PaymentTable: React.FC<Props> = props => {
         paginationRowsPerPageOptions={paginationRowsPerPageOptions}
         //@ts-ignore
         paginationComponent={PaginationCustomHandler}
+        expandableIcon={{ collapsed: null, expanded: null }}
+        progressPending={progressPending}
       />
     </Styles>
   );

@@ -4,11 +4,16 @@ import React from "react";
 import Styles from "./ExpandableRowsComponent.styles";
 import { ExpandableRowsComponentProps as Props } from "./ExpandableRowsComponent.types";
 
-// TODO: Pending data response from backend
 const ExpandableRowsComponent: React.FC<Props> = props => {
+  const { data } = props;
+  const { debt } = data ?? {};
+
   const t = getI18n().global.table.TablePaymentAdmin.TableRowsExpand;
 
-  const renderContent = (dataStatic: string, dataDynamic: string) => (
+  const renderContent = (
+    dataStatic: string,
+    dataDynamic: string | undefined
+  ) => (
     <div className="ExpandableRowsComponent__container__expand-text">
       <div className="ExpandableRowsComponent__container__expand-static">
         <p className="ExpandableRowsComponent__container--field ExpandableRowsComponent__container--field-bold">
@@ -16,7 +21,7 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
         </p>
       </div>
       <p className="ExpandableRowsComponent__container--field ">
-        {dataDynamic}
+        {dataDynamic ?? "-"}
       </p>
     </div>
   );
@@ -24,10 +29,9 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
   return (
     <Styles className={`ExpandableRowsComponent`}>
       <div className="ExpandableRowsComponent__container__expand">
-        {/* TODO: Pending data response from backend */}
-        {renderContent(t.entity, "Banco BCP")}
+        {renderContent(t.entity, debt?.banking_entity)}
         {renderContent(t.typeDebt, "Préstamo personal")}
-        {renderContent(t.typeExchange, "Sol peruano")}
+        {renderContent(t.typeExchange, debt?.currency)}
         {renderContent(t.date, "27-03-2022")}
       </div>
     </Styles>
