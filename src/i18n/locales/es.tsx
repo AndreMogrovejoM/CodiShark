@@ -297,8 +297,8 @@ const es: Dictionary = {
       paragraph:
         "Después de realizar el depósito, envíanos el voucher al número 900 415 521 oal correo atencion@b12.pe, indicando el número de operación.",
       subtitle6: "Genera tu número de operación para realizar el pago",
-      button: "PAGAR",
-      button2: "GENERAR NÚMERO DE OPERACIÓN"
+      button: "Pagar",
+      button2: "Generar número de operación"
     },
     PaymentRejected: {
       button: "Volver a intentar",
