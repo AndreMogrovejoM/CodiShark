@@ -7,7 +7,6 @@ import { IndicatorsClientTwoProps as Props } from "./IndicatorsClientTwo.types";
 const IndicatorsClientTwo: React.FC<Props> = props => {
   const { data } = useUserDebts();
   const { total_debts } = data ?? {};
-  console.log(data);
 
   return (
     <Styles className="IndicatorsClientTwo">

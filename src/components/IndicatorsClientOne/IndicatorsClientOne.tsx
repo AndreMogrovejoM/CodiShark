@@ -15,7 +15,7 @@ const IndicatorsClientOne: React.FC<Props> = props => {
       <div className="IndicatorsClientOne__component--card">
         <h2 className="IndicatorsClientOne__text--light">{t.greetings}</h2>
         <h2 className="IndicatorsClientOne__text--bold">
-          {` ${first_name ?? ""}`} {` ${last_name ?? ""}`} {mother_last_name}
+          {`${first_name ?? ""} ${last_name} ${mother_last_name}`}
         </h2>
         <h2 className="IndicatorsClientOne__text--normal">DNI N° 86752459</h2>
       </div>

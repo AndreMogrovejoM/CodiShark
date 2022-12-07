@@ -277,7 +277,11 @@ const en = {
       summary1: "Original amount",
       summary2: "Original amount",
       summary3: "Payment deadline",
-      button: "VER DETALLE"
+      button: "VER DETALLE",
+      bank: "Entidad Bancaria:",
+      amount: "Tipo de Deuda:",
+      currency: "Tipo de Moneda:",
+      date: "Fecha:"
     },
     InformationClient: {
       title: "Card payment ",
