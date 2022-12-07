@@ -10,9 +10,50 @@ const OperationNumberModalStyled = styled.div<Props>`
       margin-top: 2.4rem;
     }
 
+    &__h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    &__h2 {
+      font-weight: 700;
+    }
+
+    &__h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    &__p {
+      color: var(--palette-grayText);
+      font-weight: 300;
+    }
+
     &__section {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
+    }
+
+    &__h1 {
+      line-height: 2.4rem;
+      font-weight: 700;
+    }
+
+    &__paragraph {
+      font-weight: 500;
+    }
+
+    &__red {
+      &-color {
+        color: var(--palette-error);
+      }
+    }
+
+    &__primary {
+      &-color {
+        color: var(--palette-primary);
+      }
     }
   }
 `;

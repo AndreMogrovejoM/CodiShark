@@ -314,6 +314,15 @@ const en = {
     ClientContainer: {
       title:
         "Here we provide the amount of your debt and the deadlines to make your payments:"
+    },
+    OperationNumberModal: {
+      operation: "Your operation number is",
+      current: "Checking account soles",
+      interbank: "Interbank account soles",
+      amount: "Amount payable",
+      offer: "Offer available until 09/08/2022",
+      paragraph:
+        "Go to the nearest agency and make the deposit indicating the operation number, you can also make interbank transfers from the App of your choice."
     }
   },
   components: {
