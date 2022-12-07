@@ -142,6 +142,25 @@ const SummaryStyled = styled.div<Props>`
         }
       }
     }
+    &__section2 {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+      gap: 1.6rem;
+    }
+
+    &__p1 {
+      font-weight: 600;
+      color: var(--palette-blueText);
+      line-height: 1.6rem;
+    }
+
+    &__span1 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--palette-grayText);
+    }
   }
 `;
 

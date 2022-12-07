@@ -279,7 +279,11 @@ const es: Dictionary = {
       summary1: "Monto original",
       summary2: "Monto original",
       summary3: "Fecha límite de pago",
-      button: "VER DETALLE"
+      button: "VER DETALLE",
+      bank: "Entidad Bancaria:",
+      amount: "Tipo de Deuda:",
+      currency: "Tipo de Moneda:",
+      date: "Fecha:"
     },
     InformationClient: {
       title: "Pago con tarjeta",
