@@ -5,6 +5,17 @@ const status = "Status";
 
 const en = {
   global: {
+    settings: {
+      title: "Administrator settings",
+      success: "Success",
+      confirm: "Confirm",
+      cancel: "Cancel",
+      note: "Note: Make this procedure only one time.",
+      confirmed: "2FA procedure confirmed.",
+      cancelled: "2FA procedure cancelled.",
+      description:
+        "If you want to connect your account with google second step verification should use the follow secret code or scan the next QR code, once done press confirm button to continue or cancel button to reject."
+    },
     sideBar: {
       start: "Start",
       startAdmin: "Start Admin",

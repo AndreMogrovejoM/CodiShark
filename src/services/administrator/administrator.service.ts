@@ -158,9 +158,11 @@ export const exportOperationsExcel = async (): Promise<File> => {
 
 export const generate2fa = async (): Promise<SecondFaResponse> => {
   try {
-    return await axiosDefault.post(`/admin/generate2fa`, {
+    const response = await axiosDefault.post(`/admin/generate2fa`, {
       headers: buildHeaders()
     });
+    const { data } = response ?? {};
+    return data;
   } catch (e: any) {
     throw new Error(e.message);
   }
@@ -168,7 +170,7 @@ export const generate2fa = async (): Promise<SecondFaResponse> => {
 
 export const activate2fa = async (): Promise<void> => {
   try {
-    return await axiosDefault.get(`/admin/generate2fa/activate`, {
+    return await axiosDefault.get(`/admin/generate2fa/active`, {
       headers: buildHeaders()
     });
   } catch (e: any) {

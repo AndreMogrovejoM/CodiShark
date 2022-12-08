@@ -1,12 +1,13 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
 
+import { generate2fa } from "./administrator.service";
 import { fetchAdministratorSecondPanel } from "./administrator.service";
 import { fetchAdministratorGraphics } from "./administrator.service";
 import { fetchAdministratorUsers } from "./administrator.service";
 import { fetchAdministratorOperations } from "./administrator.service";
 import { fetchAdministratorFirstPanel } from "./administrator.service";
-import { Status } from "./administrator.service.types";
+import { SecondFaResponse, Status } from "./administrator.service.types";
 
 export const useFetchAdministratorFirstPanel = () => {
   const token = getCookie("token");
@@ -71,4 +72,23 @@ export const useFetchAdministratorGraphics = (year: string) => {
       staleTime: 15 * 1000 * 60
     }
   );
+};
+
+export const useGenerate2fa = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation<SecondFaResponse, unknown, void>(generate2fa, {
+    // When mutate is called:
+    onMutate: async () => {
+      // Cancel any outgoing refetch (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries("2fa");
+    },
+    onError: () => {
+      console.error("");
+    },
+    onSettled: () => {
+      // Always refetch after error or success:
+      queryClient.invalidateQueries("2fa");
+    }
+  });
 };

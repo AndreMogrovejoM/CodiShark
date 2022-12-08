@@ -4,6 +4,17 @@ const status = "Estado";
 
 const es: Dictionary = {
   global: {
+    settings: {
+      title: "Configuración de administrator",
+      success: "Éxito",
+      confirm: "Confirmar",
+      cancel: "Cancelar",
+      note: "Nota: Realizar este procedimiento una unica vez.",
+      confirmed: "Se confirmó el registro de 2FA.",
+      cancelled: "Se canceló el registro de 2FA.",
+      description:
+        "Si desea conectar su cuenta con la verificación de segundo paso de Google, debe usar el siguiente código secreto o escanear el código QR, una vez hecho esto, presione el botón de confirmación para continuar o el botón de cancelar para rechazar."
+    },
     sideBar: {
       start: "Inicio",
       startAdmin: "Inicio Admin",
