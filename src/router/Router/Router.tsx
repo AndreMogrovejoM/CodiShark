@@ -2,6 +2,7 @@ import Backdrop from "components/Backdrop/Backdrop";
 import React, { lazy, memo, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import { privateAdminRoute, privateRoute } from "./Router.helpers";
 import { RouterProps as Props } from "./Router.types";
 
 // Root routes
@@ -22,23 +23,58 @@ const UserOperationsPanel = lazy(
 const UserPaymentDetails = lazy(() => import("pages/userPaymentDetails.page"));
 
 const Router: React.FC<Props> = props => {
+  const noAuthRoutes = () => {
+    return (
+      <>
+        <Route path="/signin" element={<SignInUser />} />
+        <Route path="/signInAdministrator" element={<SignInAdministrator />} />
+        <Route path="/500" element={<FiverZeroZero />} />
+        <Route path="*" element={<FourZeroFour />} />
+      </>
+    );
+  };
+
+  const userRoutes = () => {
+    return (
+      <>
+        <Route path="/" element={<Client />} />
+
+        <Route
+          path="/userPaymentDetails"
+          element={privateRoute(<UserPaymentDetails />)}
+        />
+      </>
+    );
+  };
+
+  const adminRoutes = () => {
+    return (
+      <>
+        <Route
+          path="/adminPaymentList"
+          element={privateAdminRoute(<UserOperationsPanel />)}
+        />
+        <Route
+          path="/adminClientList"
+          element={privateAdminRoute(<UserPanel />)}
+        />
+        <Route
+          path="/administratorPanel"
+          element={privateAdminRoute(<AdministratorPanel />)}
+        />
+
+        <Route path="/settings" element={privateAdminRoute(<Settings />)} />
+      </>
+    );
+  };
+
   return (
     <Suspense fallback={<Backdrop isLoading={true} />}>
       <Routes>
-        <Route path="/" element={<Client />} />
-        <Route path="/signin" element={<SignInUser />} />
-        <Route path="/signInAdministrator" element={<SignInAdministrator />} />
-        <Route path="/userPaymentList" element={<UserOperationsPanel />} />
-        <Route path="/userClientList" element={<UserPanel />} />
-        <Route path="/userPaymentDetails" element={<UserPaymentDetails />} />
-        <Route path="/administratorPanel" element={<AdministratorPanel />} />
-        <Route
-          path="/administratorPaymentList"
-          element={<AdminPaymentListPage />}
-        />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/500" element={<FiverZeroZero />} />
-        <Route path="*" element={<FourZeroFour />} />
+        {userRoutes()}
+        {noAuthRoutes()}
+        {adminRoutes()}
+        <Route path="/userPaymentList" element={<AdminPaymentListPage />} />
       </Routes>
     </Suspense>
   );

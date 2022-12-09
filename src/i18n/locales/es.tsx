@@ -18,6 +18,8 @@ const es: Dictionary = {
     sideBar: {
       start: "Inicio",
       startAdmin: "Inicio Admin",
+      myPays: "Mis pagos",
+      paymentDetails: "Detalles de pago",
       myPayments: "Listado de pagos",
       myClients: "Listado de clientes",
       logout: "Cerrar sesión",

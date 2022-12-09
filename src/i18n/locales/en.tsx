@@ -19,6 +19,8 @@ const en = {
     sideBar: {
       start: "Start",
       startAdmin: "Start Admin",
+      myPays: "My payments",
+      paymentDetails: "Payment details",
       myPayments: "Payment list",
       myClients: "Customer list",
       logout: "Logout",
