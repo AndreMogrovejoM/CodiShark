@@ -33,6 +33,7 @@ const Sidebar: React.FC<Props> = props => {
   const { mutateAsync, reset } = useLogout();
   const [, setLocalUser] = useLocalStorage("user");
   const { first_name, last_name, mother_last_name } = user ?? {};
+  const { rol } = user ?? {};
 
   const [openList, setOpenList] = useState(true);
 
@@ -121,6 +122,20 @@ const Sidebar: React.FC<Props> = props => {
     );
   };
 
+  const renderAdminRoutes = () => {
+    if (rol !== 10) return null;
+    return (
+      <>
+        {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
+        {renderItem(2, t.myPayments, USER_PAYMENT_LIST)}
+        {renderItem(3, t.myClients, USER_CLIENT_LIST)}
+        {/* TODO: Temp  */}
+        {renderItem(4, "Detalles pago", USER_PAYMENT_DETAILS)}
+        {renderItem(6, t.setting, SETTINGS)}
+      </>
+    );
+  };
+
   return (
     <Styles className="Sidebar">
       <Drawer
@@ -185,14 +200,8 @@ const Sidebar: React.FC<Props> = props => {
             }
           ></List>
           {renderItem(0, t.start, ENTRY_PATH)}
-          {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
-          {renderItem(2, t.myPayments, USER_PAYMENT_LIST)}
-          {renderItem(3, t.myClients, USER_CLIENT_LIST)}
-          {/* TODO: Temp  */}
-          {renderItem(4, "Detalles pago", USER_PAYMENT_DETAILS)}
           {renderItem(5, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
-          {renderItem(6, t.setting, SETTINGS)}
-
+          {renderAdminRoutes()}
           <div className="Sidebar__divider" />
           {renderLogout()}
         </List>
