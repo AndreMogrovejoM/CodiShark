@@ -21,8 +21,8 @@ import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
-const { USER_CLIENT_LIST, USER_PAYMENT_DETAILS } = CONSTANTS.ROUTES;
-const { ADMIN_PAYMENT_LIST, ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
+const { ADMIN_CLIENT_LIST, ADMIN_PAYMENT_LIST } = CONSTANTS.ROUTES;
+const { USER_PAYMENT_DETAILS, ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
@@ -122,15 +122,28 @@ const Sidebar: React.FC<Props> = props => {
     );
   };
 
+  const renderUserRoutes = () => {
+    /* TODO: Update rol */
+    /*    if (rol !== 10) return null; */
+    return (
+      <>
+        {renderItem(0, t.start, ENTRY_PATH)}
+        {renderItem(5, t.myPayments, USER_PAYMENT_LIST)}
+        {/* TODO: Este componente es de la tabla expandible  */}
+        {renderItem(4, t.paymentDetails, USER_PAYMENT_DETAILS)}
+      </>
+    );
+  };
+
   const renderAdminRoutes = () => {
     if (rol !== 10) return null;
     return (
       <>
         {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
-        {renderItem(2, t.myPayments, USER_PAYMENT_LIST)}
-        {renderItem(3, t.myClients, USER_CLIENT_LIST)}
-        {/* TODO: Temp  */}
-        {renderItem(4, "Detalles pago", USER_PAYMENT_DETAILS)}
+        {renderItem(2, t.myPayments, ADMIN_PAYMENT_LIST)}
+        {renderItem(3, t.myClients, ADMIN_CLIENT_LIST)}
+        {/* TODO: Esto es para usuarios  */}
+        {renderItem(4, t.paymentDetails, USER_PAYMENT_DETAILS)}
         {renderItem(6, t.setting, SETTINGS)}
       </>
     );
@@ -199,8 +212,7 @@ const Sidebar: React.FC<Props> = props => {
               </div>
             }
           ></List>
-          {renderItem(0, t.start, ENTRY_PATH)}
-          {renderItem(5, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
+          {renderUserRoutes()}
           {renderAdminRoutes()}
           <div className="Sidebar__divider" />
           {renderLogout()}

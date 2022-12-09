@@ -1,5 +1,3 @@
-// Interfaces and types from component ExpandableRowsComponent
-
 import { OperationUserDebt } from "services/users/users.service.types";
 
 // Component Props

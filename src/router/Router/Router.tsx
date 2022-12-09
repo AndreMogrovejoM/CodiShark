@@ -51,11 +51,11 @@ const Router: React.FC<Props> = props => {
     return (
       <>
         <Route
-          path="/userPaymentList"
+          path="/adminPaymentList"
           element={privateAdminRoute(<UserOperationsPanel />)}
         />
         <Route
-          path="/userClientList"
+          path="/adminClientList"
           element={privateAdminRoute(<UserPanel />)}
         />
         <Route
@@ -74,10 +74,7 @@ const Router: React.FC<Props> = props => {
         {userRoutes()}
         {noAuthRoutes()}
         {adminRoutes()}
-        <Route
-          path="/administratorPaymentList"
-          element={<AdminPaymentListPage />}
-        />
+        <Route path="/userPaymentList" element={<AdminPaymentListPage />} />
       </Routes>
     </Suspense>
   );

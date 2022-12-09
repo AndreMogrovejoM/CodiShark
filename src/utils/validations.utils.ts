@@ -10,7 +10,9 @@ export const passwordMinLength = 8;
 export const minInputsCode = 6;
 export const voidValue = 0;
 export const paginationPerPage = 10;
+export const paginationClientPerPage = 5;
 export const paginationRowsPerPageOptions = [7, 14, 21, 28, 35];
+export const paginationClientRowsPerPageOptions = [5, 10, 15, 20, 25];
 
 export const requiredField = () => {
   const t = getI18n().utils.validations;

@@ -18,12 +18,16 @@ export interface TableProps {
   expandableRows?: boolean;
   expandableRowsComponent?: ExpandableRowsComponent<any>;
   expandOnRowClicked?: boolean;
+  expandableRowExpanded?: any;
   // TODO: Pending
   onRowClicked?: (row: any) => void;
   expandableIcon?: ExpandibleIcon;
   progressPending?: boolean;
   progressComponent?: React.ReactNode;
+  hiddenHeadRow?: boolean;
 }
 
 // Styled Component Props
-export interface TableStyledProps {}
+export interface TableStyledProps {
+  hiddenHeadRow?: boolean;
+}

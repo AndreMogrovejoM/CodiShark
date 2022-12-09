@@ -14,10 +14,10 @@ const CONSTANTS = {
     // Router where the user will land if not authenticated
     NO_AUTH_PATH: "/signin",
     // admin panel
-    USER_PAYMENT_LIST: "/userPaymentList",
-    USER_CLIENT_LIST: "/userClientList",
+    ADMIN_PAYMENT_LIST: "/adminPaymentList",
+    ADMIN_CLIENT_LIST: "/adminClientList",
     USER_PAYMENT_DETAILS: "/userPaymentDetails",
-    ADMIN_PAYMENT_LIST: "/administratorPaymentList",
+    USER_PAYMENT_LIST: "/userPaymentList",
     SETTINGS: "/settings"
   },
   API: {
