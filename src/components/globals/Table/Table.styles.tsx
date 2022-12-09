@@ -8,6 +8,7 @@ const TableStyled = styled(DataTable)((props: Props) => ({
     backgroundColor: "var(--palette-greyBackground)"
   },
   ".rdt_TableHeadRow": {
+    display: `${props.hiddenHeadRow ? "none" : "auto"}`,
     backgroundColor: "var(--palette-whiteBackground)",
     fontWeight: 700,
     fontSize: "1rem",

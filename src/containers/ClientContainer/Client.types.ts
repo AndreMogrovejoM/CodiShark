@@ -7,6 +7,3 @@ export interface ClientContainerProps {}
 export interface ClientContainerStyledProps {
   className: string;
 }
-
-// Container Props
-export interface ClientContainerContainerProps {}

@@ -4,6 +4,6 @@ import IndicatorsClientTwo from "./IndicatorsClientTwo";
 
 describe("IndicatorsClientTwo", () => {
   it("renders with default props", () => {
-    render(<IndicatorsClientTwo />);
+    render(<IndicatorsClientTwo total_debts={322} />);
   });
 });

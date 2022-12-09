@@ -1,12 +1,10 @@
 import React from "react";
-import { useUserDebts } from "services/users/users.service.hooks";
 
 import Styles from "./IndicatorsClientTwo.styles";
 import { IndicatorsClientTwoProps as Props } from "./IndicatorsClientTwo.types";
 
 const IndicatorsClientTwo: React.FC<Props> = props => {
-  const { data } = useUserDebts();
-  const { total_debts } = data ?? {};
+  const { total_debts } = props;
 
   return (
     <Styles className="IndicatorsClientTwo">

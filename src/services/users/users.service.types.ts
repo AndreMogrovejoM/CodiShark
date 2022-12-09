@@ -22,6 +22,7 @@ export interface UserDebt {
   date_last_contact: string;
   limit_date: string;
   debt_status: PaymentStatus;
+  defaultExpanded?: boolean;
 }
 
 export interface UserDebtResponse {

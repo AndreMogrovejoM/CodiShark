@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import getI18n from "i18n/i18n.helpers";
 import React from "react";
 
@@ -30,9 +31,12 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
     <Styles className={`ExpandableRowsComponent`}>
       <div className="ExpandableRowsComponent__container__expand">
         {renderContent(t.entity, debt?.banking_entity)}
-        {renderContent(t.typeDebt, "Préstamo personal")}
+        {renderContent(t.typeDebt, debt?.product)}
         {renderContent(t.typeExchange, debt?.currency)}
-        {renderContent(t.date, "27-03-2022")}
+        {renderContent(
+          t.date,
+          dayjs(debt?.date_last_contact).format("DD / MM / YYYY")
+        )}
       </div>
     </Styles>
   );

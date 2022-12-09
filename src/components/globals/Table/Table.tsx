@@ -7,8 +7,9 @@ import { TableProps as Props } from "./Table.types";
 const Table: React.FC<Props> = props => {
   const { columns, data, paginationComponent, expandableRows } = props;
   const { paginationPerPage, paginationRowsPerPageOptions } = props;
-  const { expandableRowsComponent, expandOnRowClicked } = props;
+  const { expandableRowsComponent, expandOnRowClicked, hiddenHeadRow } = props;
   const { onRowClicked, expandableIcon, progressPending } = props;
+  const { expandableRowExpanded } = props;
 
   return (
     <DataTableCustom
@@ -22,10 +23,12 @@ const Table: React.FC<Props> = props => {
       expandableRows={expandableRows}
       expandableRowsComponent={expandableRowsComponent}
       expandOnRowClicked={expandOnRowClicked}
+      expandableRowExpanded={expandableRowExpanded}
       onRowClicked={onRowClicked}
       expandableIcon={expandableIcon}
       progressPending={progressPending}
       progressComponent={<ProgressComponent />}
+      hiddenHeadRow={hiddenHeadRow}
     />
   );
 };

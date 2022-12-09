@@ -105,6 +105,26 @@ const es: Dictionary = {
           back: "Anterior",
           next: "Siguiente"
         }
+      },
+      TableDebtUser: {
+        TableRows: {
+          buttonExpand: "Ver detalles",
+          amount: "Monto original",
+          discount: "Monto original",
+          deadline: "Fecha límite de pago"
+        },
+        TableRowsExpand: {
+          entity: "Entidad bancaria:",
+          typeDebt: "Tipo de deuda:",
+          typeExchange: "Tipo de moneda:",
+          date: "Fecha:"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Mostrando deudas del ${begin} al ${rowsPage} de un total de ${total} deudas.`,
+          back: "Anterior",
+          next: "Siguiente"
+        }
       }
     },
     ProfileSelectOverlay: {
@@ -286,16 +306,7 @@ const es: Dictionary = {
     },
     Summary: {
       title:
-        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:",
-      subtitle: "Préstamos Banco Interbank",
-      summary1: "Monto original",
-      summary2: "Monto original",
-      summary3: "Fecha límite de pago",
-      button: "VER DETALLE",
-      bank: "Entidad Bancaria:",
-      amount: "Tipo de Deuda:",
-      currency: "Tipo de Moneda:",
-      date: "Fecha:"
+        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:"
     },
     InformationClient: {
       title: "Pago con tarjeta",

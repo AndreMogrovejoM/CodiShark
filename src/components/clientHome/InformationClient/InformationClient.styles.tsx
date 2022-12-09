@@ -12,7 +12,7 @@ const InformationClientStyled = styled.div<Props>`
   background-color: var(--palette-white);
   border-radius: 0.8rem;
   padding: 2.4rem;
-  margin: 3.2rem auto;
+  margin: 2.4rem auto;
   gap: 2rem;
 
   @media screen and (min-width: ${BREAKPOINTS.tablet}px) {

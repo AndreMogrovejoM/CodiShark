@@ -106,6 +106,26 @@ const en = {
           back: "Back",
           next: "Next"
         }
+      },
+      TableDebtUser: {
+        TableRows: {
+          buttonExpand: "View details",
+          amount: "Original amount",
+          discount: "Original amount",
+          deadline: "Payment deadline"
+        },
+        TableRowsExpand: {
+          entity: "Banking entity:",
+          typeDebt: "Type of debt:",
+          typeExchange: "Currency type: ",
+          date: "Date:"
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Showing debts from ${begin} to ${rowsPage}  of a total of ${total} debts.`,
+          back: "Back",
+          next: "Next"
+        }
       }
     },
     ProfileSelectOverlay: {
@@ -284,16 +304,7 @@ const en = {
     },
     Summary: {
       title:
-        "Here we provide the amount of your debt and the deadlines to make your payments:",
-      subtitle: "Banco Interbank Loans",
-      summary1: "Original amount",
-      summary2: "Original amount",
-      summary3: "Payment deadline",
-      button: "VER DETALLE",
-      bank: "Entidad Bancaria:",
-      amount: "Tipo de Deuda:",
-      currency: "Tipo de Moneda:",
-      date: "Fecha:"
+        "Here we provide the amount of your debt and the deadlines to make your payments:"
     },
     InformationClient: {
       title: "Card payment ",

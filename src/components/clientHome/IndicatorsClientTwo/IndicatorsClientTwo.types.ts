@@ -1,7 +1,9 @@
 // Interfaces and types from component IndicatorsClientTwo
 
 // Component Props
-export interface IndicatorsClientTwoProps {}
+export interface IndicatorsClientTwoProps {
+  total_debts: number | undefined; //;
+}
 
 // Styled Component Props
 export interface IndicatorsClientTwoStyledProps {
