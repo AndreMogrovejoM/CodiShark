@@ -1,6 +1,6 @@
+import Backdrop from "components/Backdrop/Backdrop";
 import React from "react";
 
-import ProgressComponent from "../ProgressComponent/ProgressComponent";
 import DataTableCustom from "./Table.styles";
 import { TableProps as Props } from "./Table.types";
 
@@ -27,8 +27,8 @@ const Table: React.FC<Props> = props => {
       onRowClicked={onRowClicked}
       expandableIcon={expandableIcon}
       progressPending={progressPending}
-      progressComponent={<ProgressComponent />}
       hiddenHeadRow={hiddenHeadRow}
+      progressComponent={<Backdrop isLoading={true} />}
     />
   );
 };
