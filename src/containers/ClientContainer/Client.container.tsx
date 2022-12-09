@@ -5,8 +5,8 @@ import DebtTable from "components/clientHome/DebtTable/DebtTable";
 import IndicatorsClientOne from "components/clientHome/IndicatorsClientOne/IndicatorsClientOne";
 import IndicatorsClientTwo from "components/clientHome/IndicatorsClientTwo/IndicatorsClientTwo";
 import PanelBannerClient from "components/clientHome/PanelBannerClient/PanelBannerClient";
-import PaymentRejected from "components/clientHome/PaymentRejected/PaymentRejected";
-import PaymentSuccess from "components/clientHome/PaymentSuccess/PaymentSuccess";
+// import PaymentRejected from "components/clientHome/PaymentRejected/PaymentRejected";
+// import PaymentSuccess from "components/clientHome/PaymentSuccess/PaymentSuccess";
 import LayoutContainer from "containers/Layout/Layout.container";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
@@ -42,8 +42,8 @@ const ClientContainerContainer: React.FC<Props> = props => {
             expandableRowExpanded={(row: UserDebt) => row.defaultExpanded}
             progressPending={isLoading}
           />
-          <PaymentSuccess />
-          <PaymentRejected />
+          {/* <PaymentSuccess />
+          <PaymentRejected /> */}
         </div>
 
         <div className="ClientContainer__section3">

@@ -25,7 +25,7 @@ const en = {
       myClients: "Customer list",
       logout: "Logout",
       title: "Contact",
-      direction: "la Republica 218 - Miraflores",
+      direction: "La Republica 218 - Miraflores",
       setting: "Setting 2FA"
     },
     button: {
@@ -344,7 +344,8 @@ const en = {
       current: "Checking account soles",
       interbank: "Interbank account soles",
       amount: "Amount payable",
-      offer: "Offer available until 09/08/2022",
+      offer: "Offer available until",
+      copy: "Copy",
       paragraph:
         "Go to the nearest agency and make the deposit indicating the operation number, you can also make interbank transfers from the App of your choice."
     }

@@ -27,6 +27,7 @@ const SignInForm: React.FC<Props> = props => {
   const submitHandler = async (values: FieldValues) => {
     try {
       setIsLoading(true);
+      setError("");
       const data: RegisterUserConfig = {
         dni: values?.dni,
         cod_verifier: values?.cod,

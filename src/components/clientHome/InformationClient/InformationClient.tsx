@@ -4,15 +4,44 @@ import ImagePayInformation from "assets/images/imagePayInformation.svg";
 import lineInformation from "assets/images/lineInformation.svg";
 import OperationNumberModal from "components/OperationNumberModal/OperationNumberModal";
 import Button from "components/globals/Button/Button";
+import CONSTANTS from "config/constants";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
+import { useGenerateOperationNumber } from "services/users/users.service.hooks";
 
 import Styles from "./InformationClient.styles";
 import { InformationClientProps as Props } from "./InformationClient.types";
 
+const { CCI_ACCOUNT_NUMBER, ACCOUNT_NUMBER } = CONSTANTS;
+
 const InformationClient: React.FC<Props> = props => {
   const t = useI18n().signIn.InformationClient;
+  const { userDebt } = props;
   const [openOperationModal, setOpenOperationModal] = useState(false);
+  const [operationNumber, setOperationNumber] = useState<string>();
+
+  const { id, amount_dscto_cancellation } = userDebt ?? {};
+  const { mutateAsync, reset, isLoading } = useGenerateOperationNumber();
+
+  const handleClick = async () => {
+    try {
+      if (amount_dscto_cancellation && id) {
+        await mutateAsync({
+          amount: amount_dscto_cancellation,
+          debtId: id
+        })
+          .then(response => {
+            const { operation_number } = response ?? {};
+            setOperationNumber(operation_number);
+          })
+          .catch();
+        setOpenOperationModal(!openOperationModal);
+        reset();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Styles className="InformationClient">
@@ -37,7 +66,11 @@ const InformationClient: React.FC<Props> = props => {
             alt="iconMasterCardInformation"
           />
         </div>
-        <Button className="InformationClient__button" variant="contained">
+        <Button
+          className="InformationClient__button"
+          variant="contained"
+          disabled={isLoading}
+        >
           <h3 className="InformationClient__text1">
             {t.button.toLocaleUpperCase()}
           </h3>
@@ -53,9 +86,9 @@ const InformationClient: React.FC<Props> = props => {
         <div className="InformationClient__container--content">
           <h2 className="InformationClient__subtitle3">{t.subtitle3}</h2>
           <h2 className="InformationClient__subtitle4">{t.subtitle4}</h2>
-          <p className="InformationClient__cuenta1">191 5264 8452 1254</p>
+          <p className="InformationClient__cuenta1">{ACCOUNT_NUMBER}</p>
           <h2 className="InformationClient__subtitle4">{t.subtitle5}</h2>
-          <p className="InformationClient__cuenta1">191 55044 00541 14460</p>
+          <p className="InformationClient__cuenta1">{CCI_ACCOUNT_NUMBER}</p>
           <p className="InformationClient__paragraph">{t.paragraph}</p>
           <h2 className="InformationClient__subtitle6">{t.subtitle6}</h2>
         </div>
@@ -63,7 +96,8 @@ const InformationClient: React.FC<Props> = props => {
           <Button
             className="InformationClient__button2"
             variant="contained"
-            onClick={() => setOpenOperationModal(!openOperationModal)}
+            onClick={handleClick}
+            disabled={isLoading}
           >
             <h3 className="InformationClient__text2">
               {t.button2.toLocaleUpperCase()}
@@ -74,6 +108,8 @@ const InformationClient: React.FC<Props> = props => {
       <OperationNumberModal
         open={openOperationModal}
         setOpen={setOpenOperationModal}
+        operationNumber={operationNumber}
+        userDebt={userDebt}
       />
     </Styles>
   );

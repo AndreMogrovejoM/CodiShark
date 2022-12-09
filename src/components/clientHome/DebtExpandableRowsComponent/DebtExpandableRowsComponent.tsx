@@ -47,7 +47,7 @@ const DebtExpandableRowsComponent: React.FC<Props> = props => {
         )}
       </div>
 
-      <InformationClient />
+      <InformationClient userDebt={data} />
     </Styles>
   );
 };

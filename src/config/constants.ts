@@ -4,7 +4,7 @@ export const platform = "WEB";
 
 const CONSTANTS = {
   // HTML title tag text
-  TITLE: "CodiShark collection system",
+  TITLE: "Konecta Digital Mk Agency",
   // General settings
   // Routing
   ROUTES: {
@@ -20,6 +20,8 @@ const CONSTANTS = {
     USER_PAYMENT_LIST: "/userPaymentList",
     SETTINGS: "/settings"
   },
+  ACCOUNT_NUMBER: "191 5435 5435 3455",
+  CCI_ACCOUNT_NUMBER: "191 5435 5435 3455 5345",
   API: {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
     REACT_APP_PLATFORM: "WEB",

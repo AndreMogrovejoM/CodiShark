@@ -29,12 +29,14 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
   const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useSignInAdminStep2();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const t = useI18n().signIn.SignInAdministrator.step2;
 
   const submitHandler = async (values: FieldValues) => {
     try {
       setIsLoading(true);
+      setError("");
       const data: Login = {
         dni: user?.dni,
         password: values?.code
@@ -50,6 +52,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         navigate(ADMIN_ENTRY_PATH);
       });
     } catch {
+      setError("Credenciales incorrectas.");
       setIsLoading(false);
     }
   };
@@ -100,6 +103,9 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
             />
           )}
         />
+        {error?.length > 0 ? (
+          <h3 className="SignInAdministratorVerify__error">{error}</h3>
+        ) : null}
         <Button
           variant="contained"
           type="submit"

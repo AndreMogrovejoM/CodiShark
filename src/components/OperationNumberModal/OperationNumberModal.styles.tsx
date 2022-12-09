@@ -10,6 +10,19 @@ const OperationNumberModalStyled = styled.div<Props>`
       margin-top: 2.4rem;
     }
 
+    &__copy {
+      background-color: var(--palette-greyBackgroundSearch);
+      color: var(--palette-grayText);
+      width: 6rem;
+      border-radius: 0.4rem;
+      padding: 0.4rem;
+      display: flex;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     &__h1 {
       font-size: 3rem;
       font-weight: 800;

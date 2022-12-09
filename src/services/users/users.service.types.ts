@@ -53,3 +53,8 @@ export interface OperationUserDebtResponse {
   take: number;
   total: number;
 }
+
+export interface OperationNumberPayload {
+  debtId: number;
+  amount: number;
+}

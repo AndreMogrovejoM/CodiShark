@@ -3,6 +3,8 @@ import { Status } from "services/administrator/administrator.service.types";
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
 import { OperationUserDebtResponse } from "./users.service.types";
+import { OperationUserDebt } from "./users.service.types";
+import { OperationNumberPayload } from "./users.service.types";
 import { UserDebtResponse } from "./users.service.types";
 
 export const userDebts = async (): Promise<UserDebtResponse> => {
@@ -24,6 +26,42 @@ export const fetchUserOperations = async (
     const response = await axiosDefault.get("/operations", {
       headers: buildHeaders()
     });
+    return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const generateOperationNumber = async (
+  payload: OperationNumberPayload
+): Promise<OperationUserDebt> => {
+  const { amount, debtId } = payload;
+  try {
+    const response = await axiosDefault.post(
+      `/operations/generateTransfer`,
+      { debt_id: debtId, amount_paid: amount },
+      {
+        headers: buildHeaders()
+      }
+    );
+    const { data } = response ?? {};
+    return data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const exportOperationPdf = async (
+  operationId?: number
+): Promise<File> => {
+  try {
+    const response = await axiosDefault.get(
+      `/operations/exportpdf/${operationId}`,
+      {
+        responseType: "blob",
+        headers: buildHeaders()
+      }
+    );
     return response?.data;
   } catch (e: any) {
     throw new Error(e.message);

@@ -1,13 +1,26 @@
 import Button from "components/globals/Button/Button";
+import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
+import FileDownload from "js-file-download";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { exportOperationPdf } from "services/users/users.service";
 
 import Styles from "./ProofPayment.styles";
 import { ProofPaymentProps as Props } from "./ProofPayment.types";
 
-// TODO: Pending response from backend.
 const ProofPayment: React.FC<Props> = props => {
+  const { userDebt } = props;
   const t = useI18n().pages.AdminPaymentDetails.proof;
+  //TODO: Change auth user by userId from debt
+  const { user } = useAuth();
+  const { first_name, last_name } = user ?? {};
+  const navigate = useNavigate();
+
+  //TODO: Check fields with nicolas
+  const { id, amount_dscto_cancellation } = userDebt ?? {};
+  const { capital_debt, currency, banking_entity, pct_dscto_cancellation } =
+    userDebt ?? {};
 
   const renderDetails = () => (
     <div className="ProofPayment__separator--paragraph">
@@ -23,10 +36,10 @@ const ProofPayment: React.FC<Props> = props => {
 
       {/* TODO: Pending response from backend. */}
       <div className="ProofPayment__text--paragraph">
-        <p>Dei Molina</p>
-        <p>Banco Interbank </p>
+        <p>{`${first_name} ${last_name}`}</p>
+        <p>{banking_entity ?? "-"}</p>
         <p>Préstamo personal</p>
-        <p>Sol peruano</p>
+        <p>{currency ?? "-"}</p>
         <p>Tarjeta de débito</p>
         <p>27-03-2022</p>
         <p>14:36</p>
@@ -52,14 +65,25 @@ const ProofPayment: React.FC<Props> = props => {
 
         {/* TODO: Pending response from backend. */}
         <div className="ProofPayment__text--paragraph">
-          <p>S/ 5400.00</p>
-          <p>S/ 2400.00</p>
-          <p>S/ 2600.00</p>
-          <p>S/ 2600.00</p>
+          <p>{`S./ ${capital_debt ?? 0}`}</p>
+          <p>{`S./ ${pct_dscto_cancellation ?? 0}`}</p>
+          <p>{`S./ ${
+            (capital_debt ?? 0) - (amount_dscto_cancellation ?? 0)
+          }`}</p>
+          <p>{`S./ ${amount_dscto_cancellation ?? 0}`}</p>
         </div>
       </div>
     </div>
   );
+
+  const handlePDF = async () => {
+    try {
+      const response = await exportOperationPdf(id);
+      FileDownload(response, "report.pdf");
+    } catch (error) {
+      console.log("Error at trying to print pdf");
+    }
+  };
 
   const renderActions = () => {
     const styleClass = () =>
@@ -70,8 +94,7 @@ const ProofPayment: React.FC<Props> = props => {
         <Button
           variant="contained"
           className={`${styleClass()} ProofPayment__component--button-green`}
-          // TODO: Pending
-          onClick={() => console.log("pdf")}
+          onClick={handlePDF}
         >
           {t.buttons.pdf}
         </Button>
@@ -79,7 +102,6 @@ const ProofPayment: React.FC<Props> = props => {
           variant="contained"
           className={styleClass()}
           // TODO: Pending
-
           onClick={() => console.log("excel")}
         >
           {t.buttons.email}
@@ -87,8 +109,7 @@ const ProofPayment: React.FC<Props> = props => {
         <Button
           variant="contained"
           className={`${styleClass()} ProofPayment__component--button-blue`}
-          // TODO: Pending
-          onClick={() => console.log("back")}
+          onClick={() => navigate("/")}
         >
           {t.buttons.back}
         </Button>

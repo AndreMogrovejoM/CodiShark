@@ -123,8 +123,6 @@ const Sidebar: React.FC<Props> = props => {
   };
 
   const renderUserRoutes = () => {
-    /* TODO: Update rol */
-    /*    if (rol !== 10) return null; */
     return (
       <>
         {renderItem(0, t.start, ENTRY_PATH)}

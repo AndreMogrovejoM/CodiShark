@@ -24,7 +24,7 @@ const es: Dictionary = {
       myClients: "Listado de clientes",
       logout: "Cerrar sesión",
       title: "Contacto",
-      direction: "la Republica 218 - Miraflores",
+      direction: "La Republica 218 - Miraflores",
       setting: "Configuración 2FA"
     },
     button: {
@@ -346,7 +346,8 @@ const es: Dictionary = {
       current: "Cuenta corriente soles",
       interbank: "Cuenta interbancaria soles",
       amount: "Monto a pagar",
-      offer: "Oferta disponible hasta el 09/08/2022",
+      offer: "Oferta disponible hasta el",
+      copy: "Copiar",
       paragraph:
         "Acérquese a la agencia mas cercana y realice el deposito indicando el numero de operación, también puede realizar transferencias interbancarias desde la App de su preferencia."
     }
