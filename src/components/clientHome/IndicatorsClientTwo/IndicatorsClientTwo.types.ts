@@ -2,7 +2,7 @@
 
 // Component Props
 export interface IndicatorsClientTwoProps {
-  total_debts: number | undefined; //;
+  total_debts?: number;
 }
 
 // Styled Component Props

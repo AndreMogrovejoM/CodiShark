@@ -190,7 +190,7 @@ const Sidebar: React.FC<Props> = props => {
           {renderItem(3, t.myClients, USER_CLIENT_LIST)}
           {/* TODO: Temp  */}
           {renderItem(4, "Detalles pago", USER_PAYMENT_DETAILS)}
-          {renderItem(5, "Lista de pagos Admin", ADMIN_PAYMENT_LIST)}
+          {renderItem(5, "Mis pagos", ADMIN_PAYMENT_LIST)}
           {renderItem(6, t.setting, SETTINGS)}
 
           <div className="Sidebar__divider" />

@@ -65,7 +65,7 @@ export const ButtonExpander: React.FC<ButtonExpanderProps> = props => {
     <Styles
       className={`DebtTable__component--button`}
       data-tag="allowRowEvents"
-      onClick={() => setOpen(open => !open)}
+      onClick={() => setOpen(!open)}
     >
       <div
         data-tag="allowRowEvents"
