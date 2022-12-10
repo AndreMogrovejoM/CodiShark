@@ -1,30 +1,37 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { LayoutContainerStyledProps as Props } from "./Layout.container.types";
 
-const LayoutContainerStyled = styled.div<Props>`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  position: relative;
+const { BREAKPOINTS } = CONSTANTS;
 
+const LayoutContainerStyled = styled.div<Props>`
   .LayoutContainer {
     &__children {
       width: calc(100% - 20.4rem);
       min-height: 100vh;
       padding: 2.4rem;
-      top: 0;
       margin-left: 20.4rem;
-      position: absolute;
       background-color: var(--palette-greyBackground);
 
-      @media screen and (max-width: 1024px) {
-        padding: 2.4rem 0rem;
+      @media screen and (max-width: ${BREAKPOINTS.desktop}px) {
+        padding: 2.4rem 0;
       }
 
-      @media screen and (max-width: 720px) {
+      @media screen and (max-width: ${BREAKPOINTS.tablet}px) {
         width: 100%;
         margin-left: 0;
+      }
+    }
+
+    &__container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+        flex-direction: row;
       }
     }
   }

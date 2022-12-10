@@ -1,5 +1,6 @@
 import Backdrop from "components/Backdrop/Backdrop";
 import Sidebar from "components/globals/Sidebar/Sidebar";
+import SidebarResponsive from "components/globals/SidebarResponsive/SidebarResponsive";
 import useGlobals from "contexts/globals/globals.hooks";
 import React from "react";
 
@@ -12,9 +13,12 @@ const LayoutContainer: React.FC<Props> = props => {
 
   return (
     <Styles className="LayoutContainer">
-      <Sidebar />
-      <main className="LayoutContainer__children">{children}</main>
-      <Backdrop isLoading={isLoading} />
+      <div className="LayoutContainer__container">
+        <Sidebar />
+        <SidebarResponsive />
+        <main className="LayoutContainer__children"> {children}</main>
+        <Backdrop isLoading={isLoading} />
+      </div>
     </Styles>
   );
 };
