@@ -44,8 +44,7 @@ const DebtTableStyled = styled.div<Props>`
         font-size: 1.2rem;
         background-color: var(--palette-yellow);
         border-radius: 0.8rem;
-        width: 4.8rem;
-        padding: 0 auto;
+        padding: 0 0.8rem;
         justify-content: center;
       }
 
@@ -62,6 +61,7 @@ const DebtTableStyled = styled.div<Props>`
         font-weight: 700;
         font-size: 1rem;
         line-height: 1.2rem;
+        min-width: 12rem;
 
         @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
           padding: 0.8rem 1rem;

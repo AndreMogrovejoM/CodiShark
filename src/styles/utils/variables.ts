@@ -26,7 +26,8 @@ const palette = {
   greenWeakBackground: "hsla(83, 60%, 73%, 1)",
   yellowWeakBackground: "hsla(48, 77%, 82%, 1)",
   limeGreen: "hsl(84, 48%, 55%)",
-  limeGreenBackground: "hsla(86, 54%, 51%, 1)"
+  limeGreenBackground: "hsla(86, 54%, 51%, 1)",
+  darkShadow: "rgba(0, 0, 0, 0.4)"
 };
 
 const fonts = {};

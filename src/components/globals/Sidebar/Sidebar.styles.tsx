@@ -1,6 +1,9 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { SidebarStyledProps as Props } from "./Sidebar.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const SidebarStyled = styled.nav<Props>`
   position: absolute;
@@ -11,7 +14,7 @@ const SidebarStyled = styled.nav<Props>`
   flex: 1;
   color: var(--palette-white);
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: ${BREAKPOINTS.tablet}px) {
     display: none;
   }
 
