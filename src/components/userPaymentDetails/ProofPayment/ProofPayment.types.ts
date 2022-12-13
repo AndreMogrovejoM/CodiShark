@@ -5,6 +5,7 @@ import { UserDebt } from "services/users/users.service.types";
 // Component Props
 export interface ProofPaymentProps {
   userDebt?: UserDebt;
+  isLoading: boolean;
 }
 
 // Styled Component Props

@@ -48,7 +48,7 @@ const LinkComponent = (props: LinkComponentProps) => {
 const SidebarResponsive: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
-  const { setSignInStep, setUser, user } = useAuth();
+  const { setSignInStep, setUser, user, isAnonymous } = useAuth();
   const { mutateAsync, reset } = useLogout();
   const [, setLocalUser] = useLocalStorage("user");
   const { rol } = user ?? {};
@@ -78,22 +78,25 @@ const SidebarResponsive: React.FC<Props> = props => {
     </p>
   );
 
-  /* TODO: Pending 'rol' to user */
-  const renderUserRoutes = () => (
-    /*   if (rol !== 10) return null; */
-    <>
-      <LinkComponent idx={10} text={t.start} url={ENTRY_PATH} />
-      <LinkComponent idx={11} text={t.myPayments} url={USER_PAYMENT_LIST} />
-      <LinkComponent
-        idx={12}
-        text={t.paymentDetails}
-        url={USER_PAYMENT_DETAILS}
-      />
-    </>
-  );
+  const renderUserRoutes = () => {
+    if (isAnonymous) return null;
+
+    return (
+      <>
+        <LinkComponent idx={10} text={t.start} url={ENTRY_PATH} />
+        <LinkComponent idx={11} text={t.myPayments} url={USER_PAYMENT_LIST} />
+        <LinkComponent
+          idx={12}
+          text={t.paymentDetails}
+          url={USER_PAYMENT_DETAILS}
+        />
+      </>
+    );
+  };
 
   const renderAdminRoutes = () => {
     if (rol !== 10) return null;
+
     return (
       <>
         <LinkComponent idx={20} text={t.startAdmin} url={ADMIN_ENTRY_PATH} />
@@ -125,11 +128,9 @@ const SidebarResponsive: React.FC<Props> = props => {
           </div>
 
           <div className="SidebarResponsive__container--components">
-            <div>
-              {renderUserRoutes()}
-              {renderAdminRoutes()}
-              {renderLogout()}
-            </div>
+            {renderUserRoutes()}
+            {renderAdminRoutes()}
+            {renderLogout()}
           </div>
         </div>
       </div>
