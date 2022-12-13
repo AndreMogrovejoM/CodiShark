@@ -7,6 +7,7 @@ const { BREAKPOINTS } = CONSTANTS;
 
 const ClientContainerStyled = styled.div<Props>`
   width: 100%;
+  min-height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -14,6 +15,8 @@ const ClientContainerStyled = styled.div<Props>`
   min-height: 100vh;
   display: flex;
   gap: 2%;
+  background-color: var(--palette-greyBackground);
+  padding-bottom: 6.4rem;
 
   @media screen and (max-width: ${BREAKPOINTS.wide}px) {
     flex-direction: column;

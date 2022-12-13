@@ -1,5 +1,7 @@
 // Users service interfaces and types
 
+import { CreatePaymentResponse } from "services/iziPay/iziPay.service.types";
+
 export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado";
 
 export interface UserDebt {
@@ -46,15 +48,27 @@ export interface OperationUserDebt {
   debt: UserDebt;
 }
 
+export interface OperationUserUniqueDebtResponse {
+  data: OperationUserDebt;
+  skip: number;
+  status: number;
+  take: number;
+  total: number;
+  izipay?: CreatePaymentResponse;
+}
+
 export interface OperationUserDebtResponse {
   data: OperationUserDebt[];
   skip: number;
   status: number;
   take: number;
   total: number;
+  izipay?: CreatePaymentResponse;
 }
 
 export interface OperationNumberPayload {
   debtId: number;
   amount: number;
+  type?: number;
 }
+// type: 1 transfer / 2 iziPay

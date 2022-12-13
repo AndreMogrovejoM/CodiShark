@@ -3,7 +3,7 @@ import { Status } from "services/administrator/administrator.service.types";
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
 import { OperationUserDebtResponse } from "./users.service.types";
-import { OperationUserDebt } from "./users.service.types";
+import { OperationUserUniqueDebtResponse } from "./users.service.types";
 import { OperationNumberPayload } from "./users.service.types";
 import { UserDebtResponse } from "./users.service.types";
 
@@ -34,12 +34,12 @@ export const fetchUserOperations = async (
 
 export const generateOperationNumber = async (
   payload: OperationNumberPayload
-): Promise<OperationUserDebt> => {
-  const { amount, debtId } = payload;
+): Promise<OperationUserUniqueDebtResponse> => {
+  const { amount, debtId, type = 1 } = payload;
   try {
     const response = await axiosDefault.post(
       `/operations/generateTransfer`,
-      { debt_id: debtId, amount_paid: amount },
+      { debt_id: debtId, amount_paid: amount, type },
       {
         headers: buildHeaders()
       }

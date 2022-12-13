@@ -4,7 +4,7 @@ import { Status } from "services/administrator/administrator.service.types";
 
 import { generateOperationNumber } from "./users.service";
 import { fetchUserOperations, userDebts } from "./users.service";
-import { OperationUserDebt } from "./users.service.types";
+import { OperationUserUniqueDebtResponse } from "./users.service.types";
 import { OperationNumberPayload } from "./users.service.types";
 
 export const useUserDebts = () => {
@@ -31,21 +31,22 @@ export const useFetchUserOperations = (status?: Status, take = 4) => {
 export const useGenerateOperationNumber = () => {
   const queryClient = useQueryClient();
 
-  return useMutation<OperationUserDebt, unknown, OperationNumberPayload>(
-    generateOperationNumber,
-    {
-      // When mutate is called:
-      onMutate: async () => {
-        // Cancel any outgoing refetch (so they don't overwrite our optimistic update)
-        await queryClient.cancelQueries("operationNumber");
-      },
-      onError: () => {
-        console.error("");
-      },
-      onSettled: () => {
-        // Always refetch after error or success:
-        queryClient.invalidateQueries("operationNumber");
-      }
+  return useMutation<
+    OperationUserUniqueDebtResponse,
+    unknown,
+    OperationNumberPayload
+  >(generateOperationNumber, {
+    // When mutate is called:
+    onMutate: async () => {
+      // Cancel any outgoing refetch (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries("operationNumber");
+    },
+    onError: () => {
+      console.error("");
+    },
+    onSettled: () => {
+      // Always refetch after error or success:
+      queryClient.invalidateQueries("operationNumber");
     }
-  );
+  });
 };

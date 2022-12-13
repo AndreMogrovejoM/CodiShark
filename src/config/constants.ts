@@ -24,6 +24,12 @@ const CONSTANTS = {
   CCI_ACCOUNT_NUMBER: "191 5435 5435 3455 5345",
   API: {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
+    REACT_APP_IZI_PAY_URL: "https://api.micuentaweb.pe/",
+    IZI_PAY_USER_NAME: "89289758",
+    IZI_PAY_USER_PASSWORD:
+      "testpassword_7vAtvN49E8Ad6e6ihMqIOvOHC6QV5YKmIXgxisMm0V7Eq",
+    IZI_PAY_PUBLIC_KEY:
+      "89289758:testpublickey_TxzPjl9xKlhM0a6tfSVNilcLTOUZ0ndsTogGTByPUATcE",
     REACT_APP_PLATFORM: "WEB",
     // Mock services, change to false if you don't want to mock
     MOCK_SERVICES: false,
@@ -34,7 +40,7 @@ const CONSTANTS = {
     // Excluded status codes that should not be logged
     EXCLUDED_LOGGER_STATUS_CODES: [422],
     // Included environments that should be logged
-    INCLUDED_LOGGER_ENVS: ["staging", "production"]
+    INCLUDED_LOGGER_ENVS: ["dev", "production"]
   },
   // CSS Break Points
   BREAKPOINTS: {
