@@ -304,6 +304,9 @@ const en = {
     IndicatorsClientOne: {
       greetings: "Welcome"
     },
+    IndicatorsClientTwo: {
+      debt: "Current Debt"
+    },
     Summary: {
       title:
         "Here we provide the amount of your debt and the deadlines to make your payments:"

@@ -40,11 +40,11 @@ export const RowMiddle: React.FC<RowMiddleProps> = props => {
       <SummaryCard title={t.discount}>
         <div className="DebtTable__container--middle">
           <h3 className="DebtTable__text--title DebtTable__text--color">{`S/. ${
-            price ?? ""
+            price.toFixed(2) ?? ""
           }`}</h3>
           <div>
             <span className="DebtTable__component--discount">{` - ${
-              discount ?? ""
+              discount * 100 ?? ""
             } %`}</span>
           </div>
         </div>

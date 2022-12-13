@@ -306,6 +306,9 @@ const es: Dictionary = {
     IndicatorsClientOne: {
       greetings: "Bienvenido(a)"
     },
+    IndicatorsClientTwo: {
+      debt: "Deuda Actual"
+    },
     Summary: {
       title:
         "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:"

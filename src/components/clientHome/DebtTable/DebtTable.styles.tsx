@@ -41,7 +41,7 @@ const DebtTableStyled = styled.div<Props>`
         font-weight: 700;
         align-items: center;
         line-height: 1.6rem;
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         background-color: var(--palette-yellow);
         border-radius: 0.8rem;
         padding: 0 0.8rem;
