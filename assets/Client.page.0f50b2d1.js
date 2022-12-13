@@ -1,7 +1,7 @@
-import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnMount.489a03a0.js";import{s as r,a as t,j as m,C as l,r as z,ag as k}from"./index.75b994c9.js";import{u as s}from"./i18n.hooks.e7c4c770.js";import"./Button.090f2360.js";import{d as C,a as N,b as I}from"./Remove.b8a50496.js";import"./Table.adea40c5.js";import"./Layout.container.1a967556.js";import"./useQuery.575d3b24.js";import"./users.service.8b362619.js";const P=r.div`
+import{t as v}from"./auth.service.hooks.bb8d53fb.js";import{s as r,a as t,j as m,C as o,r as T,ag as z}from"./index.62a3d31d.js";import{u as C}from"./useOnMount.3e5c8b3d.js";import{u as s}from"./i18n.hooks.10c02bd4.js";import"./Button.c7181f96.js";import{d as k,a as P,b as N}from"./Remove.067a475b.js";import"./Table.621dcc2e.js";import"./Layout.container.86f5a903.js";import"./useQuery.7854ed04.js";import"./users.service.05c780c4.js";const A=r.div`
   .IziPayForm {
   }
-`,S=async()=>{v.post("https://api.micuentaweb.pe/api-payment/V4/Charge/CreatePayment",{amount:180,currency:"PEN",customer:{email:"sample@example.com"},orderId:"myOrderId-429836"},{auth:{username:"89289758",password:"testpassword_7vAtvN49E8Ad6e6ihMqIOvOHC6QV5YKmIXgxisMm0V7Eq"}}).then(e=>{console.log(e)}).catch(e=>console.log(e.response))},x=e=>(T(()=>{S()}),t(P,{className:"IziPayForm",children:m("div",{className:"form",children:[t("h1",{children:"Payment form"}),m("div",{className:"container",children:[t("div",{id:"myPaymentForm"}),t("div",{"data-test":"payment-message",children:"PAGADO"})]})]})}));x.defaultProps={};r.div`
+`,{API:E}=o,{DEFAULT_REQUEST_TIMEOUT:I,REACT_APP_PLATFORM:R}=E,S=v.create({baseURL:"https://api.micuentaweb.pe/",timeout:I,withCredentials:!1,headers:{Platform:R,"Content-Type":"application/x-www-form-urlencoded",responseType:"json","Access-Control-Allow-Origin":"*",origin:"x-requested-with","Access-Control-Allow-Headers":"POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin"},auth:{username:"89289758",password:"testpassword_7vAtvN49E8Ad6e6ihMqIOvOHC6QV5YKmIXgxisMm0V7Eq"}}),D=async()=>{await S.post("/api-payment/V4/Charge/CreatePayment",{amount:180,currency:"PEN",customer:{email:"sample@example.com"},orderId:"myOrderId-429836"}).then(e=>{console.log(e)}).catch(e=>console.log(e.response))},x=e=>(C(()=>{D()}),t(A,{className:"IziPayForm",children:m("div",{className:"form",children:[t("h1",{children:"Payment form"}),m("div",{className:"container",children:[t("div",{id:"myPaymentForm"}),t("div",{"data-test":"payment-message",children:"PAGADO"})]})]})}));x.defaultProps={};r.div`
   position: relative;
   max-width: 32rem;
   max-height: 30rem;
@@ -162,7 +162,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`;const{BREAKPOINTS:o}=l;r.div`
+`;const{BREAKPOINTS:l}=o;r.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -172,11 +172,11 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
   margin: 2.4rem auto;
   gap: 2rem;
 
-  @media screen and (min-width: ${o.tablet}px) {
+  @media screen and (min-width: ${l.tablet}px) {
     padding: 1.6rem 2.4rem;
   }
 
-  @media screen and (min-width: ${o.desktop}px) {
+  @media screen and (min-width: ${l.desktop}px) {
     flex-direction: row;
     gap: 4rem;
   }
@@ -211,7 +211,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       line-height: 2.4rem;
       margin-bottom: 1rem;
 
-      @media screen and (min-width: ${o.desktop}px) {
+      @media screen and (min-width: ${l.desktop}px) {
         flex-direction: row;
         gap: 4rem;
       }
@@ -293,7 +293,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
         display: flex;
         justify-content: center;
 
-        @media screen and (min-width: ${o.desktop}px) {
+        @media screen and (min-width: ${l.desktop}px) {
           justify-content: left;
         }
       }
@@ -301,12 +301,12 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       &--content {
         padding: 0;
 
-        @media screen and (min-width: ${o.mobile}px) {
+        @media screen and (min-width: ${l.mobile}px) {
           padding-left: 3.6rem;
           padding-right: 3.6rem;
         }
 
-        @media screen and (min-width: ${o.desktop}px) {
+        @media screen and (min-width: ${l.desktop}px) {
           padding: 0;
         }
       }
@@ -333,7 +333,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
     &__line {
       display: none;
 
-      @media screen and (min-width: ${o.desktop}px) {
+      @media screen and (min-width: ${l.desktop}px) {
         display: block;
       }
     }
@@ -378,7 +378,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`;const{BREAKPOINTS:f}=l;r.div`
+`;const{BREAKPOINTS:f}=o;r.div`
   .Pagination {
     background-color: var(--palette-greyBackground);
     padding: 0.8rem 0;
@@ -440,7 +440,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`;const{BREAKPOINTS:D}=l,c=r.div`
+`;const{BREAKPOINTS:O}=o,c=r.div`
   .DebtTable {
     &__container {
       &--middle {
@@ -498,7 +498,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
         line-height: 1.2rem;
         min-width: 12rem;
 
-        @media screen and (min-width: ${D.mobile}px) {
+        @media screen and (min-width: ${O.mobile}px) {
           padding: 0.8rem 1rem;
         }
       }
@@ -522,14 +522,14 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`,{BREAKPOINTS:R}=l;r.div`
+`,{BREAKPOINTS:$}=o;r.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 1.6rem;
 
-  @media screen and (min-width: ${R.tablet}px) {
+  @media screen and (min-width: ${$.tablet}px) {
     margin: 1.6rem 0;
   }
 
@@ -574,14 +574,14 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`;const{BREAKPOINTS:$}=l;r.div`
+`;const{BREAKPOINTS:B}=o;r.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.6rem;
 
-  @media screen and (min-width: ${$.tablet}px) {
+  @media screen and (min-width: ${B.tablet}px) {
     margin: 1.6rem 0;
   }
 
@@ -671,7 +671,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`;const B=r.div`
+`;const j=r.div`
   .SummaryCard {
     &__title {
       color: var(--palette-grayText);
@@ -684,7 +684,7 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       font-size: 16px;
     }
   }
-`,g=e=>{const{title:i,children:n}=e;return m(B,{className:"SummaryCard",children:[t("h2",{className:"SummaryCard__title",children:i}),t("div",{className:"SummaryCard__subtitle",children:n})]})};g.defaultProps={};const h=e=>{const{content:i,isDate:n}=e,a=s().global.table.TableDebtUser.TableRows,d=()=>n?a.deadline:a.amount,p=()=>n?i:`S/. ${i!=null?i:""}`,y=()=>n?"DebtTable__text--date":"DebtTable__text--title";return t(c,{className:"DebtTable",children:t(g,{title:d(),children:t("h3",{className:y(),children:p()})})})};h.defaultProps={isDate:!1};const E=e=>{const{price:i,discount:n}=e,a=s().global.table.TableDebtUser.TableRows;return t(c,{className:"DebtTable",children:t(g,{title:a.discount,children:m("div",{className:"DebtTable__container--middle",children:[t("h3",{className:"DebtTable__text--title DebtTable__text--color",children:`S/. ${i!=null?i:""}`}),t("div",{children:t("span",{className:"DebtTable__component--discount",children:` - ${n!=null?n:""} %`})})]})})})},O=e=>{const{expand:i}=e,n=s().global.table.TableDebtUser.TableRows,[a,d]=z.exports.useState(i),p=()=>a?t(C,{}):t(N,{});return t(c,{className:"DebtTable__component--button","data-tag":"allowRowEvents",onClick:()=>d(!a),children:m("div",{"data-tag":"allowRowEvents",className:"DebtTable__container--button-content",children:[n.buttonExpand.toLocaleUpperCase(),t("div",{className:"DebtTable__container--icon",children:p()})]})})},_=()=>t(c,{className:"DebtTable__container--divider"}),{BREAKPOINTS:u}=l;u.desktop,u.desktop;const{BREAKPOINTS:b}=l;r.div`
+`,g=e=>{const{title:i,children:n}=e;return m(j,{className:"SummaryCard",children:[t("h2",{className:"SummaryCard__title",children:i}),t("div",{className:"SummaryCard__subtitle",children:n})]})};g.defaultProps={};const h=e=>{const{content:i,isDate:n}=e,a=s().global.table.TableDebtUser.TableRows,d=()=>n?a.deadline:a.amount,p=()=>n?i:`S/. ${i!=null?i:""}`,y=()=>n?"DebtTable__text--date":"DebtTable__text--title";return t(c,{className:"DebtTable",children:t(g,{title:d(),children:t("h3",{className:y(),children:p()})})})};h.defaultProps={isDate:!1};const K=e=>{const{price:i,discount:n}=e,a=s().global.table.TableDebtUser.TableRows;return t(c,{className:"DebtTable",children:t(g,{title:a.discount,children:m("div",{className:"DebtTable__container--middle",children:[t("h3",{className:"DebtTable__text--title DebtTable__text--color",children:`S/. ${i!=null?i:""}`}),t("div",{children:t("span",{className:"DebtTable__component--discount",children:` - ${n!=null?n:""} %`})})]})})})},W=e=>{const{expand:i}=e,n=s().global.table.TableDebtUser.TableRows,[a,d]=T.exports.useState(i),p=()=>a?t(k,{}):t(P,{});return t(c,{className:"DebtTable__component--button","data-tag":"allowRowEvents",onClick:()=>d(!a),children:m("div",{"data-tag":"allowRowEvents",className:"DebtTable__container--button-content",children:[n.buttonExpand.toLocaleUpperCase(),t("div",{className:"DebtTable__container--icon",children:p()})]})})},_=()=>t(c,{className:"DebtTable__container--divider"}),{BREAKPOINTS:u}=o;u.desktop,u.desktop;const{BREAKPOINTS:b}=o;r.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -742,4 +742,4 @@ import{t as v}from"./auth.service.hooks.46fafa39.js";import{u as T}from"./useOnM
       }
     }
   }
-`;const w=e=>{s().signIn.ClientContainer;const{data:i,isLoading:n}=I(),{data:a,total_debts:d}=i!=null?i:{};return a&&(a[0].defaultExpanded=!0),t(x,{})};w.defaultProps={};const q=w;export{q as default};
+`;const w=e=>{s().signIn.ClientContainer;const{data:i,isLoading:n}=N(),{data:a,total_debts:d}=i!=null?i:{};return a&&(a[0].defaultExpanded=!0),t(x,{})};w.defaultProps={};const X=w;export{X as default};
