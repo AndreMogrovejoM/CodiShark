@@ -1,3 +1,4 @@
+import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
 import React from "react";
 import { useFetchUserOperations } from "services/users/users.service.hooks";
 
@@ -11,16 +12,19 @@ const AdminPaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchUserOperations(undefined, 50);
   const { data: paymentList } = data ?? {};
 
-  const renderTable = () => (
-    <PaymentTable
-      data={paymentList ?? []}
-      columns={columns}
-      expandableRows={true}
-      expandableRowsComponent={ExpandableRowsComponent}
-      expandOnRowClicked={true}
-      progressPending={isLoading}
-    />
-  );
+  const renderTable = () =>
+    isLoading ? (
+      <SkeletonComponent variant="rounded" height={720} width="100%" />
+    ) : (
+      <PaymentTable
+        data={paymentList ?? []}
+        columns={columns}
+        expandableRows={true}
+        expandableRowsComponent={ExpandableRowsComponent}
+        expandOnRowClicked={true}
+        progressPending={isLoading}
+      />
+    );
 
   return <Styles className={`AdminPaymentListView `}>{renderTable()}</Styles>;
 };

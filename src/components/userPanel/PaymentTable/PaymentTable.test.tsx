@@ -9,6 +9,7 @@ describe("PaymentTable", () => {
         data={[]}
         columns={[]}
         onRowClicked={(row: any) => console.log(row)}
+        progressPending={true}
       />
     );
   });

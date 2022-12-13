@@ -15,26 +15,22 @@ const ClientContainerStyled = styled.div<Props>`
   display: flex;
   gap: 2%;
 
-  @media screen and (max-width: 1366px) {
+  @media screen and (max-width: ${BREAKPOINTS.wide}px) {
     flex-direction: column;
   }
 
   .ClientContainer {
     &__section1 {
-      width: 70%;
-
-      @media screen and (max-width: 1366px) {
-        width: 88%;
-        margin: 0 auto;
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      width: 100%;
     }
 
     &__title {
       font-weight: 400;
       font-size: 1rem;
       line-height: 1.6rem;
-      margin-top: -1rem;
-      margin-bottom: 0.6rem;
     }
 
     &__section2 {
@@ -50,6 +46,19 @@ const ClientContainerStyled = styled.div<Props>`
     }
 
     &__section3 {
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      @media screen and (min-width: 1366px) {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+
+    &__section4 {
       width: 28%;
       flex: 1;
       display: flex;

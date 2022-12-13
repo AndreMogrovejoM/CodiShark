@@ -1,4 +1,5 @@
 import Button from "components/globals/Button/Button";
+import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
@@ -10,7 +11,7 @@ import Styles from "./ProofPayment.styles";
 import { ProofPaymentProps as Props } from "./ProofPayment.types";
 
 const ProofPayment: React.FC<Props> = props => {
-  const { userDebt } = props;
+  const { userDebt, isLoading } = props;
   const t = useI18n().pages.AdminPaymentDetails.proof;
   //TODO: Change auth user by userId from debt
   const { user } = useAuth();
@@ -117,9 +118,11 @@ const ProofPayment: React.FC<Props> = props => {
     );
   };
 
-  return (
-    <Styles className={`ProofPayment`}>
-      <div className="ProofPayment__component--card">
+  const renderLoading = () =>
+    isLoading ? (
+      <SkeletonComponent variant="rounded" height={"400px"} />
+    ) : (
+      <>
         <h2 className="ProofPayment__text--title ProofPayment__separator--title">
           {t.title.toLocaleUpperCase()}
         </h2>
@@ -130,7 +133,12 @@ const ProofPayment: React.FC<Props> = props => {
         <div className="ProofPayment__separator--actions">
           {renderActions()}
         </div>
-      </div>
+      </>
+    );
+
+  return (
+    <Styles className={`ProofPayment`}>
+      <div className="ProofPayment__component--card">{renderLoading()}</div>
     </Styles>
   );
 };

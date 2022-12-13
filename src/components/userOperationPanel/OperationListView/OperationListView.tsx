@@ -78,6 +78,7 @@ const OperationListView: React.FC<Props> = props => {
       data={operationsList}
       columns={columns}
       onRowClicked={row => setIdRow(row?.id)}
+      progressPending={isLoading}
     />
   );
 
