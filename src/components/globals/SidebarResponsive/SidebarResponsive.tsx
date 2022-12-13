@@ -48,7 +48,7 @@ const LinkComponent = (props: LinkComponentProps) => {
 const SidebarResponsive: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
-  const { setSignInStep, setUser, user } = useAuth();
+  const { setSignInStep, setUser, user, isAnonymous } = useAuth();
   const { mutateAsync, reset } = useLogout();
   const [, setLocalUser] = useLocalStorage("user");
   const { rol } = user ?? {};
@@ -79,7 +79,7 @@ const SidebarResponsive: React.FC<Props> = props => {
   );
 
   const renderUserRoutes = () => {
-    if (rol !== 1) return null;
+    if (isAnonymous) return null;
 
     return (
       <>
