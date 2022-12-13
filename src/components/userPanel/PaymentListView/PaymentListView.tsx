@@ -1,9 +1,9 @@
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
-import useGlobals from "contexts/globals/globals.hooks";
+import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
 import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
@@ -17,17 +17,10 @@ import { PaymentListViewProps as Props } from "./PaymentListView.types";
 const PaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorUsers(1, 50);
   const { data: usersList } = data ?? {};
+  const t = useI18n().pages.UserPayPanel;
 
   // TODO: Pending
   const [idRow, setIdRow] = useState(0);
-
-  const t = useI18n().pages.UserPayPanel;
-
-  const { setIsLoading } = useGlobals();
-
-  useEffect(() => {
-    setIsLoading(isLoading);
-  }, [isLoading, setIsLoading]);
 
   const handlePDF = async () => {
     try {
@@ -72,13 +65,17 @@ const PaymentListView: React.FC<Props> = props => {
 
   if (!usersList) return null;
 
-  const renderTable = () => (
-    <PaymentTable
-      data={usersList}
-      columns={columns}
-      onRowClicked={row => setIdRow(row?.id)}
-    />
-  );
+  const renderTable = () =>
+    isLoading ? (
+      <SkeletonComponent variant="rectangular" height={720} width="100%" />
+    ) : (
+      <PaymentTable
+        data={usersList}
+        columns={columns}
+        onRowClicked={row => setIdRow(row?.id)}
+        progressPending={isLoading}
+      />
+    );
 
   return (
     <Styles className={`PaymentListView`}>

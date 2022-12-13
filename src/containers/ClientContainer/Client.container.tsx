@@ -7,6 +7,7 @@ import IndicatorsClientTwo from "components/clientHome/IndicatorsClientTwo/Indic
 import PanelBannerClient from "components/clientHome/PanelBannerClient/PanelBannerClient";
 // import PaymentRejected from "components/clientHome/PaymentRejected/PaymentRejected";
 // import PaymentSuccess from "components/clientHome/PaymentSuccess/PaymentSuccess";
+import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
 import LayoutContainer from "containers/Layout/Layout.container";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
@@ -23,33 +24,64 @@ const ClientContainerContainer: React.FC<Props> = props => {
   const { data: summaryData, total_debts } = data ?? {};
   if (summaryData) summaryData[0].defaultExpanded = true;
 
+  const renderIndicators = () =>
+    isLoading ? (
+      <>
+        <SkeletonComponent variant="rounded" height={124} width="100%" />
+        <SkeletonComponent variant="rounded" height={124} width="100%" />
+      </>
+    ) : (
+      <>
+        <IndicatorsClientOne />
+        <IndicatorsClientTwo total_debts={total_debts} />
+      </>
+    );
+
+  const renderTable = () =>
+    isLoading ? (
+      <SkeletonComponent variant="rounded" height={400} width="100%" />
+    ) : (
+      <DebtTable
+        data={summaryData ?? []}
+        columns={columns}
+        expandableRows={true}
+        expandOnRowClicked={true}
+        expandableRowsComponent={DebtExpandableRowsComponent}
+        expandableRowExpanded={(row: UserDebt) => row.defaultExpanded}
+        progressPending={isLoading}
+      />
+    );
+
+  const renderCards = () =>
+    isLoading ? (
+      <>
+        <SkeletonComponent variant="rounded" height={280} width="100%" />
+        <SkeletonComponent variant="rounded" height={480} width="100%" />
+      </>
+    ) : (
+      <>
+        <CardImageOne />
+        <CardImageTwo />
+      </>
+    );
+
   return (
     <LayoutContainer>
       <Styles className="ClientContainer">
-        <div className="ClientContainer__section1">
-          <PanelBannerClient />
-          <div className="ClientContainer__section2">
-            <IndicatorsClientOne />
-            <IndicatorsClientTwo total_debts={total_debts} />
+        <div className="ClientContainer__section3">
+          <div className="ClientContainer__section1">
+            <PanelBannerClient />
+            <div className="ClientContainer__section2">
+              {renderIndicators()}
+            </div>
           </div>
           <h2 className="ClientContainer__title">{t.title}</h2>
-          <DebtTable
-            data={summaryData ?? []}
-            columns={columns}
-            expandableRows={true}
-            expandOnRowClicked={true}
-            expandableRowsComponent={DebtExpandableRowsComponent}
-            expandableRowExpanded={(row: UserDebt) => row.defaultExpanded}
-            progressPending={isLoading}
-          />
+          {renderTable()}
           {/* <PaymentSuccess />
           <PaymentRejected /> */}
         </div>
 
-        <div className="ClientContainer__section3">
-          <CardImageOne />
-          <CardImageTwo />
-        </div>
+        <div className="ClientContainer__section4">{renderCards()}</div>
       </Styles>
     </LayoutContainer>
   );
