@@ -11,4 +11,8 @@ export interface GlobalsProviderValue {
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
   selectedIndex: MutableRefObject<number>;
+  paymentStatus: PaymentStatus;
+  setPaymentStatus: Dispatch<SetStateAction<PaymentStatus>>;
 }
+
+export type PaymentStatus = "SUCCESS" | "ERROR" | "NONE";

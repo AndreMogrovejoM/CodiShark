@@ -1,13 +1,18 @@
+import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
 import getI18n from "i18n/i18n.helpers";
 import React from "react";
 
 import InformationClient from "../InformationClient/InformationClient";
+import PaymentRejected from "../PaymentRejected/PaymentRejected";
+import PaymentSuccess from "../PaymentSuccess/PaymentSuccess";
 import Styles from "./DebtExpandableRowsComponent.styles";
 import { DebtExpandableRowsComponentProps as Props } from "./DebtExpandableRowsComponent.types";
 
 const DebtExpandableRowsComponent: React.FC<Props> = props => {
   const { data } = props;
+  const { paymentStatus } = useGlobals();
+  console.log(paymentStatus);
 
   const t = getI18n().global.table.TableDebtUser.TableRowsExpand;
 
@@ -46,8 +51,9 @@ const DebtExpandableRowsComponent: React.FC<Props> = props => {
           dayjs(data?.date_last_contact).format("DD / MM / YYYY")
         )}
       </div>
-
-      <InformationClient userDebt={data} />
+      {paymentStatus === "SUCCESS" && <PaymentSuccess />}
+      {paymentStatus === "ERROR" && <PaymentRejected />}
+      {paymentStatus === "NONE" && <InformationClient userDebt={data} />}
     </Styles>
   );
 };

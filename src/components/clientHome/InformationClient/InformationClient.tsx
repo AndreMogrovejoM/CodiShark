@@ -2,11 +2,13 @@ import iconMasterCardInformation from "assets/images/iconMasterCardInformation.s
 import iconVisaInformation from "assets/images/iconVisaInformation.svg";
 import ImagePayInformation from "assets/images/imagePayInformation.svg";
 import lineInformation from "assets/images/lineInformation.svg";
+import IziPayForm from "components/IziPayForm/IziPayForm";
 import OperationNumberModal from "components/OperationNumberModal/OperationNumberModal";
 import Button from "components/globals/Button/Button";
 import CONSTANTS from "config/constants";
+import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGenerateOperationNumber } from "services/users/users.service.hooks";
 
 import Styles from "./InformationClient.styles";
@@ -18,20 +20,31 @@ const InformationClient: React.FC<Props> = props => {
   const t = useI18n().signIn.InformationClient;
   const { userDebt } = props;
   const [openOperationModal, setOpenOperationModal] = useState(false);
+  const [openIziPayModal, setOpenIziPayModal] = useState(false);
   const [operationNumber, setOperationNumber] = useState<string>();
 
-  const { id, amount_dscto_cancellation } = userDebt ?? {};
+  const { id, amount_cancellation } = userDebt ?? {};
   const { mutateAsync, reset, isLoading } = useGenerateOperationNumber();
+  const { setIsLoading, setPaymentStatus } = useGlobals();
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading, setIsLoading]);
+
+  const handleOpenIziPay = () => {
+    setOpenIziPayModal(!openIziPayModal);
+  };
 
   const handleClick = async () => {
     try {
-      if (amount_dscto_cancellation && id) {
+      if (amount_cancellation && id) {
         await mutateAsync({
-          amount: amount_dscto_cancellation,
+          amount: amount_cancellation,
           debtId: id
         })
           .then(response => {
-            const { operation_number } = response ?? {};
+            const { data } = response ?? {};
+            const { operation_number } = data ?? {};
             setOperationNumber(operation_number);
           })
           .catch();
@@ -39,6 +52,7 @@ const InformationClient: React.FC<Props> = props => {
         reset();
       }
     } catch (error) {
+      setPaymentStatus("ERROR");
       console.log(error);
     }
   };
@@ -70,6 +84,7 @@ const InformationClient: React.FC<Props> = props => {
           className="InformationClient__button"
           variant="contained"
           disabled={isLoading}
+          onClick={handleOpenIziPay}
         >
           <h3 className="InformationClient__text1">
             {t.button.toLocaleUpperCase()}
@@ -105,6 +120,12 @@ const InformationClient: React.FC<Props> = props => {
           </Button>
         </div>
       </div>
+      <IziPayForm
+        open={openIziPayModal}
+        setOpen={setOpenIziPayModal}
+        operationNumber={operationNumber}
+        userDebt={userDebt}
+      />
       <OperationNumberModal
         open={openOperationModal}
         setOpen={setOpenOperationModal}

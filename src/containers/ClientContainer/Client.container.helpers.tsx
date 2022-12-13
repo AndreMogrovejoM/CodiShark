@@ -16,7 +16,7 @@ export const columns: TableColumn<UserDebt>[] = [
     ignoreRowClick: true,
     minWidth: "16rem",
     maxWidth: "16rem",
-    cell: row => <Row content={row?.amount_cancellation} />
+    cell: row => <Row content={row?.capital_debt} />
   },
   {
     center: true,
@@ -33,7 +33,7 @@ export const columns: TableColumn<UserDebt>[] = [
     maxWidth: "16rem",
     cell: row => (
       <RowMiddle
-        price={row?.amount_dscto_cancellation}
+        price={row?.amount_cancellation}
         discount={row?.pct_dscto_cancellation}
       />
     )

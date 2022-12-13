@@ -1802,6 +1802,13 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@lyracom/embedded-form-glue@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@lyracom/embedded-form-glue/-/embedded-form-glue-1.3.0.tgz#b11a7a087b68c67723af4d7fbd83b729fa23962e"
+  integrity sha512-kyyJO9YBrIxOGqgQq8d8enG7wLv/Fe1Mwt5VDU8OnoI75hKEpTXEj++piXzB5h3s35IBIHeyag5vDU4PkMGHgg==
+  dependencies:
+    es6-promise "^4.2.8"
+
 "@mui/base@5.0.0-alpha.105":
   version "5.0.0-alpha.105"
   resolved "https://registry.yarnpkg.com/@mui/base/-/base-5.0.0-alpha.105.tgz#ddf92c86db3355e0fe6886a818be073e2ee9a9f9"
@@ -3921,6 +3928,11 @@ es-to-primitive@^1.2.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+es6-promise@^4.2.8:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
+  integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
 
 esbuild-android-64@0.14.54:
   version "0.14.54"
