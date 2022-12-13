@@ -40,7 +40,7 @@ const SignInAdministrator: React.FC<Props> = props => {
       reset();
       const { status } = response ?? {};
       setIsLoading(false);
-      if (status === 202) {
+      if (status === 202 || status === 200) {
         setUser({ dni: values?.dni });
         setSignInStep(1);
       } else {
