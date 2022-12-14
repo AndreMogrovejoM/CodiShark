@@ -24,6 +24,7 @@ const ClientContainerContainer: React.FC<Props> = props => {
   if (summaryData && summaryData?.length > 0)
     summaryData[0].defaultExpanded = true;
 
+  /* TODO: Delete */
   console.log(buildHeaders());
 
   const renderIndicators = () =>
