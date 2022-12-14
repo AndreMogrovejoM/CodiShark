@@ -1,8 +1,10 @@
 import DetailsPay from "assets/images/detailsPay.svg";
 import Button from "components/globals/Button/Button";
+import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { disabledButton } from "utils/validations.utils";
 
 import Styles from "./OperationDetails.styles";
@@ -11,6 +13,9 @@ import { OperationDetailsProps as Props } from "./OperationDetails.types";
 const OperationDetails: React.FC<Props> = props => {
   const { data } = props;
   const { user } = data ?? {};
+
+  const navigate = useNavigate();
+  const { setOperationUserDebt } = useGlobals();
 
   const t = useI18n().components.OperationalDetails;
 
@@ -43,7 +48,13 @@ const OperationDetails: React.FC<Props> = props => {
     <Button
       variant="contained"
       className={styleClass()}
-      onClick={() => console.log("Ver Comprobante")}
+      onClick={() => {
+        if (data && "debt_id" in data) {
+          // @ts-ignore
+          navigate(`/userPaymentDetails/${data.debt_id}`);
+          setOperationUserDebt(data);
+        }
+      }}
     >
       {t.button}
     </Button>

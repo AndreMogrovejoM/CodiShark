@@ -77,7 +77,7 @@ const Settings: React.FC<Props> = props => {
           <g transform="scale(6.082)">
             <g transform="translate(0,0)">
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d={google2faUrl.split("d=")[1].split(`"`)[1]}
               />
             </g>
