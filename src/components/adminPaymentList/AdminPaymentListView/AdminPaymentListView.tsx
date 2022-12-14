@@ -10,12 +10,12 @@ import { exportOperationsPdf } from "services/administrator/administrator.servic
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 import { Operation } from "services/administrator/administrator.service.types";
 
-import OperationDetails from "../OperationDetails/OperationDetails";
-import { columns } from "./OperationListView.helpers";
-import Styles from "./OperationListView.styles";
-import { OperationListViewProps as Props } from "./OperationListView.types";
+import PaymentDetails from "../PaymentDetails/PaymentDetails";
+import { columns } from "./AdminPaymentListView.helpers";
+import Styles from "./AdminPaymentListView.styles";
+import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
 
-const OperationListView: React.FC<Props> = props => {
+const AdminPaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
   const { data: operationsList } = data ?? {};
 
@@ -48,18 +48,18 @@ const OperationListView: React.FC<Props> = props => {
   };
 
   const renderActions = () => (
-    <div className="OperationListView__container--actions OperationListView__container--separate">
-      <div className="OperationListView__container--button">
+    <div className="AdminPaymentListView__container--actions AdminPaymentListView__container--separate">
+      <div className="AdminPaymentListView__container--button">
         <Button
           variant="contained"
-          className="OperationListView__component--button"
+          className="AdminPaymentListView__component--button"
           onClick={handlePDF}
         >
           {t.buttonPdf}
         </Button>
         <Button
           variant="contained"
-          className="OperationListView__component--button"
+          className="AdminPaymentListView__component--button"
           onClick={handleExcel}
         >
           {t.buttonExcel}
@@ -82,20 +82,20 @@ const OperationListView: React.FC<Props> = props => {
   );
 
   return (
-    <Styles className={`OperationListView `}>
-      <div className="OperationListView__container">
-        <div className="OperationListView__container--separate">
-          <h1 className="OperationListView__text--title">{t.title}</h1>
+    <Styles className={`AdminPaymentListView `}>
+      <div className="AdminPaymentListView__container">
+        <div className="AdminPaymentListView__container--separate">
+          <h1 className="AdminPaymentListView__text--title">{t.title}</h1>
         </div>
 
-        <div className="OperationListView__container--layout">
-          <div className="OperationListView__container--table">
+        <div className="AdminPaymentListView__container--layout">
+          <div className="AdminPaymentListView__container--table">
             {renderActions()}
             {renderTable()}
           </div>
 
-          <div className="OperationListView__container--details">
-            <OperationDetails data={row} />
+          <div className="AdminPaymentListView__container--details">
+            <PaymentDetails data={row} />
           </div>
         </div>
       </div>
@@ -103,6 +103,6 @@ const OperationListView: React.FC<Props> = props => {
   );
 };
 
-OperationListView.defaultProps = {};
+AdminPaymentListView.defaultProps = {};
 
-export default OperationListView;
+export default AdminPaymentListView;

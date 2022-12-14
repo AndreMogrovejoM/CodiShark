@@ -18,9 +18,7 @@ const Client = lazy(() => import("pages/Client.page"));
 const SignInUser = lazy(() => import("pages/signInUser.page"));
 const UserPanel = lazy(() => import("pages/userPanel.page"));
 const Settings = lazy(() => import("pages/settings.page"));
-const UserOperationsPanel = lazy(
-  () => import("pages/userOperationalPanel.page")
-);
+const AdminPaymentList = lazy(() => import("pages/adminPaymentList.page"));
 const UserPaymentDetails = lazy(() => import("pages/userPaymentDetails.page"));
 
 const Router: React.FC<Props> = props => {
@@ -56,7 +54,7 @@ const Router: React.FC<Props> = props => {
       <>
         <Route
           path="/adminPaymentList"
-          element={privateAdminRoute(<UserOperationsPanel />)}
+          element={privateAdminRoute(<AdminPaymentList />)}
         />
         <Route
           path="/adminClientList"

@@ -1,9 +1,9 @@
 import { render } from "setupTests";
 
-import OperationListView from "./OperationListView";
+import AdminPaymentListView from "./AdminPaymentListView";
 
 describe("PaymentListView", () => {
   it("renders with default props", () => {
-    render(<OperationListView />);
+    render(<AdminPaymentListView />);
   });
 });

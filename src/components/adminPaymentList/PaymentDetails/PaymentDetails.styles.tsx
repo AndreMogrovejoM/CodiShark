@@ -1,12 +1,12 @@
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
-import { OperationDetailsStyledProps as Props } from "./OperationDetails.types";
+import { PaymentDetailsStyledProps as Props } from "./PaymentDetails.types";
 
 const { BREAKPOINTS } = CONSTANTS;
 
-const OperationDetailsStyled = styled.div<Props>`
-  .OperationDetails {
+const PaymentDetailsStyled = styled.div<Props>`
+  .PaymentDetails {
     &__container {
       &--separate {
         margin-bottom: 1.6rem;
@@ -86,4 +86,4 @@ const OperationDetailsStyled = styled.div<Props>`
   }
 `;
 
-export default OperationDetailsStyled;
+export default PaymentDetailsStyled;
