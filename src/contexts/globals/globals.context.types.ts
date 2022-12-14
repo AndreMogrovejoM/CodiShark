@@ -1,5 +1,7 @@
-// Interfaces and types from context Globals
 import { Dispatch, MutableRefObject, ReactNode, SetStateAction } from "react";
+
+import { OperationUserDebt } from "./../../services/users/users.service.types";
+// Interfaces and types from context Globals
 
 // Provider Props
 export interface GlobalsProviderProps {
@@ -13,6 +15,8 @@ export interface GlobalsProviderValue {
   selectedIndex: MutableRefObject<number>;
   paymentStatus: PaymentStatus;
   setPaymentStatus: Dispatch<SetStateAction<PaymentStatus>>;
+  operationUserDebt: OperationUserDebt | undefined;
+  setOperationUserDebt: Dispatch<SetStateAction<OperationUserDebt | undefined>>;
 }
 
 export type PaymentStatus = "SUCCESS" | "ERROR" | "NONE";
