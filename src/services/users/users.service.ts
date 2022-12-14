@@ -69,3 +69,13 @@ export const exportOperationPdf = async (
     throw new Error(e.message);
   }
 };
+
+export const sendOperationEmail = async (operationId?: number) => {
+  try {
+    return await axiosDefault.get(`/operations/sendMail/${operationId}`, {
+      headers: buildHeaders()
+    });
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};

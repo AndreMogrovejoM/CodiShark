@@ -49,7 +49,10 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     button: true,
     minWidth: "150px",
     cell: row => (
-      <ButtonRowsComponent disabled={disabledButton(row?.payment_status)} />
+      <ButtonRowsComponent
+        disabled={disabledButton(row?.payment_status)}
+        data={row}
+      />
     )
   },
   {

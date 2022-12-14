@@ -1,27 +1,30 @@
 import Button from "components/globals/Button/Button";
 import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
 import useAuth from "contexts/auth/auth.hooks";
+import useGlobals from "contexts/globals/globals.hooks";
+import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { sendOperationEmail } from "services/users/users.service";
 import { exportOperationPdf } from "services/users/users.service";
+import Swal from "sweetalert2";
 
 import Styles from "./ProofPayment.styles";
 import { ProofPaymentProps as Props } from "./ProofPayment.types";
 
 const ProofPayment: React.FC<Props> = props => {
-  const { userDebt, isLoading } = props;
   const t = useI18n().pages.AdminPaymentDetails.proof;
+  const { operationUserDebt: userDebt, isLoading } = useGlobals();
   const { user } = useAuth();
+
   const { first_name, last_name } = user ?? {};
   const navigate = useNavigate();
 
-  const { debt } = userDebt ?? {};
-
-  const { payment_method, operation_date, operation_time, amount_paid } =
-    userDebt ?? {};
-  const { id, amount_dscto_cancellation, product, amount_cancellation } =
+  const { debt, operation_number, amount_paid, id } = userDebt ?? {};
+  const { payment_method, operation_date, operation_time } = userDebt ?? {};
+  const { amount_dscto_cancellation, product, amount_cancellation } =
     debt ?? {};
   const { capital_debt, currency, banking_entity } = debt ?? {};
 
@@ -44,7 +47,7 @@ const ProofPayment: React.FC<Props> = props => {
         <p>{product ?? "-"}</p>
         <p>{currency ?? "-"}</p>
         <p>{payment_method ?? "-"}</p>
-        <p>{operation_date ?? "-"}</p>
+        <p>{dayjs(operation_date).format("YYYY-MM-DD") ?? "-"}</p>
         <p>{operation_time ?? "-"}</p>
       </div>
     </div>
@@ -56,7 +59,9 @@ const ProofPayment: React.FC<Props> = props => {
         <p className="ProofPayment__text--paragraph">
           {t.paymentcode.toLocaleUpperCase()}
         </p>
-        <p className="ProofPayment__text--paragraph-superBold">P-25148</p>
+        <p className="ProofPayment__text--paragraph-superBold">
+          {`P-${operation_number}` ?? "-"}
+        </p>
       </div>
       <div className="ProofPayment__separator--paragraph">
         <div className="ProofPayment__text--paragraph ProofPayment__text--paragraph-bold ProofPayment__text--paragraph-blue">
@@ -80,7 +85,23 @@ const ProofPayment: React.FC<Props> = props => {
   const handlePDF = async () => {
     try {
       const response = await exportOperationPdf(id);
+      // TODO: Diccionarios
+      Swal.fire(
+        "Exito",
+        "El documento se descargará en breves momentos.",
+        "success"
+      );
       FileDownload(response, "report.pdf");
+    } catch (error) {
+      console.log("Error at trying to print pdf");
+    }
+  };
+
+  const handleMail = async () => {
+    try {
+      await sendOperationEmail(id);
+      // TODO: Diccionarios
+      Swal.fire("Exito", "El correo fue enviado con éxito", "success");
     } catch (error) {
       console.log("Error at trying to print pdf");
     }
@@ -102,8 +123,7 @@ const ProofPayment: React.FC<Props> = props => {
         <Button
           variant="contained"
           className={styleClass()}
-          // TODO: Pending
-          onClick={() => console.log("excel")}
+          onClick={handleMail}
         >
           {t.buttons.email}
         </Button>

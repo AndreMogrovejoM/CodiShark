@@ -1,5 +1,6 @@
 import IconUserPhoto from "assets/images/iconUserPhoto.svg";
 import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
+import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
@@ -9,8 +10,7 @@ import { PaymentDetailsProps as Props } from "./PaymentDetails.types";
 
 const PaymentDetails: React.FC<Props> = props => {
   const t = useI18n().pages.AdminPaymentDetails.card;
-  /* TODO: Pending */
-  const isLoading = false;
+  const { isLoading } = useGlobals();
 
   const renderCard = () => (
     <div className="PaymentDetails__component--card">
@@ -40,7 +40,7 @@ const PaymentDetails: React.FC<Props> = props => {
     <Styles className={`PaymentDetails`}>
       <div className="PaymentDetails__container--components">
         {renderCard()}
-        <ProofPayment isLoading={isLoading} />
+        <ProofPayment />
       </div>
     </Styles>
   );

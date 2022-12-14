@@ -1,19 +1,28 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import useGlobals from "contexts/globals/globals.hooks";
 import getI18n from "i18n/i18n.helpers";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Styles from "./ButtonRowsComponent.styles";
 import { ButtonRowsComponentProps as Props } from "./ButtonRowsComponent.types";
 
 // TODO: Pending get data payment
 const ButtonRowsComponent: React.FC<Props> = props => {
-  const { icon = false, disabled } = props;
+  const { icon = false, disabled, data } = props;
   const [open, setOpen] = useState(false);
   const t = getI18n().global.table.TablePaymentAdmin.TableRows;
+  const navigate = useNavigate();
+  const { setOperationUserDebt } = useGlobals();
 
   const handleExpandRow = () => {
     setOpen(!open);
+    console.log(data);
+    if ("debt_id" in data) {
+      navigate(`/userPaymentDetails/${data?.debt_id}`);
+      setOperationUserDebt(data);
+    }
   };
 
   const renderIcon = () => (open ? <RemoveIcon /> : <AddIcon />);

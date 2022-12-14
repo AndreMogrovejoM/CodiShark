@@ -38,10 +38,13 @@ const Router: React.FC<Props> = props => {
     return (
       <>
         <Route path="/" element={<Client />} />
-
         <Route
-          path="/userPaymentDetails"
+          path="/userPaymentDetails/:id"
           element={privateRoute(<UserPaymentDetails />)}
+        />
+        <Route
+          path="/userPaymentList"
+          element={privateRoute(<AdminPaymentListPage />)}
         />
       </>
     );
@@ -74,7 +77,6 @@ const Router: React.FC<Props> = props => {
         {userRoutes()}
         {noAuthRoutes()}
         {adminRoutes()}
-        <Route path="/userPaymentList" element={<AdminPaymentListPage />} />
       </Routes>
     </Suspense>
   );

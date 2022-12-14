@@ -9,7 +9,7 @@ import Styles from "./AdminPaymentListView.styles";
 import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
 
 const AdminPaymentListView: React.FC<Props> = props => {
-  const { data, isLoading } = useFetchUserOperations(0, 10);
+  const { data, isLoading } = useFetchUserOperations(0, 50);
   const { data: paymentList } = data ?? {};
 
   const renderTable = () =>
