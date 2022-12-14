@@ -1,9 +1,9 @@
-// Interfaces and types from component AdminPaymentListView
+// Interfaces and types from component UserPaymentListView
 
 // Component Props
-export interface AdminPaymentListViewProps {}
+export interface UserPaymentListViewProps {}
 
 // Styled Component Props
-export interface AdminPaymentListViewStyledProps {
+export interface UserPaymentListViewStyledProps {
   className: string;
 }

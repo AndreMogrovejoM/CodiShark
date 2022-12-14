@@ -6,9 +6,9 @@ import ExpandableRowsComponent from "../ExpandableRowsComponent/ExpandableRowsCo
 import PaymentTable from "../PaymentTable/PaymentTable";
 import { columns } from "./UserPaymentListView.helpers";
 import Styles from "./UserPaymentListView.styles";
-import { AdminPaymentListViewProps as Props } from "./UserPaymentListView.types";
+import { UserPaymentListViewProps as Props } from "./UserPaymentListView.types";
 
-const AdminPaymentListView: React.FC<Props> = props => {
+const UserPaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchUserOperations(0, 50);
   const { data: paymentList } = data ?? {};
 
@@ -26,9 +26,9 @@ const AdminPaymentListView: React.FC<Props> = props => {
       />
     );
 
-  return <Styles className={`AdminPaymentListView `}>{renderTable()}</Styles>;
+  return <Styles className={`UserPaymentListView `}>{renderTable()}</Styles>;
 };
 
-AdminPaymentListView.defaultProps = {};
+UserPaymentListView.defaultProps = {};
 
-export default AdminPaymentListView;
+export default UserPaymentListView;
