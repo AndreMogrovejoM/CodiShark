@@ -1,7 +1,7 @@
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
-import { AdminPaymentListViewStyledProps as Props } from "./AdminPaymentListView.types";
+import { AdminPaymentListViewStyledProps as Props } from "./UserPaymentListView.types";
 
 const { BREAKPOINTS } = CONSTANTS;
 

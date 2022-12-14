@@ -1,6 +1,6 @@
 import { render } from "setupTests";
 
-import AdminPaymentListContainer from "./AdminPaymentList.container";
+import AdminPaymentListContainer from "./UserPaymentList.container";
 
 describe("AdminPaymentListContainer container", () => {
   it("renders with default props", () => {

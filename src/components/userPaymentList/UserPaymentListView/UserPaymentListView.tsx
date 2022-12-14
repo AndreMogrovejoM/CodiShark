@@ -4,9 +4,9 @@ import { useFetchUserOperations } from "services/users/users.service.hooks";
 
 import ExpandableRowsComponent from "../ExpandableRowsComponent/ExpandableRowsComponent";
 import PaymentTable from "../PaymentTable/PaymentTable";
-import { columns } from "./AdminPaymentListView.helpers";
-import Styles from "./AdminPaymentListView.styles";
-import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
+import { columns } from "./UserPaymentListView.helpers";
+import Styles from "./UserPaymentListView.styles";
+import { AdminPaymentListViewProps as Props } from "./UserPaymentListView.types";
 
 const AdminPaymentListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchUserOperations(0, 50);
