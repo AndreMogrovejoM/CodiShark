@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useSignInAdmin } from "services/auth/auth.service.hooks";
 import { Login } from "services/auth/auth.service.types";
+import { useLocalStorage } from "utils/useLocalStorage";
 import { validLoginUser, validPassword } from "utils/validations.utils";
 
 import Styles from "./SignInAdministrator.styles";
@@ -28,6 +29,8 @@ const SignInAdministrator: React.FC<Props> = props => {
   const [isLoading, setIsLoading] = useState(false);
   const { setSignInStep, setUser } = useAuth();
   const { mutateAsync, reset } = useSignInAdmin();
+  const [, setLocalUser] = useLocalStorage("user");
+
   const t = useI18n().signIn.SignInAdministrator.step1;
 
   const submitHandler = async (values: FieldValues) => {
@@ -44,7 +47,8 @@ const SignInAdministrator: React.FC<Props> = props => {
         const { user } = response ?? {};
         setCookie("token", response?.access_token);
         setUser(user);
-        // TODO: Add user to local storage
+        // TODO: Pending
+        setLocalUser(user);
         navigate(ADMIN_ENTRY_PATH);
       } else {
         const { status } = response ?? {};
