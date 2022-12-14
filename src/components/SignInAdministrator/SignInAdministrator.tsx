@@ -10,6 +10,7 @@ import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { setCookie } from "react-use-cookie";
 import { useSignInAdmin } from "services/auth/auth.service.hooks";
 import { Login } from "services/auth/auth.service.types";
 import { validLoginUser, validPassword } from "utils/validations.utils";
@@ -38,14 +39,19 @@ const SignInAdministrator: React.FC<Props> = props => {
       };
       const response = await mutateAsync(data);
       reset();
-      const { status } = response ?? {};
       setIsLoading(false);
-      if (status === 202 || status === 200) {
-        setUser({ dni: values?.dni });
-        setSignInStep(1);
-      } else {
-        setSignInStep(0);
+      if ("access_token" in response) {
+        const { user } = response ?? {};
+        setCookie("token", response?.access_token);
+        setUser(user);
+        // TODO: Add user to local storage
         navigate(ADMIN_ENTRY_PATH);
+      } else {
+        const { status } = response ?? {};
+        if (status === 202) {
+          setUser({ dni: values?.dni });
+          setSignInStep(1);
+        }
       }
     } catch {
       setIsLoading(false);

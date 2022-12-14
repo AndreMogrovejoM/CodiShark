@@ -13,15 +13,17 @@ import { ProofPaymentProps as Props } from "./ProofPayment.types";
 const ProofPayment: React.FC<Props> = props => {
   const { userDebt, isLoading } = props;
   const t = useI18n().pages.AdminPaymentDetails.proof;
-  //TODO: Change auth user by userId from debt
   const { user } = useAuth();
   const { first_name, last_name } = user ?? {};
   const navigate = useNavigate();
 
-  //TODO: Check fields with nicolas
-  const { id, amount_dscto_cancellation } = userDebt ?? {};
-  const { capital_debt, currency, banking_entity, pct_dscto_cancellation } =
+  const { debt } = userDebt ?? {};
+
+  const { payment_method, operation_date, operation_time, amount_paid } =
     userDebt ?? {};
+  const { id, amount_dscto_cancellation, product, amount_cancellation } =
+    debt ?? {};
+  const { capital_debt, currency, banking_entity } = debt ?? {};
 
   const renderDetails = () => (
     <div className="ProofPayment__separator--paragraph">
@@ -39,11 +41,11 @@ const ProofPayment: React.FC<Props> = props => {
       <div className="ProofPayment__text--paragraph">
         <p>{`${first_name} ${last_name}`}</p>
         <p>{banking_entity ?? "-"}</p>
-        <p>Préstamo personal</p>
+        <p>{product ?? "-"}</p>
         <p>{currency ?? "-"}</p>
-        <p>Tarjeta de débito</p>
-        <p>27-03-2022</p>
-        <p>14:36</p>
+        <p>{payment_method ?? "-"}</p>
+        <p>{operation_date ?? "-"}</p>
+        <p>{operation_time ?? "-"}</p>
       </div>
     </div>
   );
@@ -67,11 +69,9 @@ const ProofPayment: React.FC<Props> = props => {
         {/* TODO: Pending response from backend. */}
         <div className="ProofPayment__text--paragraph">
           <p>{`S./ ${capital_debt ?? 0}`}</p>
-          <p>{`S./ ${pct_dscto_cancellation ?? 0}`}</p>
-          <p>{`S./ ${
-            (capital_debt ?? 0) - (amount_dscto_cancellation ?? 0)
-          }`}</p>
           <p>{`S./ ${amount_dscto_cancellation ?? 0}`}</p>
+          <p>{`S./ ${amount_cancellation ?? 0}`}</p>
+          <p>{`S./ ${amount_paid ?? 0}`}</p>
         </div>
       </div>
     </div>

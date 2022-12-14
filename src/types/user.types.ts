@@ -28,6 +28,7 @@ export interface User {
   status?: number;
   created_at?: string;
   updated_at?: string;
+  google2fa_enable?: boolean;
 }
 
 export interface TemporalAdminUser extends User {

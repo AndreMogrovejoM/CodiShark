@@ -8,7 +8,7 @@ const es: Dictionary = {
       title: "Configuración de administrator",
       success: "Éxito",
       confirm: "Confirmar",
-      cancel: "Cancelar",
+      cancel: "Desactivar",
       note: "Nota: Realizar este procedimiento una unica vez.",
       confirmed: "Se confirmó el registro de 2FA.",
       cancelled: "Se canceló el registro de 2FA.",

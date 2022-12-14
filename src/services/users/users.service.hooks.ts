@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
-import { Status } from "services/administrator/administrator.service.types";
 
 import { generateOperationNumber } from "./users.service";
 import { fetchUserOperations, userDebts } from "./users.service";
@@ -16,11 +15,11 @@ export const useUserDebts = () => {
   });
 };
 
-export const useFetchUserOperations = (status?: Status, take = 4) => {
+export const useFetchUserOperations = (skip: 0, take = 10) => {
   const token = getCookie("token");
   return useQuery(
-    ["user-operations-list", status, take],
-    () => fetchUserOperations(status, take),
+    ["user-operations-list", skip, take],
+    () => fetchUserOperations(skip, take),
     {
       enabled: !!token,
       staleTime: 15 * 1000 * 60

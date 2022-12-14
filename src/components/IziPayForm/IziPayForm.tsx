@@ -19,8 +19,8 @@ const IziPayForm: React.FC<Props> = props => {
   const { id: debtId, amount_cancellation } = userDebt ?? {};
   const { mutateAsync, isLoading } = useGenerateOperationNumber();
   const { mutateAsync: validateMutation } = useValidateIziPayPayment();
-  const { user } = useAuth();
   const { setIsLoading, setPaymentStatus } = useGlobals();
+  const { user } = useAuth();
 
   const handleInitIziPay = useCallback(async () => {
     let formTokenValue: string | undefined = undefined;
@@ -28,7 +28,6 @@ const IziPayForm: React.FC<Props> = props => {
     if (!user || !debtId || !amount_cancellation) return;
 
     try {
-      // Generate the form token
       await mutateAsync({
         amount: amount_cancellation,
         debtId,
@@ -41,35 +40,32 @@ const IziPayForm: React.FC<Props> = props => {
           const { formToken } = answer ?? {};
           operationNumberValue = operation_number;
           formTokenValue = formToken;
-          return KRGlue.loadLibrary(
-            REACT_APP_IZI_PAY_URL,
-            IZI_PAY_PUBLIC_KEY
-          ); /* Load the remote library */
+          return KRGlue.loadLibrary(REACT_APP_IZI_PAY_URL, IZI_PAY_PUBLIC_KEY);
         })
         .then(({ KR }) =>
           KR.setFormConfig({
-            /* set the minimal configuration */
             formToken: formTokenValue,
-            "kr-language": "es-PE" /* to update initialization parameter */
+            "kr-language": "es-PE"
           })
         )
         .then(({ KR }) =>
           KR.onSubmit(paymentData => {
+            const { clientAnswer, hash } = paymentData ?? {};
             if (!operationNumberValue)
               throw new Error("Operation Number Error");
             validateMutation({
               debtId,
               operationNumber: operationNumberValue,
-              amount: 322.22
+              amount: amount_cancellation,
+              rawClientAnswer: JSON.stringify(clientAnswer),
+              hash
             });
             setOpen(false);
             setPaymentStatus("SUCCESS");
-            return false; // Return false to prevent the redirection
+            return false;
           })
-        ) // Custom payment callback
-        .then(({ KR }) =>
-          KR.addForm("#myPaymentForm")
-        ) /* add a payment form  to myPaymentForm div*/
+        )
+        .then(({ KR }) => KR.addForm("#myPaymentForm"))
         .then(({ KR, result }) => {
           KR.showForm(result.formId);
           setIsLoading(false);
@@ -79,6 +75,8 @@ const IziPayForm: React.FC<Props> = props => {
         });
     } catch (error: any) {
       console.log(error.response);
+      setOpen(false);
+      setIsLoading(false);
       setPaymentStatus("ERROR");
     }
   }, [

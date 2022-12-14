@@ -37,12 +37,16 @@ export const useFetchAdministratorSecondPanel = (
   );
 };
 
-export const useFetchAdministratorUsers = (rol = 1, take = 4) => {
+export const useFetchAdministratorUsers = (
+  rol = 1,
+  take = 4,
+  search: string
+) => {
   const token = getCookie("token");
 
   return useQuery(
-    ["users-list", rol, take],
-    () => fetchAdministratorUsers(rol, take),
+    ["users-list", rol, take, search],
+    () => fetchAdministratorUsers(rol, take, search),
     {
       enabled: !!token,
       staleTime: 15 * 1000 * 60

@@ -5,6 +5,7 @@ import { LoginResponse, TemporalAdminUser, User } from "types/user.types";
 import axiosDefault from "utils/axios.utils";
 
 import { Login, SignInAdministratorResponse } from "./auth.service.types";
+import { SignInAdministratorResponseNo2FA } from "./auth.service.types";
 import { RegisterUserConfig, VerifyMethod } from "./auth.service.types";
 
 const { API } = CONSTANTS;
@@ -12,12 +13,13 @@ const { REACT_APP_API_URL } = API;
 
 export const signInAdmin = async (
   data: Login
-): Promise<SignInAdministratorResponse> => {
+): Promise<SignInAdministratorResponse | SignInAdministratorResponseNo2FA> => {
   try {
-    return await axiosDefault.post(
+    const response = await axiosDefault.post(
       `${REACT_APP_API_URL}/admin/auth/login`,
       data
     );
+    return response?.data;
   } catch (e: any) {
     throw new Error(e.message);
   }

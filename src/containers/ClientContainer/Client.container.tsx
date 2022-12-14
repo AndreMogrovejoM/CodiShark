@@ -11,6 +11,7 @@ import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { useUserDebts } from "services/users/users.service.hooks";
 import { UserDebt } from "services/users/users.service.types";
+import { buildHeaders } from "utils/axios.utils";
 
 import { columns } from "./Client.container.helpers";
 import Styles from "./Client.styles";
@@ -20,7 +21,10 @@ const ClientContainerContainer: React.FC<Props> = props => {
   const t = useI18n().signIn.ClientContainer;
   const { data, isLoading } = useUserDebts();
   const { data: summaryData, total_debts } = data ?? {};
-  if (summaryData) summaryData[0].defaultExpanded = true;
+  if (summaryData && summaryData?.length > 0)
+    summaryData[0].defaultExpanded = true;
+
+  console.log(buildHeaders());
 
   const renderIndicators = () =>
     isLoading ? (

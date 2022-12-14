@@ -9,7 +9,7 @@ const en = {
       title: "Administrator settings",
       success: "Success",
       confirm: "Confirm",
-      cancel: "Cancel",
+      cancel: "Desactive",
       note: "Note: Make this procedure only one time.",
       confirmed: "2FA procedure confirmed.",
       cancelled: "2FA procedure cancelled.",

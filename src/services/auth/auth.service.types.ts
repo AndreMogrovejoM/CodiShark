@@ -20,6 +20,13 @@ export interface SignInAdministratorResponse {
   data: User;
 }
 
+export interface SignInAdministratorResponseNo2FA {
+  access_token: string;
+  expires_in: number;
+  token_type: string;
+  user: User;
+}
+
 export interface RegisterUserConfig {
   dni: string;
   cod_verifier: number;

@@ -6,12 +6,17 @@ import { signInUserStep2, signInUserStep3 } from "./auth.service";
 import { signInAdminStep2 } from "./auth.service";
 import { Login, VerifyMethod } from "./auth.service.types";
 import { SignInAdministratorResponse } from "./auth.service.types";
+import { SignInAdministratorResponseNo2FA } from "./auth.service.types";
 import { RegisterUserConfig } from "./auth.service.types";
 
 export const useSignInAdmin = () => {
   const queryClient = useQueryClient();
 
-  return useMutation<SignInAdministratorResponse, unknown, Login>(signInAdmin, {
+  return useMutation<
+    SignInAdministratorResponse | SignInAdministratorResponseNo2FA,
+    unknown,
+    Login
+  >(signInAdmin, {
     // When mutate is called:
     onMutate: async () => {
       // Cancel any outgoing refetch (so they don't overwrite our optimistic update)

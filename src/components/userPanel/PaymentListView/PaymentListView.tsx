@@ -15,7 +15,8 @@ import Styles from "./PaymentListView.styles";
 import { PaymentListViewProps as Props } from "./PaymentListView.types";
 
 const PaymentListView: React.FC<Props> = props => {
-  const { data, isLoading } = useFetchAdministratorUsers(1, 50);
+  const [query, setQuery] = useState("");
+  const { data, isLoading } = useFetchAdministratorUsers(1, 50, query);
   const { data: usersList } = data ?? {};
   const t = useI18n().pages.UserPayPanel;
 

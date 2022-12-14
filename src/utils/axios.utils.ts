@@ -6,8 +6,6 @@ const { API } = CONSTANTS;
 const { DEFAULT_REQUEST_TIMEOUT, INCLUDED_LOGGER_ENVS } = API;
 const { EXCLUDED_LOGGER_STATUS_CODES } = API;
 const { REACT_APP_API_URL, REACT_APP_PLATFORM } = API;
-const { IZI_PAY_USER_NAME } = API;
-const { IZI_PAY_USER_PASSWORD } = API;
 const { REACT_APP_IZI_PAY_URL } = API;
 
 const axiosDefault = axios.create({
@@ -60,13 +58,6 @@ export const axiosBasic = axios.create({
     "Content-Type": "application/x-www-form-urlencoded"
   }
 });
-
-export const buildBasicAuth = () => {
-  return {
-    username: IZI_PAY_USER_NAME,
-    password: IZI_PAY_USER_PASSWORD
-  };
-};
 
 export const buildHeaders = () => {
   return {

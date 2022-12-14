@@ -48,11 +48,12 @@ export const fetchAdministratorSecondPanel = async (
 
 export const fetchAdministratorUsers = async (
   rol: number,
-  take: number
+  take: number,
+  search = ""
 ): Promise<UsersListResponse> => {
   try {
     const response = await axiosDefault.get(
-      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}`,
+      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}&search=${search}`,
       {
         headers: buildHeaders()
       }

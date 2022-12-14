@@ -1,4 +1,5 @@
 import Button from "components/globals/Button/Button";
+import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useEffect, useState } from "react";
@@ -15,8 +16,10 @@ const Settings: React.FC<Props> = props => {
   const { mutateAsync, reset, isLoading } = useGenerate2fa();
   const [google2faUrl, setGoogle2faUrl] = useState("");
   const [secretCode, setSecretCode] = useState("");
+  const { user } = useAuth();
   const { setIsLoading } = useGlobals();
   const t = useI18n().global.settings;
+  const { google2fa_enable } = user ?? {};
 
   useOnMount(() => {
     (async () => {
@@ -35,6 +38,7 @@ const Settings: React.FC<Props> = props => {
 
   const handleCancel = async () => {
     try {
+      // TODO: poner mensaje de confirmacion
       Swal.fire(t.success, t.cancelled, "success");
       await deactivate2fa().catch();
     } catch (error) {
@@ -45,7 +49,8 @@ const Settings: React.FC<Props> = props => {
   const handleConfirm = async () => {
     try {
       Swal.fire(t.success, t.confirmed, "success");
-      await activate2fa().catch();
+      if (!google2fa_enable) await activate2fa().catch();
+      // TODO: dejar que el usuario actualizar el codigo, y volver a generalo
     } catch (error) {
       console.warn(error);
     }
@@ -80,9 +85,11 @@ const Settings: React.FC<Props> = props => {
         </svg>
       )}
       <div className="Settings__buttons">
-        <Button variant="outlined" onClick={handleCancel} fullWidth>
-          {t.cancel}
-        </Button>
+        {google2fa_enable && (
+          <Button variant="outlined" onClick={handleCancel} fullWidth>
+            {t.cancel}
+          </Button>
+        )}
         <Button variant="contained" onClick={handleConfirm} fullWidth>
           <p className="Settings__p">{t.confirm}</p>
         </Button>

@@ -15,13 +15,11 @@ const disabledButton = (value: PaymentStatus) => {
 export const columns: TableColumn<OperationUserDebt>[] = [
   {
     name: t.concept,
-    selector: row => row?.debt?.banking_entity ?? "",
+    selector: row => row?.debt?.product ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => (
-      <Row content={`${row?.debt?.banking_entity ?? "-"}`} bold={true} />
-    )
+    cell: row => <Row content={`${row?.debt?.product ?? "-"}`} bold={true} />
   },
   {
     name: t.originalAmount,
@@ -49,6 +47,7 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     ignoreRowClick: true,
     cell: row => <Row content={row?.operation_date ?? ""} />
   },
+  // TODO: Add state
   {
     name: t.actions,
     center: true,

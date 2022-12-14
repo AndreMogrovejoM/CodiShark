@@ -25,11 +25,10 @@ const CONSTANTS = {
   API: {
     REACT_APP_API_URL: "https://cobranza.testcodishark.com/public/api",
     REACT_APP_IZI_PAY_URL: "https://api.micuentaweb.pe/",
-    IZI_PAY_USER_NAME: "89289758",
-    IZI_PAY_USER_PASSWORD:
-      "testpassword_7vAtvN49E8Ad6e6ihMqIOvOHC6QV5YKmIXgxisMm0V7Eq",
     IZI_PAY_PUBLIC_KEY:
-      "89289758:testpublickey_TxzPjl9xKlhM0a6tfSVNilcLTOUZ0ndsTogGTByPUATcE",
+      "67864310:testpublickey_el7H0znnVLhiHjlsHO6cnKohaT7r6KRJ9E8d9DSfrO6d7",
+    IZI_PAY_PUBLIC_KEY_PROD:
+      "67864310:publickey_bvOFVr5D47J1SyDo0kiDq7UpyfhJx5Jf2Jyhbdpr5scsw",
     REACT_APP_PLATFORM: "WEB",
     // Mock services, change to false if you don't want to mock
     MOCK_SERVICES: false,

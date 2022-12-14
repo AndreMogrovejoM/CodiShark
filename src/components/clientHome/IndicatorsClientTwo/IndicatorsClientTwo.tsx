@@ -13,7 +13,7 @@ const IndicatorsClientTwo: React.FC<Props> = props => {
       <div className="IndicatorsClientTwo__component--card">
         <h2 className="IndicatorsClientTwo__text--bold">{t.debt}</h2>
         <h2 className="IndicatorsClientTwo__text--blue">{`S/. ${
-          total_debts!.toFixed(2) ?? ""
+          total_debts?.toFixed(2) ?? ""
         }`}</h2>
       </div>
     </Styles>

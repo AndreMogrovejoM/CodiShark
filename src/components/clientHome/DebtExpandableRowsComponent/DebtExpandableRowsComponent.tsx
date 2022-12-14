@@ -12,7 +12,6 @@ import { DebtExpandableRowsComponentProps as Props } from "./DebtExpandableRowsC
 const DebtExpandableRowsComponent: React.FC<Props> = props => {
   const { data } = props;
   const { paymentStatus } = useGlobals();
-  console.log(paymentStatus);
 
   const t = getI18n().global.table.TableDebtUser.TableRowsExpand;
 
