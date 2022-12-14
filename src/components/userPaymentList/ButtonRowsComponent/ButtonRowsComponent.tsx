@@ -17,7 +17,6 @@ const ButtonRowsComponent: React.FC<Props> = props => {
 
   const handleExpandRow = () => {
     setOpen(!open);
-    console.log(data);
     if ("debt_id" in data) {
       navigate(`/userPaymentDetails/${data?.debt_id}`);
       setOperationUserDebt(data);
