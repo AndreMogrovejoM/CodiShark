@@ -76,6 +76,7 @@ bundle
 
 # misc
 .DS_Store
+.env
 .env*.local
 .env.stag*
 .env.prod*
