@@ -1,8 +1,10 @@
 // Interfaces and types from component OperationDetails
 
+import { Operation } from "services/administrator/administrator.service.types";
+
 // Component Props
 export interface OperationDetailsProps {
-  id: number;
+  data: Operation | undefined;
 }
 
 // Styled Component Props

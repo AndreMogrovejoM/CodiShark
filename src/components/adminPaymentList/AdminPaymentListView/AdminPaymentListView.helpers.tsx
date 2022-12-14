@@ -1,16 +1,12 @@
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { OperationUserDebt } from "services/users/users.service.types";
-import { PaymentStatus } from "services/users/users.service.types";
+import { disabledButton } from "utils/validations.utils";
 
 import ButtonRowsComponent from "../ButtonRowsComponent/ButtonRowsComponent";
 import { Row } from "../PaymentTable/PaymentTable.helpers";
 
 const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
-
-const disabledButton = (value: PaymentStatus) => {
-  return value !== "Pagado";
-};
 
 export const columns: TableColumn<OperationUserDebt>[] = [
   {
@@ -47,7 +43,6 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     ignoreRowClick: true,
     cell: row => <Row content={row?.operation_date ?? ""} />
   },
-  // TODO: Add state
   {
     name: t.actions,
     center: true,

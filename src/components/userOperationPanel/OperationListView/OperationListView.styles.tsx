@@ -73,6 +73,12 @@ const OperationListViewStyled = styled.div<Props>`
         font-size: 1rem;
         line-height: 1.6rem;
         border-radius: 0.8rem;
+
+        &-disabled {
+          background-color: var(--palette-greyBackground);
+          opacity: 0.8;
+          pointer-events: none;
+        }
       }
     }
 

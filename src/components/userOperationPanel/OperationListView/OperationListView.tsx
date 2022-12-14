@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import { exportOperationsExcel } from "services/administrator/administrator.service";
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
+import { Operation } from "services/administrator/administrator.service.types";
 
 import OperationDetails from "../OperationDetails/OperationDetails";
 import { columns } from "./OperationListView.helpers";
@@ -18,9 +19,7 @@ const OperationListView: React.FC<Props> = props => {
   const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
   const { data: operationsList } = data ?? {};
 
-  // TODO: Pending
-  const [idRow, setIdRow] = useState(0);
-  console.log("🚀 ~ file: PaymentListView.tsx ~ line 23 ~ idRow", idRow);
+  const [row, setRow] = useState<Operation>();
 
   const t = useI18n().pages.UserOperationPanel;
 
@@ -77,7 +76,7 @@ const OperationListView: React.FC<Props> = props => {
     <PaymentTable
       data={operationsList}
       columns={columns}
-      onRowClicked={row => setIdRow(row?.id)}
+      onRowClicked={(row: Operation) => setRow(row)}
       progressPending={isLoading}
     />
   );
@@ -96,8 +95,7 @@ const OperationListView: React.FC<Props> = props => {
           </div>
 
           <div className="OperationListView__container--details">
-            {/* TODO: Pass data or id  */}
-            <OperationDetails id={idRow} />
+            <OperationDetails data={row} />
           </div>
         </div>
       </div>

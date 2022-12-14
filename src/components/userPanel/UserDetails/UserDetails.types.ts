@@ -1,8 +1,9 @@
+import { User } from "types/user.types";
 // Interfaces and types from component UserDetails
 
 // Component Props
 export interface UserDetailsProps {
-  id: number;
+  data: User | undefined;
 }
 
 // Styled Component Props

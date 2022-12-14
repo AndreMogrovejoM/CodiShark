@@ -1,13 +1,16 @@
 import DetailsPay from "assets/images/detailsPay.svg";
 import Button from "components/globals/Button/Button";
+import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { disabledButton } from "utils/validations.utils";
 
 import Styles from "./OperationDetails.styles";
 import { OperationDetailsProps as Props } from "./OperationDetails.types";
 
 const OperationDetails: React.FC<Props> = props => {
-  const { id } = props;
+  const { data } = props;
+  const { user } = data ?? {};
 
   const t = useI18n().components.OperationalDetails;
 
@@ -28,11 +31,18 @@ const OperationDetails: React.FC<Props> = props => {
     </>
   );
 
+  const styleClass = () =>
+    `OperationListView__component--button  ${
+      disabledButton(data?.payment_status)
+        ? "OperationListView__component--button-disabled"
+        : ""
+    }`;
+
   // TODO: PENDING
   const renderActions = () => (
     <Button
       variant="contained"
-      className="OperationListView__component--button"
+      className={styleClass()}
       onClick={() => console.log("Ver Comprobante")}
     >
       {t.button}
@@ -43,49 +53,43 @@ const OperationDetails: React.FC<Props> = props => {
     <div className="OperationDetails__component--details OperationDetails__component--details-component OperationDetails__component--details-operation">
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.customerName}
-        {/* TODO: Pending */}
         <span className="OperationDetails__text--paragraph OperationDetails__text--paragraph-gray">
-          Armando Rodriguez Guerra
+          {`${user?.first_name} ${user?.last_name} ${user?.mother_last_name}`}
         </span>
       </p>
 
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.amountPaid}
-        {/* TODO: Pending */}
         <span className="OperationDetails__text--paragraph OperationDetails__text--paragraph-gray">
-          S/ 3600.00
+          {` S/ ${data?.amount_paid.toFixed(2)}`}
         </span>
       </p>
 
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.date}
-        {/* TODO: Pending */}
         <span className="OperationDetails__text--paragraph OperationDetails__text--paragraph-gray">
-          05/09/2022
+          {dayjs(data?.operation_date).format("DD/MM/YYYY")}
         </span>
       </p>
 
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.hour}
-        {/* TODO: Pending */}
         <span className="OperationDetails__text--paragraph OperationDetails__text--paragraph-gray">
-          8:00 pm
+          {data?.operation_time}
         </span>
       </p>
 
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.paymentMedium}
-        {/* TODO: Pending */}
         <span className="OperationDetails__text--paragraph OperationDetails__text--paragraph-gray">
-          Tarjeta de Crédito - Pasarela Izipay
+          {data?.payment_method}
         </span>
       </p>
 
       <p className="OperationDetails__text--paragraph OperationDetails__text--paragraph-blue">
         {t.paymentStatus}
-        {/* TODO: Pending */}
         <span className="OperationDetails__text--paragraph OperationDetails__text--paragraph-gray">
-          Pagado
+          {data?.payment_status}
         </span>
       </p>
 
@@ -97,7 +101,7 @@ const OperationDetails: React.FC<Props> = props => {
       <h2 className="OperationDetails__text--subtitle OperationDetails__container--separate">
         {t.titleDetails}
       </h2>
-      {id ? renderContent() : renderDefault()}
+      {data ? renderContent() : renderDefault()}
     </Styles>
   );
 };

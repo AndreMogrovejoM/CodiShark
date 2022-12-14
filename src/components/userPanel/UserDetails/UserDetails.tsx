@@ -1,12 +1,16 @@
 import UsersIcon from "assets/images/usersIcon.svg";
+import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
 import Styles from "./UserDetails.styles";
 import { UserDetailsProps as Props } from "./UserDetails.types";
 
+const getGender = (value: string | undefined) =>
+  value === "M" ? "Masculino" : "Femenino";
+
 const UserDetails: React.FC<Props> = props => {
-  const { id } = props;
+  const { data } = props;
 
   const t = useI18n().components.UserDetails;
 
@@ -27,89 +31,78 @@ const UserDetails: React.FC<Props> = props => {
     <div className="UserDetails__component--details UserDetails__component--details-component UserDetails__component--details-user">
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.name}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          Armando Enrique
+          {`${data?.first_name} ${data?.second_name}`}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.lastName}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          Guerra Flores
+          {`${data?.last_name} ${data?.mother_last_name}`}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.documentType}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          DNI
+          {data?.document_type ?? "-"}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.documentNumber}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          45745530
+          {data?.dni ?? "-"}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.birthDate}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          24/09/1974
+          {dayjs(data?.birth_date).format("DD/MM/YYYY")}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.gender}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          Masculino
+          {getGender(data?.gender)}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.district}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          Los Olivos
+          {data?.district ?? "-"}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.address}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          Av. Mariano Pastor 157
+          {data?.address ?? "-"}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.email}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          armango.guerra@gmail.com
+          {data?.email ?? "-"}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.phone}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          245 2154
+          {data?.phone_address_one ?? "-"}
         </span>
       </p>
 
       <p className="UserDetails__text--paragraph UserDetails__text--paragraph-blue">
         {t.mobile}
-        {/* TODO: Pending */}
         <span className="UserDetails__text--paragraph UserDetails__text--paragraph-gray">
-          900 521 254
+          {data?.phone ?? "-"}
         </span>
       </p>
     </div>
@@ -120,7 +113,7 @@ const UserDetails: React.FC<Props> = props => {
       <h2 className="UserDetails__text--subtitle UserDetails__container--separate">
         {t.titleDetails}
       </h2>
-      {id ? renderContent() : renderDefault()}
+      {data ? renderContent() : renderDefault()}
     </Styles>
   );
 };

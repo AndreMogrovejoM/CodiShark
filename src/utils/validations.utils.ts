@@ -1,5 +1,6 @@
 // Validation utility function and data
 import getI18n from "i18n/i18n.helpers";
+import { PaymentStatus } from "services/users/users.service.types";
 
 export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
 export const fieldMinLength = 1;
@@ -136,4 +137,8 @@ export const validLoginUserValidation = () => {
       label: t.labelEmail
     }
   ];
+};
+
+export const disabledButton = (value: PaymentStatus = "Pendiente") => {
+  return value !== "Pagado";
 };

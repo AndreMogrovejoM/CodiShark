@@ -4,6 +4,6 @@ import UserDetails from "./UserDetails";
 
 describe("UserDetails", () => {
   it("renders with default props", () => {
-    render(<UserDetails id={0} />);
+    render(<UserDetails data={undefined} />);
   });
 });
