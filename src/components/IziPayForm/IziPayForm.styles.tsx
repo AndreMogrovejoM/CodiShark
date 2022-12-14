@@ -13,6 +13,14 @@ const IziPayFormStyled = styled.div<Props>`
   gap: 1.6rem;
 
   .IziPayForm {
+    &__images {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &__image {
+      width: 4rem;
+    }
   }
 `;
 

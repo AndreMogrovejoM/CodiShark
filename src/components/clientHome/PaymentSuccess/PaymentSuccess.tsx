@@ -25,9 +25,11 @@ const PaymentSuccess: React.FC<Props> = props => {
         <div className="PaymentSuccess__section2">
           <h2 className="PaymentSuccess__title2">{t.title}</h2>
           <div className="PaymentSuccess__paragraph">
-            <div className="PaymentSuccess__p1div">
-              <p className="PaymentSuccess__p1">{t.paragraph1}</p>
-              <span className="PaymentSuccess__span1">S/. 1.750.00</span>
+            <div className="PaymentSuccess__p4div">
+              <p className="PaymentSuccess__p4">
+                {t.paragraph1}
+                <span className="PaymentSuccess__span4">S/. 1.750.00</span>
+              </p>
             </div>
             <div className="PaymentSuccess__p2div">
               <p className="PaymentSuccess__p2">

@@ -9,10 +9,11 @@ const ExpandableRowsComponentStyled = styled.div<Props>`
         font-weight: 400;
         font-size: 1rem;
         line-height: 1.6rem;
-        color: var(--palette-blueText);
+        color: var(--palette-grayText);
 
         &-bold {
           font-weight: 700;
+          color: var(--palette-blueText);
         }
 
         &-expand {

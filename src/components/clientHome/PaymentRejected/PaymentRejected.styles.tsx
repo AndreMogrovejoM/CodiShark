@@ -65,19 +65,19 @@ const PaymentRejectedStyled = styled.div<Props>`
       height: 6.4rem;
     }
 
-    &__p1div {
+    &__p4div {
       margin-bottom: 0.8rem;
       gap: 0.8rem;
       display: flex;
     }
 
-    &__p1 {
+    &__p4 {
       font-weight: 800;
       font-size: 1.4rem;
       line-height: 1.6rem;
     }
 
-    &__span1 {
+    &__span4 {
       font-weight: 400;
       font-size: 1.2rem;
       line-height: 1.6rem;
@@ -139,8 +139,13 @@ const PaymentRejectedStyled = styled.div<Props>`
 
     &__paragraph {
       display: flex;
+      justify-content: space-between;
       flex-direction: column;
-      align-items: flex-start;
+      @media screen and (min-width: 967px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
 `;

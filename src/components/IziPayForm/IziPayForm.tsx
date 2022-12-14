@@ -1,6 +1,10 @@
 import KRGlue from "@lyracom/embedded-form-glue";
 import { Box, Modal } from "@mui/material";
+import americanExpress from "assets/images/americanExpress.svg";
+import dinersClub from "assets/images/dinersClub.svg";
 import logoKonecta from "assets/images/logoKonecta.svg";
+import masterCard from "assets/images/masterCard.svg";
+import visa from "assets/images/visa.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -117,6 +121,24 @@ const IziPayForm: React.FC<Props> = props => {
             <div className="container">
               <div id="myPaymentForm"></div>
             </div>
+          </div>
+          <div className="IziPayForm__images">
+            <img className="IziPayForm__image" src={visa} alt="visa" />
+            <img
+              className="IziPayForm__image"
+              src={americanExpress}
+              alt="americanExpress"
+            />
+            <img
+              className="IziPayForm__image"
+              src={dinersClub}
+              alt="dinersClub"
+            />
+            <img
+              className="IziPayForm__image"
+              src={masterCard}
+              alt="masterCard"
+            />
           </div>
         </Styles>
       </Box>

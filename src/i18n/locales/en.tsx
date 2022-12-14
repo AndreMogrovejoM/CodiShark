@@ -340,7 +340,8 @@ const en = {
 
     ClientContainer: {
       title:
-        "Here we provide the amount of your debt and the deadlines to make your payments:"
+        "Here we provide the amount of your debt and the deadlines to make your payments:",
+      copyright: "Copyright B12 2022 - All rights reserved."
     },
     OperationNumberModal: {
       operation: "Your operation number is",

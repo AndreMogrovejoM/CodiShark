@@ -33,9 +33,11 @@ const PaymentRejected: React.FC<Props> = props => {
         <div className="PaymentRejected__section2">
           <h2 className="PaymentRejected__title2">{t.title}</h2>
           <div className="PaymentRejected__paragraph">
-            <div className="PaymentRejected__p1div">
-              <p className="PaymentRejected__p1">{t.paragraph1}</p>
-              <span className="PaymentRejected__span1">S/. 1.750.00</span>
+            <div className="PaymentRejected__p4div">
+              <p className="PaymentRejected__p4">
+                {t.paragraph1}{" "}
+                <span className="PaymentRejected__span4">S/. 1.750.00</span>
+              </p>
             </div>
             <div className="PaymentRejected__p2div">
               <p className="PaymentRejected__p2">

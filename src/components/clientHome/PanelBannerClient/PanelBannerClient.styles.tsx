@@ -50,6 +50,7 @@ const PanelBannerClientStyled = styled.div<Props>`
     &__image {
       position: absolute;
       top: -3rem;
+      width: 15.3rem;
 
       @media screen and (min-width: 960px) {
         position: absolute;
