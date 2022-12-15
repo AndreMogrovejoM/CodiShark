@@ -21,10 +21,8 @@ const AdminClientListView: React.FC<Props> = props => {
   const { data: usersList } = data ?? {};
   const t = useI18n().pages.UserPayPanel;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(event.target.value);
-    console.log(event.target.value);
-  };
 
   const [row, setRow] = useState<User>();
 
