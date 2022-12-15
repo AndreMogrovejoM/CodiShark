@@ -3,11 +3,9 @@ import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
+import { getGender } from "./UserDetails.helpers";
 import Styles from "./UserDetails.styles";
 import { UserDetailsProps as Props } from "./UserDetails.types";
-
-const getGender = (value: string | undefined) =>
-  value === "M" ? "Masculino" : "Femenino";
 
 const UserDetails: React.FC<Props> = props => {
   const { data } = props;

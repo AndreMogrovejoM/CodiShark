@@ -1,9 +1,9 @@
 import { render } from "setupTests";
 
-import PaymentListView from "./UserPaymentListView";
+import UserPaymentListView from "./UserPaymentListView";
 
-describe("PaymentListView", () => {
+describe("UserPaymentListView", () => {
   it("renders with default props", () => {
-    render(<PaymentListView />);
+    render(<UserPaymentListView />);
   });
 });
