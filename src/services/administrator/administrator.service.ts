@@ -65,7 +65,7 @@ export const fetchAdministratorUsers = async (
 };
 
 export const fetchAdministratorOperations = async (
-  status?: Status,
+  status?: Status | string,
   take = 4,
   search = ""
 ): Promise<OperationListResponse> => {

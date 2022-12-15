@@ -52,6 +52,6 @@ export const columns: TableColumn<User>[] = [
   {
     name: t.action,
     center: true,
-    cell: row => <RowButton row={row.id} />
+    cell: () => <RowButton />
   }
 ];

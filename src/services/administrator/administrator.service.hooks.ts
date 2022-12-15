@@ -55,7 +55,7 @@ export const useFetchAdministratorUsers = (
 };
 
 export const useFetchAdministratorOperations = (
-  status?: Status,
+  status?: Status | string,
   take = 4,
   search?: string
 ) => {

@@ -77,12 +77,10 @@ const LastProcessCardStyled = styled.div<Props>`
       height: 2rem;
     }
 
-    &__icon {
-    }
-
     &__footerSubtitle {
       text-align: end;
       padding: 1.6rem;
+      cursor: pointer;
 
       @media screen and (max-width: 912px) {
         text-align: end;

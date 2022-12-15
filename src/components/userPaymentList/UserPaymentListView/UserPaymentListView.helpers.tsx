@@ -1,3 +1,4 @@
+import { RowChip } from "components/userPaymentList/PaymentTable/PaymentTable.helpers";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { OperationUserDebt } from "services/users/users.service.types";
@@ -42,6 +43,12 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     center: true,
     ignoreRowClick: true,
     cell: row => <Row content={row?.operation_date ?? ""} />
+  },
+  {
+    name: t.actions,
+    button: true,
+    ignoreRowClick: true,
+    cell: row => <RowChip conditional={row?.payment_status === "Pagado"} />
   },
   {
     name: t.actions,

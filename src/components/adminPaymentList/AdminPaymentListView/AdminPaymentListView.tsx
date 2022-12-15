@@ -3,6 +3,7 @@ import SearchInput from "components/globals/SearchInput/SearchInput";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { exportOperationsExcel } from "services/administrator/administrator.service";
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
@@ -15,9 +16,12 @@ import Styles from "./AdminPaymentListView.styles";
 import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
 
 const AdminPaymentListView: React.FC<Props> = props => {
+  const [searchParams] = useSearchParams();
+  const status = searchParams.get("status") || undefined;
+  const [statusQuery] = useState(status);
   const [query, setQuery] = useState("");
   const { data, isLoading } = useFetchAdministratorOperations(
-    undefined,
+    statusQuery,
     50,
     query
   );

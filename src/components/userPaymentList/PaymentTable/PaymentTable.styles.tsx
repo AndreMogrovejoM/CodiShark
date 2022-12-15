@@ -73,6 +73,27 @@ const PaymentTableStyled = styled.div<Props>`
         display: flex;
         align-items: center;
       }
+
+      &--chip {
+        border-radius: 0.8rem;
+
+        &-green {
+          background: var(--palette-greenWeakBackground);
+        }
+
+        &-yellow {
+          background: var(--palette-yellowWeakBackground);
+        }
+      }
+    }
+
+    &__text {
+      &--chip {
+        font-weight: 600;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        padding: 0.4rem 1.2rem;
+      }
     }
   }
 `;
