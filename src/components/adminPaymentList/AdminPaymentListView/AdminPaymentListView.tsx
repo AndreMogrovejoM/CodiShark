@@ -1,9 +1,8 @@
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
-import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { exportOperationsExcel } from "services/administrator/administrator.service";
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
@@ -16,18 +15,22 @@ import Styles from "./AdminPaymentListView.styles";
 import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
 
 const AdminPaymentListView: React.FC<Props> = props => {
-  const { data, isLoading } = useFetchAdministratorOperations(undefined, 50);
+  const [query, setQuery] = useState("");
+  const { data, isLoading } = useFetchAdministratorOperations(
+    undefined,
+    50,
+    query
+  );
+
   const { data: operationsList } = data ?? {};
 
   const [row, setRow] = useState<Operation>();
 
   const t = useI18n().pages.UserOperationPanel;
 
-  const { setIsLoading } = useGlobals();
-
-  useEffect(() => {
-    setIsLoading(isLoading);
-  }, [isLoading, setIsLoading]);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
 
   const handlePDF = async () => {
     try {
@@ -66,15 +69,13 @@ const AdminPaymentListView: React.FC<Props> = props => {
         </Button>
       </div>
 
-      <SearchInput />
+      <SearchInput onChange={handleChange} />
     </div>
   );
 
-  if (!operationsList) return null;
-
   const renderTable = () => (
     <PaymentTable
-      data={operationsList}
+      data={operationsList ?? []}
       columns={columns}
       onRowClicked={(row: Operation) => setRow(row)}
       progressPending={isLoading}

@@ -21,7 +21,7 @@ const en = {
       startAdmin: "Start Admin",
       myPays: "My payments",
       paymentDetails: "Payment details",
-      myPayments: "Payment list",
+      myPayments: "My payments",
       myClients: "Customer list",
       logout: "Logout",
       title: "Contact",
