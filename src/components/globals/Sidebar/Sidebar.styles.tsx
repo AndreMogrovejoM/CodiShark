@@ -109,7 +109,7 @@ const SidebarStyled = styled.nav<Props>`
     &__footerList {
       display: flex;
       flex-direction: column;
-      gap: 0.64rem;
+      gap: 1rem;
       position: absolute;
       top: 48rem;
       left: 2.9rem;

@@ -342,7 +342,8 @@ const es: Dictionary = {
 
     ClientContainer: {
       title:
-        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:"
+        "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:",
+      copyright: "Copyright B12 2022 - Todos los derechos reservados"
     },
     OperationNumberModal: {
       operation: "Su numero de operación es",

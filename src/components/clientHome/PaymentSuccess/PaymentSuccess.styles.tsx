@@ -57,7 +57,7 @@ const PaymentSuccessStyled = styled.div<Props>`
       height: 6.4rem;
     }
 
-    &__p1div {
+    &__package {
       margin-bottom: 0.8rem;
       gap: 0.8rem;
       display: flex;
@@ -111,28 +111,15 @@ const PaymentSuccessStyled = styled.div<Props>`
       line-height: 1.6rem;
     }
 
-    &__p4div {
-      margin-bottom: 0.8rem;
-      gap: 0.8rem;
-      display: flex;
-    }
-
-    &__p4 {
-      font-weight: 800;
-      font-size: 1.4rem;
-      line-height: 1.6rem;
-    }
-
-    &__span4 {
-      font-weight: 400;
-      font-size: 1.2rem;
-      line-height: 1.6rem;
-    }
-
     &__paragraph {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      flex-flow: column wrap;
+
+      @media screen and (min-width: 967px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
 `;
