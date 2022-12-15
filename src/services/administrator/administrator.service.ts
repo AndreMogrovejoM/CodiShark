@@ -70,8 +70,8 @@ export const fetchAdministratorOperations = async (
   search = ""
 ): Promise<OperationListResponse> => {
   const url = status
-    ? `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}}&search=${search}`
-    : `${REACT_APP_API_URL}/admin/operations?take=${take}}&search=${search}`;
+    ? `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}&search=${search}`
+    : `${REACT_APP_API_URL}/admin/operations?take=${take}&search=${search}`;
   try {
     const response = await axiosDefault.get(url, {
       headers: buildHeaders()

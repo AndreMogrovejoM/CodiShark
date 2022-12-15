@@ -65,7 +65,9 @@ const PaymentDetails: React.FC<Props> = props => {
       <p className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-blue">
         {t.customerName}
         <span className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-gray">
-          {`${user?.first_name} ${user?.last_name} ${user?.mother_last_name}`}
+          {`${user?.first_name ?? "-"} ${user?.last_name ?? "-"} ${
+            user?.mother_last_name ?? "-"
+          }`}
         </span>
       </p>
 
@@ -86,21 +88,21 @@ const PaymentDetails: React.FC<Props> = props => {
       <p className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-blue">
         {t.hour}
         <span className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-gray">
-          {data?.operation_time}
+          {data?.operation_time ?? "-"}
         </span>
       </p>
 
       <p className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-blue">
         {t.paymentMedium}
         <span className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-gray">
-          {data?.payment_method}
+          {data?.payment_method ?? "-"}
         </span>
       </p>
 
       <p className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-blue">
         {t.paymentStatus}
         <span className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-gray">
-          {data?.payment_status}
+          {data?.payment_status ?? "-"}
         </span>
       </p>
 

@@ -44,7 +44,7 @@ const ProofPayment: React.FC<Props> = props => {
 
       {/* TODO: Pending response from backend. */}
       <div className="ProofPayment__text--paragraph">
-        <p>{`${first_name} ${last_name}`}</p>
+        <p>{`${first_name ?? "-"} ${last_name ?? "-"}`}</p>
         <p>{banking_entity ?? "-"}</p>
         <p>{product ?? "-"}</p>
         <p>{currency ?? "-"}</p>
