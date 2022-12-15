@@ -32,6 +32,7 @@ export interface PaymentTableProps {
   data: Operation[];
   onRowClicked: (row: Operation) => void;
   columns: TableColumn<Operation>[];
+  progressPending?: boolean;
 }
 
 // Styled Component Props

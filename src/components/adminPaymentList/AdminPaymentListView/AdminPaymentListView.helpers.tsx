@@ -1,6 +1,6 @@
-import { RowButton } from "components/userPanel/PaymentTable/PaymentTable.helpers";
-import { RowChip } from "components/userPanel/PaymentTable/PaymentTable.helpers";
-import { Row } from "components/userPanel/PaymentTable/PaymentTable.helpers";
+import { RowButton } from "components/adminClientList/ClientTable/PaymentTable.helpers";
+import { RowChip } from "components/adminClientList/ClientTable/PaymentTable.helpers";
+import { Row } from "components/adminClientList/ClientTable/PaymentTable.helpers";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { Operation } from "services/administrator/administrator.service.types";

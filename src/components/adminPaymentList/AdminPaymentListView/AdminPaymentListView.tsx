@@ -1,6 +1,5 @@
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
-import PaymentTable from "components/userPanel/PaymentTable/PaymentTable";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
@@ -11,6 +10,7 @@ import { useFetchAdministratorOperations } from "services/administrator/administ
 import { Operation } from "services/administrator/administrator.service.types";
 
 import PaymentDetails from "../PaymentDetails/PaymentDetails";
+import PaymentTable from "../PaymentTable/PaymentTable";
 import { columns } from "./AdminPaymentListView.helpers";
 import Styles from "./AdminPaymentListView.styles";
 import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";

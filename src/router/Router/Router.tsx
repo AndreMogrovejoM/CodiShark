@@ -12,14 +12,13 @@ const SignInAdministrator = lazy(
   () => import("pages/signInAdministrator.page")
 );
 const AdministratorPanel = lazy(() => import("pages/AdministratorPanel.page"));
-/* TODO: User */
-const UserPaymentListPage = lazy(() => import("pages/UserPaymentListPage"));
-const Client = lazy(() => import("pages/Client.page"));
-const SignInUser = lazy(() => import("pages/signInUser.page"));
-const UserPanel = lazy(() => import("pages/userPanel.page"));
-const Settings = lazy(() => import("pages/settings.page"));
 const AdminPaymentList = lazy(() => import("pages/adminPaymentList.page"));
+const AdminClientList = lazy(() => import("pages/adminClientList.page"));
+const Client = lazy(() => import("pages/Client.page"));
+const UserPaymentListPage = lazy(() => import("pages/userPaymentListPage"));
 const UserPaymentDetails = lazy(() => import("pages/userPaymentDetails.page"));
+const SignInUser = lazy(() => import("pages/signInUser.page"));
+const Settings = lazy(() => import("pages/settings.page"));
 
 const Router: React.FC<Props> = props => {
   const noAuthRoutes = () => {
@@ -58,7 +57,7 @@ const Router: React.FC<Props> = props => {
         />
         <Route
           path="/adminClientList"
-          element={privateAdminRoute(<UserPanel />)}
+          element={privateAdminRoute(<AdminClientList />)}
         />
         <Route
           path="/administratorPanel"

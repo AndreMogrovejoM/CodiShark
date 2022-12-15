@@ -9,13 +9,13 @@ import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
 import { User } from "types/user.types";
 
-import PaymentTable from "../PaymentTable/PaymentTable";
+import PaymentTable from "../ClientTable/PaymentTable";
 import UserDetails from "../UserDetails/UserDetails";
-import { columns } from "./PaymentListView.helpers";
-import Styles from "./PaymentListView.styles";
-import { PaymentListViewProps as Props } from "./PaymentListView.types";
+import { columns } from "./AdminClientListView.helpers";
+import Styles from "./AdminClientListView.styles";
+import { AdminClientListViewProps as Props } from "./AdminClientListView.types";
 
-const PaymentListView: React.FC<Props> = props => {
+const AdminClientListView: React.FC<Props> = props => {
   const [query] = useState("");
   const { data, isLoading } = useFetchAdministratorUsers(1, 50, query);
   const { data: usersList } = data ?? {};
@@ -42,18 +42,18 @@ const PaymentListView: React.FC<Props> = props => {
   };
 
   const renderActions = () => (
-    <div className="PaymentListView__container--actions PaymentListView__container--separate">
-      <div className="PaymentListView__container--button">
+    <div className="AdminClientListView__container--actions AdminClientListView__container--separate">
+      <div className="AdminClientListView__container--button">
         <Button
           variant="contained"
-          className="PaymentListView__component--button"
+          className="AdminClientListView__component--button"
           onClick={handlePDF}
         >
           {t.buttonPdf}
         </Button>
         <Button
           variant="contained"
-          className="PaymentListView__component--button"
+          className="AdminClientListView__component--button"
           onClick={handleExcel}
         >
           {t.buttonExcel}
@@ -79,19 +79,19 @@ const PaymentListView: React.FC<Props> = props => {
     );
 
   return (
-    <Styles className={`PaymentListView`}>
-      <div className="PaymentListView__container">
-        <div className="PaymentListView__container--separate">
-          <h1 className="PaymentListView__text--title">{t.title}</h1>
+    <Styles className={`AdminClientListView`}>
+      <div className="AdminClientListView__container">
+        <div className="AdminClientListView__container--separate">
+          <h1 className="AdminClientListView__text--title">{t.title}</h1>
         </div>
 
-        <div className="PaymentListView__container--layout">
-          <div className="PaymentListView__container--table">
+        <div className="AdminClientListView__container--layout">
+          <div className="AdminClientListView__container--table">
             {renderActions()}
             {renderTable()}
           </div>
 
-          <div className="PaymentListView__container--details">
+          <div className="AdminClientListView__container--details">
             <UserDetails data={row} />
           </div>
         </div>
@@ -100,6 +100,6 @@ const PaymentListView: React.FC<Props> = props => {
   );
 };
 
-PaymentListView.defaultProps = {};
+AdminClientListView.defaultProps = {};
 
-export default PaymentListView;
+export default AdminClientListView;

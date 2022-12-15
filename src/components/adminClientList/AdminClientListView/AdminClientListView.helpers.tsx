@@ -3,7 +3,7 @@ import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { User } from "types/user.types";
 
-import { Row, RowButton } from "../PaymentTable/PaymentTable.helpers";
+import { Row, RowButton } from "../ClientTable/PaymentTable.helpers";
 
 const t = getI18n().global.table.TablePaymentUser.TableHeader2;
 

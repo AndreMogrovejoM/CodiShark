@@ -1,6 +1,6 @@
 // Interfaces and types from component PaginationCustom
 
-import { PaginationInterface } from "../PaymentTable/PaymentTable.types";
+import { PaginationInterface } from "../ClientTable/PaymentTable.types";
 
 // Component Props
 export interface PaginationCustomProps extends PaginationInterface {}
