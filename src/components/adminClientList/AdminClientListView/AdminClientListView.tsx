@@ -16,10 +16,13 @@ import Styles from "./AdminClientListView.styles";
 import { AdminClientListViewProps as Props } from "./AdminClientListView.types";
 
 const AdminClientListView: React.FC<Props> = props => {
-  const [query] = useState("");
+  const [query, setQuery] = useState("");
   const { data, isLoading } = useFetchAdministratorUsers(1, 50, query);
   const { data: usersList } = data ?? {};
   const t = useI18n().pages.UserPayPanel;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setQuery(event.target.value);
 
   const [row, setRow] = useState<User>();
 
@@ -60,18 +63,16 @@ const AdminClientListView: React.FC<Props> = props => {
         </Button>
       </div>
 
-      <SearchInput />
+      <SearchInput onChange={handleChange} />
     </div>
   );
-
-  if (!usersList) return null;
 
   const renderTable = () =>
     isLoading ? (
       <SkeletonComponent variant="rectangular" height={720} width="100%" />
     ) : (
       <PaymentTable
-        data={usersList}
+        data={usersList ?? []}
         columns={columns}
         onRowClicked={(row: User) => setRow(row)}
         progressPending={isLoading}

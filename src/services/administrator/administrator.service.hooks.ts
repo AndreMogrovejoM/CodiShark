@@ -54,11 +54,15 @@ export const useFetchAdministratorUsers = (
   );
 };
 
-export const useFetchAdministratorOperations = (status?: Status, take = 4) => {
+export const useFetchAdministratorOperations = (
+  status?: Status,
+  take = 4,
+  search?: string
+) => {
   const token = getCookie("token");
   return useQuery(
-    ["operations-list", status, take],
-    () => fetchAdministratorOperations(status, take),
+    ["operations-list", status, take, search],
+    () => fetchAdministratorOperations(status, take, search),
     {
       enabled: !!token,
       staleTime: 15 * 1000 * 60

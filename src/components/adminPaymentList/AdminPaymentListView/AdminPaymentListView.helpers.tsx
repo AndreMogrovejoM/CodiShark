@@ -10,49 +10,51 @@ const t = getI18n().global.table.TablePaymentUser.TableHeader;
 export const columns: TableColumn<Operation>[] = [
   {
     name: t.name,
-    selector: row => row.user.first_name ?? "",
+    selector: row => row?.user?.first_name ?? "",
     sortable: true,
     ignoreRowClick: true,
     cell: row => (
       <Row
-        content={`${row.user.first_name} ${row.user.last_name}`}
+        content={`${row?.user?.first_name ?? "-"} ${
+          row?.user?.last_name ?? "-"
+        }`}
         bold={true}
       />
     )
   },
   {
     name: t.date,
-    selector: row => row.operation_date ?? "",
+    selector: row => row?.operation_date ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row.operation_date ?? ""} />
+    cell: row => <Row content={row?.operation_date ?? ""} />
   },
   {
     name: t.amount,
-    selector: row => row.amount_paid ?? 0,
+    selector: row => row?.amount_paid ?? 0,
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row.amount_paid ?? 0} />
+    cell: row => <Row content={row?.amount_paid ?? 0} />
   },
   {
     name: t.method,
-    selector: row => row.payment_method ?? "",
+    selector: row => row?.payment_method ?? "",
     ignoreRowClick: true,
-    cell: row => <Row content={row.payment_method ?? ""} />
+    cell: row => <Row content={row?.payment_method ?? ""} />
   },
   {
     name: t.state,
     button: true,
     ignoreRowClick: true,
     cell: row => (
-      <RowChip conditional={row.payment_status === "Pagado" ? true : false} />
+      <RowChip conditional={row?.payment_status === "Pagado" ? true : false} />
     )
   },
   {
     name: t.action,
     center: true,
-    cell: row => <RowButton row={row.id} />
+    cell: row => <RowButton row={row?.id} />
   }
 ];

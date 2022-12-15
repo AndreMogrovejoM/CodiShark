@@ -84,7 +84,7 @@ const SidebarResponsive: React.FC<Props> = props => {
     return (
       <>
         <LinkComponent idx={10} text={t.start} url={ENTRY_PATH} />
-        <LinkComponent idx={11} text={t.myPayments} url={USER_PAYMENT_LIST} />
+        <LinkComponent idx={11} text={t.myPays} url={USER_PAYMENT_LIST} />
       </>
     );
   };
