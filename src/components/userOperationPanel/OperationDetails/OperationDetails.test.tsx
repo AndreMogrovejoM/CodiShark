@@ -4,6 +4,6 @@ import OperationDetails from "./OperationDetails";
 
 describe("OperationDetails", () => {
   it("renders with default props", () => {
-    render(<OperationDetails id={0} />);
+    render(<OperationDetails data={undefined} />);
   });
 });

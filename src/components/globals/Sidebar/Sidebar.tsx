@@ -22,7 +22,7 @@ import { SidebarProps as Props } from "./Sidebar.types";
 
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { ADMIN_CLIENT_LIST, ADMIN_PAYMENT_LIST } = CONSTANTS.ROUTES;
-const { USER_PAYMENT_DETAILS, ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
+const { ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
 
 const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
@@ -129,8 +129,6 @@ const Sidebar: React.FC<Props> = props => {
       <>
         {renderItem(0, t.start, ENTRY_PATH)}
         {renderItem(5, t.myPayments, USER_PAYMENT_LIST)}
-        {/* TODO: Este componente es de la tabla expandible  */}
-        {renderItem(4, t.paymentDetails, USER_PAYMENT_DETAILS)}
       </>
     );
   };
@@ -142,8 +140,6 @@ const Sidebar: React.FC<Props> = props => {
         {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
         {renderItem(2, t.myPayments, ADMIN_PAYMENT_LIST)}
         {renderItem(3, t.myClients, ADMIN_CLIENT_LIST)}
-        {/* TODO: Esto es para usuarios  */}
-        {renderItem(4, t.paymentDetails, USER_PAYMENT_DETAILS)}
         {renderItem(6, t.setting, SETTINGS)}
       </>
     );

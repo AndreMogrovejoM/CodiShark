@@ -29,6 +29,12 @@ export interface User {
   created_at?: string;
   updated_at?: string;
   google2fa_enable?: boolean;
+  document_type?: string;
+  birth_date?: string;
+  gender?: string;
+  district?: string;
+  address?: string;
+  phone_address_one?: string;
 }
 
 export interface TemporalAdminUser extends User {

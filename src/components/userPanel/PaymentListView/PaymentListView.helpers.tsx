@@ -14,30 +14,30 @@ export const columns: TableColumn<User>[] = [
     sortable: true,
     ignoreRowClick: true,
     cell: row => (
-      <Row content={`${row.first_name} ${row.last_name}`} bold={true} />
+      <Row content={`${row?.first_name} ${row?.last_name}`} bold={true} />
     )
   },
   {
-    name: t.capitalDebt,
+    name: t.dni,
     selector: row => row.capital_debt ?? "",
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row.capital_debt ?? ""} />
+    cell: row => <Row content={row?.dni ?? "-"} />
   },
   {
-    name: t.interests,
+    name: t.email,
     selector: row => row.interests ?? 0,
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row.interests ?? 0} />
+    cell: row => <Row content={row?.email ?? "-"} />
   },
   {
-    name: t.bills,
+    name: t.phone,
     selector: row => row.bills ?? "",
     ignoreRowClick: true,
-    cell: row => <Row content={row.bills ?? ""} />
+    cell: row => <Row content={row?.phone ?? "-"} />
   },
   {
     name: t.punishmentDate,
@@ -45,7 +45,7 @@ export const columns: TableColumn<User>[] = [
     ignoreRowClick: true,
     cell: row => (
       <Row
-        content={dayjs(row.date_punishment).format("YY-MM-DD HH:mm a") ?? ""}
+        content={dayjs(row?.date_punishment).format("YY-MM-DD HH:mm a") ?? ""}
       />
     )
   },

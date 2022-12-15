@@ -65,9 +65,9 @@ const es: Dictionary = {
         },
         TableHeader2: {
           name: "Nombre",
-          capitalDebt: "Deuda de capital",
-          interests: "Intereses",
-          bills: "Cuentas",
+          dni: "Dni",
+          email: "Email",
+          phone: "Celular",
           punishmentDate: "Fecha de castigo",
           action: ""
         },

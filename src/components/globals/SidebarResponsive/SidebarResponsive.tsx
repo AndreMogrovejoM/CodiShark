@@ -17,7 +17,7 @@ import { SidebarResponsiveProps as Props } from "./SidebarResponsive.types";
 
 const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { ADMIN_CLIENT_LIST, ADMIN_PAYMENT_LIST } = CONSTANTS.ROUTES;
-const { USER_PAYMENT_DETAILS, ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
+const { ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
 
 const LinkComponent = (props: LinkComponentProps) => {
   const navigate = useNavigate();
@@ -85,11 +85,6 @@ const SidebarResponsive: React.FC<Props> = props => {
       <>
         <LinkComponent idx={10} text={t.start} url={ENTRY_PATH} />
         <LinkComponent idx={11} text={t.myPayments} url={USER_PAYMENT_LIST} />
-        <LinkComponent
-          idx={12}
-          text={t.paymentDetails}
-          url={USER_PAYMENT_DETAILS}
-        />
       </>
     );
   };

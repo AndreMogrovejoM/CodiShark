@@ -22,6 +22,8 @@ const ProofPayment: React.FC<Props> = props => {
   const { first_name, last_name } = user ?? {};
   const navigate = useNavigate();
 
+  // @ts-ignore
+  // TODO: Pending
   const { debt, operation_number, amount_paid, id } = userDebt ?? {};
   const { payment_method, operation_date, operation_time } = userDebt ?? {};
   const { amount_dscto_cancellation, product, amount_cancellation } =

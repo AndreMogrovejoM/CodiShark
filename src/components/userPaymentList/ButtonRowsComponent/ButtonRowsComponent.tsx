@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import Styles from "./ButtonRowsComponent.styles";
 import { ButtonRowsComponentProps as Props } from "./ButtonRowsComponent.types";
 
-// TODO: Pending get data payment
 const ButtonRowsComponent: React.FC<Props> = props => {
   const { icon = false, disabled, data } = props;
   const [open, setOpen] = useState(false);

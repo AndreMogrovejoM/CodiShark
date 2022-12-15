@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { exportUsersExcel } from "services/administrator/administrator.service";
 import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
+import { User } from "types/user.types";
 
 import PaymentTable from "../PaymentTable/PaymentTable";
 import UserDetails from "../UserDetails/UserDetails";
@@ -20,8 +21,7 @@ const PaymentListView: React.FC<Props> = props => {
   const { data: usersList } = data ?? {};
   const t = useI18n().pages.UserPayPanel;
 
-  // TODO: Pending
-  const [idRow, setIdRow] = useState(0);
+  const [row, setRow] = useState<User>();
 
   const handlePDF = async () => {
     try {
@@ -73,7 +73,7 @@ const PaymentListView: React.FC<Props> = props => {
       <PaymentTable
         data={usersList}
         columns={columns}
-        onRowClicked={row => setIdRow(row?.id)}
+        onRowClicked={(row: User) => setRow(row)}
         progressPending={isLoading}
       />
     );
@@ -92,8 +92,7 @@ const PaymentListView: React.FC<Props> = props => {
           </div>
 
           <div className="PaymentListView__container--details">
-            {/* TODO: Pass data or id ?  */}
-            <UserDetails id={idRow} />
+            <UserDetails data={row} />
           </div>
         </div>
       </div>

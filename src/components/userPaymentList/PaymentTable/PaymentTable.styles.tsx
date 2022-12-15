@@ -37,6 +37,7 @@ const PaymentTableStyled = styled.div<Props>`
           background-color: var(--palette-greyBackground);
           color: var(--palette-darkText);
           opacity: 0.8;
+          pointer-events: none;
         }
       }
 

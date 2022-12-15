@@ -2,7 +2,7 @@
 
 import { User } from "types/user.types";
 
-export type Status = "Pagado" | "Pendiente" | "Cancelado" | "Todas";
+export type Status = "Pagado" | "Pendiente" | "Cancelado" | "Incompleto";
 
 export interface Administrator {}
 

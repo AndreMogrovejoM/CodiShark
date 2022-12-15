@@ -66,9 +66,9 @@ const en = {
         },
         TableHeader2: {
           name: "Name",
-          capitalDebt: "Capital debt",
-          interests: "Interests",
-          bills: "Bills",
+          dni: "Dni",
+          email: "Email",
+          phone: "Mobile phone",
           punishmentDate: "Punishment date",
           action: ""
         },
