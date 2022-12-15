@@ -140,7 +140,6 @@ const Sidebar: React.FC<Props> = props => {
         {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
         {renderItem(2, t.myPayments, ADMIN_PAYMENT_LIST)}
         {renderItem(3, t.myClients, ADMIN_CLIENT_LIST)}
-        {/* TODO:  */}
         {renderItem(6, t.setting, SETTINGS)}
       </>
     );

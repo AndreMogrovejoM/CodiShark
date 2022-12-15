@@ -97,7 +97,6 @@ const SidebarResponsive: React.FC<Props> = props => {
         <LinkComponent idx={20} text={t.startAdmin} url={ADMIN_ENTRY_PATH} />
         <LinkComponent idx={21} text={t.myPayments} url={ADMIN_PAYMENT_LIST} />
         <LinkComponent idx={22} text={t.myClients} url={ADMIN_CLIENT_LIST} />
-        {/* TODO:  */}
         <LinkComponent idx={23} text={t.setting} url={SETTINGS} />
       </>
     );
