@@ -48,7 +48,7 @@ const DebtExpandableRowsComponent: React.FC<Props> = props => {
 
         {renderContent(
           t.date,
-          dayjs(data?.date_last_contact).format("DD / MM / YYYY")
+          dayjs(data?.limit_date).format("DD / MM / YYYY")
         )}
       </div>
       {paymentStatus === "SUCCESS" && currentDebtId.current === id && (

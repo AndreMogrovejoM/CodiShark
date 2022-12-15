@@ -1,5 +1,4 @@
 import Button from "components/globals/Button/Button";
-import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
@@ -16,10 +15,10 @@ import { ProofPaymentProps as Props } from "./ProofPayment.types";
 
 const ProofPayment: React.FC<Props> = props => {
   const t = useI18n().pages.AdminPaymentDetails.proof;
-  const { operationUserDebt: userDebt, isLoading } = useGlobals();
+  const { operationUserDebt: userDebt, isLoading, setIsLoading } = useGlobals();
   const { user } = useAuth();
 
-  const { first_name, last_name } = user ?? {};
+  const { first_name, last_name, mother_last_name } = user ?? {};
   const navigate = useNavigate();
 
   // @ts-ignore
@@ -44,7 +43,9 @@ const ProofPayment: React.FC<Props> = props => {
 
       {/* TODO: Pending response from backend. */}
       <div className="ProofPayment__text--paragraph">
-        <p>{`${first_name ?? "-"} ${last_name ?? "-"}`}</p>
+        <p>{`${first_name ?? ""} ${last_name ?? ""} ${
+          mother_last_name ?? ""
+        }`}</p>
         <p>{banking_entity ?? "-"}</p>
         <p>{product ?? "-"}</p>
         <p>{currency ?? "-"}</p>
@@ -86,6 +87,7 @@ const ProofPayment: React.FC<Props> = props => {
 
   const handlePDF = async () => {
     try {
+      setIsLoading(true);
       const response = await exportOperationPdf(id);
       // TODO: Diccionarios
       Swal.fire(
@@ -96,16 +98,21 @@ const ProofPayment: React.FC<Props> = props => {
       FileDownload(response, "report.pdf");
     } catch (error) {
       console.log("Error at trying to print pdf");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleMail = async () => {
     try {
+      setIsLoading(true);
       await sendOperationEmail(id);
       // TODO: Diccionarios
       Swal.fire("Exito", "El correo fue enviado con éxito", "success");
     } catch (error) {
       console.log("Error at trying to print pdf");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -119,6 +126,7 @@ const ProofPayment: React.FC<Props> = props => {
           variant="contained"
           className={`${styleClass()} ProofPayment__component--button-green`}
           onClick={handlePDF}
+          disabled={isLoading}
         >
           {t.buttons.pdf}
         </Button>
@@ -126,6 +134,7 @@ const ProofPayment: React.FC<Props> = props => {
           variant="contained"
           className={styleClass()}
           onClick={handleMail}
+          disabled={isLoading}
         >
           {t.buttons.email}
         </Button>
@@ -140,23 +149,18 @@ const ProofPayment: React.FC<Props> = props => {
     );
   };
 
-  const renderLoading = () =>
-    isLoading ? (
-      <SkeletonComponent variant="rounded" height={"400px"} />
-    ) : (
-      <>
-        <h2 className="ProofPayment__text--title ProofPayment__separator--title">
-          {t.title.toLocaleUpperCase()}
-        </h2>
-        <div className="ProofPayment__separator--details">
-          {renderDetails()}
-          {renderAmount()}
-        </div>
-        <div className="ProofPayment__separator--actions">
-          {renderActions()}
-        </div>
-      </>
-    );
+  const renderLoading = () => (
+    <>
+      <h2 className="ProofPayment__text--title ProofPayment__separator--title">
+        {t.title.toLocaleUpperCase()}
+      </h2>
+      <div className="ProofPayment__separator--details">
+        {renderDetails()}
+        {renderAmount()}
+      </div>
+      <div className="ProofPayment__separator--actions">{renderActions()}</div>
+    </>
+  );
 
   return (
     <Styles className={`ProofPayment`}>

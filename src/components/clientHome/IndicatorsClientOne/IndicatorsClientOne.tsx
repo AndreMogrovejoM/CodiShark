@@ -8,16 +8,18 @@ import { IndicatorsClientOneProps as Props } from "./IndicatorsClientOne.types";
 const IndicatorsClientOne: React.FC<Props> = props => {
   const t = useI18n().signIn.IndicatorsClientOne;
   const { user } = useAuth();
-  const { first_name, last_name, mother_last_name } = user ?? {};
+  const { first_name, last_name, mother_last_name, dni } = user ?? {};
 
   return (
     <Styles className="IndicatorsClientOne">
       <div className="IndicatorsClientOne__component--card">
         <h2 className="IndicatorsClientOne__text--light">{t.greetings}</h2>
         <h2 className="IndicatorsClientOne__text--bold">
-          {`${first_name ?? ""} ${last_name} ${mother_last_name}`}
+          {`${first_name ?? ""} ${last_name ?? ""} ${mother_last_name ?? ""}`}
         </h2>
-        <h2 className="IndicatorsClientOne__text--normal">DNI N° 86752459</h2>
+        <h2 className="IndicatorsClientOne__text--normal">{`DNI N° ${
+          dni ?? ""
+        }`}</h2>
       </div>
     </Styles>
   );

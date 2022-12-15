@@ -53,7 +53,7 @@ export const columns: TableColumn<UserDebt>[] = [
     maxWidth: "16rem",
     cell: row => (
       <Row
-        content={dayjs(row?.date_last_contact).format("DD / MM / YYYY")}
+        content={dayjs(row?.limit_date).format("DD / MM / YYYY")}
         isDate={true}
       />
     )
