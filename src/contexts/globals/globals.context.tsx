@@ -14,6 +14,7 @@ const GlobalsProvider: React.FC<Props> = props => {
   const [operationUserDebt, setOperationUserDebt] =
     useState<OperationType>(undefined);
   const selectedIndex = useRef(0);
+  const currentDebtId = useRef<number | undefined>(undefined);
 
   const value: GlobalsProviderValue = useMemo(() => {
     return {
@@ -23,7 +24,8 @@ const GlobalsProvider: React.FC<Props> = props => {
       paymentStatus,
       setPaymentStatus,
       operationUserDebt,
-      setOperationUserDebt
+      setOperationUserDebt,
+      currentDebtId
     };
   }, [isLoading, operationUserDebt, paymentStatus]);
 

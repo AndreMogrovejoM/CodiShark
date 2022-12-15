@@ -13,7 +13,7 @@ const { CCI_ACCOUNT_NUMBER, ACCOUNT_NUMBER } = CONSTANTS;
 const OperationNumberModal: React.FC<Props> = props => {
   const t = useI18n().signIn.OperationNumberModal;
   const { open, setOpen, operationNumber, userDebt } = props;
-  const { amount_dscto_cancellation, limit_date } = userDebt ?? {};
+  const { amount_cancellation, limit_date } = userDebt ?? {};
 
   const renderLeftSection = () => {
     return (
@@ -42,7 +42,7 @@ const OperationNumberModal: React.FC<Props> = props => {
       <div className="OperationNumberModal__section">
         <h3>{t.amount}</h3>
         <h1 className="OperationNumberModal__h1 OperationNumberModal__primary-color">
-          {`S/. ${amount_dscto_cancellation ?? ""}`}
+          {`S/. ${amount_cancellation?.toFixed(2) ?? ""}`}
         </h1>
         <p className="OperationNumberModal__paragraph OperationNumberModal__red-color">
           {`${t.offer}: ${dayjs(limit_date).format("DD/MM/YYYY")}`}

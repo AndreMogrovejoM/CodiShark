@@ -19,13 +19,19 @@ const IziPayForm: React.FC<Props> = props => {
   const { id: debtId, amount_cancellation } = userDebt ?? {};
   const { mutateAsync, isLoading } = useGenerateOperationNumber();
   const { mutateAsync: validateMutation } = useValidateIziPayPayment();
-  const { setIsLoading, setPaymentStatus } = useGlobals();
+  const {
+    setIsLoading,
+    setPaymentStatus,
+    currentDebtId,
+    setOperationUserDebt
+  } = useGlobals();
   const { user } = useAuth();
 
   const handleInitIziPay = useCallback(async () => {
     let formTokenValue: string | undefined = undefined;
     let operationNumberValue: string | undefined = undefined;
     if (!user || !debtId || !amount_cancellation) return;
+    currentDebtId.current = debtId;
 
     try {
       await mutateAsync({
@@ -38,6 +44,7 @@ const IziPayForm: React.FC<Props> = props => {
           const { operation_number } = data ?? {};
           const { answer } = izipay ?? {};
           const { formToken } = answer ?? {};
+          setOperationUserDebt(data);
           operationNumberValue = operation_number;
           formTokenValue = formToken;
           return KRGlue.loadLibrary(REACT_APP_IZI_PAY_URL, IZI_PAY_PUBLIC_KEY);
@@ -81,10 +88,12 @@ const IziPayForm: React.FC<Props> = props => {
     }
   }, [
     amount_cancellation,
+    currentDebtId,
     debtId,
     mutateAsync,
     setIsLoading,
     setOpen,
+    setOperationUserDebt,
     setPaymentStatus,
     user,
     validateMutation

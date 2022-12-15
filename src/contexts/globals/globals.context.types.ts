@@ -20,6 +20,7 @@ export interface GlobalsProviderValue {
   setPaymentStatus: Dispatch<SetStateAction<PaymentStatus>>;
   operationUserDebt: OperationType;
   setOperationUserDebt: Dispatch<SetStateAction<OperationType>>;
+  currentDebtId: MutableRefObject<number | undefined>;
 }
 
 export type PaymentStatus = "SUCCESS" | "ERROR" | "NONE";

@@ -1,6 +1,7 @@
-import lineSuccess from "assets/images/lineSucces.svg";
+// import lineSuccess from "assets/images/lineSucces.svg";
 import rejectedImage from "assets/images/rejectedImage.svg";
 import Button from "components/globals/Button/Button";
+import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
@@ -9,6 +10,8 @@ import { PaymentRejectedProps as Props } from "./PaymentRejected.types";
 
 const PaymentRejected: React.FC<Props> = props => {
   const t = useI18n().signIn.PaymentRejected;
+  const { setPaymentStatus } = useGlobals();
+
   return (
     <Styles className="PaymentRejected">
       <div className="PaymentRejected__container">
@@ -21,16 +24,20 @@ const PaymentRejected: React.FC<Props> = props => {
           <h2 className="PaymentRejected__title">{t.rejected}</h2>
           <h2 className="PaymentRejected__subtitle">{t.disapproved}</h2>
 
-          <Button className="PaymentRejected__button" variant="contained">
+          <Button
+            className="PaymentRejected__button"
+            variant="contained"
+            onClick={() => setPaymentStatus("NONE")}
+          >
             <h3 className="PaymentRejected__text">{t.button}</h3>
           </Button>
         </div>
-        <img
+        {/* <img
           className="PaymentRejected__line"
           src={lineSuccess}
           alt="lineSuccess"
-        />
-        <div className="PaymentRejected__section2">
+        /> */}
+        {/* <div className="PaymentRejected__section2">
           <h2 className="PaymentRejected__title2">{t.title}</h2>
           <div className="PaymentRejected__paragraph">
             <div className="PaymentRejected__p1div">
@@ -56,7 +63,7 @@ const PaymentRejected: React.FC<Props> = props => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Styles>
   );

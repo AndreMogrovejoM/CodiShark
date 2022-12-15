@@ -19,6 +19,7 @@ const PaymentRejectedStyled = styled.div<Props>`
       flex-direction: column;
       justify-content: space-between;
       width: 25%;
+      gap: 1.6rem;
     }
 
     &__button {
