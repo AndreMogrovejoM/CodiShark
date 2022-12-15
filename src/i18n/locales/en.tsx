@@ -113,7 +113,7 @@ const en = {
         TableRows: {
           buttonExpand: "View details",
           amount: "Original amount",
-          discount: "Original amount",
+          discount: "Pay amount",
           deadline: "Payment deadline"
         },
         TableRowsExpand: {

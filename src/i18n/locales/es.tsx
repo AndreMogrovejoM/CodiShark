@@ -112,7 +112,7 @@ const es: Dictionary = {
         TableRows: {
           buttonExpand: "Ver detalles",
           amount: "Monto original",
-          discount: "Monto original",
+          discount: "Monto a pagar",
           deadline: "Fecha límite de pago"
         },
         TableRowsExpand: {
