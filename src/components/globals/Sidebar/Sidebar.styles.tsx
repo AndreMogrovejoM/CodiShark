@@ -92,7 +92,11 @@ const SidebarStyled = styled.nav<Props>`
     }
 
     &__icon {
-      padding-bottom: 2rem;
+      cursor: pointer;
+
+      &--container {
+        padding-bottom: 2rem;
+      }
     }
 
     &__sectionContainer {

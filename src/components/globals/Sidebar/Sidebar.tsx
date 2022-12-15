@@ -145,6 +145,10 @@ const Sidebar: React.FC<Props> = props => {
     );
   };
 
+  const renderHome = () => {
+    return navigate(rol === 1 ? ENTRY_PATH : ADMIN_ENTRY_PATH);
+  };
+
   return (
     <Styles className="Sidebar">
       <Drawer
@@ -162,12 +166,15 @@ const Sidebar: React.FC<Props> = props => {
           subheader={
             <div className="Sidebar__header">
               <div className="Sidebar__header-text">
-                <img
-                  className="Sidebar__icon"
-                  src={logoKonecta}
-                  alt="logoKonecta"
-                  width={140}
-                />
+                <div className="Sidebar__icon--container">
+                  <img
+                    className="Sidebar__icon"
+                    src={logoKonecta}
+                    alt="logoKonecta"
+                    width={140}
+                    onClick={() => renderHome()}
+                  />
+                </div>
                 <div className="Sidebar__sectionContainer">
                   <img src={iconPersonSideBar} alt="iconPersonSideBar" />
                   <div>

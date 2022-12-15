@@ -25,6 +25,7 @@ const AdminPaymentListView: React.FC<Props> = props => {
     50,
     query
   );
+  const [loading, setLoading] = useState(false);
 
   const { data: operationsList } = data ?? {};
 
@@ -38,8 +39,10 @@ const AdminPaymentListView: React.FC<Props> = props => {
 
   const handlePDF = async () => {
     try {
+      setLoading(true);
       const response = await exportOperationsPdf();
       FileDownload(response, "report.pdf");
+      setLoading(false);
     } catch (error) {
       console.log("Error at trying to print pdf");
     }
@@ -47,8 +50,10 @@ const AdminPaymentListView: React.FC<Props> = props => {
 
   const handleExcel = async () => {
     try {
+      setLoading(true);
       const response = await exportOperationsExcel();
       FileDownload(response, "report.csv");
+      setLoading(false);
     } catch (error) {
       console.log("Error at trying to print excel");
     }
@@ -61,6 +66,7 @@ const AdminPaymentListView: React.FC<Props> = props => {
           variant="contained"
           className="AdminPaymentListView__component--button"
           onClick={handlePDF}
+          disabled={loading}
         >
           {t.buttonPdf}
         </Button>
@@ -68,6 +74,7 @@ const AdminPaymentListView: React.FC<Props> = props => {
           variant="contained"
           className="AdminPaymentListView__component--button"
           onClick={handleExcel}
+          disabled={loading}
         >
           {t.buttonExcel}
         </Button>

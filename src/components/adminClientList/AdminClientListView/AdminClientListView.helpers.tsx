@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { User } from "types/user.types";
+import { getSubString } from "utils/common.utils";
 
 import { Row, RowButton } from "../ClientTable/PaymentTable.helpers";
 
@@ -13,8 +14,12 @@ export const columns: TableColumn<User>[] = [
     selector: row => row.first_name ?? "",
     sortable: true,
     ignoreRowClick: true,
+    width: "10rem",
     cell: row => (
-      <Row content={`${row?.first_name} ${row?.last_name}`} bold={true} />
+      <Row
+        content={getSubString(`${row?.first_name} ${row?.last_name}`, 8)}
+        bold={true}
+      />
     )
   },
   {
@@ -22,6 +27,7 @@ export const columns: TableColumn<User>[] = [
     selector: row => row.capital_debt ?? "",
     wrap: true,
     sortable: true,
+    compact: true,
     ignoreRowClick: true,
     cell: row => <Row content={row?.dni ?? "-"} />
   },
@@ -31,12 +37,14 @@ export const columns: TableColumn<User>[] = [
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
+    width: "24rem",
     cell: row => <Row content={row?.email ?? "-"} />
   },
   {
     name: t.phone,
     selector: row => row.bills ?? "",
     ignoreRowClick: true,
+    compact: true,
     cell: row => <Row content={row?.phone ?? "-"} />
   },
   {
