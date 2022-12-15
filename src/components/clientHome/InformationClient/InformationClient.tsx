@@ -25,17 +25,19 @@ const InformationClient: React.FC<Props> = props => {
 
   const { id, amount_cancellation } = userDebt ?? {};
   const { mutateAsync, reset, isLoading } = useGenerateOperationNumber();
-  const { setIsLoading, setPaymentStatus } = useGlobals();
+  const { setIsLoading, setPaymentStatus, paymentStatus } = useGlobals();
 
   useEffect(() => {
     setIsLoading(isLoading);
   }, [isLoading, setIsLoading]);
 
   const handleOpenIziPay = () => {
+    if (paymentStatus === "ERROR") setPaymentStatus("NONE");
     setOpenIziPayModal(!openIziPayModal);
   };
 
   const handleClick = async () => {
+    if (paymentStatus === "ERROR") setPaymentStatus("NONE");
     try {
       if (amount_cancellation && id) {
         await mutateAsync({
