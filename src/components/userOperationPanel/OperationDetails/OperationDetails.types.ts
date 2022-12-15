@@ -4,7 +4,7 @@ import { Operation } from "services/administrator/administrator.service.types";
 
 // Component Props
 export interface OperationDetailsProps {
-  data: Operation | undefined;
+  data?: Operation;
 }
 
 // Styled Component Props

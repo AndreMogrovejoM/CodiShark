@@ -12,7 +12,6 @@ const SignInAdministrator = lazy(
   () => import("pages/signInAdministrator.page")
 );
 const AdministratorPanel = lazy(() => import("pages/AdministratorPanel.page"));
-/* TODO: User */
 const UserPaymentListPage = lazy(() => import("pages/UserPaymentListPage"));
 const Client = lazy(() => import("pages/Client.page"));
 const SignInUser = lazy(() => import("pages/signInUser.page"));
