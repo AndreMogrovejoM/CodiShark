@@ -32,10 +32,12 @@ const InformationClient: React.FC<Props> = props => {
   }, [isLoading, setIsLoading]);
 
   const handleOpenIziPay = () => {
+    setPaymentStatus("NONE");
     setOpenIziPayModal(!openIziPayModal);
   };
 
   const handleClick = async () => {
+    setPaymentStatus("NONE");
     try {
       if (amount_cancellation && id) {
         await mutateAsync({

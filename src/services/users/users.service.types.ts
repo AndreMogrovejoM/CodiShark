@@ -2,7 +2,7 @@
 
 import { CreatePaymentResponse } from "services/iziPay/iziPay.service.types";
 
-export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado";
+export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado" | "Incompleto";
 
 export interface UserDebt {
   id: number;

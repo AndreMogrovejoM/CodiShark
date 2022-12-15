@@ -65,9 +65,9 @@ const es: Dictionary = {
         },
         TableHeader2: {
           name: "Nombre",
-          capitalDebt: "Deuda de capital",
-          interests: "Intereses",
-          bills: "Cuentas",
+          dni: "Dni",
+          email: "Email",
+          phone: "Celular",
           punishmentDate: "Fecha de castigo",
           action: ""
         },
@@ -112,7 +112,7 @@ const es: Dictionary = {
         TableRows: {
           buttonExpand: "Ver detalles",
           amount: "Monto original",
-          discount: "Monto original",
+          discount: "Monto a pagar",
           deadline: "Fecha límite de pago"
         },
         TableRowsExpand: {

@@ -1,3 +1,4 @@
+import { Operation } from "services/administrator/administrator.service.types";
 import { render } from "setupTests";
 
 import PaymentTable from "./PaymentTable";
@@ -8,9 +9,7 @@ describe("PaymentTable", () => {
       <PaymentTable
         data={[]}
         columns={[]}
-        expandableRows={true}
-        expandOnRowClicked={true}
-        progressPending={true}
+        onRowClicked={(row: Operation) => console.log(row)}
       />
     );
   });

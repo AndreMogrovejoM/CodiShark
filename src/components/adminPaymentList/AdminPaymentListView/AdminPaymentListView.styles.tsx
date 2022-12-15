@@ -31,18 +31,10 @@ const AdminPaymentListViewStyled = styled.div<Props>`
         margin-bottom: 1.6rem;
       }
 
-      &--image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-      }
-
       &--layout {
         display: flex;
         gap: 1.6rem;
         flex-flow: row wrap;
-
         @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
           gap: 2%;
         }
@@ -77,20 +69,16 @@ const AdminPaymentListViewStyled = styled.div<Props>`
 
     &__component {
       &--button {
-        font-weight: 800;
+        font-weight: 600;
         font-size: 1rem;
         line-height: 1.6rem;
         border-radius: 0.8rem;
-      }
 
-      &--details {
-        border-radius: 0.8rem;
-        min-height: 40rem;
-        height: 100%;
-        background-color: var(--palette-white);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        &-disabled {
+          background-color: var(--palette-greyBackground);
+          opacity: 0.8;
+          pointer-events: none;
+        }
       }
     }
 

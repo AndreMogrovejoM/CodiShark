@@ -1,8 +1,7 @@
 // Interfaces and types from component PaymentTable
 
 import { TableColumn } from "react-data-table-component";
-import { ExpandableRowsComponent } from "react-data-table-component/dist/src/DataTable/types";
-import { OperationUserDebt } from "services/users/users.service.types";
+import { Operation } from "services/administrator/administrator.service.types";
 
 export interface NumbersComponentProps {
   key: number;
@@ -13,7 +12,11 @@ export interface NumbersComponentProps {
 
 export interface RowProps {
   content: string;
-  bold?: boolean;
+  bold: boolean;
+}
+
+export interface RowChipProps {
+  conditional: boolean;
 }
 
 export interface PaginationInterface {
@@ -26,12 +29,10 @@ export interface PaginationInterface {
 
 // Component Props
 export interface PaymentTableProps {
-  data: OperationUserDebt[];
-  columns: TableColumn<OperationUserDebt>[];
-  expandableRows: boolean;
-  expandableRowsComponent?: ExpandableRowsComponent<OperationUserDebt>;
-  expandOnRowClicked: boolean;
-  progressPending: boolean;
+  data: Operation[];
+  onRowClicked: (row: Operation) => void;
+  columns: TableColumn<Operation>[];
+  progressPending?: boolean;
 }
 
 // Styled Component Props

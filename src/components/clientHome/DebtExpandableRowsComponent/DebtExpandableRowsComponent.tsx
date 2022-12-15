@@ -11,7 +11,8 @@ import { DebtExpandableRowsComponentProps as Props } from "./DebtExpandableRowsC
 
 const DebtExpandableRowsComponent: React.FC<Props> = props => {
   const { data } = props;
-  const { paymentStatus } = useGlobals();
+  const { paymentStatus, currentDebtId } = useGlobals();
+  const { id } = data ?? {};
 
   const t = getI18n().global.table.TableDebtUser.TableRowsExpand;
 
@@ -47,12 +48,18 @@ const DebtExpandableRowsComponent: React.FC<Props> = props => {
 
         {renderContent(
           t.date,
-          dayjs(data?.date_last_contact).format("DD / MM / YYYY")
+          dayjs(data?.limit_date).format("DD / MM / YYYY")
         )}
       </div>
-      {paymentStatus === "SUCCESS" && <PaymentSuccess />}
-      {paymentStatus === "ERROR" && <PaymentRejected />}
-      {paymentStatus === "NONE" && <InformationClient userDebt={data} />}
+      {paymentStatus === "SUCCESS" && currentDebtId.current === id && (
+        <PaymentSuccess />
+      )}
+      {paymentStatus === "ERROR" && currentDebtId.current === id && (
+        <PaymentRejected />
+      )}
+      {(paymentStatus === "NONE" || currentDebtId.current !== id) && (
+        <InformationClient userDebt={data} />
+      )}
     </Styles>
   );
 };

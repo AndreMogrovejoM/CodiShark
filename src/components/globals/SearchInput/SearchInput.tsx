@@ -6,6 +6,7 @@ import Styles from "./SearchInput.styles";
 import { SearchInputProps as Props } from "./SearchInput.types";
 
 const SearchInput: React.FC<Props> = props => {
+  const { onChange } = props;
   const t = useI18n().global;
 
   return (
@@ -16,6 +17,7 @@ const SearchInput: React.FC<Props> = props => {
           className="SearchInput__component--input"
           type="text"
           placeholder={t.inputSearch}
+          onChange={onChange}
         />
       </div>
     </Styles>

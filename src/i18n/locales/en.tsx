@@ -21,7 +21,7 @@ const en = {
       startAdmin: "Start Admin",
       myPays: "My payments",
       paymentDetails: "Payment details",
-      myPayments: "Payment list",
+      myPayments: "My payments",
       myClients: "Customer list",
       logout: "Logout",
       title: "Contact",
@@ -66,9 +66,9 @@ const en = {
         },
         TableHeader2: {
           name: "Name",
-          capitalDebt: "Capital debt",
-          interests: "Interests",
-          bills: "Bills",
+          dni: "Dni",
+          email: "Email",
+          phone: "Mobile phone",
           punishmentDate: "Punishment date",
           action: ""
         },
@@ -113,7 +113,7 @@ const en = {
         TableRows: {
           buttonExpand: "View details",
           amount: "Original amount",
-          discount: "Original amount",
+          discount: "Pay amount",
           deadline: "Payment deadline"
         },
         TableRowsExpand: {

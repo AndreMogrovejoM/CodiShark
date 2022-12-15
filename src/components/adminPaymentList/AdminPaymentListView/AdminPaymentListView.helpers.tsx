@@ -1,70 +1,60 @@
+import { RowButton } from "components/adminClientList/ClientTable/PaymentTable.helpers";
+import { RowChip } from "components/adminClientList/ClientTable/PaymentTable.helpers";
+import { Row } from "components/adminClientList/ClientTable/PaymentTable.helpers";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
-import { OperationUserDebt } from "services/users/users.service.types";
-import { PaymentStatus } from "services/users/users.service.types";
+import { Operation } from "services/administrator/administrator.service.types";
 
-import ButtonRowsComponent from "../ButtonRowsComponent/ButtonRowsComponent";
-import { Row } from "../PaymentTable/PaymentTable.helpers";
+const t = getI18n().global.table.TablePaymentUser.TableHeader;
 
-const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
-
-const disabledButton = (value: PaymentStatus) => {
-  return value !== "Pagado";
-};
-
-export const columns: TableColumn<OperationUserDebt>[] = [
+export const columns: TableColumn<Operation>[] = [
   {
-    name: t.concept,
-    selector: row => row?.debt?.product ?? "",
-    wrap: true,
+    name: t.name,
+    selector: row => row?.user?.first_name ?? "",
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`${row?.debt?.product ?? "-"}`} bold={true} />
-  },
-  {
-    name: t.originalAmount,
-    selector: row => row?.debt?.capital_debt ?? "",
-    wrap: true,
-    sortable: true,
-    ignoreRowClick: true,
-    cell: row => <Row content={`S/ ${row?.debt?.capital_debt ?? ""}`} />
-  },
-  {
-    name: t.amountPaid,
-    selector: row => row?.amount_paid ?? 0,
-    wrap: true,
-    sortable: true,
-    center: true,
-    ignoreRowClick: true,
-    cell: row => <Row content={`S/ ${row?.amount_paid ?? 0}`} bold={true} />
-  },
-  {
-    name: t.paymentDate,
-    selector: row => row?.operation_date ?? "",
-    wrap: true,
-    sortable: true,
-    center: true,
-    ignoreRowClick: true,
-    cell: row => <Row content={row?.operation_date ?? ""} />
-  },
-  // TODO: Add state
-  {
-    name: t.actions,
-    center: true,
-    button: true,
-    minWidth: "150px",
     cell: row => (
-      <ButtonRowsComponent
-        disabled={disabledButton(row?.payment_status)}
-        data={row}
+      <Row
+        content={`${row?.user?.first_name ?? "-"} ${
+          row?.user?.last_name ?? "-"
+        }`}
+        bold={true}
       />
     )
   },
   {
-    name: "",
-    center: true,
+    name: t.date,
+    selector: row => row?.operation_date ?? "",
+    wrap: true,
+    sortable: true,
+    ignoreRowClick: true,
+    cell: row => <Row content={row?.operation_date ?? ""} />
+  },
+  {
+    name: t.amount,
+    selector: row => row?.amount_paid ?? 0,
+    wrap: true,
+    sortable: true,
+    ignoreRowClick: true,
+    cell: row => <Row content={row?.amount_paid ?? 0} />
+  },
+  {
+    name: t.method,
+    selector: row => row?.payment_method ?? "",
+    ignoreRowClick: true,
+    cell: row => <Row content={row?.payment_method ?? ""} />
+  },
+  {
+    name: t.state,
     button: true,
-    minWidth: "150px",
-    cell: () => <ButtonRowsComponent data-tag="allowRowEvents" icon={true} />
+    ignoreRowClick: true,
+    cell: row => (
+      <RowChip conditional={row?.payment_status === "Pagado" ? true : false} />
+    )
+  },
+  {
+    name: t.action,
+    center: true,
+    cell: row => <RowButton row={row?.id} />
   }
 ];

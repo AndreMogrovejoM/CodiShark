@@ -44,7 +44,7 @@ export const RowMiddle: React.FC<RowMiddleProps> = props => {
           }`}</h3>
           <div>
             <span className="DebtTable__component--discount">{` - ${
-              discount * 100 ?? ""
+              Math.round(discount * 100) ?? ""
             } %`}</span>
           </div>
         </div>

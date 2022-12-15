@@ -1,7 +1,7 @@
 import React, { createContext, useMemo, useRef, useState } from "react";
-import { OperationUserDebt } from "services/users/users.service.types";
 
 import { GlobalsProviderProps as Props } from "./globals.context.types";
+import { OperationType } from "./globals.context.types";
 import { PaymentStatus } from "./globals.context.types";
 import { GlobalsProviderValue } from "./globals.context.types";
 
@@ -11,10 +11,10 @@ export const GlobalsContext = createContext<GlobalsProviderValue>({});
 const GlobalsProvider: React.FC<Props> = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<PaymentStatus>("NONE");
-  const [operationUserDebt, setOperationUserDebt] = useState<
-    OperationUserDebt | undefined
-  >(undefined);
+  const [operationUserDebt, setOperationUserDebt] =
+    useState<OperationType>(undefined);
   const selectedIndex = useRef(0);
+  const currentDebtId = useRef<number | undefined>(undefined);
 
   const value: GlobalsProviderValue = useMemo(() => {
     return {
@@ -24,7 +24,8 @@ const GlobalsProvider: React.FC<Props> = props => {
       paymentStatus,
       setPaymentStatus,
       operationUserDebt,
-      setOperationUserDebt
+      setOperationUserDebt,
+      currentDebtId
     };
   }, [isLoading, operationUserDebt, paymentStatus]);
 

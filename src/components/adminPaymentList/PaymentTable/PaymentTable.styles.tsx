@@ -1,42 +1,22 @@
-import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PaymentTableStyledProps as Props } from "./PaymentTable.types";
-
-const { BREAKPOINTS } = CONSTANTS;
 
 const PaymentTableStyled = styled.div<Props>`
   .PaymentTable {
     &__container {
       &--button {
+        background-color: var(--palette-primary);
+        border-radius: 50%;
         display: flex;
         align-items: center;
-        justify-content: center;
-        color: var(--palette-white);
         cursor: pointer;
-        font-size: 0.8rem;
-        border-radius: 0.8rem;
-        background-color: var(--palette-skyBlue);
-        text-align: center;
-        padding: 0.2rem;
-
-        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
-          padding: 0.8rem 1rem;
-        }
+        padding: 0.08rem;
 
         &-icon {
-          background-color: var(--palette-greyBackground);
-          color: var(--palette-darkText);
-          font-weight: 600;
-          font-size: 0.8rem;
-          line-height: 1rem;
-        }
-
-        &-disabled {
-          cursor: not-allowed;
-          background-color: var(--palette-greyBackground);
-          color: var(--palette-darkText);
-          opacity: 0.8;
+          width: 1.6rem;
+          height: 1.6rem;
+          fill: var(--palette-white);
         }
       }
 
@@ -44,33 +24,33 @@ const PaymentTableStyled = styled.div<Props>`
         font-weight: 400;
         font-size: 1rem;
         line-height: 1.6rem;
-        color: var(--palette-blueText);
+        color: var(--palette-whiteBackgroundTwo);
 
         &-bold {
-          font-weight: 700;
-        }
-
-        &-expand {
-          font-weight: 300;
-          font-size: 1rem;
-          line-height: 1.2rem;
+          font-weight: 600;
+          color: var(--palette-blue);
         }
       }
 
-      &--icon {
-        display: flex;
-        align-items: center;
-        margin-right: none;
-        pointer-events: none;
+      &--chip {
+        border-radius: 0.8rem;
 
-        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
-          margin-right: 0.64rem;
+        &-green {
+          background: var(--palette-greenWeakBackground);
+        }
+
+        &-yellow {
+          background: var(--palette-yellowWeakBackground);
         }
       }
+    }
 
-      &__text {
-        display: flex;
-        align-items: center;
+    &__text {
+      &--chip {
+        font-weight: 600;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        padding: 0.4rem 1.2rem;
       }
     }
   }
