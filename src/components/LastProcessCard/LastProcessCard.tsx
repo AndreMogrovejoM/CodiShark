@@ -2,6 +2,7 @@ import iconArrowCard from "assets/images/iconArrowCard.svg";
 import iconCard from "assets/images/iconCard.svg";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 
 import Styles from "./LastProcessCard.styles";
@@ -12,6 +13,8 @@ const LastProcessCard: React.FC<Props> = props => {
   const t = useI18n().signIn.AdministratorPanel;
   const { data } = useFetchAdministratorOperations(status);
   const { data: operationsList } = data ?? {};
+
+  const navigate = useNavigate();
 
   const renderUser = (name: string, idx?: number) => {
     return (
@@ -60,7 +63,12 @@ const LastProcessCard: React.FC<Props> = props => {
           })}
         </div>
       </div>
-      <h3 className="LastProcessCard__footerSubtitle" onClick={() => {}}>
+      <h3
+        className="LastProcessCard__footerSubtitle"
+        onClick={() => {
+          navigate(`/adminPaymentList?status=${status}`);
+        }}
+      >
         {t.footerTitle}
       </h3>
     </Styles>

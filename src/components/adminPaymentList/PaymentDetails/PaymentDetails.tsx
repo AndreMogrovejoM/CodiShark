@@ -51,7 +51,7 @@ const PaymentDetails: React.FC<Props> = props => {
       onClick={() => {
         if (data && "debt_id" in data) {
           // @ts-ignore
-          navigate(`/userPaymentDetails/${data.debt_id}`);
+          navigate(`/userPaymentDetails/${data.id}`);
           setOperationUserDebt(data);
         }
       }}

@@ -16,3 +16,7 @@ export function getNumberOfPages(
 export function getArrayViews(numPages: number) {
   return Array.from({ length: numPages }, (_, i) => i + 1);
 }
+
+export function getSubString(str: string, end: number) {
+  return str.substring(0, end);
+}

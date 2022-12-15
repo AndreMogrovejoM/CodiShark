@@ -3,6 +3,7 @@ import SearchInput from "components/globals/SearchInput/SearchInput";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { exportOperationsExcel } from "services/administrator/administrator.service";
 import { exportOperationsPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
@@ -15,12 +16,16 @@ import Styles from "./AdminPaymentListView.styles";
 import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
 
 const AdminPaymentListView: React.FC<Props> = props => {
+  const [searchParams] = useSearchParams();
+  const status = searchParams.get("status") || undefined;
+  const [statusQuery] = useState(status);
   const [query, setQuery] = useState("");
   const { data, isLoading } = useFetchAdministratorOperations(
-    undefined,
+    statusQuery,
     50,
     query
   );
+  const [loading, setLoading] = useState(false);
 
   const { data: operationsList } = data ?? {};
 
@@ -34,8 +39,10 @@ const AdminPaymentListView: React.FC<Props> = props => {
 
   const handlePDF = async () => {
     try {
+      setLoading(true);
       const response = await exportOperationsPdf();
       FileDownload(response, "report.pdf");
+      setLoading(false);
     } catch (error) {
       console.log("Error at trying to print pdf");
     }
@@ -43,8 +50,10 @@ const AdminPaymentListView: React.FC<Props> = props => {
 
   const handleExcel = async () => {
     try {
+      setLoading(true);
       const response = await exportOperationsExcel();
       FileDownload(response, "report.csv");
+      setLoading(false);
     } catch (error) {
       console.log("Error at trying to print excel");
     }
@@ -57,6 +66,7 @@ const AdminPaymentListView: React.FC<Props> = props => {
           variant="contained"
           className="AdminPaymentListView__component--button"
           onClick={handlePDF}
+          disabled={loading}
         >
           {t.buttonPdf}
         </Button>
@@ -64,6 +74,7 @@ const AdminPaymentListView: React.FC<Props> = props => {
           variant="contained"
           className="AdminPaymentListView__component--button"
           onClick={handleExcel}
+          disabled={loading}
         >
           {t.buttonExcel}
         </Button>

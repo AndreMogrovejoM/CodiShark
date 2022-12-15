@@ -48,13 +48,11 @@ export const columns: TableColumn<Operation>[] = [
     name: t.state,
     button: true,
     ignoreRowClick: true,
-    cell: row => (
-      <RowChip conditional={row?.payment_status === "Pagado" ? true : false} />
-    )
+    cell: row => <RowChip conditional={row?.payment_status === "Pagado"} />
   },
   {
     name: t.action,
     center: true,
-    cell: row => <RowButton row={row?.id} />
+    cell: () => <RowButton />
   }
 ];

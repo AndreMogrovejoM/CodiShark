@@ -36,18 +36,13 @@ export const RowChip = (props: RowChipProps) => {
   );
 };
 
-export const RowButton = (props: any) => {
-  return (
-    <Styles
-      className="PaymentTable__container--button"
+export const RowButton = () => (
+  <Styles className="PaymentTable__container--button" data-tag="allowRowEvents">
+    <img
+      src={rightArrow}
+      className="PaymentTable__container--button-icon"
+      alt="Icon"
       data-tag="allowRowEvents"
-    >
-      <img
-        src={rightArrow}
-        className="PaymentTable__container--button-icon"
-        alt="Icon"
-        data-tag="allowRowEvents"
-      />
-    </Styles>
-  );
-};
+    />
+  </Styles>
+);

@@ -11,6 +11,10 @@ export interface NumbersComponentProps {
   onClick: () => void;
 }
 
+export interface RowChipProps {
+  conditional: boolean;
+}
+
 export interface RowProps {
   content: string;
   bold?: boolean;
