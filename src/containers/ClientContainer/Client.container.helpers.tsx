@@ -30,7 +30,7 @@ export const columns: TableColumn<UserDebt>[] = [
     sortable: true,
     ignoreRowClick: true,
     minWidth: "16rem",
-    maxWidth: "16rem",
+    maxWidth: "24rem",
     cell: row => (
       <RowMiddle
         price={row?.amount_cancellation}
