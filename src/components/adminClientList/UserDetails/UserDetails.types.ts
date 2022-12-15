@@ -3,7 +3,7 @@ import { User } from "types/user.types";
 
 // Component Props
 export interface UserDetailsProps {
-  data: User | undefined;
+  data?: User;
 }
 
 // Styled Component Props
