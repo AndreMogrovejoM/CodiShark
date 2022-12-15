@@ -54,7 +54,7 @@ const Indicators: React.FC<Props> = props => {
       {renderHeaderIndicators}
       <div className="Indicators__cardsContainer">
         <InfoCard title={t.card1} value={`${connections ?? 0}`} />
-        <InfoCard title={t.card2} value={`${charges ?? 0}`} />
+        <InfoCard title={t.card2} value={`S./ ${charges ?? 0}`} />
         <InfoCard title={t.card3} value={`${calls ?? 0}`} />
         <InfoCard title={t.card4} value={`${payments ?? 0}`} />
       </div>

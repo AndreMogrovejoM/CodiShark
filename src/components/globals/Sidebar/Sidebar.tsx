@@ -28,7 +28,7 @@ const Sidebar: React.FC<Props> = props => {
   const { open = true, onClose } = props;
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
-  const { setSignInStep, setUser, user, isAnonymous } = useAuth();
+  const { setSignInStep, setUser, user } = useAuth();
   const { selectedIndex } = useGlobals();
   const { mutateAsync, reset } = useLogout();
   const [, setLocalUser] = useLocalStorage("user");
@@ -123,7 +123,7 @@ const Sidebar: React.FC<Props> = props => {
   };
 
   const renderUserRoutes = () => {
-    if (isAnonymous) return null;
+    if (rol !== 1) return null;
 
     return (
       <>

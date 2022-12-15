@@ -47,7 +47,6 @@ const SignInAdministrator: React.FC<Props> = props => {
         const { user } = response ?? {};
         setCookie("token", response?.access_token);
         setUser(user);
-        // TODO: Pending
         setLocalUser(user);
         navigate(ADMIN_ENTRY_PATH);
       } else {
