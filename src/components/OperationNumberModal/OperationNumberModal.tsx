@@ -60,12 +60,10 @@ const OperationNumberModal: React.FC<Props> = props => {
     >
       <Box sx={style}>
         <Styles className="OperationNumberModal">
-          <div className="OperationNumberModal__container">
-            <p className="OperationNumberModal__paragraph">{t.paragraph}</p>
-            <div className="OperationNumberModal__content">
-              {renderLeftSection()}
-              {renderRightSection()}
-            </div>
+          <p className="OperationNumberModal__paragraph">{t.paragraph}</p>
+          <div className="OperationNumberModal__content">
+            {renderLeftSection()}
+            {renderRightSection()}
           </div>
         </Styles>
       </Box>

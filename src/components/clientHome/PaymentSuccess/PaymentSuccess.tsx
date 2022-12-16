@@ -11,7 +11,8 @@ import { PaymentSuccessProps as Props } from "./PaymentSuccess.types";
 const PaymentSuccess: React.FC<Props> = props => {
   const t = useI18n().signIn.PaymentRejected;
   const { operationUserDebt } = useGlobals();
-  const { amount_paid, operation_date } = operationUserDebt ?? {};
+  const { amount_paid, operation_date, operation_time } =
+    operationUserDebt ?? {};
   const date = dayjs(operation_date).format("DD/MM/YYYY");
 
   return (
@@ -47,7 +48,9 @@ const PaymentSuccess: React.FC<Props> = props => {
             <div className="PaymentSuccess__p3div">
               <p className="PaymentSuccess__p3">
                 {t.paragraph3}
-                <span className="PaymentSuccess__span3">17:45 horas</span>
+                <span className="PaymentSuccess__span3">
+                  {operation_time ?? "-"}
+                </span>
               </p>
             </div>
           </div>
