@@ -1,0 +1,1 @@
+const e=r=>(r-(r%=60))/60+(9<r?":":":0")+r;function a(r,t){return Math.ceil(r/t)}function o(r){return Array.from({length:r},(t,n)=>n+1)}function u(r,t){return r.substring(0,t)}export{a,u as b,e as f,o as g};
