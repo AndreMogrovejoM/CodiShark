@@ -12,7 +12,7 @@ const CONSTANTS = {
     ENTRY_PATH: "/",
     ADMIN_ENTRY_PATH: "/administratorPanel",
     // Router where the user will land if not authenticated
-    NO_AUTH_PATH: "/signin",
+    NO_AUTH_PATH: "/",
     // admin panel
     ADMIN_PAYMENT_LIST: "/adminPaymentList",
     ADMIN_CLIENT_LIST: "/adminClientList",

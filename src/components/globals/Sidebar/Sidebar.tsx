@@ -20,7 +20,7 @@ import { useLocalStorage } from "utils/useLocalStorage";
 import Styles, { drawerStyle } from "./Sidebar.styles";
 import { SidebarProps as Props } from "./Sidebar.types";
 
-const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
+const { USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
 const { ADMIN_CLIENT_LIST, ADMIN_PAYMENT_LIST } = CONSTANTS.ROUTES;
 const { ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
 
@@ -34,6 +34,7 @@ const Sidebar: React.FC<Props> = props => {
   const [, setLocalUser] = useLocalStorage("user");
   const { first_name, last_name, mother_last_name } = user ?? {};
   const { rol } = user ?? {};
+  const { setIsLoading } = useGlobals();
 
   const [openList, setOpenList] = useState(true);
 
@@ -43,15 +44,22 @@ const Sidebar: React.FC<Props> = props => {
 
   const handleLogout = async () => {
     try {
+      setIsLoading(true);
       mutateAsync();
       reset();
       setSignInStep(0);
       setLocalUser("");
-      setUser(undefined);
       setCookie("token", "");
-      navigate(NO_AUTH_PATH);
+      setUser(undefined);
+      setIsLoading(false);
+      navigate("/signIn");
       document.location.reload();
     } catch (error) {
+      setIsLoading(false);
+      setLocalUser("");
+      setCookie("token", "");
+      setUser(undefined);
+      navigate("/signIn");
       console.warn(error);
     }
   };
@@ -137,7 +145,7 @@ const Sidebar: React.FC<Props> = props => {
     if (rol !== 10) return null;
     return (
       <>
-        {renderItem(1, t.startAdmin, ADMIN_ENTRY_PATH)}
+        {renderItem(0, t.start, ENTRY_PATH)}
         {renderItem(2, t.myPayments, ADMIN_PAYMENT_LIST)}
         {renderItem(3, t.myClients, ADMIN_CLIENT_LIST)}
         {renderItem(6, t.setting, SETTINGS)}

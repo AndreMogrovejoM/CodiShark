@@ -36,7 +36,7 @@ export const columns: TableColumn<Operation>[] = [
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row?.amount_paid ?? 0} />
+    cell: row => <Row content={`S./ ${row?.amount_paid?.toFixed(2) ?? 0}`} />
   },
   {
     name: t.method,

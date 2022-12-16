@@ -14,7 +14,7 @@ const SignInAdministrator = lazy(
 const AdministratorPanel = lazy(() => import("pages/AdministratorPanel.page"));
 const AdminPaymentList = lazy(() => import("pages/adminPaymentList.page"));
 const AdminClientList = lazy(() => import("pages/adminClientList.page"));
-const Client = lazy(() => import("pages/Client.page"));
+const Home = lazy(() => import("pages/home.page"));
 const UserPaymentListPage = lazy(() => import("pages/userPaymentListPage"));
 const UserPaymentDetails = lazy(() => import("pages/userPaymentDetails.page"));
 const SignInUser = lazy(() => import("pages/signInUser.page"));
@@ -35,7 +35,7 @@ const Router: React.FC<Props> = props => {
   const userRoutes = () => {
     return (
       <>
-        <Route path="/" element={<Client />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/userPaymentDetails/:id"
           element={privateRoute(<UserPaymentDetails />)}

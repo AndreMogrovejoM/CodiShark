@@ -18,7 +18,7 @@ import { validCode } from "utils/validations.utils";
 import Styles from "./SignInAdministratorVerify.styles";
 import { SignInAdministratorVerifyProps as Props } from "./SignInAdministratorVerify.types";
 
-const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
+const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignInAdministratorVerify: React.FC<Props> = props => {
   const validationCode = validCode();
@@ -49,7 +49,7 @@ const SignInAdministratorVerify: React.FC<Props> = props => {
         reset();
         setIsLoading(false);
         setSignInStep(0);
-        navigate(ADMIN_ENTRY_PATH);
+        navigate(ENTRY_PATH);
       });
     } catch {
       setError("Credenciales incorrectas.");
