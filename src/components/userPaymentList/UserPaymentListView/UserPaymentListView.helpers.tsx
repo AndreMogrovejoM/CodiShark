@@ -42,7 +42,7 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     sortable: true,
     center: true,
     ignoreRowClick: true,
-    cell: row => <Row content={row?.operation_date ?? ""} />
+    cell: row => <Row content={`${row?.operation_date}` ?? ""} />
   },
   {
     name: t.actions,
