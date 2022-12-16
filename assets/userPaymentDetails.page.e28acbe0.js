@@ -1,4 +1,4 @@
-import{s as A,C as I,u as R,r as q,a as e,j as a,G as D,ag as H,aF as J}from"./index.e172364c.js";import{u as L}from"./i18n.hooks.b934c051.js";import{B as k}from"./Button.a4f8297e.js";import{u as Q,L as V}from"./Layout.container.28d71187.js";import{f as W}from"./file-download.9541e5f9.js";import{c as Z,e as ee,s as te}from"./users.service.hooks.9326fb5e.js";import{S as B}from"./sweetalert2.all.14cba41b.js";import"./auth.service.hooks.491fdc41.js";const ae="/CodiShark/assets/iconUserPhoto.6809db68.svg",{BREAKPOINTS:r}=I,ne=A.div`
+import{s as A,C as I,u as R,r as q,a as e,j as a,G as D,ag as H,aF as J}from"./index.83119aac.js";import{u as L}from"./i18n.hooks.6534aa8f.js";import{B as k}from"./Button.ba91d73e.js";import{u as Q,L as V}from"./Layout.container.ed17b99b.js";import{f as W}from"./file-download.9541e5f9.js";import{c as Z,e as ee,s as te}from"./users.service.hooks.55c518bd.js";import{S as B}from"./sweetalert2.all.432ae5e1.js";import"./auth.service.hooks.bd0577ba.js";const ae="/CodiShark/assets/iconUserPhoto.6809db68.svg",{BREAKPOINTS:r}=I,ne=A.div`
   .ProofPayment {
     &__separator {
       &--paragraph {
