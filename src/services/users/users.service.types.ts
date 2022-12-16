@@ -1,6 +1,7 @@
 // Users service interfaces and types
 
 import { CreatePaymentResponse } from "services/iziPay/iziPay.service.types";
+import { User } from "types/user.types";
 
 export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado" | "Incompleto";
 
@@ -46,6 +47,7 @@ export interface OperationUserDebt {
   created_at?: string;
   updated_at?: string;
   debt: UserDebt;
+  user?: User;
 }
 
 export interface OperationUserUniqueDebtResponse {

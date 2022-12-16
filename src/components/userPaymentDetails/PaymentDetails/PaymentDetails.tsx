@@ -1,6 +1,7 @@
 import IconUserPhoto from "assets/images/iconUserPhoto.svg";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import ProofPayment from "../ProofPayment/ProofPayment";
 import Styles from "./PaymentDetails.styles";
@@ -8,6 +9,7 @@ import { PaymentDetailsProps as Props } from "./PaymentDetails.types";
 
 const PaymentDetails: React.FC<Props> = props => {
   const t = useI18n().pages.AdminPaymentDetails.card;
+  const { id } = useParams();
 
   const renderCard = () => (
     <div className="PaymentDetails__component--card">
@@ -33,7 +35,7 @@ const PaymentDetails: React.FC<Props> = props => {
     <Styles className={`PaymentDetails`}>
       <div className="PaymentDetails__container--components">
         {renderCard()}
-        <ProofPayment />
+        <ProofPayment operationId={parseInt(id ?? "")} />
       </div>
     </Styles>
   );

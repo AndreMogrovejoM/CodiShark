@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
 
-import { generateOperationNumber } from "./users.service";
+import { fetchUserDebt, generateOperationNumber } from "./users.service";
 import { fetchUserOperations, userDebts } from "./users.service";
 import { OperationUserUniqueDebtResponse } from "./users.service.types";
 import { OperationNumberPayload } from "./users.service.types";
@@ -9,10 +9,23 @@ import { OperationNumberPayload } from "./users.service.types";
 export const useUserDebts = () => {
   const token = getCookie("token");
 
-  return useQuery(["users"], () => userDebts(), {
+  return useQuery(["users", "debts"], () => userDebts(), {
     enabled: !!token,
     staleTime: 15 * 1000 * 60
   });
+};
+
+export const useFetchUserDebt = (operationId?: number) => {
+  const token = getCookie("token");
+
+  return useQuery(
+    ["users", "debt", operationId],
+    () => fetchUserDebt(operationId),
+    {
+      enabled: !!token && !!operationId,
+      staleTime: 15 * 1000 * 60
+    }
+  );
 };
 
 export const useFetchUserOperations = (skip: 0, take = 10) => {

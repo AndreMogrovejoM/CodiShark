@@ -1,6 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import useGlobals from "contexts/globals/globals.hooks";
 import getI18n from "i18n/i18n.helpers";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,13 +12,11 @@ const ButtonRowsComponent: React.FC<Props> = props => {
   const [open, setOpen] = useState(false);
   const t = getI18n().global.table.TablePaymentAdmin.TableRows;
   const navigate = useNavigate();
-  const { setOperationUserDebt } = useGlobals();
 
   const handleExpandRow = () => {
     setOpen(!open);
     if ("debt_id" in data) {
-      navigate(`/userPaymentDetails/${data?.debt_id}`);
-      setOperationUserDebt(data);
+      navigate(`/userPaymentDetails/${data?.id}`);
     }
   };
 

@@ -1,33 +1,35 @@
 import Button from "components/globals/Button/Button";
-import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendOperationEmail } from "services/users/users.service";
 import { exportOperationPdf } from "services/users/users.service";
+import { useFetchUserDebt } from "services/users/users.service.hooks";
 import Swal from "sweetalert2";
 
 import Styles from "./ProofPayment.styles";
 import { ProofPaymentProps as Props } from "./ProofPayment.types";
 
 const ProofPayment: React.FC<Props> = props => {
+  const { operationId } = props;
   const t = useI18n().pages.AdminPaymentDetails.proof;
-  const { operationUserDebt: userDebt, isLoading, setIsLoading } = useGlobals();
-  const { user } = useAuth();
-
-  const { first_name, last_name, mother_last_name } = user ?? {};
+  const { setIsLoading } = useGlobals();
+  const { data: userDebt, isLoading } = useFetchUserDebt(operationId);
   const navigate = useNavigate();
 
-  // @ts-ignore
-  // TODO: Pending
-  const { debt, operation_number, amount_paid, id } = userDebt ?? {};
+  const { debt, operation_number, amount_paid, id, user } = userDebt ?? {};
   const { payment_method, operation_date, operation_time } = userDebt ?? {};
   const { amount_dscto_cancellation, product, amount_cancellation } =
     debt ?? {};
   const { capital_debt, currency, banking_entity } = debt ?? {};
+  const { first_name, last_name, mother_last_name } = user ?? {};
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading, setIsLoading]);
 
   const renderDetails = () => (
     <div className="ProofPayment__separator--paragraph">
@@ -63,7 +65,7 @@ const ProofPayment: React.FC<Props> = props => {
           {t.paymentcode.toLocaleUpperCase()}
         </p>
         <p className="ProofPayment__text--paragraph-superBold">
-          {`P-${operation_number}` ?? "-"}
+          {`P-${operation_number ?? "XXXXXX"}`}
         </p>
       </div>
       <div className="ProofPayment__separator--paragraph">

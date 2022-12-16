@@ -2,6 +2,7 @@
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
 import { OperationUserDebtResponse } from "./users.service.types";
+import { OperationUserDebt } from "./users.service.types";
 import { OperationUserUniqueDebtResponse } from "./users.service.types";
 import { OperationNumberPayload } from "./users.service.types";
 import { UserDebtResponse } from "./users.service.types";
@@ -12,6 +13,19 @@ export const userDebts = async (): Promise<UserDebtResponse> => {
       headers: buildHeaders()
     });
     return response?.data;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const fetchUserDebt = async (
+  operationId?: number
+): Promise<OperationUserDebt> => {
+  try {
+    const response = await axiosDefault.get(`/operations/${operationId}`, {
+      headers: buildHeaders()
+    });
+    return response?.data?.data;
   } catch (e: any) {
     throw new Error(e.message);
   }

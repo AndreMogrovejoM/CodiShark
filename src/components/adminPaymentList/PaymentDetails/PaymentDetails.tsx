@@ -1,6 +1,5 @@
 import DetailsPay from "assets/images/detailsPay.svg";
 import Button from "components/globals/Button/Button";
-import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
@@ -15,7 +14,6 @@ const PaymentDetails: React.FC<Props> = props => {
   const { user } = data ?? {};
 
   const navigate = useNavigate();
-  const { setOperationUserDebt } = useGlobals();
 
   const t = useI18n().components.OperationalDetails;
 
@@ -43,16 +41,13 @@ const PaymentDetails: React.FC<Props> = props => {
         : ""
     }`;
 
-  // TODO: PENDING
   const renderActions = () => (
     <Button
       variant="contained"
       className={styleClass()}
       onClick={() => {
-        if (data && "debt_id" in data) {
-          // @ts-ignore
+        if (data && "id" in data) {
           navigate(`/userPaymentDetails/${data.id}`);
-          setOperationUserDebt(data);
         }
       }}
     >
