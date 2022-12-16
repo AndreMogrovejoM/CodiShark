@@ -1,1 +1,0 @@
-import"./AdministratorPanel.container.3d56573e.js";import{A as f}from"./AdministratorPanel.container.3d56573e.js";import"./index.222ffc61.js";import"./administrator.service.hooks.d92d2c4f.js";import"./auth.service.hooks.ec00bf56.js";import"./i18n.hooks.7225a4b8.js";import"./Layout.container.764bc839.js";export{f as default};
