@@ -35,7 +35,9 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
         {renderContent(t.typeExchange, debt?.currency)}
         {renderContent(
           t.date,
-          dayjs(debt?.date_last_contact).format("DD / MM / YYYY")
+          `${dayjs(data?.operation_date).format("DD / MM / YYYY")} ${
+            data?.operation_time ?? "-"
+          }`
         )}
       </div>
     </Styles>
