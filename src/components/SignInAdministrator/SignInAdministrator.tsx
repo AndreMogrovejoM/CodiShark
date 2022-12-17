@@ -19,7 +19,7 @@ import { validLoginUser, validPassword } from "utils/validations.utils";
 import Styles from "./SignInAdministrator.styles";
 import { SignInAdministratorProps as Props } from "./SignInAdministrator.types";
 
-const { ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
+const { ENTRY_PATH } = CONSTANTS.ROUTES;
 
 const SignInAdministrator: React.FC<Props> = props => {
   const [dniField] = validLoginUser();
@@ -48,7 +48,7 @@ const SignInAdministrator: React.FC<Props> = props => {
         setCookie("token", response?.access_token);
         setUser(user);
         setLocalUser(user);
-        navigate(ADMIN_ENTRY_PATH);
+        navigate(ENTRY_PATH);
       } else {
         const { status } = response ?? {};
         if (status === 202) {

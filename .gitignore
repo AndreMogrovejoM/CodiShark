@@ -76,10 +76,10 @@ bundle
 
 # misc
 .DS_Store
-.env
-.env*.local
-.env.stag*
-.env.prod*
+# .env
+# .env*.local
+# .env.stag*
+# .env.prod*
 .vercel
 .turbo
 tsconfig.tsbuildinfo

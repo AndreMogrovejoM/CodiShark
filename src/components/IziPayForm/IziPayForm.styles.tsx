@@ -14,6 +14,7 @@ const IziPayFormStyled = styled.div<Props>`
 
   .IziPayForm {
     &__images {
+      padding: 0.8rem 0;
       display: flex;
       gap: 2rem;
     }
@@ -30,7 +31,7 @@ export const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 320,
-  height: 480,
+  minHeight: 480,
   bgcolor: "#fff",
   border: "1px solid var(--palette-primary)",
   borderRadius: 4,

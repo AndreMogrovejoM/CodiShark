@@ -6,8 +6,10 @@ const OperationNumberModalStyled = styled.div<Props>`
   .OperationNumberModal {
     &__content {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-top: 2.4rem;
+      gap: 1.2rem;
     }
 
     &__copy {
@@ -78,8 +80,9 @@ export const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 640,
-  height: 320,
+  minWidth: 320,
+  maxWidth: 640,
+  minHeight: 320,
   bgcolor: "#fff",
   border: "1px solid var(--palette-primary)",
   borderRadius: 4,

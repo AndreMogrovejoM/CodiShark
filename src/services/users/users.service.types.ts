@@ -2,6 +2,7 @@
 
 import { CreatePaymentResponse } from "services/iziPay/iziPay.service.types";
 import { PaymentStatus } from "types/payment.types";
+import { User } from "types/user.types";
 
 export interface UserDebt {
   id: number;
@@ -45,6 +46,7 @@ export interface OperationUserDebt {
   created_at?: string;
   updated_at?: string;
   debt: UserDebt;
+  user?: User;
 }
 
 export interface OperationUserUniqueDebtResponse {
