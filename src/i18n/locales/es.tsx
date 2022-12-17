@@ -71,10 +71,6 @@ const es: Dictionary = {
           punishmentDate: "Fecha de castigo",
           action: ""
         },
-        TableRows: {
-          pay: "Pagado",
-          pending: "Pendiente"
-        },
         Pagination: {
           legend: (begin: number, rowsPage: number, total: number) =>
             `Mostrando registros del ${begin} al ${rowsPage} de un total de ${total} registros.`,
@@ -135,7 +131,8 @@ const es: Dictionary = {
     },
     select: "Seleccionar",
     inputSearch: "Buscar",
-    progress: "Cargando..."
+    progress: "Cargando...",
+    selectFilter: "Filtros"
   },
   home: {},
   pages: {

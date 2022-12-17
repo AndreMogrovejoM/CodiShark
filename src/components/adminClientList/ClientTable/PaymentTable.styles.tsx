@@ -31,18 +31,6 @@ const PaymentTableStyled = styled.div<Props>`
           color: var(--palette-blue);
         }
       }
-
-      &--chip {
-        border-radius: 0.8rem;
-
-        &-green {
-          background: var(--palette-greenWeakBackground);
-        }
-
-        &-yellow {
-          background: var(--palette-yellowWeakBackground);
-        }
-      }
     }
 
     &__text {

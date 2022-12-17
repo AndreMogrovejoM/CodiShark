@@ -48,7 +48,7 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     name: t.actions,
     button: true,
     ignoreRowClick: true,
-    cell: row => <RowChip conditional={row?.payment_status === "Pagado"} />
+    cell: row => <RowChip content={row?.payment_status} />
   },
   {
     name: t.actions,

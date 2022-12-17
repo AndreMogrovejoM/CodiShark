@@ -1,7 +1,6 @@
-// Interfaces and types from component PaymentTable
-
 import { TableColumn } from "react-data-table-component";
 import { Operation } from "services/administrator/administrator.service.types";
+import { PaymentStatus } from "types/payment.types";
 
 export interface NumbersComponentProps {
   key: number;
@@ -16,7 +15,7 @@ export interface RowProps {
 }
 
 export interface RowChipProps {
-  conditional: boolean;
+  content: PaymentStatus;
 }
 
 export interface PaginationInterface {

@@ -1,5 +1,6 @@
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
+import SelectComponent from "components/globals/SelectComponent/SelectComponent";
 import useI18n from "i18n/i18n.hooks";
 import FileDownload from "js-file-download";
 import React, { useState } from "react";
@@ -18,7 +19,7 @@ import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types
 const AdminPaymentListView: React.FC<Props> = props => {
   const [searchParams] = useSearchParams();
   const status = searchParams.get("status") || undefined;
-  const [statusQuery] = useState(status);
+  const [statusQuery, setStatusQuery] = useState(status);
   const [query, setQuery] = useState("");
   const { data, isLoading } = useFetchAdministratorOperations(
     statusQuery,
@@ -78,6 +79,10 @@ const AdminPaymentListView: React.FC<Props> = props => {
         >
           {t.buttonExcel}
         </Button>
+        <SelectComponent
+          labels={["Pagado", "Pendiente", "Cancelado", "Incompleto"]}
+          onChange={event => setStatusQuery(event.target.value)}
+        />
       </div>
 
       <SearchInput onChange={handleChange} />

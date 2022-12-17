@@ -1,6 +1,7 @@
 // Interfaces and types from component PaymentTable
 
 import { TableColumn } from "react-data-table-component";
+import { User } from "types/user.types";
 
 export interface NumbersComponentProps {
   key: number;
@@ -11,11 +12,7 @@ export interface NumbersComponentProps {
 
 export interface RowProps {
   content: string;
-  bold: boolean;
-}
-
-export interface RowChipProps {
-  conditional: boolean;
+  bold?: boolean;
 }
 
 export interface PaginationInterface {
@@ -28,10 +25,9 @@ export interface PaginationInterface {
 
 // Component Props
 export interface PaymentTableProps {
-  // TODO: Pending
-  data: any[];
-  columns: TableColumn<any>[];
-  onRowClicked: (row: any) => void;
+  data: User[];
+  columns: TableColumn<User>[];
+  onRowClicked: (row: User) => void;
   progressPending: boolean;
 }
 

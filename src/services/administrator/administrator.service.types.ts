@@ -1,8 +1,6 @@
 // Administrator service interfaces and types
-
+import { PaymentStatus } from "types/payment.types";
 import { User } from "types/user.types";
-
-export type Status = "Pagado" | "Pendiente" | "Cancelado" | "Incompleto";
 
 export interface Administrator {}
 
@@ -39,7 +37,7 @@ export interface Operation {
   operation_time: string;
   amount_paid: number;
   payment_method: string;
-  payment_status: Status;
+  payment_status: PaymentStatus;
   created_at: string;
   updated_at: string;
   user: User;

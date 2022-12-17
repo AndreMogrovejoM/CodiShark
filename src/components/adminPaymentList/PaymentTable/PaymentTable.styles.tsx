@@ -42,6 +42,14 @@ const PaymentTableStyled = styled.div<Props>`
         &-yellow {
           background: var(--palette-yellowWeakBackground);
         }
+
+        &-gray {
+          background: var(--palette-greyBackground);
+        }
+
+        &-red {
+          background: var(--palette-errorBackground);
+        }
       }
     }
 
