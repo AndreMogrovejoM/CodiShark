@@ -1,5 +1,5 @@
 import rightArrow from "assets/images/rightArrow.svg";
-import useI18n from "i18n/i18n.hooks";
+import { PaymentStatus } from "types/payment.types";
 
 import Styles from "./PaymentTable.styles";
 import { RowChipProps } from "./PaymentTable.types";
@@ -16,38 +16,41 @@ export const Row = (props: any) => {
 };
 
 export const RowChip = (props: RowChipProps) => {
-  const { conditional } = props;
+  const { content } = props;
 
-  const t = useI18n().global.table.TablePaymentUser.TableRows;
+  const styleClass = (value: PaymentStatus) => {
+    switch (value) {
+      case "Pagado":
+        return "PaymentTable__container--chip-green";
 
-  const styleClass = (value: boolean) =>
-    `PaymentTable__container--chip ${
-      value
-        ? "PaymentTable__container--chip-green"
-        : "PaymentTable__container--chip-yellow"
-    }`;
+      case "Incompleto":
+        return "PaymentTable__container--chip-gray";
+
+      case "Pendiente":
+        return "PaymentTable__container--chip-yellow";
+
+      case "Cancelado":
+        return "PaymentTable__container--chip-error";
+
+      default:
+        return "PaymentTable__container--chip-green";
+    }
+  };
 
   return (
-    <Styles className={styleClass(conditional)}>
-      <p className="PaymentTable__text--chip">
-        {conditional ? t.pay : t.pending}
-      </p>
+    <Styles className={`PaymentTable__container--chip ${styleClass(content)}`}>
+      <p className="PaymentTable__text--chip">{content}</p>
     </Styles>
   );
 };
 
-export const RowButton = (row: any) => {
-  return (
-    <Styles
-      className="PaymentTable__container--button"
+export const RowButton = () => (
+  <Styles className="PaymentTable__container--button" data-tag="allowRowEvents">
+    <img
+      src={rightArrow}
+      className="PaymentTable__container--button-icon"
+      alt="Icon"
       data-tag="allowRowEvents"
-    >
-      <img
-        src={rightArrow}
-        className="PaymentTable__container--button-icon"
-        alt="Icon"
-        data-tag="allowRowEvents"
-      />
-    </Styles>
-  );
-};
+    />
+  </Styles>
+);

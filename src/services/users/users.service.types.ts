@@ -1,9 +1,8 @@
 // Users service interfaces and types
 
 import { CreatePaymentResponse } from "services/iziPay/iziPay.service.types";
+import { PaymentStatus } from "types/payment.types";
 import { User } from "types/user.types";
-
-export type PaymentStatus = "Pagado" | "Pendiente" | "Cancelado" | "Incompleto";
 
 export interface UserDebt {
   id: number;

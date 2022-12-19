@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
+import { PaymentStatus } from "types/payment.types";
 
 import { generate2fa } from "./administrator.service";
 import { fetchAdministratorSecondPanel } from "./administrator.service";
@@ -7,7 +8,7 @@ import { fetchAdministratorGraphics } from "./administrator.service";
 import { fetchAdministratorUsers } from "./administrator.service";
 import { fetchAdministratorOperations } from "./administrator.service";
 import { fetchAdministratorFirstPanel } from "./administrator.service";
-import { SecondFaResponse, Status } from "./administrator.service.types";
+import { SecondFaResponse } from "./administrator.service.types";
 
 export const useFetchAdministratorFirstPanel = () => {
   const token = getCookie("token");
@@ -55,7 +56,7 @@ export const useFetchAdministratorUsers = (
 };
 
 export const useFetchAdministratorOperations = (
-  status?: Status | string,
+  status?: PaymentStatus | string,
   take = 4,
   search?: string
 ) => {

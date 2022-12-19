@@ -8,7 +8,7 @@ describe("PaymentTable", () => {
       <PaymentTable
         data={[]}
         columns={[]}
-        onRowClicked={(row: any) => console.log(row)}
+        onRowClicked={row => console.log(row)}
         progressPending={true}
       />
     );

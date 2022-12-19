@@ -1,11 +1,12 @@
 // Administrator services
 
 import CONSTANTS from "config/constants";
+import { PaymentStatus } from "types/payment.types";
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
 import { SecondFaResponse } from "./administrator.service.types";
 import { GraphicsResponse } from "./administrator.service.types";
-import { Status, UsersListResponse } from "./administrator.service.types";
+import { UsersListResponse } from "./administrator.service.types";
 import { OperationListResponse } from "./administrator.service.types";
 import { SecondPanelPayload } from "./administrator.service.types";
 import { SecondPanelAdministrator } from "./administrator.service.types";
@@ -65,7 +66,7 @@ export const fetchAdministratorUsers = async (
 };
 
 export const fetchAdministratorOperations = async (
-  status?: Status | string,
+  status?: PaymentStatus | string,
   take = 4,
   search = ""
 ): Promise<OperationListResponse> => {

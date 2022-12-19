@@ -1,6 +1,6 @@
 // Validation utility function and data
 import getI18n from "i18n/i18n.helpers";
-import { PaymentStatus } from "services/users/users.service.types";
+import { PaymentStatus } from "types/payment.types";
 
 export const validSpecialCharacters = "*.!@$%^&(){}[]:;<>,.?/~_+-=|\\";
 export const fieldMinLength = 1;

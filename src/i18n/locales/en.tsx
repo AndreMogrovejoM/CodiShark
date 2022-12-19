@@ -72,10 +72,6 @@ const en = {
           punishmentDate: "Punishment date",
           action: ""
         },
-        TableRows: {
-          pay: "Payout",
-          pending: "Pending"
-        },
         Pagination: {
           legend: (begin: number, rowsPage: number, total: number) =>
             `Showing records from ${begin} to ${rowsPage}  of a total of ${total} records.`,
@@ -136,7 +132,8 @@ const en = {
     },
     select: "Select",
     inputSearch: "Search",
-    progress: "Loading..."
+    progress: "Loading...",
+    selectFilter: "Filters"
   },
   home: {},
   pages: {

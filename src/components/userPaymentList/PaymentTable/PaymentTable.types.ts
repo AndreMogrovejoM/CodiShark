@@ -3,6 +3,7 @@
 import { TableColumn } from "react-data-table-component";
 import { ExpandableRowsComponent } from "react-data-table-component/dist/src/DataTable/types";
 import { OperationUserDebt } from "services/users/users.service.types";
+import { PaymentStatus } from "types/payment.types";
 
 export interface NumbersComponentProps {
   key: number;
@@ -12,7 +13,7 @@ export interface NumbersComponentProps {
 }
 
 export interface RowChipProps {
-  conditional: boolean;
+  content: PaymentStatus;
 }
 
 export interface RowProps {
