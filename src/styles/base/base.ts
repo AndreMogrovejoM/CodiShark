@@ -94,6 +94,56 @@ const base = css`
 
   /* Normalization END */
 
+  .swal2-container {
+    z-index: 10000 !important;
+  }
+  .swal2-popup {
+    background: var(--palette-white) !important;
+    border-color: var(--palette-primary) !important ;
+    border-radius: 1.6rem;
+    box-shadow: 0.1rem 0.1rem 0.4rem var(--palette-darkShadow);
+  }
+  .swal2-icon.swal2-error {
+    border-color: var(--palette-error) !important ;
+    color: var(--palette-error) !important;
+  }
+
+  .swal2-icon.swal2-error [class^="swal2-x-mark-line"] {
+    background-color: var(--palette-error) !important ;
+  }
+
+  .swal2-actions {
+    margin: 4rem auto 0 !important;
+  }
+
+  .swal2-styled.swal2-confirm {
+    background-color: var(--palette-primary) !important;
+    padding: 0.8rem 3.2rem;
+    width: auto !important;
+    border-radius: 0.8rem !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.4rem var(--palette-darkShadow);
+  }
+
+  .swal2-styled.swal2-deny {
+    background-color: var(--palette-error) !important;
+    padding: 0.8rem 3.2rem;
+    width: auto !important;
+    border-radius: 0.8rem !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.4rem var(--palette-darkShadow);
+  }
+  .swal2-container.swal2-backdrop-show,
+  .swal2-container.swal2-noanimation {
+    background-color: var(--palette-primary01) !important;
+  }
+
   /* Styles a page component that consists of a full page table */
 `;
 

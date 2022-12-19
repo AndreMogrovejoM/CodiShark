@@ -3,6 +3,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import SummaryCard from "components/SummaryCard/SummaryCard";
 import useI18n from "i18n/i18n.hooks";
 import React, { useState } from "react";
+import { numberWithCommas } from "utils/common.utils";
 
 import Styles from "./DebtTable.styles";
 import { ButtonExpanderProps, RowMiddleProps } from "./DebtTable.types";
@@ -13,7 +14,8 @@ export const Row: React.FC<RowProps> = props => {
   const t = useI18n().global.table.TableDebtUser.TableRows;
 
   const renderTitle = () => (isDate ? t.deadline : t.amount);
-  const renderContent = () => (isDate ? content : `S/. ${content ?? ""}`);
+  const renderContent = () =>
+    isDate ? content : `S/. ${numberWithCommas(+content ?? 0) ?? ""}`;
 
   const styleClass = () =>
     isDate ? "DebtTable__text--date" : "DebtTable__text--title";
@@ -39,9 +41,9 @@ export const RowMiddle: React.FC<RowMiddleProps> = props => {
     <Styles className={`DebtTable`}>
       <SummaryCard title={t.discount}>
         <div className="DebtTable__container--middle">
-          <h3 className="DebtTable__text--title DebtTable__text--color">{`S/. ${
-            price?.toFixed(2) ?? ""
-          }`}</h3>
+          <h3 className="DebtTable__text--title DebtTable__text--color">{`S/. ${numberWithCommas(
+            price ?? 0
+          )}`}</h3>
           <div>
             <span className="DebtTable__component--discount">{` - ${
               Math.round(discount * 100) ?? ""
