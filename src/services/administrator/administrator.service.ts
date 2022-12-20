@@ -190,3 +190,13 @@ export const deactivate2fa = async (): Promise<void> => {
     throw new Error(e.message);
   }
 };
+
+export const importUsersByExcel = async (file: FormData): Promise<void> => {
+  try {
+    return await axiosDefault.post(`/admin/listUsers`, file, {
+      headers: buildHeaders()
+    });
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};

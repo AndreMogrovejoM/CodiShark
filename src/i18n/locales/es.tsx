@@ -272,7 +272,11 @@ const es: Dictionary = {
       card1: "Cobros Realizados",
       card2: "Ingresos al Sistema",
       card3: "Solicitudes de contacto por llamada",
-      card4: "Pagos por transferencia"
+      card4: "Pagos por transferencia",
+      errorText: "Error al subir el archivo",
+      import: "Importar CSV",
+      done: "Hecho",
+      doneText: "Archivo cargado con éxito."
     },
     PanelBanner: {
       greetings: "Hola",

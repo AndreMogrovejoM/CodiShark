@@ -1,5 +1,7 @@
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { Box, Modal } from "@mui/material";
+import { IconButton } from "@mui/material";
 import CONSTANTS from "config/constants";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
@@ -24,7 +26,14 @@ const OperationNumberModal: React.FC<Props> = props => {
         <div
           className="OperationNumberModal__copy"
           onClick={() => {
-            navigator.clipboard.writeText(operationNumber ?? "");
+            navigator.clipboard.writeText(
+              `${t.operation}: \n` +
+                (operationNumber ?? "") +
+                `\n${t.current}:` +
+                `\n${ACCOUNT_NUMBER}` +
+                `\n${t.interbank}:` +
+                `\n${CCI_ACCOUNT_NUMBER}`
+            );
           }}
         >
           <ContentCopyIcon />
@@ -61,6 +70,17 @@ const OperationNumberModal: React.FC<Props> = props => {
     >
       <Box sx={style}>
         <Styles className="OperationNumberModal">
+          <IconButton
+            className="OperationNumberModal__closeIcon"
+            onClick={() => setOpen(!open)}
+          >
+            <HighlightOffIcon
+              className="OperationNumberModal__closeIcon--icon"
+              fontSize="large"
+              color="error"
+            />
+          </IconButton>
+
           <p className="OperationNumberModal__paragraph">{t.paragraph}</p>
           <div className="OperationNumberModal__content">
             {renderLeftSection()}

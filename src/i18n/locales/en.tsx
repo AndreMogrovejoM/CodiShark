@@ -274,7 +274,11 @@ const en = {
       card1: "Collections Made",
       card2: "Income to the System",
       card3: "Contact requests by call",
-      card4: "Payments by wire transfer"
+      card4: "Payments by wire transfer",
+      errorText: "Error at uploading file",
+      import: "Import CSV",
+      done: "Done",
+      doneText: "File uploaded successfully."
     },
     PanelBanner: {
       greetings: "Hello",
