@@ -219,7 +219,8 @@ const en = {
       ul1: "Credit lines",
       ul2: "Personal loans",
       ul3: "Mortgage credits",
-      ul4: "Vehicle credits"
+      ul4: "Vehicle credits",
+      image: "Image"
     },
     SignInValidation: {
       greeting: "Welcome",

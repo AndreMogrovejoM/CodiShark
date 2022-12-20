@@ -60,35 +60,35 @@ const SignIn: React.FC<Props> = props => {
         <SwiperSlide>
           <img
             src={image01}
-            alt=""
+            alt={`${t.image} - 1`}
             className="SignIn__component--swipper-image"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={image01}
-            alt=""
+            alt={`${t.image} - 2`}
             className="SignIn__component--swipper-image"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={image01}
-            alt=""
+            alt={`${t.image} - 3`}
             className="SignIn__component--swipper-image"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={image01}
-            alt=""
+            alt={`${t.image} - 4`}
             className="SignIn__component--swipper-image"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={image01}
-            alt=""
+            alt={`${t.image} - 5`}
             className="SignIn__component--swipper-image"
           />
         </SwiperSlide>
