@@ -39,6 +39,10 @@ const SettingsStyled = styled.div<Props>`
       gap: 1.6rem;
     }
 
+    &__done {
+      color: var(--palette-primary);
+    }
+
     &__p {
       color: var(--palette-white);
     }

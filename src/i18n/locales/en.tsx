@@ -13,6 +13,7 @@ const en = {
       note: "Note: Make this procedure only one time.",
       confirmed: "2FA procedure confirmed.",
       cancelled: "2FA procedure cancelled.",
+      done: "2FA already configured",
       description:
         "If you want to connect your account with google second step verification should use the follow secret code or scan the next QR code, once done press confirm button to continue or cancel button to reject."
     },

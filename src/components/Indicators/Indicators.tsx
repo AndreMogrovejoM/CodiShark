@@ -10,6 +10,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useImportUsersByExcel } from "services/administrator/administrator.service.hooks";
 import { useFetchAdministratorSecondPanel } from "services/administrator/administrator.service.hooks";
 import Swal from "sweetalert2";
+import { numberWithCommas } from "utils/common.utils";
 
 import Styles from "./Indicators.styles";
 import { IndicatorsProps as Props } from "./Indicators.types";
@@ -98,7 +99,10 @@ const Indicators: React.FC<Props> = props => {
       {renderHeaderIndicators}
       <div className="Indicators__cardsContainer">
         <InfoCard title={t.card1} value={`${connections ?? 0}`} />
-        <InfoCard title={t.card2} value={`S./ ${charges ?? 0}`} />
+        <InfoCard
+          title={t.card2}
+          value={`S./ ${numberWithCommas(+(charges ?? 0))}`}
+        />
         <InfoCard title={t.card3} value={`${calls ?? 0}`} />
         <InfoCard title={t.card4} value={`${payments ?? 0}`} />
       </div>

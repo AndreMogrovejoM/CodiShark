@@ -1,3 +1,4 @@
+import google2fa from "assets/images/google2fa.svg";
 import Button from "components/globals/Button/Button";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -38,7 +39,6 @@ const Settings: React.FC<Props> = props => {
 
   const handleCancel = async () => {
     try {
-      // TODO: poner mensaje de confirmacion
       Swal.fire(t.success, t.cancelled, "success");
       await deactivate2fa().catch();
     } catch (error) {
@@ -50,7 +50,6 @@ const Settings: React.FC<Props> = props => {
     try {
       Swal.fire(t.success, t.confirmed, "success");
       if (!google2fa_enable) await activate2fa().catch();
-      // TODO: dejar que el usuario actualizar el codigo, y volver a generalo
     } catch (error) {
       console.warn(error);
     }
@@ -64,8 +63,19 @@ const Settings: React.FC<Props> = props => {
     <Styles className="Settings">
       <h1>{t.title}</h1>
       <p>{t.description}</p>
-      <h2>{secretCode}</h2>
-      {google2faUrl && (
+      {google2fa_enable && (
+        <>
+          <h1 className="Settings__done">{t.done}</h1>
+          <img
+            src={google2fa}
+            alt="google2fa"
+            className="Settings__2faEnabled"
+            width={520}
+          />
+        </>
+      )}
+      {!google2fa_enable && <h2>{secretCode}</h2>}
+      {!google2fa_enable && google2faUrl && (
         <svg
           width="256"
           height="256"
@@ -90,9 +100,11 @@ const Settings: React.FC<Props> = props => {
             {t.cancel}
           </Button>
         )}
-        <Button variant="contained" onClick={handleConfirm} fullWidth>
-          <p className="Settings__p">{t.confirm}</p>
-        </Button>
+        {!google2fa_enable && (
+          <Button variant="contained" onClick={handleConfirm} fullWidth>
+            <p className="Settings__p">{t.confirm}</p>
+          </Button>
+        )}
       </div>
       <p className="Settings__note">{t.note}</p>
     </Styles>

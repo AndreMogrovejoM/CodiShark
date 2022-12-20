@@ -12,6 +12,7 @@ const es: Dictionary = {
       note: "Nota: Realizar este procedimiento una unica vez.",
       confirmed: "Se confirmó el registro de 2FA.",
       cancelled: "Se canceló el registro de 2FA.",
+      done: "Configuración de 2FA realizada.",
       description:
         "Si desea conectar su cuenta con la verificación de segundo paso de Google, debe usar el siguiente código secreto o escanear el código QR, una vez hecho esto, presione el botón de confirmación para continuar o el botón de cancelar para rechazar."
     },
