@@ -133,7 +133,8 @@ const en = {
     select: "Select",
     inputSearch: "Search",
     progress: "Loading...",
-    selectFilter: "Filters"
+    selectFilter: "Filters",
+    copyright: "Copyright © B12 2022 - All rights reserved."
   },
   home: {},
   pages: {
@@ -218,7 +219,8 @@ const en = {
       ul1: "Credit lines",
       ul2: "Personal loans",
       ul3: "Mortgage credits",
-      ul4: "Vehicle credits"
+      ul4: "Vehicle credits",
+      image: "Image"
     },
     SignInValidation: {
       greeting: "Welcome",

@@ -11,6 +11,7 @@ const palette = {
   whiteBackgroundTree: "hsla(0, 0%, 96%, 1)",
   grey: "hsla(0, 0%, 85%,1)",
   greyBackground: "hsla(0, 0%, 93%, 1)",
+  greyBackgroundSecond: "hsla(0, 0%, 93%, .7)",
   greyBackgroundBorder: "hsla(0, 0%, 79%, 1)",
   greyBackgroundSearch: "hsla(0, 0%, 88%, 1)",
   grayTextBold: "hsla(205, 1%, 50%, 1)",

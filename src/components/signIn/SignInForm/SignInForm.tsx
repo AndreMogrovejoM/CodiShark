@@ -53,7 +53,7 @@ const SignInForm: React.FC<Props> = props => {
     <Styles className="SignInForm">
       <Box component="form" noValidate onSubmit={handleSubmit(submitHandler)}>
         <Grid container spacing={2}>
-          <Grid item xs={8} md={8}>
+          <Grid item xs={12} sm={8} md={8}>
             <Controller
               name={dniField.name}
               control={control}
@@ -87,7 +87,7 @@ const SignInForm: React.FC<Props> = props => {
               )}
             />
           </Grid>
-          <Grid item xs={4} md={4}>
+          <Grid item xs={12} sm={4} md={4}>
             <Controller
               name={codeField.name}
               control={control}

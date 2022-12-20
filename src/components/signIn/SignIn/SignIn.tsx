@@ -1,10 +1,13 @@
-import { Grid, Paper } from "@mui/material";
 import logoKonecta from "assets/images/logoKonecta.svg";
+import image01 from "assets/images/sliderImage01.webp";
+import SwipperComponent from "components/globals/SwipperComponent/SwipperComponent";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Pagination, Autoplay } from "swiper";
+import { SwiperSlide } from "swiper/react";
 
 import SignInCode from "../SignInCode/SignInCode";
 import SignInForm from "../SignInForm/SignInForm";
@@ -39,13 +42,72 @@ const SignIn: React.FC<Props> = props => {
     }
   };
 
+  const renderCarrousel = () => (
+    <Styles className="SignIn__component--swipper">
+      <SwipperComponent
+        slidesPerView={"auto"}
+        pagination={{
+          clickable: true
+        }}
+        autoPlay={{
+          delay: 2500,
+          disableOnInteraction: false
+        }}
+        centeredSlides={true}
+        spaceBetween={8}
+        modules={[Pagination, Autoplay]}
+      >
+        <SwiperSlide>
+          <img
+            src={image01}
+            alt={`${t.image} - 1`}
+            className="SignIn__component--swipper-image"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={image01}
+            alt={`${t.image} - 2`}
+            className="SignIn__component--swipper-image"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={image01}
+            alt={`${t.image} - 3`}
+            className="SignIn__component--swipper-image"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={image01}
+            alt={`${t.image} - 4`}
+            className="SignIn__component--swipper-image"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={image01}
+            alt={`${t.image} - 5`}
+            className="SignIn__component--swipper-image"
+          />
+        </SwiperSlide>
+      </SwipperComponent>
+    </Styles>
+  );
+
   const renderFormHeader = () => {
     const styleClass = () =>
       signInStep === 2 ? "SignIn__container--separate" : "";
 
     return (
       <>
-        <img src={logoKonecta} alt={t.altLogo} width={188} />
+        <img
+          src={logoKonecta}
+          alt={t.altLogo}
+          className="SignIn__component--logo"
+        />
+        {renderCarrousel()}
         <h1 className="SignIn__title">
           {signInStep !== 2 ? t.title.toUpperCase() : t.titleAlt.toUpperCase()}
         </h1>
@@ -64,7 +126,7 @@ const SignIn: React.FC<Props> = props => {
   };
 
   const renderCopyright = () => (
-    <p className="SignIn__container--copyright">{t.copyright}</p>
+    <p className="SignIn__component--copyright">{t.copyright}</p>
   );
 
   const renderList = () => {
@@ -83,33 +145,29 @@ const SignIn: React.FC<Props> = props => {
   };
 
   return (
-    <Styles className="SignIn">
-      <Grid container component="main" className="SignIn__container">
-        <Grid item xs={false} sm={4} md={6} className="SignIn__image">
-          {renderList()}
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={8}
-          md={6}
-          component={Paper}
-          elevation={4}
-          square
-          container
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-        >
-          <div className="SignIn__container--form">
-            <div className="SignIn__container--center SignIn__container--content">
+    <Styles className="SignIn" signInStep={signInStep}>
+      <div className="SignIn__container--components">
+        <div className="SignIn__container--image">{renderList()}</div>
+
+        <div className="SignIn__container--form">
+          <div className="SignIn__component--form-logo">
+            <img src={logoKonecta} alt={t.altLogo} />
+          </div>
+
+          <div className="SignIn__component--form">
+            <div className="SignIn__component--form-header">
               {renderFormHeader()}
             </div>
-            {renderForm()}
+            <div className="SignIn__component--form-content">
+              {renderForm()}
+            </div>
           </div>
-          {renderCopyright()}
-        </Grid>
-      </Grid>
+
+          <div className="SignIn__container--copyright">
+            {renderCopyright()}
+          </div>
+        </div>
+      </div>
     </Styles>
   );
 };

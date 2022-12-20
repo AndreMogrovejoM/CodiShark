@@ -1,6 +1,9 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { SignInCodeStyledProps as Props } from "./SignInCode.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const SignInCodeStyled = styled.div<Props>`
   .SignInCode {
@@ -11,8 +14,12 @@ const SignInCodeStyled = styled.div<Props>`
       }
 
       &--button {
-        margin-top: 1.2rem;
-        margin-bottom: 1.6rem;
+        margin: 3.2rem 0;
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          margin-top: 1.2rem;
+          margin-bottom: 1.6rem;
+        }
       }
 
       &--separator {
@@ -20,7 +27,13 @@ const SignInCodeStyled = styled.div<Props>`
       }
 
       &--text > * {
-        margin-bottom: 0.8rem;
+        margin-bottom: 2.4rem;
+        text-align: center;
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          margin-bottom: 0.8rem;
+          text-align: left;
+        }
       }
 
       &--time {
@@ -69,6 +82,12 @@ const SignInCodeStyled = styled.div<Props>`
       }
 
       &--clickable {
+        display: block;
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          display: inline-block;
+        }
+
         &:hover {
           cursor: pointer;
         }
