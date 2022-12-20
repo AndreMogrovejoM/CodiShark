@@ -86,11 +86,13 @@ const en = {
           amountPaid: "Amount paid",
           paymentDate: "Payment date",
           actions: "Actions",
+          state: "State",
           details: ""
         },
         TableRows: {
           buttonAction: "Download component",
-          buttonDetail: "View details"
+          buttonDetail: "Ver detalles",
+          buttonNoDetail: "You cannot download the payment voucher yet."
         },
         TableRowsExpand: {
           entity: "Banking entity:",
@@ -384,7 +386,8 @@ const en = {
       hour: "Hour:",
       paymentMedium: "Payment Medium:",
       paymentStatus: "Payment Status:",
-      button: "View payment receipt"
+      button: "View payment receipt",
+      buttonNoDetail: "You cannot download the payment voucher yet."
     }
   },
   utils: {

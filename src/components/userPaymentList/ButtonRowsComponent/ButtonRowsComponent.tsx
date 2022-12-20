@@ -22,14 +22,18 @@ const ButtonRowsComponent: React.FC<Props> = props => {
 
   const renderIcon = () => (open ? <RemoveIcon /> : <AddIcon />);
 
+  const renderAction = () =>
+    data?.payment_status === "Pagado"
+      ? t.buttonAction.toLocaleUpperCase()
+      : t.buttonNoDetail.toLocaleUpperCase();
+
   const renderContent = () => (
     <>
       {icon && (
         <div className="PaymentTable__container--icon">{renderIcon()}</div>
       )}
-      {icon
-        ? t.buttonDetail.toLocaleUpperCase()
-        : t.buttonAction.toLocaleUpperCase()}
+      {/* TODO: Operador ternario */}
+      {icon ? t.buttonDetail.toLocaleUpperCase() : renderAction()}
     </>
   );
 

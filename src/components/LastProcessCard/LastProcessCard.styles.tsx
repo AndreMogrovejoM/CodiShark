@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { LastProcessCardStyledProps as Props } from "./LastProcessCard.types";
 
 const LastProcessCardStyled = styled.div<Props>`
-  max-width: 40rem;
   width: 100%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
@@ -59,10 +58,6 @@ const LastProcessCardStyled = styled.div<Props>`
       line-height: 1.6rem;
     }
 
-    &__iconDebt {
-      padding-left: 7.2rem;
-    }
-
     &__container {
       display: flex;
       justify-content: space-between;
@@ -70,6 +65,7 @@ const LastProcessCardStyled = styled.div<Props>`
 
     &__sectionContainer {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       gap: 1.6rem;
       width: 20rem;
