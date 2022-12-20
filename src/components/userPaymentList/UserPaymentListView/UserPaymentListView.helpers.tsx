@@ -45,7 +45,8 @@ export const columns: TableColumn<OperationUserDebt>[] = [
     cell: row => <Row content={`${row?.operation_date}` ?? ""} />
   },
   {
-    name: t.actions,
+    /* TODO: añadir diccionario */
+    name: "estado",
     button: true,
     ignoreRowClick: true,
     cell: row => <RowChip content={row?.payment_status} />

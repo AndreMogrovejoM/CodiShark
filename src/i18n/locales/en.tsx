@@ -90,7 +90,8 @@ const en = {
         },
         TableRows: {
           buttonAction: "Download component",
-          buttonDetail: "View details"
+          buttonDetail: "View details",
+          buttonNoDetail: "Aun no se puede descargar el comprobante de pago"
         },
         TableRowsExpand: {
           entity: "Banking entity:",

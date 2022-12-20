@@ -89,7 +89,8 @@ const es: Dictionary = {
         },
         TableRows: {
           buttonAction: "Descargar comprobante",
-          buttonDetail: "Ver detalles"
+          buttonDetail: "Ver detalles",
+          buttonNoDetail: "Aun no se puede descargar el comprobante de pago"
         },
         TableRowsExpand: {
           entity: "Entidad bancaria:",

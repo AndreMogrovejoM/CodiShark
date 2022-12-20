@@ -16,6 +16,7 @@ const PaymentDetails: React.FC<Props> = props => {
 
   const navigate = useNavigate();
 
+  /* TODO: Añadir diccionario para cuando status no sea 'Pagado'  */
   const t = useI18n().components.OperationalDetails;
 
   const renderDefault = () => (
@@ -52,6 +53,7 @@ const PaymentDetails: React.FC<Props> = props => {
         }
       }}
     >
+      {/* TODO: Añadir operador ternario "data?.payment_status === 'Pagado' " */}
       {t.button}
     </Button>
   );
@@ -105,6 +107,7 @@ const PaymentDetails: React.FC<Props> = props => {
       {renderActions()}
     </div>
   );
+
   return (
     <Styles className={`PaymentDetails`}>
       <h2 className="PaymentDetails__text--subtitle PaymentDetails__container--separate">
