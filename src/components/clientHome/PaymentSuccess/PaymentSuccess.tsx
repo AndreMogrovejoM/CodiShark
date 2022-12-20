@@ -4,6 +4,7 @@ import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { numberWithCommas } from "utils/common.utils";
 
 import Styles from "./PaymentSuccess.styles";
 import { PaymentSuccessProps as Props } from "./PaymentSuccess.types";
@@ -35,7 +36,7 @@ const PaymentSuccess: React.FC<Props> = props => {
               <p className="PaymentSuccess__p1">
                 {t.paragraph4}
                 <span className="PaymentSuccess__span1">
-                  {`S./ ${amount_paid?.toFixed(2)}` ?? "-"}
+                  {`S./ ${numberWithCommas(amount_paid ?? 0)}` ?? "-"}
                 </span>
               </p>
             </div>

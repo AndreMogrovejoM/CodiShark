@@ -2,6 +2,7 @@ import { RowButton } from "components/adminClientList/ClientTable/PaymentTable.h
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { Operation } from "services/administrator/administrator.service.types";
+import { numberWithCommas } from "utils/common.utils";
 
 import { Row, RowChip } from "../PaymentTable/PaymentTable.helpers";
 
@@ -36,7 +37,9 @@ export const columns: TableColumn<Operation>[] = [
     wrap: true,
     sortable: true,
     ignoreRowClick: true,
-    cell: row => <Row content={`S./ ${row?.amount_paid?.toFixed(2) ?? 0}`} />
+    cell: row => (
+      <Row content={`S./ ${numberWithCommas(row?.amount_paid ?? 0)}`} />
+    )
   },
   {
     name: t.method,

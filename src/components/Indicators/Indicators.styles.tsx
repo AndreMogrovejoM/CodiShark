@@ -10,10 +10,24 @@ const IndicatorsStyled = styled.div<Props>`
   margin: 2.4rem 0;
 
   .Indicators {
+    &__header {
+      width: 100%;
+    }
+
     &__title {
       font-weight: 600;
       font-size: 1.2rem;
       line-height: 2.4rem;
+    }
+
+    &__button {
+      padding: 0.2rem 0.8rem;
+      border: 0.2rem;
+    }
+
+    &__button-text {
+      color: var(--palette-white);
+      font-size: 1.4rem;
     }
 
     &__rangePicker {
@@ -21,6 +35,13 @@ const IndicatorsStyled = styled.div<Props>`
       font-size: 1.2rem;
       line-height: 2.4rem;
       padding: 0.4rem 1.2rem;
+    }
+
+    &__actionsContainer {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      width: 100%;
     }
 
     &__cardsContainer {

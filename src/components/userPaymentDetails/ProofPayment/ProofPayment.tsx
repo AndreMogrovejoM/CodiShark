@@ -9,6 +9,7 @@ import { sendOperationEmail } from "services/users/users.service";
 import { exportOperationPdf } from "services/users/users.service";
 import { useFetchUserDebt } from "services/users/users.service.hooks";
 import Swal from "sweetalert2";
+import { numberWithCommas } from "utils/common.utils";
 
 import Styles from "./ProofPayment.styles";
 import { ProofPaymentProps as Props } from "./ProofPayment.types";
@@ -78,10 +79,10 @@ const ProofPayment: React.FC<Props> = props => {
 
         {/* TODO: Pending response from backend. */}
         <div className="ProofPayment__text--paragraph">
-          <p>{`S./ ${capital_debt?.toFixed(2) ?? 0}`}</p>
-          <p>{`S./ ${amount_dscto_cancellation?.toFixed(2) ?? 0}`}</p>
-          <p>{`S./ ${amount_cancellation?.toFixed(2) ?? 0}`}</p>
-          <p>{`S./ ${amount_paid?.toFixed(2) ?? 0}`}</p>
+          <p>{`S./ ${numberWithCommas(capital_debt ?? 0)}`}</p>
+          <p>{`S./ ${numberWithCommas(amount_dscto_cancellation ?? 0)}`}</p>
+          <p>{`S./ ${numberWithCommas(amount_cancellation ?? 0)}`}</p>
+          <p>{`S./ ${numberWithCommas(amount_paid ?? 0)}`}</p>
         </div>
       </div>
     </div>

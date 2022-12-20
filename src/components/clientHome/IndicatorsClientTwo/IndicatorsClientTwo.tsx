@@ -1,5 +1,6 @@
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
+import { numberWithCommas } from "utils/common.utils";
 
 import Styles from "./IndicatorsClientTwo.styles";
 import { IndicatorsClientTwoProps as Props } from "./IndicatorsClientTwo.types";
@@ -13,7 +14,7 @@ const IndicatorsClientTwo: React.FC<Props> = props => {
       <div className="IndicatorsClientTwo__component--card">
         <h2 className="IndicatorsClientTwo__text--bold">{t.debt}</h2>
         <h2 className="IndicatorsClientTwo__text--blue">{`S/. ${
-          total_debts?.toFixed(2) ?? ""
+          numberWithCommas(total_debts ?? 0) ?? ""
         }`}</h2>
       </div>
     </Styles>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { OperationNumberModalStyledProps as Props } from "./OperationNumberModal.types";
 
 const OperationNumberModalStyled = styled.div<Props>`
+  padding-top: 1.2rem;
+
   .OperationNumberModal {
     &__content {
       display: flex;
@@ -10,6 +12,17 @@ const OperationNumberModalStyled = styled.div<Props>`
       justify-content: space-between;
       margin-top: 2.4rem;
       gap: 1.2rem;
+    }
+
+    &__closeIcon {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+
+      &--icon {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
     }
 
     &__copy {

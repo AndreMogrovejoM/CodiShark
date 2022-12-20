@@ -20,3 +20,10 @@ export function getArrayViews(numPages: number) {
 export function getSubString(str: string, end: number) {
   return str.substring(0, end);
 }
+
+export const numberWithCommas = (number: number) => {
+  return number
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};

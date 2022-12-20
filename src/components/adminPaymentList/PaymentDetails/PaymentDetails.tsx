@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { numberWithCommas } from "utils/common.utils";
 import { disabledButton } from "utils/validations.utils";
 
 import Styles from "./PaymentDetails.styles";
@@ -69,7 +70,7 @@ const PaymentDetails: React.FC<Props> = props => {
       <p className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-blue">
         {t.amountPaid}
         <span className="PaymentDetails__text--paragraph PaymentDetails__text--paragraph-gray">
-          {` S/ ${data?.amount_paid.toFixed(2)}`}
+          {` S/ ${numberWithCommas(data?.amount_paid ?? 0)}`}
         </span>
       </p>
 
