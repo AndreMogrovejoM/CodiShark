@@ -33,6 +33,14 @@ const LayoutContainerStyled = styled.div<Props>`
         flex-direction: row;
       }
     }
+
+    &__footer {
+      bottom: 0;
+      font-weight: 300;
+      font-size: 10px;
+      line-height: 14px;
+      padding-bottom: 4rem;
+    }
   }
 `;
 

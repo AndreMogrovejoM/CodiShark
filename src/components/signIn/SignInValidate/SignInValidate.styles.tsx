@@ -1,6 +1,9 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { SignInValidateStyledProps as Props } from "./SignInValidate.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const SignInValidateStyled = styled.div<Props>`
   .SignInValidate {
@@ -44,7 +47,11 @@ const SignInValidateStyled = styled.div<Props>`
       }
 
       &__global {
-        width: 38.4rem;
+        width: auto;
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          width: 38.4rem;
+        }
       }
 
       & > * {
@@ -52,10 +59,17 @@ const SignInValidateStyled = styled.div<Props>`
       }
 
       &__form {
-        margin-bottom: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        background-color: var(--palette-greyBackgroundSecond);
+        padding: 2.4rem;
+        border-radius: 1.6rem;
 
-        & > * {
-          margin-bottom: 0.8rem;
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          background-color: unset;
+          padding: 0;
+          border-radius: 0;
         }
       }
     }
@@ -69,8 +83,13 @@ const SignInValidateStyled = styled.div<Props>`
     &__text {
       &--greeting {
         font-weight: 400;
-        font-size: 1.2rem;
-        line-height: 1.6rem;
+        font-size: 1.6rem;
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+        }
 
         &__bold {
           font-weight: bold;
@@ -83,6 +102,15 @@ const SignInValidateStyled = styled.div<Props>`
 
       &--color {
         color: var(--palette-skyBlue);
+        white-space: nowrap;
+      }
+
+      &--block {
+        display: block;
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          display: inline-block;
+        }
       }
     }
   }

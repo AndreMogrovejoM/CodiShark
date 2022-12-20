@@ -6,6 +6,7 @@ export interface SignInProps {}
 // Styled Component Props
 export interface SignInStyledProps {
   className: string;
+  signInStep?: number;
 }
 
 // Container Props

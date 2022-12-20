@@ -53,9 +53,22 @@ const SignInValidate: React.FC<Props> = props => {
     );
   };
 
+  const renderFormHeader = () => (
+    <>
+      <p className="SignInValidate__text--greeting">
+        {`${t.greeting} `}
+        <span className="SignInValidate__text--greeting__bold SignInValidate__text--block">
+          {`${first_name ?? ""} ${last_name ?? ""}`}
+        </span>
+      </p>
+      <p className="SignInValidate__text--indication">{t.instructions}</p>
+    </>
+  );
+
   const renderForm = () => (
     <form onSubmit={handleSubmit(submitHandler)}>
       <div className="SignInValidate__container__form">
+        {renderFormHeader()}
         {fields.map((field, index) => (
           <Radio
             key={index}
@@ -66,7 +79,7 @@ const SignInValidate: React.FC<Props> = props => {
             labelExtension={
               field.value === "SMS"
                 ? ` *** *** ${phone?.slice(phone?.length - 3) ?? ""}`
-                : ` ********${email?.slice(email?.length - 15) ?? ""}`
+                : ` *** *** ${email?.slice(email?.length - 15) ?? ""}`
             }
           />
         ))}
@@ -88,24 +101,9 @@ const SignInValidate: React.FC<Props> = props => {
     </form>
   );
 
-  const renderFormHeader = () => (
-    <>
-      <p className="SignInValidate__text--greeting">
-        {t.greeting}
-        <span className="SignInValidate__text--greeting__bold">
-          {` ${first_name ?? ""} ${last_name ?? ""}`}
-        </span>
-      </p>
-      <p className="SignInValidate__text--indication">{t.instructions}</p>
-    </>
-  );
-
   return (
     <Styles className="SignInValidate">
-      <div className="SignInValidate__container__global">
-        <div className="SignInValidate__container">{renderFormHeader()}</div>
-        {renderForm()}
-      </div>
+      <div className="SignInValidate__container__global">{renderForm()}</div>
     </Styles>
   );
 };

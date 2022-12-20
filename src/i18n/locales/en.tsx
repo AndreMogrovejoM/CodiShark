@@ -133,7 +133,8 @@ const en = {
     select: "Select",
     inputSearch: "Search",
     progress: "Loading...",
-    selectFilter: "Filters"
+    selectFilter: "Filters",
+    copyright: "Copyright © B12 2022 - All rights reserved."
   },
   home: {},
   pages: {

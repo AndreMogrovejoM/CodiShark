@@ -132,7 +132,8 @@ const es: Dictionary = {
     select: "Seleccionar",
     inputSearch: "Buscar",
     progress: "Cargando...",
-    selectFilter: "Filtros"
+    selectFilter: "Filtros",
+    copyright: "Copyright B12 2022 - Todos los derechos reservados"
   },
   home: {},
   pages: {
