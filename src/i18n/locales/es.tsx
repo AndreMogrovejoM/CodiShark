@@ -85,11 +85,13 @@ const es: Dictionary = {
           amountPaid: "Monto pagado",
           paymentDate: "Fecha de pago",
           actions: "Acciones",
+          state: "State",
           details: ""
         },
         TableRows: {
           buttonAction: "Descargar comprobante",
-          buttonDetail: "Ver detalles"
+          buttonDetail: "Ver detalles",
+          buttonNoDetail: "Aun no se puede descargar el comprobante de pago"
         },
         TableRowsExpand: {
           entity: "Entidad bancaria:",
@@ -380,7 +382,8 @@ const es: Dictionary = {
       hour: "Hora:",
       paymentMedium: "Medio de pago:",
       paymentStatus: "Estado del pago",
-      button: "Ver comprobante de pago"
+      button: "Ver comprobante de pago",
+      buttonNoDetail: "Aun no se puede descargar el comprobante de pago"
     }
   },
   utils: {
