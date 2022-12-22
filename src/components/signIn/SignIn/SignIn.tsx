@@ -1,5 +1,5 @@
 import logoKonecta from "assets/images/logoKonecta.svg";
-import image01 from "assets/images/sliderImage01.webp";
+import image01 from "assets/images/sliderImage01.png";
 import SwipperComponent from "components/globals/SwipperComponent/SwipperComponent";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
