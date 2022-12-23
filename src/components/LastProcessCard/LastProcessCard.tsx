@@ -30,7 +30,7 @@ const LastProcessCard: React.FC<Props> = props => {
       <div className="LastProcessCard__sectionContainer" key={idx}>
         <h3 className="LastProcessCard__debt">{`S/. ${debt ?? 0}`}</h3>
         <img
-          className="LastProcessCard__iconDebt"
+          className="LastProcessCard__icon"
           src={iconArrowCard}
           alt="iconArrowCard"
         />

@@ -79,7 +79,6 @@ const ClientContainerContainer: React.FC<Props> = props => {
         </div>
         <div className="ClientContainer__section4">{renderCards()}</div>
       </Styles>
-      <h6>{t.copyright}</h6>
     </LayoutContainer>
   );
 };
