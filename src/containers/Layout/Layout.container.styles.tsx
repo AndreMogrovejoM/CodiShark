@@ -40,6 +40,11 @@ const LayoutContainerStyled = styled.div<Props>`
       font-size: 1rem;
       line-height: 1.4rem;
       padding-bottom: 4rem;
+      &-images {
+        width: 2.6rem;
+        display: flex;
+        gap: 2rem;
+      }
     }
   }
 `;

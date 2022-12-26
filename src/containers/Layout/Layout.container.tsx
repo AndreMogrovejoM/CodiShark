@@ -1,3 +1,7 @@
+import americanExpress from "assets/images/americanExpress.svg";
+import dinersClub from "assets/images/dinersClub.svg";
+import masterCard from "assets/images/masterCard.svg";
+import visa from "assets/images/visa.svg";
 import Backdrop from "components/Backdrop/Backdrop";
 import Sidebar from "components/globals/Sidebar/Sidebar";
 import SidebarResponsive from "components/globals/SidebarResponsive/SidebarResponsive";
@@ -22,6 +26,12 @@ const LayoutContainer: React.FC<Props> = props => {
         <main className="LayoutContainer__children">
           {children}
           <div className="LayoutContainer__footer">{t.copyright}</div>
+          <div className="LayoutContainer__footer-images">
+            <img src={americanExpress} alt="americanExpress" />
+            <img src={dinersClub} alt="dinersClub" />
+            <img src={masterCard} alt="masterCard" />
+            <img src={visa} alt="visa" />
+          </div>
         </main>
         <Backdrop isLoading={isLoading} />
       </div>
