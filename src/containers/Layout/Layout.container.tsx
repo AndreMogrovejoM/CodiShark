@@ -1,7 +1,3 @@
-import americanExpress from "assets/images/americanExpress.svg";
-import dinersClub from "assets/images/dinersClub.svg";
-import masterCard from "assets/images/masterCard.svg";
-import visa from "assets/images/visa.svg";
 import Backdrop from "components/Backdrop/Backdrop";
 import FooterResponsive from "components/globals/FooterResponsive/FooterResponsive";
 import Sidebar from "components/globals/Sidebar/Sidebar";
