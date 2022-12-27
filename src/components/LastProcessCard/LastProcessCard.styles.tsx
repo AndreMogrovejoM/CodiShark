@@ -63,6 +63,12 @@ const LastProcessCardStyled = styled.div<Props>`
       justify-content: space-between;
     }
 
+    &__iconDebt {
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+
     &__sectionContainer {
       display: flex;
       justify-content: space-between;
@@ -71,6 +77,18 @@ const LastProcessCardStyled = styled.div<Props>`
       width: 20rem;
       margin: 2.4rem 0;
       height: 2rem;
+      @media screen and (max-width: 500px) {
+        justify-content: space-between;
+      }
+      @media screen and (max-width: 413px) {
+        justify-content: space-between;
+      }
+    }
+
+    &__icon {
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
     }
 
     &__footerSubtitle {

@@ -1,5 +1,6 @@
 // Interfaces and types from component PaymentTable
 
+import { Dispatch, SetStateAction } from "react";
 import { TableColumn } from "react-data-table-component";
 import { User } from "types/user.types";
 
@@ -29,6 +30,8 @@ export interface PaymentTableProps {
   columns: TableColumn<User>[];
   onRowClicked: (row: User) => void;
   progressPending: boolean;
+  totalRows: number;
+  setPage: Dispatch<SetStateAction<number>>;
 }
 
 // Styled Component Props

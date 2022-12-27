@@ -1,4 +1,5 @@
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useInfiniteQuery, useMutation } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
 
 import { fetchUserDebt, generateOperationNumber } from "./users.service";
@@ -28,14 +29,16 @@ export const useFetchUserDebt = (operationId?: number) => {
   );
 };
 
-export const useFetchUserOperations = (skip: 0, take = 10) => {
+export const useFetchUserOperations = (skip = 0, take = 10) => {
   const token = getCookie("token");
-  return useQuery(
+  return useInfiniteQuery(
     ["user-operations-list", skip, take],
-    () => fetchUserOperations(skip, take),
+    ({ pageParam }) => fetchUserOperations(skip, take, pageParam),
     {
       enabled: !!token,
-      staleTime: 15 * 1000 * 60
+      keepPreviousData: true,
+      staleTime: 15 * 1000 * 60,
+      getNextPageParam: () => {}
     }
   );
 };
