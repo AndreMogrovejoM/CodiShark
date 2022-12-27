@@ -16,7 +16,7 @@ export const paginationRowsPerPageOptions = [7, 14, 21, 28, 35];
 export const paginationClientRowsPerPageOptions = [5, 10, 15, 20, 25];
 export const userRol = 1;
 export const adminRol = 10;
-export const items = -2;
+export const items = -3;
 
 export const requiredField = () => {
   const t = getI18n().utils.validations;
