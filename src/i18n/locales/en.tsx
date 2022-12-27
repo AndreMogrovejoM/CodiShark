@@ -343,11 +343,11 @@ const en = {
       rejected: "Payment Rejected",
       disapproved: "Payment could not be processed"
     },
-
     ClientContainer: {
       title:
         "Here we provide the amount of your debt and the deadlines to make your payments:",
-      copyright: "Copyright B12 2022 - All rights reserved."
+      copyright: "Copyright B12 2022 - All rights reserved.",
+      image: "Image"
     },
     OperationNumberModal: {
       operation: "Your operation number is",
@@ -389,6 +389,21 @@ const en = {
       paymentStatus: "Payment Status:",
       button: "View payment receipt",
       buttonNoDetail: "You cannot download the payment voucher yet."
+    },
+    FooterResponsive: {
+      myPayments: "My payments",
+      contact: "Contact",
+      paymentIcon: "Payment icon",
+      homeIcon: "Home icon",
+      contactIcon: "Contact icon"
+    },
+    CardDebts: {
+      buttonExpand: "View details",
+      amount: "Original amount",
+      discount: "Pay amount",
+      deadline: "Payment deadline",
+      button: "Pay",
+      button2: "Generate transaction number"
     }
   },
   utils: {

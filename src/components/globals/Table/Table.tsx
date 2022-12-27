@@ -1,4 +1,5 @@
 import Backdrop from "components/Backdrop/Backdrop";
+import NoDataComponent from "components/NoDataComponent/NoDataComponent";
 import React from "react";
 
 import DataTableCustom from "./Table.styles";
@@ -9,7 +10,7 @@ const Table: React.FC<Props> = props => {
   const { paginationPerPage, paginationRowsPerPageOptions } = props;
   const { expandableRowsComponent, expandOnRowClicked, hiddenHeadRow } = props;
   const { onRowClicked, expandableIcon, progressPending } = props;
-  const { expandableRowExpanded } = props;
+  const { expandableRowExpanded, hiddenMobile } = props;
 
   return (
     <DataTableCustom
@@ -29,6 +30,8 @@ const Table: React.FC<Props> = props => {
       progressPending={progressPending}
       hiddenHeadRow={hiddenHeadRow}
       progressComponent={<Backdrop isLoading={true} />}
+      noDataComponent={<NoDataComponent />}
+      hiddenMobile={hiddenMobile}
     />
   );
 };

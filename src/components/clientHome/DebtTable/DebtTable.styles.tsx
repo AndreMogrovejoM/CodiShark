@@ -67,7 +67,16 @@ const DebtTableStyled = styled.div<Props>`
           padding: 0.8rem 1rem;
         }
       }
+
+      &--pagination {
+        display: ${props => (props.hiddenMobile ? "none" : "block")};
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          display: "block";
+        }
+      }
     }
+
     &__text {
       &--title {
         color: var(--palette-grayText);

@@ -18,7 +18,7 @@ const { CCI_ACCOUNT_NUMBER, ACCOUNT_NUMBER } = CONSTANTS;
 
 const InformationClient: React.FC<Props> = props => {
   const t = useI18n().signIn.InformationClient;
-  const { userDebt } = props;
+  const { userDebt, hiddenMobile } = props;
   const [openOperationModal, setOpenOperationModal] = useState(false);
   const [openIziPayModal, setOpenIziPayModal] = useState(false);
   const [operationNumber, setOperationNumber] = useState<string>();
@@ -60,7 +60,7 @@ const InformationClient: React.FC<Props> = props => {
   };
 
   return (
-    <Styles className="InformationClient">
+    <Styles className="InformationClient" hiddenMobile={hiddenMobile}>
       <div className="InformationClient__section1">
         <h2 className="InformationClient__title">{t.title}</h2>
         <h2 className="InformationClient__subtitle">{t.subtitle}</h2>

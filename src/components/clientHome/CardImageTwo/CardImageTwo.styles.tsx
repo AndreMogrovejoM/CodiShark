@@ -10,6 +10,7 @@ const CardImageTwoStyled = styled.div<Props>`
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 1.6rem;
+
   @media screen and (max-width: 1366px) {
     width: 20rem;
   }

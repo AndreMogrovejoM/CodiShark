@@ -1,4 +1,5 @@
 import Backdrop from "components/Backdrop/Backdrop";
+import FooterResponsive from "components/globals/FooterResponsive/FooterResponsive";
 import Sidebar from "components/globals/Sidebar/Sidebar";
 import SidebarResponsive from "components/globals/SidebarResponsive/SidebarResponsive";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -8,6 +9,7 @@ import React from "react";
 import Styles from "./Layout.container.styles";
 import { LayoutContainerProps as Props } from "./Layout.container.types";
 
+/* TODO: Link URL */
 const LayoutContainer: React.FC<Props> = props => {
   const { children } = props;
   const { isLoading } = useGlobals();
@@ -20,11 +22,15 @@ const LayoutContainer: React.FC<Props> = props => {
         <Sidebar />
         <SidebarResponsive />
         <main className="LayoutContainer__children">
-          {children}
-          <div className="LayoutContainer__footer">{t.copyright}</div>
+          <div className="LayoutContainer__children--container">
+            {children}
+            <div className="LayoutContainer__footer">{t.copyright}</div>
+          </div>
         </main>
+
         <Backdrop isLoading={isLoading} />
       </div>
+      <FooterResponsive />
     </Styles>
   );
 };

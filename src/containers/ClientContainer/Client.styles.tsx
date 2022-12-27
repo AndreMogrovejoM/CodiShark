@@ -12,11 +12,17 @@ const ClientContainerStyled = styled.div<Props>`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: 100vh;
   display: flex;
   gap: 2%;
-  background-color: var(--palette-greyBackground);
-  padding-bottom: 6.4rem;
+  background-color: var(--palette-white);
+
+  @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+    background-color: var(--palette-greyBackground);
+  }
+
+  @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+    min-height: 90vh;
+  }
 
   @media screen and (max-width: ${BREAKPOINTS.wide}px) {
     flex-direction: column;
@@ -34,17 +40,33 @@ const ClientContainerStyled = styled.div<Props>`
       font-weight: 400;
       font-size: 1rem;
       line-height: 1.6rem;
+      color: var(--palette-blue);
+      text-align: center;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        text-align: left;
+        color: var(--palette-darkText);
+      }
     }
 
     &__section2 {
-      justify-content: space-between;
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      gap: 1.6rem;
+      display: none;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1.6rem;
+      }
 
       @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+        display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 1.6rem;
+        align-items: unset;
       }
     }
 
@@ -53,7 +75,11 @@ const ClientContainerStyled = styled.div<Props>`
       display: flex;
       width: 100%;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.4rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        gap: 0.8rem;
+      }
 
       @media screen and (min-width: 1366px) {
         width: 70%;
@@ -72,6 +98,42 @@ const ClientContainerStyled = styled.div<Props>`
 
       @media screen and (min-width: ${BREAKPOINTS.wide}px) {
         display: block;
+      }
+    }
+
+    &__container {
+      &--banner {
+        display: none;
+
+        @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+          display: block;
+        }
+      }
+
+      &--carrousel {
+        display: block;
+
+        @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+          display: none;
+        }
+
+        &-indicators {
+          display: block;
+
+          @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+            display: none;
+          }
+        }
+      }
+
+      &--debts {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+          display: none;
+        }
       }
     }
   }

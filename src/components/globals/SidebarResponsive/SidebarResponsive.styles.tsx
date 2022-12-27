@@ -14,86 +14,53 @@ const SidebarResponsiveStyled = styled.div<Props>`
 
   .SidebarResponsive {
     &__component {
-      &--hamburger {
-        &-button {
-          position: sticky;
-          top: 2.5rem;
-          left: 2rem;
-          width: 2.4rem;
-          height: 2.6rem;
-          cursor: pointer;
-          z-index: 10;
-
-          & > span,
-          & > span::before,
-          & > span::after {
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 0.2rem;
-            background-color: var(--palette-white);
-            transition-duration: 0.25s;
-          }
-
-          & > span::before {
-            content: "";
-            top: -0.8rem;
-          }
-
-          & > span::after {
-            content: "";
-            top: 0.8rem;
-          }
-        }
-      }
-
       &--menu {
-        &-box {
-          display: block;
-          position: fixed;
-          top: 0;
-          left: -100%;
-          width: 30rem;
-          height: 100%;
-          margin: 0;
-          padding: 8rem 0;
-          list-style: none;
-          background-color: var(--palette-deepBlue);
-          box-shadow: 0.2rem 0.2rem 0.6rem var(--palette-darkShadow);
-          transition-duration: 0.25s;
-        }
-
-        &-item {
-          display: flex;
-          align-items: center;
-          padding: 1.2rem 2.4rem;
-          color: var(--palette-white);
-          font-size: 1.6rem;
-          font-weight: 600;
-          text-decoration: none;
-          transition-duration: 0.25s;
-          cursor: pointer;
-          width: 100%;
-
-          &:hover {
-            background-color: var(--palette-skyBlue);
-          }
-        }
+        width: inherit;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
       }
 
       &--image {
-        margin: auto;
+        width: 120px;
+        cursor: pointer;
+      }
+
+      &--profile {
+        color: var(--palette-white);
+
+        &-name {
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+
+        &-lastName {
+          font-weight: 160;
+          font-size: 1.2rem;
+        }
+
+        &-image {
+          width: 4rem;
+          height: 4.8rem;
+        }
+      }
+
+      &--button {
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &--icon {
+        fill: var(--palette-skyBlue);
+        font-size: 3.2rem;
       }
     }
 
     &__container {
       &--menu {
         background-color: var(--palette-deepBlue);
-        display: flex;
-        align-items: flex-start;
-        height: 4.8rem;
-        padding-left: 2.4rem;
-        padding-right: 2.4rem;
+        min-height: 8vh;
       }
 
       &--image {
@@ -102,11 +69,6 @@ const SidebarResponsiveStyled = styled.div<Props>`
 
       &--icon {
         margin-right: 1.6rem;
-
-        &-exit {
-          margin-left: 0.4rem;
-          margin-right: 1.6rem;
-        }
       }
 
       &--components {
@@ -114,42 +76,58 @@ const SidebarResponsiveStyled = styled.div<Props>`
         flex-direction: column;
         justify-content: space-between;
       }
+
+      &--profile {
+        display: flex;
+        align-items: center;
+      }
     }
 
     &__active {
       background-color: var(--palette-skyBlue);
     }
   }
-
-  #menu__toggle {
-    opacity: 0;
-    display: none;
-  }
-
-  #menu__toggle:checked
-    + .SidebarResponsive__component--hamburger-button
-    > span {
-    transform: rotate(45deg);
-  }
-
-  #menu__toggle:checked
-    + .SidebarResponsive__component--hamburger-button
-    > span::before {
-    top: 0;
-    transform: rotate(0deg);
-  }
-
-  #menu__toggle:checked
-    + .SidebarResponsive__component--hamburger-button
-    > span::after {
-    top: 0;
-    transform: rotate(90deg);
-  }
-
-  #menu__toggle:checked ~ .SidebarResponsive__component--menu-box {
-    left: 0 !important;
-    z-index: 2;
-  }
 `;
 
 export default SidebarResponsiveStyled;
+
+export const paperProps = {
+  elevation: 0,
+  sx: {
+    overflow: "visible",
+    filter: "drop-shadow(0px 2px 8px var(--palette-darkShadow))",
+    mt: 1.5,
+    "& .MuiAvatar-root": {
+      width: 32,
+      height: 32,
+      ml: -0.5,
+      mr: 1
+    },
+    "&:before": {
+      content: '""',
+      display: "block",
+      position: "absolute",
+      top: 0,
+      right: 20,
+      width: 10,
+      height: 10,
+      bgcolor: "background.paper",
+      transform: "translateY(-50%) rotate(45deg)",
+      zIndex: 0
+    }
+  }
+};
+
+export const MenuItemStyled = {
+  display: "flex",
+  gap: "0.8rem",
+  fontSize: "1.2rem",
+  fontFamily: "inherit",
+  "&:focus": {
+    outline: "none"
+  }
+};
+
+export const MenuStyled = {
+  mt: "4vh"
+};

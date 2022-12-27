@@ -12,11 +12,12 @@ const InformationClientStyled = styled.div<Props>`
   background-color: var(--palette-white);
   border-radius: 0.8rem;
   padding: 2.4rem;
-  margin: 2.4rem auto;
+  margin-top: 2.4rem;
   gap: 2rem;
 
   @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
     padding: 1.6rem 2.4rem;
+    margin: 2.4rem auto;
   }
 
   @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
@@ -114,9 +115,14 @@ const InformationClientStyled = styled.div<Props>`
     }
 
     &__button {
+      display: ${props => (props.hiddenMobile ? "none" : "block")};
       background-color: var(--palette-limeGreen);
       width: 12rem;
       margin-top: 2.6rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        display: block;
+      }
     }
 
     &__text1 {
@@ -126,9 +132,13 @@ const InformationClientStyled = styled.div<Props>`
     }
 
     &__button2 {
-      display: flex;
+      display: ${props => (props.hiddenMobile ? "none" : "flex")};
       background-color: var(--palette-primary);
       width: 24rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        display: flex;
+      }
     }
 
     &__container {

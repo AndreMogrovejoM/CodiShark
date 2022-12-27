@@ -10,9 +10,11 @@ export interface SwipperComponentProps {
   centeredSlides?: boolean;
   spaceBetween?: number;
   modules?: SwiperModule[];
+  widthFull?: boolean;
 }
 
 // Styled Component Props
 export interface SwipperComponentStyledProps {
   className: string;
+  widthFull?: boolean;
 }

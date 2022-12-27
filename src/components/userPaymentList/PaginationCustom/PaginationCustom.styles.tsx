@@ -54,7 +54,7 @@ const PaginationCustomStyled = styled.div<Props>`
         font-weight: 800;
         font-size: 1rem;
         line-height: 1.6rem;
-        background-color: var(--palette-greyBackground);
+        background-color: inherit;
         border: none;
 
         &:focus {

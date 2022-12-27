@@ -23,7 +23,7 @@ export interface UserDebt {
   pct_dscto_cancellation: number;
   date_last_contact: string;
   limit_date: string;
-  debt_status: PaymentStatus;
+  debt_status: PaymentStatus | string;
   defaultExpanded?: boolean;
 }
 

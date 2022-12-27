@@ -7,19 +7,8 @@ import Styles from "./PaginationCustom.styles";
 import { PaginationCustomProps as Props } from "./PaginationCustom.types";
 
 const PaginationCustom: React.FC<Props> = props => {
-  const {
-    rowsPerPage,
-    rowCount,
-    // TODO:  onChangeRowsPerPage es requerido segun la documentacion de DataTable para un component personalizado de pagination
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    onChangeRowsPerPage
-  } = props;
-  const {
-    currentPage,
-    onChangePage
-    // TODO:  onChangeRowsPerPage es requerido segun la documentacion de DataTable para un component personalizado de pagination
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } = props;
+  const { rowsPerPage, rowCount } = props;
+  const { currentPage, onChangePage } = props;
 
   const t = useI18n().global.table.TablePaymentAdmin.Pagination;
 

@@ -26,10 +26,14 @@ const PaymentDetailsStyled = styled.div<Props>`
         border-radius: 0.8rem;
         min-height: 57rem;
         height: 100%;
-        background-color: var(--palette-white);
+        background-color: var(--palette-greyBackground);
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+          background-color: var(--palette-white);
+        }
 
         &-component {
           flex-direction: column;

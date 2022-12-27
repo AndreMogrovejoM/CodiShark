@@ -349,7 +349,8 @@ const es: Dictionary = {
     ClientContainer: {
       title:
         "Aquí brindamos el monto de tu deuda y las fechas límite para hacer tus pagos:",
-      copyright: "Copyright B12 2022 - Todos los derechos reservados"
+      copyright: "Copyright B12 2022 - Todos los derechos reservados",
+      image: "Imagen"
     },
     OperationNumberModal: {
       operation: "Su numero de operación es",
@@ -391,6 +392,21 @@ const es: Dictionary = {
       paymentStatus: "Estado del pago",
       button: "Ver comprobante de pago",
       buttonNoDetail: "Aun no se puede descargar el comprobante de pago"
+    },
+    FooterResponsive: {
+      myPayments: "Mis pagos",
+      contact: "Contacto",
+      paymentIcon: "Icono de pago",
+      homeIcon: "Icono de inicio",
+      contactIcon: "Icono de contacto"
+    },
+    CardDebts: {
+      buttonExpand: "Ver detalles",
+      amount: "Monto original",
+      discount: "Monto a pagar",
+      deadline: "Fecha límite de pago",
+      button: "Pagar",
+      button2: "Generar número de operación"
     }
   },
   utils: {
