@@ -5,18 +5,18 @@ import { paginationRowsPerPageOptions } from "utils/validations.utils";
 
 import PaginationCustom from "../PaginationCustom/PaginationCustom";
 import Styles from "./PaymentTable.styles";
-import { PaginationInterface } from "./PaymentTable.types";
+import { PaginationCustomProps } from "./PaymentTable.types";
 import { PaymentTableProps as Props } from "./PaymentTable.types";
 
-const PaginationCustomHandler = (props: PaginationInterface) => {
+const PaginationCustomHandler = (props: PaginationCustomProps) => {
   return <PaginationCustom {...props} />;
 };
 
 const PaymentTable: React.FC<Props> = props => {
   const { data, columns, expandableRows, expandableRowsComponent } = props;
   const { expandOnRowClicked, progressPending } = props;
+  const { totalRows, setPage, page } = props;
 
-  // TODO: check
   return (
     <Styles className={`PaymentTable`}>
       <Table
@@ -27,8 +27,9 @@ const PaymentTable: React.FC<Props> = props => {
         expandOnRowClicked={expandOnRowClicked}
         paginationPerPage={paginationPerPage}
         paginationRowsPerPageOptions={paginationRowsPerPageOptions}
-        //@ts-ignore
-        paginationComponent={PaginationCustomHandler}
+        paginationComponent={pageParams =>
+          PaginationCustomHandler({ ...pageParams, totalRows, setPage, page })
+        }
         expandableIcon={{ collapsed: null, expanded: null }}
         progressPending={progressPending}
       />

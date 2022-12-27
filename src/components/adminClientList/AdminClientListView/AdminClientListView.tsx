@@ -76,6 +76,8 @@ const AdminClientListView: React.FC<Props> = props => {
         columns={columns}
         onRowClicked={(row: User) => setRow(row)}
         progressPending={isLoading}
+        totalRows={50}
+        setPage={() => {}}
       />
     );
 

@@ -19,6 +19,10 @@ describe("PaginationCustom", () => {
         ): void {
           throw new Error("Function not implemented.");
         }}
+        totalRows={0}
+        setPage={function (value: React.SetStateAction<number>): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     );
   });

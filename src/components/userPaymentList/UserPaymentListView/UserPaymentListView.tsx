@@ -1,5 +1,5 @@
 import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
-import React from "react";
+import React, { useState } from "react";
 import { useFetchUserOperations } from "services/users/users.service.hooks";
 
 import ExpandableRowsComponent from "../ExpandableRowsComponent/ExpandableRowsComponent";
@@ -9,8 +9,14 @@ import Styles from "./UserPaymentListView.styles";
 import { UserPaymentListViewProps as Props } from "./UserPaymentListView.types";
 
 const UserPaymentListView: React.FC<Props> = props => {
-  const { data, isLoading } = useFetchUserOperations(0, 50);
-  const { data: paymentList } = data ?? {};
+  const [page, setPage] = useState(0);
+  const { data, isLoading } = useFetchUserOperations(10 * page, 10);
+  const { pages, pageParams } = data ?? {};
+
+  const totalRows = pages?.[0].total ?? 0;
+  const paymentList = pages?.flatMap(page => page.data);
+
+  console.log({ pages, pageParams });
 
   const renderTable = () =>
     isLoading ? (
@@ -23,6 +29,9 @@ const UserPaymentListView: React.FC<Props> = props => {
         expandableRowsComponent={ExpandableRowsComponent}
         expandOnRowClicked={true}
         progressPending={isLoading}
+        totalRows={totalRows}
+        setPage={setPage}
+        page={page}
       />
     );
 

@@ -7,19 +7,9 @@ import Styles from "./PaginationCustom.styles";
 import { PaginationCustomProps as Props } from "./PaginationCustom.types";
 
 const PaginationCustom: React.FC<Props> = props => {
-  const {
-    rowsPerPage,
-    rowCount,
-    // TODO:  onChangeRowsPerPage es requerido segun la documentacion de DataTable para un component personalizado de pagination
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    onChangeRowsPerPage
-  } = props;
-  const {
-    currentPage,
-    onChangePage
-    // TODO:  onChangeRowsPerPage es requerido segun la documentacion de DataTable para un component personalizado de pagination
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } = props;
+  const { rowsPerPage, rowCount } = props;
+  const { currentPage, onChangePage } = props;
+  const { totalRows, setPage } = props;
 
   const t = useI18n().global.table.TablePaymentUser.Pagination;
 
@@ -30,19 +20,22 @@ const PaginationCustom: React.FC<Props> = props => {
   const disabledLesser = currentPage === 1;
   const disabledGreater = currentPage === numPages;
 
-  const handlePrevious = useCallback(
-    () => onChangePage(currentPage - 1),
-    [currentPage, onChangePage]
-  );
+  const handlePrevious = useCallback(() => {
+    setPage(currentPage - 1);
+    onChangePage(currentPage - 1, totalRows);
+  }, [currentPage, onChangePage, setPage, totalRows]);
 
-  const handleNext = useCallback(
-    () => onChangePage(currentPage + 1),
-    [currentPage, onChangePage]
-  );
+  const handleNext = useCallback(() => {
+    setPage(currentPage + 1);
+    onChangePage(currentPage + 1, totalRows);
+  }, [currentPage, onChangePage, setPage, totalRows]);
 
   const handleChangePage = useCallback(
-    (page: number) => onChangePage(page),
-    [onChangePage]
+    (page: number) => {
+      setPage(page);
+      onChangePage(page, totalRows);
+    },
+    [onChangePage, setPage, totalRows]
   );
 
   const NumbersComponent = (props: NumbersComponentProps) => (

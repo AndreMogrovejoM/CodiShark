@@ -33,7 +33,8 @@ export const fetchUserDebt = async (
 
 export const fetchUserOperations = async (
   skip: number,
-  take: number
+  take: number,
+  pageParam?: any
 ): Promise<OperationUserDebtResponse> => {
   try {
     const response = await axiosDefault.get(
