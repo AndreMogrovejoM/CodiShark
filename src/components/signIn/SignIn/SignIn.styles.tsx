@@ -1,4 +1,5 @@
 import BG_USER from "assets/images/loginImageUser.jpg";
+import BG_USER_PNG from "assets/images/loginImageUser.png";
 import BG_USER_WEBP from "assets/images/loginImageUser.webp";
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
@@ -223,6 +224,7 @@ const SignInStyled = styled.div<Props>`
           background-position: center;
           position: relative;
           background-image: -webkit-image-set(url(${BG_USER_WEBP}));
+          background-image: -webkit-image-set(url(${BG_USER_PNG}));
           height: inherit;
           width: 60vw;
         }
