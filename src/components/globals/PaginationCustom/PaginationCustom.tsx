@@ -1,24 +1,23 @@
-import useI18n from "i18n/i18n.hooks";
 import React, { useCallback } from "react";
 import { getArrayViews, getNumberOfPages } from "utils/common.utils";
 
-import { NumbersComponentProps } from "../PaymentTable/PaymentTable.types";
 import Styles from "./PaginationCustom.styles";
 import { PaginationCustomProps as Props } from "./PaginationCustom.types";
+import { NumbersComponentProps } from "./PaginationCustom.types";
 
 const PaginationCustom: React.FC<Props> = props => {
-  const { rowsPerPage } = props;
-  const { onChangePage } = props;
-  const { totalRows, setPage, page: currentPage } = props;
-
-  const t = useI18n().global.table.TablePaymentAdmin.Pagination;
+  const { rowsPerPage, onChangePage } = props;
+  const { totalRows, setPage, page: currentPage, t } = props;
 
   const numPages = getNumberOfPages(totalRows, rowsPerPage);
   const totalRowCount = getArrayViews(numPages);
-  const lastIndex = currentPage * rowsPerPage;
-  const firstIndex = lastIndex - rowsPerPage + 1;
+  const lastIndex = (currentPage + 1) * rowsPerPage + 1;
+  const firstIndex = lastIndex - rowsPerPage;
   const disabledLesser = currentPage === 0;
-  const disabledGreater = (currentPage + 1) * 10 >= totalRows;
+  const currentGetPage = (currentPage + 1) * 10;
+  const disabledGreater = currentGetPage >= totalRows;
+  const currentPageRow =
+    currentGetPage > totalRows ? totalRows : currentGetPage;
 
   const handlePrevious = useCallback(() => {
     setPage(currentPage);
@@ -42,11 +41,10 @@ const PaginationCustom: React.FC<Props> = props => {
     <div {...props}>{props?.value}</div>
   );
 
-  // TODO: Check legend
   const renderLegend =
     currentPage === numPages
-      ? t.legend(firstIndex, (currentPage + 1) * 10, totalRows)
-      : t.legend(firstIndex, (currentPage + 1) * 10, totalRows);
+      ? t.legend(firstIndex, currentPageRow, totalRows)
+      : t.legend(firstIndex, currentPageRow, totalRows);
 
   const buttonClass = (value: boolean) =>
     `Pagination__text--bold ${value ? "Pagination__text--disabled" : ""}`;

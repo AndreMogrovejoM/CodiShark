@@ -1,4 +1,5 @@
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useInfiniteQuery, useMutation } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
 import { PaymentStatus } from "types/payment.types";
 
@@ -40,33 +41,41 @@ export const useFetchAdministratorSecondPanel = (
 
 export const useFetchAdministratorUsers = (
   rol = 1,
-  take = 4,
+  skip = 0,
+  take = 10,
   search: string
 ) => {
   const token = getCookie("token");
 
-  return useQuery(
-    ["users-list", rol, take, search],
-    () => fetchAdministratorUsers(rol, take, search),
+  return useInfiniteQuery(
+    ["users-list", rol, skip, take, search],
+    ({ pageParam }) =>
+      fetchAdministratorUsers(rol, skip, take, search, pageParam),
     {
       enabled: !!token,
-      staleTime: 15 * 1000 * 60
+      keepPreviousData: true,
+      staleTime: 15 * 1000 * 60,
+      getNextPageParam: () => {}
     }
   );
 };
 
 export const useFetchAdministratorOperations = (
+  skip = 0,
+  take = 10,
   status?: PaymentStatus | string,
-  take = 4,
-  search?: string
+  search = ""
 ) => {
   const token = getCookie("token");
-  return useQuery(
-    ["operations-list", status, take, search],
-    () => fetchAdministratorOperations(status, take, search),
+  return useInfiniteQuery(
+    ["operations-list", skip, take, status, search],
+    ({ pageParam }) =>
+      fetchAdministratorOperations(skip, take, status, search, pageParam),
     {
       enabled: !!token,
-      staleTime: 15 * 1000 * 60
+      keepPreviousData: true,
+      staleTime: 15 * 1000 * 60,
+      getNextPageParam: () => {}
     }
   );
 };

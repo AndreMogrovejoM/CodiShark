@@ -1,12 +1,12 @@
-import { RowButton } from "components/adminClientList/ClientTable/PaymentTable.helpers";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { Operation } from "services/administrator/administrator.service.types";
 import { numberWithCommas } from "utils/common.utils";
 
-import { Row, RowChip } from "../PaymentTable/PaymentTable.helpers";
+import { Row, RowButton } from "../AdminPaymentTable/AdminPaymentTable.helpers";
+import { RowChip } from "../AdminPaymentTable/AdminPaymentTable.helpers";
 
-const t = getI18n().global.table.TablePaymentUser.TableHeader;
+const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
 
 export const columns: TableColumn<Operation>[] = [
   {

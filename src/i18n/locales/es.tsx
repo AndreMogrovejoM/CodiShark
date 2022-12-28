@@ -55,7 +55,7 @@ const es: Dictionary = {
         title: "Ocurrió un error mientras cargábamos tus datos",
         buttonText: "Volver a intentar"
       },
-      TablePaymentUser: {
+      TablePaymentAdmin: {
         TableHeader: {
           name: "Nombre",
           date: "Fecha de pago",
@@ -64,7 +64,16 @@ const es: Dictionary = {
           state: "Estado",
           action: ""
         },
-        TableHeader2: {
+
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Mostrando registros del ${begin} al ${rowsPage} de un total de ${total} registros.`,
+          back: "Anterior",
+          next: "Siguiente"
+        }
+      },
+      TableClientAdmin: {
+        TableHeader: {
           name: "Nombre",
           dni: "Dni",
           email: "Email",
@@ -74,12 +83,12 @@ const es: Dictionary = {
         },
         Pagination: {
           legend: (begin: number, rowsPage: number, total: number) =>
-            `Mostrando registros del ${begin} al ${rowsPage} de un total de ${total} registros.`,
+            `Mostrando clientes del ${begin} al ${rowsPage} de un total de ${total} clientes.`,
           back: "Anterior",
           next: "Siguiente"
         }
       },
-      TablePaymentAdmin: {
+      TablePaymentUser: {
         TableHeader: {
           concept: "Concepto",
           originalAmount: "Monto original",

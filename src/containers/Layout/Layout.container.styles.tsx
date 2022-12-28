@@ -25,7 +25,6 @@ const LayoutContainerStyled = styled.div<Props>`
         width: 92vw;
         margin: auto;
         padding: 1.6rem 0;
-        padding-bottom: 12vh;
 
         @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
           width: calc(100% - 20.4rem);
@@ -53,7 +52,7 @@ const LayoutContainerStyled = styled.div<Props>`
     &__footer {
       display: none;
 
-      @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+      @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
         display: block;
         font-weight: 300;
         font-size: 1rem;

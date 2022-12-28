@@ -12,7 +12,7 @@ const AdminPaymentListViewStyled = styled.div<Props>`
       height: auto;
 
       @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
-        height: 100vh;
+        height: 90vh;
       }
 
       @media screen and (min-width: ${BREAKPOINTS.desktop}px) {

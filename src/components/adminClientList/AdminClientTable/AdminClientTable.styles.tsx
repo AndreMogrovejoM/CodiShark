@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { PaymentTableStyledProps as Props } from "./PaymentTable.types";
+import { AdminClientTableStyledProps as Props } from "./AdminClientTable.types";
 
-const PaymentTableStyled = styled.div<Props>`
-  .PaymentTable {
+const AdminClientTableStyled = styled.div<Props>`
+  .AdminClientTable {
     &__container {
       &--button {
         background-color: var(--palette-primary);
@@ -31,26 +31,6 @@ const PaymentTableStyled = styled.div<Props>`
           color: var(--palette-blue);
         }
       }
-
-      &--chip {
-        border-radius: 0.8rem;
-
-        &-green {
-          background: var(--palette-greenWeakBackground);
-        }
-
-        &-yellow {
-          background: var(--palette-yellowWeakBackground);
-        }
-
-        &-gray {
-          background: var(--palette-greyBackground);
-        }
-
-        &-red {
-          background: var(--palette-errorBackground);
-        }
-      }
     }
 
     &__text {
@@ -64,4 +44,4 @@ const PaymentTableStyled = styled.div<Props>`
   }
 `;
 
-export default PaymentTableStyled;
+export default AdminClientTableStyled;

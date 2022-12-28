@@ -1,3 +1,4 @@
+import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { render } from "setupTests";
 
@@ -19,6 +20,12 @@ describe("PaginationCustom", () => {
         ): void {
           throw new Error("Function not implemented.");
         }}
+        totalRows={0}
+        setPage={function (value: React.SetStateAction<number>): void {
+          throw new Error("Function not implemented.");
+        }}
+        page={0}
+        t={useI18n().global.table.TablePaymentAdmin.Pagination}
       />
     );
   });

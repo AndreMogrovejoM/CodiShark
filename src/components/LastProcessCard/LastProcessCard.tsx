@@ -11,8 +11,10 @@ import { LastProcessCardProps as Props } from "./LastProcessCard.types";
 const LastProcessCard: React.FC<Props> = props => {
   const { title, status } = props;
   const t = useI18n().signIn.AdministratorPanel;
-  const { data } = useFetchAdministratorOperations(status);
-  const { data: operationsList } = data ?? {};
+  const { data } = useFetchAdministratorOperations(0, 4, status);
+
+  const { pages } = data ?? {};
+  const operationsList = pages?.flatMap(page => page.data);
 
   const navigate = useNavigate();
 

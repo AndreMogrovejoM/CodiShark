@@ -56,21 +56,13 @@ const en = {
         title: "An error occurred while trying to load your records",
         buttonText: "Try again"
       },
-      TablePaymentUser: {
+      TablePaymentAdmin: {
         TableHeader: {
           name: "Name",
           date: "Payment date",
           amount: "Amount paid",
           method: "Payment method",
           state: "State",
-          action: ""
-        },
-        TableHeader2: {
-          name: "Name",
-          dni: "Dni",
-          email: "Email",
-          phone: "Mobile phone",
-          punishmentDate: "Punishment date",
           action: ""
         },
         Pagination: {
@@ -80,7 +72,23 @@ const en = {
           next: "Next"
         }
       },
-      TablePaymentAdmin: {
+      TableClientAdmin: {
+        TableHeader: {
+          name: "Name",
+          dni: "Dni",
+          email: "Email",
+          phone: "Mobile phone",
+          punishmentDate: "Punishment date",
+          action: ""
+        },
+        Pagination: {
+          legend: (begin: number, rowsPage: number, total: number) =>
+            `Showing clients from ${begin} to ${rowsPage}  of a total of ${total} clients.`,
+          back: "Back",
+          next: "Next"
+        }
+      },
+      TablePaymentUser: {
         TableHeader: {
           concept: "Concept",
           originalAmount: "Original amount",

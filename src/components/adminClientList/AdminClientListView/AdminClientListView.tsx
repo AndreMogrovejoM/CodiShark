@@ -1,3 +1,4 @@
+import AdminClientTable from "components/adminClientList/AdminClientTable/AdminClientTable";
 import Button from "components/globals/Button/Button";
 import SearchInput from "components/globals/SearchInput/SearchInput";
 import SkeletonComponent from "components/globals/SkeletonComponent/SkeletonComponent";
@@ -9,17 +10,26 @@ import { exportUsersPdf } from "services/administrator/administrator.service";
 import { useFetchAdministratorUsers } from "services/administrator/administrator.service.hooks";
 import { User } from "types/user.types";
 
-import PaymentTable from "../ClientTable/PaymentTable";
 import UserDetails from "../UserDetails/UserDetails";
 import { columns } from "./AdminClientListView.helpers";
 import Styles from "./AdminClientListView.styles";
 import { AdminClientListViewProps as Props } from "./AdminClientListView.types";
 
 const AdminClientListView: React.FC<Props> = props => {
-  const [query, setQuery] = useState("");
-  const { data, isLoading } = useFetchAdministratorUsers(1, 50, query);
-  const { data: usersList } = data ?? {};
   const t = useI18n().pages.UserPayPanel;
+  const [page, setPage] = useState(0);
+  const [query, setQuery] = useState("");
+  const { data, isLoading } = useFetchAdministratorUsers(
+    1,
+    10 * page,
+    10,
+    query
+  );
+
+  const { pages } = data ?? {};
+
+  const totalRows = pages?.[0].totalUsers ?? 0;
+  const usersList = pages?.flatMap(page => page.data);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(event.target.value);
@@ -71,13 +81,14 @@ const AdminClientListView: React.FC<Props> = props => {
     isLoading ? (
       <SkeletonComponent variant="rectangular" height={720} width="100%" />
     ) : (
-      <PaymentTable
+      <AdminClientTable
         data={usersList ?? []}
         columns={columns}
         onRowClicked={(row: User) => setRow(row)}
         progressPending={isLoading}
-        totalRows={50}
-        setPage={() => {}}
+        totalRows={totalRows}
+        setPage={setPage}
+        page={page}
       />
     );
 

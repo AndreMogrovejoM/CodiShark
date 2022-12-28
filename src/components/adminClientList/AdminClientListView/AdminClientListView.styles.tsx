@@ -11,6 +11,10 @@ const AdminClientListViewStyled = styled.div<Props>`
       margin: auto 2.4rem;
       height: 100vh;
 
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        height: 90vh;
+      }
+
       @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
         margin: auto;
       }
