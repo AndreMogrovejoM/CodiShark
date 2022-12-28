@@ -11,6 +11,7 @@ import useGlobals from "contexts/globals/globals.hooks";
 import React, { useCallback, useEffect } from "react";
 import { useValidateIziPayPayment } from "services/iziPay/iziPay.service.hooks";
 import { useGenerateOperationNumber } from "services/users/users.service.hooks";
+import Swal from "sweetalert2";
 
 import Styles, { style } from "./IziPayForm.styles";
 import { IziPayFormProps as Props } from "./IziPayForm.types";
@@ -22,14 +23,21 @@ const IziPayForm: React.FC<Props> = props => {
   const { open, setOpen, userDebt } = props;
   const { id: debtId, amount_cancellation } = userDebt ?? {};
   const { mutateAsync, isLoading } = useGenerateOperationNumber();
-  const { mutateAsync: validateMutation } = useValidateIziPayPayment();
-  const {
-    setIsLoading,
-    setPaymentStatus,
-    currentDebtId,
-    setOperationUserDebt
-  } = useGlobals();
+  const { mutateAsync: validateMutation, reset } = useValidateIziPayPayment();
+  const { currentDebtId, setOperationUserDebt } = useGlobals();
+  const { setIsLoading, setPaymentStatus } = useGlobals();
   const { user } = useAuth();
+
+  const handleError = useCallback(
+    (error: any) => {
+      console.warn(error);
+      setOpen(false);
+      setIsLoading(false);
+      setPaymentStatus("ERROR");
+      Swal.fire("Error", error, "error");
+    },
+    [setIsLoading, setOpen, setPaymentStatus]
+  );
 
   const handleInitIziPay = useCallback(async () => {
     let formTokenValue: string | undefined = undefined;
@@ -61,6 +69,7 @@ const IziPayForm: React.FC<Props> = props => {
         )
         .then(({ KR }) =>
           KR.onSubmit(paymentData => {
+            console.log(paymentData);
             const { clientAnswer, hash } = paymentData ?? {};
             if (!operationNumberValue)
               throw new Error("Operation Number Error");
@@ -71,9 +80,16 @@ const IziPayForm: React.FC<Props> = props => {
               rawClientAnswer: JSON.stringify(clientAnswer),
               hash
             });
+            reset();
             setOpen(false);
             setPaymentStatus("SUCCESS");
             return false;
+          })
+        )
+        .then(({ KR }) =>
+          KR.onError(e => {
+            handleError(e.detailedErrorMessage);
+            throw new Error("detailedErrorMessage");
           })
         )
         .then(({ KR }) => KR.addForm("#myPaymentForm"))
@@ -84,17 +100,16 @@ const IziPayForm: React.FC<Props> = props => {
         .catch(error => {
           throw new Error(error);
         });
-    } catch (error: any) {
-      console.log(error.response);
-      setOpen(false);
-      setIsLoading(false);
-      setPaymentStatus("ERROR");
+    } catch (error) {
+      handleError(error);
     }
   }, [
     amount_cancellation,
     currentDebtId,
     debtId,
+    handleError,
     mutateAsync,
+    reset,
     setIsLoading,
     setOpen,
     setOperationUserDebt,

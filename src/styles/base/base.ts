@@ -143,8 +143,6 @@ const base = css`
   .swal2-container.swal2-noanimation {
     background-color: var(--palette-primary01) !important;
   }
-
-  /* Styles a page component that consists of a full page table */
 `;
 
 export default base;
