@@ -1,4 +1,4 @@
-import{k as _b,a5 as qf,a6 as wb,q as st,A as R,r as b,a7 as ut,a8 as xa,a9 as Cb,aa as Sb,x as Mb,ab as kb,a as S,ac as _i,ad as _r,p as he,ae as wr,G as On,_ as et,af as ts,j as ee,s as zr,ag as ta,ah as Pb,u as Db,E as Ob}from"./index.9af5e57e.js";import{u as Tb,a as Eb,b as Rb,c as Nb,d as zg}from"./administrator.service.hooks.bcfacd4a.js";import{_ as W,g as Ab,u as po}from"./i18n.hooks.95fc6568.js";import{r as Fb,i as Lb,a as Ib,u as jg,L as Vb}from"./Layout.container.9056670d.js";import{B as $b}from"./Button.cf3005dc.js";import{S as Gf}from"./sweetalert2.all.96059b0d.js";import{n as Yb}from"./common.utils.106d572f.js";function wi(e,t){if(e==null)return{};var n=_b(e,t),r,i;if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);for(i=0;i<a.length;i++)r=a[i],!(t.indexOf(r)>=0)&&(!Object.prototype.propertyIsEnumerable.call(e,r)||(n[r]=e[r]))}return n}var Hb=function(t,n,r,i){var a=r?r.call(i,t,n):void 0;if(a!==void 0)return!!a;if(t===n)return!0;if(typeof t!="object"||!t||typeof n!="object"||!n)return!1;var s=Object.keys(t),o=Object.keys(n);if(s.length!==o.length)return!1;for(var l=Object.prototype.hasOwnProperty.bind(n),c=0;c<s.length;c++){var u=s[c];if(!l(u))return!1;var f=t[u],d=n[u];if(a=r?r.call(i,f,d,u):void 0,a===!1||a===void 0&&f!==d)return!1}return!0};function Wb(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch{return!1}}function Ci(e){var t=Wb();return function(){var r=qf(e),i;if(t){var a=qf(this).constructor;i=Reflect.construct(r,arguments,a)}else i=r.apply(this,arguments);return wb(this,i)}}var Bg={exports:{}};/*!
+import{k as _b,a5 as qf,a6 as wb,q as st,A as R,r as b,a7 as ut,a8 as xa,a9 as Cb,aa as Sb,x as Mb,ab as kb,a as S,ac as _i,ad as _r,p as he,ae as wr,G as On,_ as et,af as ts,j as ee,s as zr,ag as ta,ah as Pb,u as Db,E as Ob}from"./index.a3dc70de.js";import{u as Tb,a as Eb,b as Rb,c as Nb,d as zg}from"./administrator.service.hooks.a9b4f567.js";import{_ as W,g as Ab,u as po}from"./i18n.hooks.9d5c239d.js";import{r as Fb,i as Lb,a as Ib,u as jg,L as Vb}from"./Layout.container.33c3d07e.js";import{B as $b}from"./Button.504dfbe8.js";import{S as Gf}from"./sweetalert2.all.e7f7635f.js";import{n as Yb}from"./common.utils.106d572f.js";function wi(e,t){if(e==null)return{};var n=_b(e,t),r,i;if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);for(i=0;i<a.length;i++)r=a[i],!(t.indexOf(r)>=0)&&(!Object.prototype.propertyIsEnumerable.call(e,r)||(n[r]=e[r]))}return n}var Hb=function(t,n,r,i){var a=r?r.call(i,t,n):void 0;if(a!==void 0)return!!a;if(t===n)return!0;if(typeof t!="object"||!t||typeof n!="object"||!n)return!1;var s=Object.keys(t),o=Object.keys(n);if(s.length!==o.length)return!1;for(var l=Object.prototype.hasOwnProperty.bind(n),c=0;c<s.length;c++){var u=s[c];if(!l(u))return!1;var f=t[u],d=n[u];if(a=r?r.call(i,f,d,u):void 0,a===!1||a===void 0&&f!==d)return!1}return!0};function Wb(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch{return!1}}function Ci(e){var t=Wb();return function(){var r=qf(e),i;if(t){var a=qf(this).constructor;i=Reflect.construct(r,arguments,a)}else i=r.apply(this,arguments);return wb(this,i)}}var Bg={exports:{}};/*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
 	http://jedwatson.github.io/classnames
@@ -277,6 +277,12 @@ $.version="2.29.4";iD(Be);$.fn=V;$.min=BO;$.max=UO;$.now=qO;$.utc=Rn;$.unix=_E;$
       justify-content: space-between;
     }
 
+    &__iconDebt {
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+
     &__sectionContainer {
       display: flex;
       justify-content: space-between;
@@ -285,6 +291,18 @@ $.version="2.29.4";iD(Be);$.fn=V;$.min=BO;$.max=UO;$.now=qO;$.utc=Rn;$.unix=_E;$
       width: 20rem;
       margin: 2.4rem 0;
       height: 2rem;
+      @media screen and (max-width: 500px) {
+        justify-content: space-between;
+      }
+      @media screen and (max-width: 413px) {
+        justify-content: space-between;
+      }
+    }
+
+    &__icon {
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
     }
 
     &__footerSubtitle {
@@ -305,7 +323,7 @@ $.version="2.29.4";iD(Be);$.fn=V;$.min=BO;$.max=UO;$.now=qO;$.utc=Rn;$.unix=_E;$
       }
     }
   }
-`,nu=e=>{const{title:t,status:n}=e,r=po().signIn.AdministratorPanel,{data:i}=Nb(n),{data:a}=i!=null?i:{},s=Db(),o=(c,u)=>ee("div",{className:"LastProcessCard__sectionContainer",children:[S("img",{className:"LastProcessCard__icon",src:tI,alt:"iconCard"}),S("h2",{className:"LastProcessCard__name",children:c==null?void 0:c.slice(0,24)})]},u),l=(c,u)=>ee("div",{className:"LastProcessCard__sectionContainer",children:[S("h3",{className:"LastProcessCard__debt",children:`S/. ${c!=null?c:0}`}),S("img",{className:"LastProcessCard__iconDebt",src:eI,alt:"iconArrowCard"})]},u);return ee(nI,{className:"LastProcessCard",children:[S("h1",{className:"LastProcessCard__title",children:t}),ee("div",{className:"LastProcessCard__container",children:[ee("div",{children:[S("h3",{className:"LastProcessCard__subtitle",children:r.name}),S("div",{className:"LastProcessCard__names",children:a==null?void 0:a.map((c,u)=>{const{user:f}=c!=null?c:{},{first_name:d,last_name:g,mother_last_name:h}=f!=null?f:{};return o(`${d} ${g} ${h}`,u)})})]}),ee("div",{className:"LastProcessCard__debs",children:[S("h3",{className:"LastProcessCard__subtitle",children:r.debt}),a==null?void 0:a.map((c,u)=>{const{amount_paid:f}=c!=null?c:{};return l(f,u)})]})]}),S("h3",{className:"LastProcessCard__footerSubtitle",onClick:()=>{s(`/adminPaymentList?status=${n}`)},children:r.footerTitle})]})};nu.defaultProps={};const rI="/CodiShark/assets/LogoPanelBanner.e7f4da7d.svg",iI=zr.div`
+`,nu=e=>{const{title:t,status:n}=e,r=po().signIn.AdministratorPanel,{data:i}=Nb(0,4,n),{pages:a}=i!=null?i:{},s=a==null?void 0:a.flatMap(u=>u.data),o=Db(),l=(u,f)=>ee("div",{className:"LastProcessCard__sectionContainer",children:[S("img",{className:"LastProcessCard__icon",src:tI,alt:"iconCard"}),S("h2",{className:"LastProcessCard__name",children:u==null?void 0:u.slice(0,24)})]},f),c=(u,f)=>ee("div",{className:"LastProcessCard__sectionContainer",children:[S("h3",{className:"LastProcessCard__debt",children:`S/. ${u!=null?u:0}`}),S("img",{className:"LastProcessCard__icon",src:eI,alt:"iconArrowCard"})]},f);return ee(nI,{className:"LastProcessCard",children:[S("h1",{className:"LastProcessCard__title",children:t}),ee("div",{className:"LastProcessCard__container",children:[ee("div",{children:[S("h3",{className:"LastProcessCard__subtitle",children:r.name}),S("div",{className:"LastProcessCard__names",children:s==null?void 0:s.map((u,f)=>{const{user:d}=u!=null?u:{},{first_name:g,last_name:h,mother_last_name:p}=d!=null?d:{};return l(`${g} ${h} ${p}`,f)})})]}),ee("div",{className:"LastProcessCard__debs",children:[S("h3",{className:"LastProcessCard__subtitle",children:r.debt}),s==null?void 0:s.map((u,f)=>{const{amount_paid:d}=u!=null?u:{};return c(d,f)})]})]}),S("h3",{className:"LastProcessCard__footerSubtitle",onClick:()=>{o(`/adminPaymentList?status=${n}`)},children:r.footerTitle})]})};nu.defaultProps={};const rI="/CodiShark/assets/LogoPanelBanner.e7f4da7d.svg",iI=zr.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
