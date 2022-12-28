@@ -1,12 +1,12 @@
 import { SetStateAction } from "react";
 import { render } from "setupTests";
 
-import PaymentTable from "./PaymentTable";
+import AdminClientTable from "./AdminClientTable";
 
-describe("PaymentTable", () => {
+describe("AdminClientTable", () => {
   it("renders with default props", () => {
     render(
-      <PaymentTable
+      <AdminClientTable
         data={[]}
         columns={[]}
         onRowClicked={row => console.log(row)}
@@ -15,6 +15,7 @@ describe("PaymentTable", () => {
         setPage={function (value: SetStateAction<number>): void {
           throw new Error("Function not implemented.");
         }}
+        page={0}
       />
     );
   });

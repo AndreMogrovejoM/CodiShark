@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useFetchUserOperations } from "services/users/users.service.hooks";
 
 import ExpandableRowsComponent from "../ExpandableRowsComponent/ExpandableRowsComponent";
-import PaymentTable from "../PaymentTable/PaymentTable";
+import UserPaymentTable from "../UserPaymentTable/UserPaymentTable";
 import { columns } from "./UserPaymentListView.helpers";
 import Styles from "./UserPaymentListView.styles";
 import { UserPaymentListViewProps as Props } from "./UserPaymentListView.types";
@@ -22,7 +22,7 @@ const UserPaymentListView: React.FC<Props> = props => {
     isLoading ? (
       <SkeletonComponent variant="rounded" height={720} width="100%" />
     ) : (
-      <PaymentTable
+      <UserPaymentTable
         data={paymentList ?? []}
         columns={columns}
         expandableRows={true}

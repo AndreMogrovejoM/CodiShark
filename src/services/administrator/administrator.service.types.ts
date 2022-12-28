@@ -45,7 +45,7 @@ export interface Operation {
 
 export interface OperationListResponse {
   status: number;
-  totalUsers: number;
+  totalOperations: number;
   skip: number;
   take: number;
   data: Operation[];

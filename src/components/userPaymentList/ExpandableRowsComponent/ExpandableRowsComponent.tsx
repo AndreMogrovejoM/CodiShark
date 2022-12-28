@@ -9,7 +9,7 @@ const ExpandableRowsComponent: React.FC<Props> = props => {
   const { data } = props;
   const { debt } = data ?? {};
 
-  const t = getI18n().global.table.TablePaymentAdmin.TableRowsExpand;
+  const t = getI18n().global.table.TablePaymentUser.TableRowsExpand;
 
   const renderContent = (
     dataStatic: string,

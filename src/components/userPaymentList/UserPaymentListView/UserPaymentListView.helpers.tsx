@@ -1,13 +1,12 @@
-import { RowChip } from "components/userPaymentList/PaymentTable/PaymentTable.helpers";
 import getI18n from "i18n/i18n.helpers";
 import { TableColumn } from "react-data-table-component";
 import { OperationUserDebt } from "services/users/users.service.types";
 import { disabledButton } from "utils/validations.utils";
 
 import ButtonRowsComponent from "../ButtonRowsComponent/ButtonRowsComponent";
-import { Row } from "../PaymentTable/PaymentTable.helpers";
+import { Row, RowChip } from "../UserPaymentTable/UserPaymentTable.helpers";
 
-const t = getI18n().global.table.TablePaymentAdmin.TableHeader;
+const t = getI18n().global.table.TablePaymentUser.TableHeader;
 
 export const columns: TableColumn<OperationUserDebt>[] = [
   {

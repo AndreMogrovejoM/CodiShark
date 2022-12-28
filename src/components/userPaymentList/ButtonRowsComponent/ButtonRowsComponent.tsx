@@ -10,7 +10,7 @@ import { ButtonRowsComponentProps as Props } from "./ButtonRowsComponent.types";
 const ButtonRowsComponent: React.FC<Props> = props => {
   const { icon = false, disabled, data } = props;
   const [open, setOpen] = useState(false);
-  const t = getI18n().global.table.TablePaymentAdmin.TableRows;
+  const t = getI18n().global.table.TablePaymentUser.TableRows;
   const navigate = useNavigate();
 
   const handleExpandRow = () => {
@@ -30,17 +30,16 @@ const ButtonRowsComponent: React.FC<Props> = props => {
   const renderContent = () => (
     <>
       {icon && (
-        <div className="PaymentTable__container--icon">{renderIcon()}</div>
+        <div className="UserPaymentTable__container--icon">{renderIcon()}</div>
       )}
-      {/* TODO: Operador ternario */}
       {icon ? t.buttonDetail.toLocaleUpperCase() : renderAction()}
     </>
   );
 
   const styleClass = (value: boolean) =>
-    `PaymentTable__container--button ${
-      value ? "PaymentTable__container--button-icon" : ""
-    } ${disabled ? "PaymentTable__container--button-disabled" : ""}`;
+    `UserPaymentTable__container--button ${
+      value ? "UserPaymentTable__container--button-icon" : ""
+    } ${disabled ? "UserPaymentTable__container--button-disabled" : ""}`;
 
   return (
     <Styles

@@ -1,12 +1,12 @@
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
-import { PaymentTableStyledProps as Props } from "./PaymentTable.types";
+import { UserPaymentTableStyledProps as Props } from "./UserPaymentTable.types";
 
 const { BREAKPOINTS } = CONSTANTS;
 
-const PaymentTableStyled = styled.div<Props>`
-  .PaymentTable {
+const UserPaymentTableStyled = styled.div<Props>`
+  .UserPaymentTable {
     &__container {
       &--button {
         display: flex;
@@ -106,4 +106,4 @@ const PaymentTableStyled = styled.div<Props>`
   }
 `;
 
-export default PaymentTableStyled;
+export default UserPaymentTableStyled;

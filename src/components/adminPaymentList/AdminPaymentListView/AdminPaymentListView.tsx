@@ -10,8 +10,8 @@ import { exportOperationsPdf } from "services/administrator/administrator.servic
 import { useFetchAdministratorOperations } from "services/administrator/administrator.service.hooks";
 import { Operation } from "services/administrator/administrator.service.types";
 
+import AdminPaymentTable from "../AdminPaymentTable/AdminPaymentTable";
 import PaymentDetails from "../PaymentDetails/PaymentDetails";
-import PaymentTable from "../PaymentTable/PaymentTable";
 import { columns } from "./AdminPaymentListView.helpers";
 import Styles from "./AdminPaymentListView.styles";
 import { AdminPaymentListViewProps as Props } from "./AdminPaymentListView.types";
@@ -20,15 +20,22 @@ const AdminPaymentListView: React.FC<Props> = props => {
   const [searchParams] = useSearchParams();
   const status = searchParams.get("status") || undefined;
   const [statusQuery, setStatusQuery] = useState(status);
+  const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(0);
   const { data, isLoading } = useFetchAdministratorOperations(
+    10 * page,
+    10,
     statusQuery,
-    50,
     query
   );
-  const [loading, setLoading] = useState(false);
+  const { pages, pageParams } = data ?? {};
 
-  const { data: operationsList } = data ?? {};
+  const totalRows = pages?.[0].totalOperations ?? 0;
+  const operationsList = pages?.flatMap(page => page.data);
+
+  /* TODO: Pending */
+  console.log({ pages, pageParams });
 
   const [row, setRow] = useState<Operation>();
 
@@ -90,11 +97,14 @@ const AdminPaymentListView: React.FC<Props> = props => {
   );
 
   const renderTable = () => (
-    <PaymentTable
+    <AdminPaymentTable
       data={operationsList ?? []}
       columns={columns}
       onRowClicked={(row: Operation) => setRow(row)}
       progressPending={isLoading}
+      totalRows={totalRows}
+      setPage={setPage}
+      page={page}
     />
   );
 

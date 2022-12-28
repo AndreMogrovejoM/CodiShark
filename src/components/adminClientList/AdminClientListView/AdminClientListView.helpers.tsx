@@ -4,9 +4,9 @@ import { TableColumn } from "react-data-table-component";
 import { User } from "types/user.types";
 import { getSubString } from "utils/common.utils";
 
-import { Row, RowButton } from "../ClientTable/PaymentTable.helpers";
+import { Row, RowButton } from "../AdminClientTable/AdminClientTable.helpers";
 
-const t = getI18n().global.table.TablePaymentUser.TableHeader2;
+const t = getI18n().global.table.TableClientAdmin.TableHeader;
 
 export const columns: TableColumn<User>[] = [
   {

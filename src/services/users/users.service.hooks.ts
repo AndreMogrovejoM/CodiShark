@@ -31,6 +31,7 @@ export const useFetchUserDebt = (operationId?: number) => {
 
 export const useFetchUserOperations = (skip = 0, take = 10) => {
   const token = getCookie("token");
+
   return useInfiniteQuery(
     ["user-operations-list", skip, take],
     ({ pageParam }) => fetchUserOperations(skip, take, pageParam),

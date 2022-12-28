@@ -1,10 +1,11 @@
-// Interfaces and types from component PaymentTable
+// Interfaces and types from component  UserPaymentTable
 
 import { Dispatch, SetStateAction } from "react";
 import { TableColumn } from "react-data-table-component";
 import { PaginationComponentProps } from "react-data-table-component/dist/src/DataTable/types";
 import { ExpandableRowsComponent } from "react-data-table-component/dist/src/DataTable/types";
 import { OperationUserDebt } from "services/users/users.service.types";
+import { LegendType } from "types/legend.types";
 import { PaymentStatus } from "types/payment.types";
 
 export interface NumbersComponentProps {
@@ -27,10 +28,11 @@ export interface PaginationCustomProps extends PaginationComponentProps {
   totalRows: number;
   setPage: Dispatch<SetStateAction<number>>;
   page: number;
+  t: LegendType;
 }
 
 // Component Props
-export interface PaymentTableProps {
+export interface UserPaymentTableProps {
   data: OperationUserDebt[];
   columns: TableColumn<OperationUserDebt>[];
   expandableRows: boolean;
@@ -43,4 +45,4 @@ export interface PaymentTableProps {
 }
 
 // Styled Component Props
-export interface PaymentTableStyledProps {}
+export interface UserPaymentTableStyledProps {}

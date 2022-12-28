@@ -49,12 +49,14 @@ export const fetchAdministratorSecondPanel = async (
 
 export const fetchAdministratorUsers = async (
   rol: number,
+  skip: number,
   take: number,
-  search = ""
+  search = "",
+  pageParam?: any
 ): Promise<UsersListResponse> => {
   try {
     const response = await axiosDefault.get(
-      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}&search=${search}`,
+      `${REACT_APP_API_URL}/admin/users?rol=${rol}&take=${take}&skip=${skip}&search=${search}`,
       {
         headers: buildHeaders()
       }
@@ -66,13 +68,15 @@ export const fetchAdministratorUsers = async (
 };
 
 export const fetchAdministratorOperations = async (
+  skip: number,
+  take: number,
   status?: PaymentStatus | string,
-  take = 4,
-  search = ""
+  search?: string,
+  pageParam?: any
 ): Promise<OperationListResponse> => {
   const url = status
-    ? `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}&search=${search}`
-    : `${REACT_APP_API_URL}/admin/operations?take=${take}&search=${search}`;
+    ? `${REACT_APP_API_URL}/admin/operations?status=${status}&take=${take}&skip=${skip}&search=${search}`
+    : `${REACT_APP_API_URL}/admin/operations?take=${take}&skip=${skip}&search=${search}`;
   try {
     const response = await axiosDefault.get(url, {
       headers: buildHeaders()
