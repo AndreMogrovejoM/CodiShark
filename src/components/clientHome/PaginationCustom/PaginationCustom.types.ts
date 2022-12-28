@@ -1,5 +1,3 @@
-// Interfaces and types from component PaginationCustom
-
 import { PaginationInterface } from "../DebtTable/DebtTable.types";
 
 // Component Props

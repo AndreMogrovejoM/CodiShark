@@ -9,7 +9,11 @@ const AdminPaymentListViewStyled = styled.div<Props>`
   .AdminPaymentListView {
     &__container {
       margin: auto 2.4rem;
-      height: 100vh;
+      height: auto;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        height: 100vh;
+      }
 
       @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
         margin: auto;

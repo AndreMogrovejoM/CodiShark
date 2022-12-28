@@ -58,7 +58,7 @@ const DebtExpandableRowsComponent: React.FC<Props> = props => {
         <PaymentRejected />
       )}
       {(paymentStatus === "NONE" || currentDebtId.current !== id) && (
-        <InformationClient userDebt={data} />
+        <InformationClient userDebt={data} hiddenMobile={true} />
       )}
     </Styles>
   );

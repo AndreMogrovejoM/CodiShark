@@ -6,7 +6,8 @@ import "swiper/css/pagination";
 
 const SwipperComponentStyled = styled.div<Props>`
   .swiper-slide {
-    width: auto;
+    width: ${props => (props.widthFull ? "100%" : "auto")};
+    height: auto;
   }
 
   .swiper-pagination {
@@ -15,8 +16,13 @@ const SwipperComponentStyled = styled.div<Props>`
     z-index: auto;
   }
 
+  .swiper-pagination-bullet {
+    height: 0.64rem;
+    width: 0.64rem;
+  }
+
   .swiper-pagination-bullet-active {
-    background: var(--palette-primary);
+    background: var(--palette-blue);
   }
 `;
 

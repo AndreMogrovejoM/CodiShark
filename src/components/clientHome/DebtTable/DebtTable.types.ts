@@ -40,7 +40,10 @@ export interface DebtTableProps {
   expandOnRowClicked?: boolean;
   expandableRowExpanded?: (row: UserDebt) => void;
   progressPending: boolean;
+  hiddenMobile: boolean;
 }
 
 // Styled Component Props
-export interface DebtTableStyledProps {}
+export interface DebtTableStyledProps {
+  hiddenMobile?: boolean;
+}

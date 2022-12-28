@@ -18,7 +18,6 @@ const PaymentRejectedStyled = styled.div<Props>`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 25%;
       gap: 1.6rem;
     }
 
@@ -49,7 +48,6 @@ const PaymentRejectedStyled = styled.div<Props>`
       flex-direction: column;
       justify-content: space-evenly;
       gap: 3.2rem;
-      width: 25%;
     }
 
     &__title2 {

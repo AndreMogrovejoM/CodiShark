@@ -8,24 +8,40 @@ const { BREAKPOINTS } = CONSTANTS;
 const LayoutContainerStyled = styled.div<Props>`
   .LayoutContainer {
     &__children {
-      width: calc(100% - 20.4rem);
+      position: relative;
+      width: 100%;
       min-height: 100vh;
-      padding: 2.4rem;
-      margin-left: 20.4rem;
-      background-color: var(--palette-greyBackground);
+      background-color: var(--palette-white);
 
-      @media screen and (max-width: ${BREAKPOINTS.desktop}px) {
-        padding: 2.4rem 0;
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        background-color: var(--palette-greyBackground);
       }
 
-      @media screen and (max-width: ${BREAKPOINTS.tablet}px) {
-        width: 100%;
-        margin-left: 0;
+      @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+        min-height: 100vh;
+      }
+
+      &--container {
+        width: 92vw;
+        margin: auto;
+        padding: 1.6rem 0;
+        padding-bottom: 12vh;
+
+        @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+          width: calc(100% - 20.4rem);
+          padding: 2.4rem;
+          margin-left: 20.4rem;
+        }
+
+        @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
+          padding: 2.4rem;
+        }
       }
     }
 
     &__container {
       width: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
 
@@ -35,15 +51,14 @@ const LayoutContainerStyled = styled.div<Props>`
     }
 
     &__footer {
-      bottom: 0;
-      font-weight: 300;
-      font-size: 1rem;
-      line-height: 1.4rem;
-      padding-bottom: 4rem;
-      &-images {
-        width: 2.6rem;
-        display: flex;
-        gap: 2rem;
+      display: none;
+
+      @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+        display: block;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.4rem;
+        padding-bottom: 4rem;
       }
     }
   }

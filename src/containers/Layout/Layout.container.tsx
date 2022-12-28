@@ -1,8 +1,5 @@
-import americanExpress from "assets/images/americanExpress.svg";
-import dinersClub from "assets/images/dinersClub.svg";
-import masterCard from "assets/images/masterCard.svg";
-import visa from "assets/images/visa.svg";
 import Backdrop from "components/Backdrop/Backdrop";
+import FooterResponsive from "components/globals/FooterResponsive/FooterResponsive";
 import Sidebar from "components/globals/Sidebar/Sidebar";
 import SidebarResponsive from "components/globals/SidebarResponsive/SidebarResponsive";
 import useGlobals from "contexts/globals/globals.hooks";
@@ -12,6 +9,7 @@ import React from "react";
 import Styles from "./Layout.container.styles";
 import { LayoutContainerProps as Props } from "./Layout.container.types";
 
+/* TODO: Link URL */
 const LayoutContainer: React.FC<Props> = props => {
   const { children } = props;
   const { isLoading } = useGlobals();
@@ -24,17 +22,15 @@ const LayoutContainer: React.FC<Props> = props => {
         <Sidebar />
         <SidebarResponsive />
         <main className="LayoutContainer__children">
-          {children}
-          <div className="LayoutContainer__footer">{t.copyright}</div>
-          <div className="LayoutContainer__footer-images">
-            <img src={americanExpress} alt="americanExpress" />
-            <img src={dinersClub} alt="dinersClub" />
-            <img src={masterCard} alt="masterCard" />
-            <img src={visa} alt="visa" />
+          <div className="LayoutContainer__children--container">
+            {children}
+            <div className="LayoutContainer__footer">{t.copyright}</div>
           </div>
         </main>
+
         <Backdrop isLoading={isLoading} />
       </div>
+      <FooterResponsive />
     </Styles>
   );
 };

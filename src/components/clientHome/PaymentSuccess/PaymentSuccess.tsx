@@ -1,4 +1,3 @@
-import lineSuccess from "assets/images/lineSucces.svg";
 import successImage from "assets/images/successImage.svg";
 import useGlobals from "contexts/globals/globals.hooks";
 import dayjs from "dayjs";
@@ -28,7 +27,7 @@ const PaymentSuccess: React.FC<Props> = props => {
           <h2 className="PaymentSuccess__title">{t.success}</h2>
           <h2 className="PaymentSuccess__subtitle">{t.approved}</h2>
         </div>
-        <img src={lineSuccess} alt="lineSuccess" />
+        <div className="PaymentSuccess__divider" />
         <div className="PaymentSuccess__section2">
           <h2 className="PaymentSuccess__title2">{t.title}</h2>
           <div className="PaymentSuccess__paragraph">

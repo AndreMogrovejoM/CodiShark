@@ -25,9 +25,12 @@ export interface TableProps {
   progressPending?: boolean;
   progressComponent?: React.ReactNode;
   hiddenHeadRow?: boolean;
+  noDataComponent?: React.ReactNode;
+  hiddenMobile?: boolean;
 }
 
 // Styled Component Props
 export interface TableStyledProps {
   hiddenHeadRow?: boolean;
+  hiddenMobile?: boolean;
 }

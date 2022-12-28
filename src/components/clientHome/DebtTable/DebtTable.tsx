@@ -15,9 +15,10 @@ const PaginationCustomHandler = (props: PaginationInterface) => {
 const DebtTable: React.FC<Props> = props => {
   const { data, columns, expandableRows, expandableRowsComponent } = props;
   const { progressPending, expandOnRowClicked, expandableRowExpanded } = props;
+  const { hiddenMobile } = props;
 
   return (
-    <Styles className={`DebtTable`}>
+    <Styles className={`DebtTable`} hiddenMobile={hiddenMobile}>
       <Table
         columns={columns}
         data={data}
@@ -32,6 +33,7 @@ const DebtTable: React.FC<Props> = props => {
         expandableIcon={{ collapsed: null, expanded: null }}
         progressPending={progressPending}
         hiddenHeadRow={true}
+        hiddenMobile={hiddenMobile}
       />
     </Styles>
   );

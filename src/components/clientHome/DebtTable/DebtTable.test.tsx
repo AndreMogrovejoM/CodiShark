@@ -10,6 +10,7 @@ describe("DebtTable", () => {
         columns={[]}
         expandableRows={true}
         progressPending={true}
+        hiddenMobile={true}
       />
     );
   });

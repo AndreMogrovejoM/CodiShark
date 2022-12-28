@@ -1,6 +1,9 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { PaymentSuccessStyledProps as Props } from "./PaymentSuccess.types";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const PaymentSuccessStyled = styled.div<Props>`
   .PaymentSuccess {
@@ -11,14 +14,25 @@ const PaymentSuccessStyled = styled.div<Props>`
       border-radius: 0.8rem;
       padding: 4rem 2.4rem;
       margin: 3.2rem auto;
-      justify-content: space-evenly;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
     }
 
     &__section {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 25%;
+      gap: 0.4rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        gap: 0;
+      }
     }
 
     &__title {
@@ -39,15 +53,31 @@ const PaymentSuccessStyled = styled.div<Props>`
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      gap: 3.2rem;
-      width: 25%;
+      gap: 0.8rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        gap: 3.2rem;
+      }
     }
 
     &__title2 {
-      font-weight: 800;
-      font-size: 2rem;
-      line-height: 2.4rem;
+      font-weight: 540;
+      font-size: 1.6rem;
       text-align: center;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        font-weight: 800;
+        font-size: 2rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    &__divider {
+      border-top: 0.04rem solid var(--palette-darkShadow);
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        border-left: 0.24rem solid var(--palette-darkShadow);
+      }
     }
 
     &__image {
@@ -55,6 +85,14 @@ const PaymentSuccessStyled = styled.div<Props>`
       align-self: center;
       width: 6.4rem;
       height: 6.4rem;
+
+      &--divider {
+        display: none;
+
+        @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+          display: block;
+        }
+      }
     }
 
     &__package {

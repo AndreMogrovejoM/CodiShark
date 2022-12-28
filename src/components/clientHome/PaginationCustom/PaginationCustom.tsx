@@ -52,37 +52,39 @@ const PaginationCustom: React.FC<Props> = props => {
     }`;
 
   return (
-    <Styles className="Pagination">
-      <div className="Pagination__container">
-        <p className="Pagination__text">{renderLegend}</p>
-        <div className="Pagination__container--pagination">
-          <button
-            className={buttonClass(disabledLesser)}
-            aria-disabled={disabledLesser}
-            onClick={handlePrevious}
-            disabled={disabledLesser}
-          >
-            {t.back}
-          </button>
-          {totalRowCount.map((page, index) => (
-            <NumbersComponent
-              key={index}
-              value={page}
-              className={numberClass(page)}
-              onClick={() => handleChangePage(page)}
-            />
-          ))}
-          <button
-            className={buttonClass(disabledGreater)}
-            aria-disabled={disabledGreater}
-            onClick={handleNext}
-            disabled={disabledGreater}
-          >
-            {t.next}
-          </button>
+    <div className="DebtTable__component--pagination">
+      <Styles className="Pagination">
+        <div className="Pagination__container">
+          <p className="Pagination__text">{renderLegend}</p>
+          <div className="Pagination__container--pagination">
+            <button
+              className={buttonClass(disabledLesser)}
+              aria-disabled={disabledLesser}
+              onClick={handlePrevious}
+              disabled={disabledLesser}
+            >
+              {t.back}
+            </button>
+            {totalRowCount.map((page, index) => (
+              <NumbersComponent
+                key={index}
+                value={page}
+                className={numberClass(page)}
+                onClick={() => handleChangePage(page)}
+              />
+            ))}
+            <button
+              className={buttonClass(disabledGreater)}
+              aria-disabled={disabledGreater}
+              onClick={handleNext}
+              disabled={disabledGreater}
+            >
+              {t.next}
+            </button>
+          </div>
         </div>
-      </div>
-    </Styles>
+      </Styles>
+    </div>
   );
 };
 

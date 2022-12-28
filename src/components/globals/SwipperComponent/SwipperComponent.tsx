@@ -6,10 +6,10 @@ import { SwipperComponentProps as Props } from "./SwipperComponent.types";
 
 const SwipperComponent: React.FC<Props> = props => {
   const { children, slidesPerView, pagination, autoPlay } = props;
-  const { centeredSlides, spaceBetween, modules } = props;
+  const { centeredSlides, spaceBetween, modules, widthFull } = props;
 
   return (
-    <Styles className={`SwipperComponent`}>
+    <Styles className={`SwipperComponent`} widthFull={widthFull}>
       <Swiper
         slidesPerView={slidesPerView}
         pagination={pagination}

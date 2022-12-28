@@ -1,57 +1,36 @@
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { AccountCircle } from "@mui/icons-material";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { AppBar, IconButton, Menu, Toolbar } from "@mui/material";
+import { MenuItem } from "@mui/material";
 import logoKonecta from "assets/images/logoKonectaSidebar.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
-import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useLogout } from "services/auth/auth.service.hooks";
 import { useLocalStorage } from "utils/useLocalStorage";
+import { userRol } from "utils/validations.utils";
 
 import Styles from "./SidebarResponsive.styles";
-import { LinkComponentProps } from "./SidebarResponsive.types";
+import { MenuItemStyled, MenuStyled } from "./SidebarResponsive.styles";
+import { paperProps } from "./SidebarResponsive.styles";
 import { SidebarResponsiveProps as Props } from "./SidebarResponsive.types";
 
-const { NO_AUTH_PATH, USER_PAYMENT_LIST, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
-const { ADMIN_CLIENT_LIST, ADMIN_PAYMENT_LIST } = CONSTANTS.ROUTES;
-const { ENTRY_PATH, SETTINGS } = CONSTANTS.ROUTES;
-
-const LinkComponent = (props: LinkComponentProps) => {
-  const navigate = useNavigate();
-  const { selectedIndex } = useGlobals();
-  const { idx, text, url } = props;
-
-  const handleClick = () => {
-    navigate(url);
-    selectedIndex.current = idx;
-  };
-
-  const stylesClass = () =>
-    `SidebarResponsive__component--menu-item ${
-      selectedIndex.current === idx ? "SidebarResponsive__active" : ""
-    }`;
-
-  return (
-    <p className={stylesClass()} onClick={handleClick}>
-      <ChevronRightIcon
-        fontSize="large"
-        className="SidebarResponsive__container--icon"
-      />
-      {text}
-    </p>
-  );
-};
+const { ENTRY_PATH, ADMIN_ENTRY_PATH } = CONSTANTS.ROUTES;
+const { SIGN_USER, SIGN_ADMIN } = CONSTANTS.ROUTES;
 
 const SidebarResponsive: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
-  const { setSignInStep, setUser, user, isAnonymous } = useAuth();
+  const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useLogout();
+  const { first_name, last_name, mother_last_name } = user ?? {};
   const [, setLocalUser] = useLocalStorage("user");
   const { rol } = user ?? {};
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleLogout = async () => {
     try {
@@ -61,74 +40,81 @@ const SidebarResponsive: React.FC<Props> = props => {
       setLocalUser("");
       setUser(undefined);
       setCookie("token", "");
-      navigate(NO_AUTH_PATH);
+      navigate(rol === userRol ? SIGN_USER : SIGN_ADMIN);
       document.location.reload();
+      handleClose();
     } catch (error) {
       console.warn(error);
     }
   };
 
   const renderLogout = () => (
-    <p
-      className="SidebarResponsive__component--menu-item"
-      onClick={handleLogout}
-    >
-      <LogoutIcon className="SidebarResponsive__container--icon-exit" />
+    <MenuItem onClick={handleLogout} disableRipple sx={MenuItemStyled}>
+      <LogoutIcon />
       {t.logout}
-    </p>
+    </MenuItem>
   );
 
-  const renderUserRoutes = () => {
-    if (isAnonymous) return null;
+  const renderHome = () => navigate(rol === 1 ? ENTRY_PATH : ADMIN_ENTRY_PATH);
 
-    return (
-      <>
-        <LinkComponent idx={10} text={t.start} url={ENTRY_PATH} />
-        <LinkComponent idx={11} text={t.myPays} url={USER_PAYMENT_LIST} />
-      </>
-    );
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const renderAdminRoutes = () => {
-    if (rol !== 10) return null;
-
-    return (
-      <>
-        <LinkComponent idx={20} text={t.startAdmin} url={ADMIN_ENTRY_PATH} />
-        <LinkComponent idx={21} text={t.myPayments} url={ADMIN_PAYMENT_LIST} />
-        <LinkComponent idx={22} text={t.myClients} url={ADMIN_CLIENT_LIST} />
-        <LinkComponent idx={23} text={t.setting} url={SETTINGS} />
-      </>
-    );
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
     <Styles className={`SidebarResponsive`}>
-      <div className="SidebarResponsive__container--menu">
-        <input id="menu__toggle" type="checkbox" />
-        <label
-          className="SidebarResponsive__component--hamburger-button"
-          htmlFor="menu__toggle"
-        >
-          <span />
-        </label>
-        <div className="SidebarResponsive__component--menu-box">
-          <div className="SidebarResponsive__container--image">
-            <img
-              src={logoKonecta}
-              alt="logo Konecta"
-              width={180}
-              className="SidebarResponsive__component--image"
-            />
-          </div>
+      <AppBar position="static" className="SidebarResponsive__container--menu">
+        <Toolbar className="SidebarResponsive__component--menu">
+          <img
+            src={logoKonecta}
+            alt="logo Konecta"
+            className="SidebarResponsive__component--image"
+            onClick={() => renderHome()}
+          />
 
-          <div className="SidebarResponsive__container--components">
-            {renderUserRoutes()}
-            {renderAdminRoutes()}
-            {renderLogout()}
+          <div className="SidebarResponsive__container--profile">
+            <div className="SidebarResponsive__component--profile">
+              <p className="SidebarResponsive__component--profile-name">
+                {first_name}
+              </p>
+              <p className="SidebarResponsive__component--profile-lastName">{`${last_name} ${mother_last_name}`}</p>
+            </div>
+            <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+                className="SidebarResponsive__component--button"
+              >
+                <AccountCircle
+                  fontSize="large"
+                  className="SidebarResponsive__component--icon"
+                />
+              </IconButton>
+              <Menu
+                sx={MenuStyled}
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{ horizontal: "right", vertical: "top" }}
+                keepMounted
+                transformOrigin={{ horizontal: "right", vertical: "bottom" }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                PaperProps={paperProps}
+              >
+                {renderLogout()}
+              </Menu>
+            </div>
           </div>
-        </div>
-      </div>
+        </Toolbar>
+      </AppBar>
     </Styles>
   );
 };
