@@ -25,6 +25,7 @@ const LayoutContainerStyled = styled.div<Props>`
         width: 92vw;
         margin: auto;
         padding: 1.6rem 0;
+        padding-bottom: 15vh;
 
         @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
           width: calc(100% - 20.4rem);
