@@ -1,4 +1,4 @@
-import{S as $}from"./SkeletonComponent.6ea5f938.js";import{s as h,a,j as _,ag as N,C as w,r as C,u as E,G as S}from"./index.9ad24540.js";import{b as B}from"./users.service.hooks.e508c9ce.js";import{g as f,u as z}from"./i18n.hooks.009c0aa7.js";import{T as L}from"./Table.1a47c650.js";import{y as O,z as j,A}from"./validations.utils.034110a4.js";import{P as I}from"./PaginationCustom.f80967ca.js";import{d as V,a as W}from"./Remove.2bda4b0c.js";import{L as Y}from"./Layout.container.b6dc7091.js";import"./common.utils.106d572f.js";const D=h.div`
+import{S as $}from"./SkeletonComponent.1e1ddfc0.js";import{s as h,a,j as _,ag as N,C as w,r as C,u as E,G as S}from"./index.409d64b6.js";import{b as B}from"./users.service.hooks.4c61ca06.js";import{g as f,u as z}from"./i18n.hooks.103566ab.js";import{T as L}from"./Table.f5b5bfd8.js";import{y as O,z as j,A}from"./validations.utils.981dd957.js";import{P as I}from"./PaginationCustom.21179d0d.js";import{d as V,a as W}from"./Remove.fac66a99.js";import{L as Y}from"./Layout.container.d0ea1989.js";import"./common.utils.106d572f.js";const D=h.div`
   .ExpandableRowsComponent {
     &__container {
       &--field {
@@ -46,7 +46,7 @@ import{S as $}from"./SkeletonComponent.6ea5f938.js";import{s as h,a,j as _,ag as
         border-radius: 0.8rem;
         background-color: var(--palette-skyBlue);
         text-align: center;
-        padding: 0.2rem;
+        padding: 0.4rem 1.2rem;
 
         @media screen and (min-width: ${P.mobile}px) {
           padding: 0.8rem 1rem;
