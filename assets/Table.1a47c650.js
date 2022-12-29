@@ -1,4 +1,4 @@
-import{s as u,a as ie,aB as F,r as n,q as x,aC as rn,C as ln,az as sn}from"./index.a3dc70de.js";import{u as dn}from"./i18n.hooks.9d5c239d.js";const cn=u.div`
+import{s as u,a as ie,aB as F,r as n,q as x,aC as rn,C as ln,az as sn}from"./index.9ad24540.js";import{u as dn}from"./i18n.hooks.009c0aa7.js";const cn=u.div`
   .NoDataComponent {
     &__component {
       padding: 1.6rem 0;
