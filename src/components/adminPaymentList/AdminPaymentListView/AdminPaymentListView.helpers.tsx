@@ -38,7 +38,7 @@ export const columns: TableColumn<Operation>[] = [
     sortable: true,
     ignoreRowClick: true,
     cell: row => (
-      <Row content={`S./ ${numberWithCommas(row?.amount_paid ?? 0)}`} />
+      <Row content={`S/. ${numberWithCommas(row?.amount_paid ?? 0)}`} />
     )
   },
   {

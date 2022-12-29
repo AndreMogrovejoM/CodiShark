@@ -79,10 +79,10 @@ const ProofPayment: React.FC<Props> = props => {
 
         {/* TODO: Pending response from backend. */}
         <div className="ProofPayment__text--paragraph">
-          <p>{`S./ ${numberWithCommas(capital_debt ?? 0)}`}</p>
-          <p>{`S./ ${numberWithCommas(amount_dscto_cancellation ?? 0)}`}</p>
-          <p>{`S./ ${numberWithCommas(amount_cancellation ?? 0)}`}</p>
-          <p>{`S./ ${numberWithCommas(amount_paid ?? 0)}`}</p>
+          <p>{`S/. ${numberWithCommas(capital_debt ?? 0)}`}</p>
+          <p>{`S/. ${numberWithCommas(amount_dscto_cancellation ?? 0)}`}</p>
+          <p>{`S/. ${numberWithCommas(amount_cancellation ?? 0)}`}</p>
+          <p>{`S/. ${numberWithCommas(amount_paid ?? 0)}`}</p>
         </div>
       </div>
     </div>

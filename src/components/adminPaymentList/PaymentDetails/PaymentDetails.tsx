@@ -4,6 +4,8 @@ import dayjs from "dayjs";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useValidatePayment } from "services/administrator/administrator.service.hooks";
+import { useInvalidePayment } from "services/administrator/administrator.service.hooks";
 import { numberWithCommas } from "utils/common.utils";
 import { disabledButton } from "utils/validations.utils";
 
@@ -12,11 +14,22 @@ import { PaymentDetailsProps as Props } from "./PaymentDetails.types";
 
 const PaymentDetails: React.FC<Props> = props => {
   const { data } = props;
-  const { user } = data ?? {};
+  const { user, payment_status, id } = data ?? {};
+  const showValidate = payment_status === "Pendiente";
 
   const navigate = useNavigate();
-
   const t = useI18n().components.OperationalDetails;
+
+  const {
+    mutateAsync: validateMutation,
+    reset: validateReset,
+    isLoading: isValidating
+  } = useValidatePayment();
+  const {
+    mutateAsync: invalideMutation,
+    reset: invalideReset,
+    isLoading
+  } = useInvalidePayment();
 
   const renderDefault = () => (
     <>
@@ -43,17 +56,45 @@ const PaymentDetails: React.FC<Props> = props => {
     }`;
 
   const renderActions = () => (
-    <Button
-      variant="contained"
-      className={styleClass()}
-      onClick={() => {
-        if (data && "id" in data) {
-          navigate(`/userPaymentDetails/${data.id}`);
-        }
-      }}
-    >
-      {t.button}
-    </Button>
+    <div className="PaymentDetails__renderActions">
+      <Button
+        variant="contained"
+        className={styleClass()}
+        onClick={() => {
+          if (data && "id" in data) {
+            navigate(`/userPaymentDetails/${data.id}`);
+          }
+        }}
+      >
+        {t.button}
+      </Button>
+      {showValidate && (
+        <Button
+          variant="contained"
+          className="AdminPaymentListView__component--button"
+          onClick={async () => {
+            validateMutation(id);
+            validateReset();
+          }}
+          disabled={isValidating || isLoading}
+        >
+          {t.validate}
+        </Button>
+      )}
+      {showValidate && (
+        <Button
+          variant="contained"
+          className="AdminPaymentListView__component--button"
+          onClick={async () => {
+            invalideMutation(id);
+            invalideReset();
+          }}
+          disabled={isValidating || isLoading}
+        >
+          {t.invalide}
+        </Button>
+      )}
+    </div>
   );
 
   const renderContent = () => (

@@ -7,6 +7,11 @@ const { BREAKPOINTS } = CONSTANTS;
 
 const PaymentDetailsStyled = styled.div<Props>`
   .PaymentDetails {
+    &__renderActions {
+      display: flex;
+      gap: 1.6rem;
+    }
+
     &__container {
       &--separate {
         margin-bottom: 1.6rem;

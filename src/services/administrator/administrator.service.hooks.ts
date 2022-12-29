@@ -4,6 +4,7 @@ import { getCookie } from "react-use-cookie";
 import { PaymentStatus } from "types/payment.types";
 
 import { generate2fa, importUsersByExcel } from "./administrator.service";
+import { invalidePayment, validatePayment } from "./administrator.service";
 import { fetchAdministratorSecondPanel } from "./administrator.service";
 import { fetchAdministratorGraphics } from "./administrator.service";
 import { fetchAdministratorUsers } from "./administrator.service";
@@ -126,6 +127,44 @@ export const useImportUsersByExcel = () => {
     onSettled: () => {
       // Always refetch after error or success:
       queryClient.invalidateQueries("file");
+    }
+  });
+};
+
+export const useValidatePayment = (id?: number) => {
+  const queryClient = useQueryClient();
+
+  return useMutation(validatePayment, {
+    // When mutate is called:
+    onMutate: async () => {
+      // Cancel any outgoing refetch (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries("operations-list");
+    },
+    onError: () => {
+      console.error("");
+    },
+    onSettled: () => {
+      // Always refetch after error or success:
+      queryClient.invalidateQueries("operations-list");
+    }
+  });
+};
+
+export const useInvalidePayment = (id?: number) => {
+  const queryClient = useQueryClient();
+
+  return useMutation(invalidePayment, {
+    // When mutate is called:
+    onMutate: async () => {
+      // Cancel any outgoing refetch (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries("operations-list");
+    },
+    onError: () => {
+      console.error("");
+    },
+    onSettled: () => {
+      // Always refetch after error or success:
+      queryClient.invalidateQueries("operations-list");
     }
   });
 };

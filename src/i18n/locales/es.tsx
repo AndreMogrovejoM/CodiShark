@@ -237,7 +237,7 @@ const es: Dictionary = {
       instructions: "Por favor elige un metodo de verificación:",
       button: "Continuar",
       fields: {
-        labelPhone: "Enviar un código SMS al número",
+        labelPhone: "Enviar un código SMS al número:",
         labelEmail: "Enviar un código al correo:"
       }
     },
@@ -345,10 +345,10 @@ const es: Dictionary = {
     PaymentRejected: {
       button: "Volver a intentar",
       title: "Detalles del pago",
-      paragraph1: "Monto Pagado:",
-      paragraph2: "Fecha:",
-      paragraph3: "Hora:",
-      paragraph4: "Monto Pagado:",
+      paragraph1: "Monto Pagado: ",
+      paragraph2: "Fecha: ",
+      paragraph3: "Hora: ",
+      paragraph4: "Monto Pagado: ",
       success: "Pago Exitoso",
       approved: "Se ha aprobado su pago con éxito",
       rejected: "Pago Rechazado",
@@ -394,13 +394,15 @@ const es: Dictionary = {
       paragraphDetails: "Seleccione un pago para ver los detalles",
       alt: "Detalle de pago",
       customerName: "Nombre del cliente:",
-      amountPaid: "Monto pagado:",
-      date: "Fecha:",
-      hour: "Hora:",
+      amountPaid: "Monto pagado: ",
+      date: "Fecha: ",
+      hour: "Hora: ",
       paymentMedium: "Medio de pago:",
       paymentStatus: "Estado del pago",
       button: "Ver comprobante de pago",
-      buttonNoDetail: "Aun no se puede descargar el comprobante de pago"
+      buttonNoDetail: "Aun no se puede descargar el comprobante de pago",
+      invalide: "Invalidar",
+      validate: "Validar"
     },
     FooterResponsive: {
       myPayments: "Mis pagos",

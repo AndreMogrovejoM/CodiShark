@@ -24,7 +24,7 @@ const Indicators: React.FC<Props> = props => {
   const { setIsLoading } = useGlobals();
   const todayDate = new Date();
   const previous = new Date(todayDate.getTime());
-  previous.setDate(todayDate.getDate() - 30);
+  previous.setDate(todayDate.getDate() - 365);
   const dateLast30Days = dayjs(previous);
   const defaultDates = [
     moment(dateLast30Days.format("YYYY-MM-DD")),
@@ -101,7 +101,7 @@ const Indicators: React.FC<Props> = props => {
         <InfoCard title={t.card1} value={`${connections ?? 0}`} />
         <InfoCard
           title={t.card2}
-          value={`S./ ${numberWithCommas(+(charges ?? 0))}`}
+          value={`S/. ${numberWithCommas(+(charges ?? 0))}`}
         />
         <InfoCard title={t.card3} value={`${calls ?? 0}`} />
         <InfoCard title={t.card4} value={`${payments ?? 0}`} />

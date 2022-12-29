@@ -204,3 +204,31 @@ export const importUsersByExcel = async (file: FormData): Promise<void> => {
     throw new Error(e.message);
   }
 };
+
+export const validatePayment = async (id?: number): Promise<void> => {
+  try {
+    return await axiosDefault.post(
+      `/admin/operations/validate`,
+      { operation_id: id },
+      {
+        headers: buildHeaders()
+      }
+    );
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const invalidePayment = async (id?: number): Promise<void> => {
+  try {
+    return await axiosDefault.post(
+      `/admin/operations/invalidate`,
+      { operation_id: id },
+      {
+        headers: buildHeaders()
+      }
+    );
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};

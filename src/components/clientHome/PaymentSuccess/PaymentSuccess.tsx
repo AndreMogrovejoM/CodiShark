@@ -35,7 +35,7 @@ const PaymentSuccess: React.FC<Props> = props => {
               <p className="PaymentSuccess__p1">
                 {t.paragraph4}
                 <span className="PaymentSuccess__span1">
-                  {`S./ ${numberWithCommas(amount_paid ?? 0)}` ?? "-"}
+                  {`S/. ${numberWithCommas(amount_paid ?? 0)}` ?? "-"}
                 </span>
               </p>
             </div>

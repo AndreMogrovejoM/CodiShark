@@ -396,7 +396,9 @@ const en = {
       paymentMedium: "Payment Medium:",
       paymentStatus: "Payment Status:",
       button: "View payment receipt",
-      buttonNoDetail: "You cannot download the payment voucher yet."
+      buttonNoDetail: "You cannot download the payment voucher yet.",
+      invalide: "Invalide",
+      validate: "Valide"
     },
     FooterResponsive: {
       myPayments: "My payments",

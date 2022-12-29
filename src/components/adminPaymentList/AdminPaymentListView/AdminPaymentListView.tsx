@@ -29,13 +29,10 @@ const AdminPaymentListView: React.FC<Props> = props => {
     statusQuery,
     query
   );
-  const { pages, pageParams } = data ?? {};
+  const { pages } = data ?? {};
 
   const totalRows = pages?.[0].totalOperations ?? 0;
   const operationsList = pages?.flatMap(page => page.data);
-
-  /* TODO: Pending */
-  console.log({ pages, pageParams });
 
   const [row, setRow] = useState<Operation>();
 
