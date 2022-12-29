@@ -8,6 +8,9 @@ import { SignInStyledProps as Props } from "./SignIn.types";
 const { BREAKPOINTS } = CONSTANTS;
 
 const SignInStyled = styled.div<Props>`
+  display: flex;
+  flex-direction: column;
+
   .SignIn {
     &__renderList {
       display: none;
@@ -94,9 +97,11 @@ const SignInStyled = styled.div<Props>`
           display: flex;
           justify-content: center;
           width: inherit;
+          padding-bottom: 5.6rem;
 
           @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
             justify-content: none;
+            padding-bottom: 0;
           }
 
           & > * {
@@ -123,11 +128,8 @@ const SignInStyled = styled.div<Props>`
         }
 
         &-logo {
-          position: absolute;
-          top: 0;
           width: 18rem;
           margin-top: 4rem;
-
           @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
             display: none;
           }
@@ -156,7 +158,6 @@ const SignInStyled = styled.div<Props>`
         @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
           display: block;
           width: 32rem;
-          height: 8.8rem;
         }
       }
     }
@@ -177,7 +178,7 @@ const SignInStyled = styled.div<Props>`
       }
 
       &--copyright {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         padding: 0;
         padding: 1.6rem 0;
@@ -197,7 +198,7 @@ const SignInStyled = styled.div<Props>`
       &--form {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         position: relative;
         width: 100vw;

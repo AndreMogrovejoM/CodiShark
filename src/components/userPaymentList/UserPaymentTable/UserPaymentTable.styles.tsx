@@ -18,7 +18,7 @@ const UserPaymentTableStyled = styled.div<Props>`
         border-radius: 0.8rem;
         background-color: var(--palette-skyBlue);
         text-align: center;
-        padding: 0.2rem;
+        padding: 0.4rem 1.2rem;
 
         @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
           padding: 0.8rem 1rem;
