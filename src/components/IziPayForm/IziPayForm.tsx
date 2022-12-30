@@ -10,6 +10,8 @@ import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
 import React, { useCallback, useEffect } from "react";
 import { useValidateIziPayPayment } from "services/iziPay/iziPay.service.hooks";
+import { useUserDebts } from "services/users/users.service.hooks";
+import { useSendFailedOperation } from "services/users/users.service.hooks";
 import { useGenerateOperationNumber } from "services/users/users.service.hooks";
 import Swal from "sweetalert2";
 
@@ -23,10 +25,12 @@ const IziPayForm: React.FC<Props> = props => {
   const { open, setOpen, userDebt } = props;
   const { id: debtId, amount_cancellation } = userDebt ?? {};
   const { mutateAsync, isLoading } = useGenerateOperationNumber();
+  const { mutateAsync: failMutation } = useSendFailedOperation();
   const { mutateAsync: validateMutation, reset } = useValidateIziPayPayment();
   const { currentDebtId, setOperationUserDebt } = useGlobals();
   const { setIsLoading, setPaymentStatus } = useGlobals();
   const { user } = useAuth();
+  const { refetch } = useUserDebts();
 
   const handleError = useCallback(
     (error: any) => {
@@ -68,8 +72,7 @@ const IziPayForm: React.FC<Props> = props => {
           })
         )
         .then(({ KR }) =>
-          KR.onSubmit(paymentData => {
-            console.log(paymentData);
+          KR.onSubmit(async paymentData => {
             const { clientAnswer, hash } = paymentData ?? {};
             if (!operationNumberValue)
               throw new Error("Operation Number Error");
@@ -80,6 +83,7 @@ const IziPayForm: React.FC<Props> = props => {
               rawClientAnswer: JSON.stringify(clientAnswer),
               hash
             });
+            refetch();
             reset();
             setOpen(false);
             setPaymentStatus("SUCCESS");
@@ -87,7 +91,11 @@ const IziPayForm: React.FC<Props> = props => {
           })
         )
         .then(({ KR }) =>
-          KR.onError(e => {
+          KR.onError(async e => {
+            await failMutation({
+              debtId,
+              operationNumber: operationNumberValue
+            });
             handleError(e.detailedErrorMessage);
             throw new Error("detailedErrorMessage");
           })
@@ -107,8 +115,10 @@ const IziPayForm: React.FC<Props> = props => {
     amount_cancellation,
     currentDebtId,
     debtId,
+    failMutation,
     handleError,
     mutateAsync,
+    refetch,
     reset,
     setIsLoading,
     setOpen,

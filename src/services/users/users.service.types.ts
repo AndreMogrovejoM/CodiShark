@@ -73,3 +73,8 @@ export interface OperationNumberPayload {
   type?: number;
 }
 // type: 1 transfer / 2 iziPay
+
+export interface FailedOperation {
+  debtId?: number;
+  operationNumber?: string;
+}

@@ -10,7 +10,7 @@ import { PanelBannerProps as Props } from "./PanelBanner.types";
 
 const PanelBanner: React.FC<Props> = props => {
   const { data } = useFetchAdministratorFirstPanel();
-  const { calls, connections, payments } = data ?? {};
+  const { connections, payments } = data ?? {};
   const { user } = useAuth();
   const { first_name } = user ?? {};
   const t = useI18n().signIn.PanelBanner;
@@ -31,7 +31,6 @@ const PanelBanner: React.FC<Props> = props => {
       <div className="PanelBanner__textContent">
         <InfoPanelBanner subtitle={t.connections} value={connections} />
         <InfoPanelBanner subtitle={t.payments} value={payments} />
-        <InfoPanelBanner subtitle={t.calls} value={calls} />
       </div>
       <img
         className="PanelBanner__image"

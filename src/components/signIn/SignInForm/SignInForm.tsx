@@ -16,7 +16,7 @@ import { SignInFormProps as Props } from "./SignInForm.types";
 
 const SignInForm: React.FC<Props> = props => {
   const t = useI18n().signIn.SignInFormUser;
-  const [dniField, codeField, dateField] = validLoginUser();
+  const [dniField, codeField] = validLoginUser();
   const [isLoading, setIsLoading] = useState(false);
   const { setSignInStep, setUser } = useAuth();
   const { mutateAsync, reset } = useSignInUserStep1();
@@ -30,8 +30,7 @@ const SignInForm: React.FC<Props> = props => {
       setError("");
       const data: RegisterUserConfig = {
         dni: values?.dni,
-        cod_verifier: values?.cod,
-        emision_date: values?.date_begin
+        cod_verifier: values?.cod
       };
       await mutateAsync(data).then(response => setUser(response));
       reset();
@@ -116,29 +115,6 @@ const SignInForm: React.FC<Props> = props => {
                         </InputAdornment>
                       )
                     }
-                  }}
-                />
-              )}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={12}>
-            <Controller
-              name={dateField.name}
-              control={control}
-              rules={dateField.rules}
-              defaultValue=""
-              render={({ field, fieldState }) => (
-                <TextField
-                  field={field}
-                  fields={fieldState}
-                  config={{
-                    type: dateField.type,
-                    label: dateField.label,
-                    variant: "outlined",
-                    margin: "dense",
-                    fullWidth: true,
-                    focused: true
                   }}
                 />
               )}

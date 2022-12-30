@@ -34,7 +34,7 @@ const PanelBannerStyled = styled.div<Props>`
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      width: 40%;
+      width: 24%;
       margin-top: 1.2rem;
     }
 

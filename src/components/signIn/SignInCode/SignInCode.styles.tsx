@@ -7,6 +7,13 @@ const { BREAKPOINTS } = CONSTANTS;
 
 const SignInCodeStyled = styled.div<Props>`
   .SignInCode {
+    &__error {
+      color: var(--palette-error);
+      font-weight: 600;
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
     &__container {
       &--OTP {
         display: flex;

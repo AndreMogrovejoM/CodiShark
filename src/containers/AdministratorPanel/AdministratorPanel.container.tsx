@@ -1,4 +1,5 @@
 import BarChart from "components/BarChart/BarChart";
+import ImportCsv from "components/ImportCsv/ImportCsv";
 import Indicators from "components/Indicators/Indicators";
 import LastProcessCard from "components/LastProcessCard/LastProcessCard";
 import PanelBanner from "components/clientHome/PanelBanner/PanelBanner";
@@ -27,6 +28,7 @@ const AdministratorPanelContainer: React.FC<Props> = props => {
           <PanelBanner />
           <Indicators />
           <BarChart />
+          <ImportCsv />
         </div>
 
         <div className="AdministratorPanel__section2">

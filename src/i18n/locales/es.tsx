@@ -285,12 +285,16 @@ const es: Dictionary = {
       day: "DIA",
       card1: "Cobros Realizados",
       card2: "Ingresos al Sistema",
-      card3: "Solicitudes de contacto por llamada",
+      card3: "Pagos pendientes",
       card4: "Pagos por transferencia",
       errorText: "Error al subir el archivo",
       import: "Importar CSV",
       done: "Hecho",
-      doneText: "Archivo cargado con éxito."
+      doneText: "Archivo cargado con éxito.",
+      uploadClients: "Subir nuevos clientes",
+      uploadDescription:
+        "EL documento debe subirse en el mismo formato y orden para poder procesarlo correctamente.",
+      downloadTemplate: "Descargar plantilla"
     },
     PanelBanner: {
       greetings: "Hola",

@@ -291,7 +291,11 @@ const en = {
       errorText: "Error at uploading file",
       import: "Import CSV",
       done: "Done",
-      doneText: "File uploaded successfully."
+      doneText: "File uploaded successfully.",
+      uploadClients: "Upload clients",
+      uploadDescription:
+        "The document must be uploaded in the same format and order in order to process it correctly.",
+      downloadTemplate: "Download template"
     },
     PanelBanner: {
       greetings: "Hello",

@@ -3,7 +3,7 @@ import Button from "components/globals/Button/Button";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
 import useI18n from "i18n/i18n.hooks";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { deactivate2fa } from "services/administrator/administrator.service";
 import { activate2fa } from "services/administrator/administrator.service";
 import { useGenerate2fa } from "services/administrator/administrator.service.hooks";
@@ -14,7 +14,7 @@ import Styles from "./Settings.styles";
 import { SettingsProps as Props } from "./Settings.types";
 
 const Settings: React.FC<Props> = props => {
-  const { mutateAsync, reset, isLoading } = useGenerate2fa();
+  const { mutateAsync, reset, isLoading, isError } = useGenerate2fa();
   const [google2faUrl, setGoogle2faUrl] = useState("");
   const [secretCode, setSecretCode] = useState("");
   const { user } = useAuth();
@@ -22,20 +22,30 @@ const Settings: React.FC<Props> = props => {
   const t = useI18n().global.settings;
   const { google2fa_enable } = user ?? {};
 
+  const generateCode = useCallback(async () => {
+    try {
+      await mutateAsync().then(response => {
+        const { google2FaUrl, secretCode } = response ?? {};
+        setGoogle2faUrl(google2FaUrl);
+        setSecretCode(secretCode);
+        reset();
+      });
+    } catch (error) {
+      console.warn(error);
+    }
+  }, [mutateAsync, reset]);
+
   useOnMount(() => {
-    (async () => {
-      try {
-        await mutateAsync().then(response => {
-          const { google2FaUrl, secretCode } = response ?? {};
-          setGoogle2faUrl(google2FaUrl);
-          setSecretCode(secretCode);
-          reset();
-        });
-      } catch (error) {
-        console.warn(error);
-      }
-    })();
+    setTimeout(() => {
+      generateCode();
+    }, 2000);
   });
+
+  useEffect(() => {
+    if (isError) {
+      window.location.reload();
+    }
+  }, [isError]);
 
   const handleCancel = async () => {
     try {

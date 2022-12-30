@@ -30,6 +30,7 @@ const SignInCode: React.FC<Props> = props => {
   const [, setLocalUser] = useLocalStorage("user");
   const { mutateAsync: mutateStep2, reset: resetStep2 } = useSignInUserStep2();
   const { mutateAsync, reset } = useSignInUserStep3();
+  const [error, setError] = useState("");
 
   const [timeLeft, { start }] = useCountDown(INITIAL_TIME, INTERVAL);
 
@@ -49,6 +50,7 @@ const SignInCode: React.FC<Props> = props => {
 
   const submitHandler = async () => {
     try {
+      setError("");
       setIsLoading(true);
       await mutateAsync({ password: OTP, dni: user?.dni }).then(response => {
         const { access_token, user } = response ?? {};
@@ -61,6 +63,13 @@ const SignInCode: React.FC<Props> = props => {
       setSignInStep(0);
       navigate(ENTRY_PATH);
     } catch {
+      if (error?.toString()?.includes("422")) {
+        setError("Código de error incorrecto");
+      } else {
+        setError(
+          "Hubo un error en la información ingresada, por favor inténtelo de nuevo."
+        );
+      }
       setIsLoading(false);
     }
   };
@@ -101,6 +110,9 @@ const SignInCode: React.FC<Props> = props => {
         >
           {t.button}
         </Button>
+        {error?.length > 0 ? (
+          <h3 className="SignInCode__error">{error}</h3>
+        ) : null}
       </div>
       <div className="SignInCode__container--text">
         <p className="SignInCode__text">

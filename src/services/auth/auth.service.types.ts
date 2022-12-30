@@ -30,5 +30,4 @@ export interface SignInAdministratorResponseNo2FA {
 export interface RegisterUserConfig {
   dni: string;
   cod_verifier: number;
-  emision_date: string;
 }

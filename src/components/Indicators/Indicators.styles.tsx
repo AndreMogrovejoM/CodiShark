@@ -20,16 +20,6 @@ const IndicatorsStyled = styled.div<Props>`
       line-height: 2.4rem;
     }
 
-    &__button {
-      padding: 0.2rem 0.8rem;
-      border: 0.2rem;
-    }
-
-    &__button-text {
-      color: var(--palette-white);
-      font-size: 1.4rem;
-    }
-
     &__rangePicker {
       border-radius: 0.4rem;
       font-size: 1.2rem;

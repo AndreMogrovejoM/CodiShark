@@ -1,4 +1,5 @@
-import { ReactComponent as FourZeroFourSVG } from "assets/404.svg";
+// import { ReactComponent as FourZeroFourSVG } from "assets/404.svg";
+import logoKonecta from "assets/images/logoKonecta.svg";
 import Button from "components/globals/Button/Button";
 import React from "react";
 import { useNavigate } from "react-router";
@@ -12,13 +13,15 @@ const FourZeroFour: React.FC<Props> = props => {
     <Styles className="FourZeroFour">
       <header className="FourZeroFour__header" />
       <main className="FourZeroFour__main">
-        <FourZeroFourSVG className="FourZeroFour__icon" />
-        <Button onClick={() => navigate("/signin")}>
+        <img
+          src={logoKonecta}
+          alt="logoKonecta"
+          className="FourZeroFour__icon"
+        />
+        <Button onClick={() => navigate("/inicio")}>
           Ir a registro usuario
         </Button>
-        <Button onClick={() => navigate("/signinAdministrator")}>
-          Ir a registro admin
-        </Button>
+        <Button onClick={() => navigate("/admin")}>Ir a registro admin</Button>
       </main>
       <footer className="FourZeroFour__footer" />
     </Styles>

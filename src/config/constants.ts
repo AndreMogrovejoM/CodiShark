@@ -19,8 +19,8 @@ const CONSTANTS = {
     USER_PAYMENT_DETAILS: "/userPaymentDetails",
     USER_PAYMENT_LIST: "/userPaymentList",
     SETTINGS: "/settings",
-    SIGN_USER: "/signin",
-    SIGN_ADMIN: "/signInAdministrator"
+    SIGN_USER: "/inicio",
+    SIGN_ADMIN: "/admin"
   },
   ACCOUNT_NUMBER: import.meta.env.VITE_ACCOUNT_NUMBER,
   CCI_ACCOUNT_NUMBER: import.meta.env.VITE_CCI_ACCOUNT_NUMBER,

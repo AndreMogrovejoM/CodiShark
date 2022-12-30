@@ -99,7 +99,6 @@ const ClientContainerContainer: React.FC<Props> = props => {
     isLoading ? (
       <>
         <SkeletonComponent variant="rounded" height={320} width="100%" />
-        320
         <SkeletonComponent variant="rounded" height={320} width="100%" />
       </>
     ) : (

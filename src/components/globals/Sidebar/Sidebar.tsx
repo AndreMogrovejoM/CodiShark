@@ -52,14 +52,14 @@ const Sidebar: React.FC<Props> = props => {
       setCookie("token", "");
       setUser(undefined);
       setIsLoading(false);
-      navigate("/signIn");
+      navigate("/inicio");
       document.location.reload();
     } catch (error) {
       setIsLoading(false);
       setLocalUser("");
       setCookie("token", "");
       setUser(undefined);
-      navigate("/signIn");
+      navigate("/inicio");
       console.warn(error);
     }
   };

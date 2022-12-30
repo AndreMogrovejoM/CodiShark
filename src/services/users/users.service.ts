@@ -2,6 +2,7 @@
 import axiosDefault, { buildHeaders } from "utils/axios.utils";
 
 import { OperationUserDebtResponse } from "./users.service.types";
+import { FailedOperation } from "./users.service.types";
 import { OperationUserDebt } from "./users.service.types";
 import { OperationUserUniqueDebtResponse } from "./users.service.types";
 import { OperationNumberPayload } from "./users.service.types";
@@ -90,6 +91,23 @@ export const sendOperationEmail = async (operationId?: number) => {
     return await axiosDefault.get(`/operations/sendMail/${operationId}`, {
       headers: buildHeaders()
     });
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const sendFailedOperation = async (
+  data: FailedOperation
+): Promise<void> => {
+  const { debtId, operationNumber } = data ?? {};
+  try {
+    return await axiosDefault.post(
+      `/operations/failed`,
+      { debt_id: debtId, operation_number: operationNumber },
+      {
+        headers: buildHeaders()
+      }
+    );
   } catch (e: any) {
     throw new Error(e.message);
   }

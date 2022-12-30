@@ -2,9 +2,11 @@ import { useInfiniteQuery, useMutation } from "react-query";
 import { useQuery, useQueryClient } from "react-query";
 import { getCookie } from "react-use-cookie";
 
-import { fetchUserDebt, generateOperationNumber } from "./users.service";
+import { fetchUserDebt, sendFailedOperation } from "./users.service";
+import { generateOperationNumber } from "./users.service";
 import { fetchUserOperations, userDebts } from "./users.service";
 import { OperationUserUniqueDebtResponse } from "./users.service.types";
+import { FailedOperation } from "./users.service.types";
 import { OperationNumberPayload } from "./users.service.types";
 
 export const useUserDebts = () => {
@@ -52,6 +54,25 @@ export const useGenerateOperationNumber = () => {
     unknown,
     OperationNumberPayload
   >(generateOperationNumber, {
+    // When mutate is called:
+    onMutate: async () => {
+      // Cancel any outgoing refetch (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries("operationNumber");
+    },
+    onError: () => {
+      console.error("");
+    },
+    onSettled: () => {
+      // Always refetch after error or success:
+      queryClient.invalidateQueries("operationNumber");
+    }
+  });
+};
+
+export const useSendFailedOperation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation<void, Error, FailedOperation>(sendFailedOperation, {
     // When mutate is called:
     onMutate: async () => {
       // Cancel any outgoing refetch (so they don't overwrite our optimistic update)

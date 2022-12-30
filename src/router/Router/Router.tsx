@@ -24,8 +24,8 @@ const Router: React.FC<Props> = props => {
   const noAuthRoutes = () => {
     return (
       <>
-        <Route path="/signin" element={<SignInUser />} />
-        <Route path="/signInAdministrator" element={<SignInAdministrator />} />
+        <Route path="/inicio" element={<SignInUser />} />
+        <Route path="/admin" element={<SignInAdministrator />} />
         <Route path="/500" element={<FiverZeroZero />} />
         <Route path="*" element={<FourZeroFour />} />
       </>
