@@ -51,11 +51,11 @@ const CardDebts: React.FC<Props> = props => {
             const { data } = response ?? {};
             const { operation_number } = data ?? {};
             setOperationNumber(operation_number);
+            setOpen(true);
           })
           .catch();
         setOpenOperationModal(!openOperationModal);
         reset();
-        setOpen(true);
       }
     } catch (error) {
       setPaymentStatus("ERROR");
@@ -91,7 +91,6 @@ const CardDebts: React.FC<Props> = props => {
         {paymentStatus === "SUCCESS" && currentDebtId.current === id && (
           <PaymentSuccess />
         )}
-        {/* TODO: Pending status 'ERROR' */}
         {paymentStatus === "ERROR" && currentDebtId.current === id && (
           <PaymentRejected />
         )}
@@ -124,7 +123,6 @@ const CardDebts: React.FC<Props> = props => {
           >
             <>
               {t.button2}
-
               <AddIcon className="CardDebts__component--icon" />
             </>
           </Button>
@@ -134,11 +132,14 @@ const CardDebts: React.FC<Props> = props => {
       {paymentStatus === "SUCCESS" && currentDebtId.current === id && (
         <Button
           variant="contained"
-          className={`${stylesClass()} CardDebts__component--button-blue  CardDebts__text--button-pay`}
+          className={`${stylesClass()} CardDebts__component--button-blue  CardDebts__text--button-large`}
         >
           <>
-            Pagado
-            <CheckCircleOutline className="CardDebts__component--icon" />
+            {t.buttonPayment}
+            <CheckCircleOutline
+              className="CardDebts__component--icon"
+              fontSize="large"
+            />
           </>
         </Button>
       )}

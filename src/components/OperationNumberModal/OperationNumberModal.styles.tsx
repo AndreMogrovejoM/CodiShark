@@ -96,7 +96,7 @@ export const style = {
   minWidth: 320,
   maxWidth: 640,
   minHeight: 320,
-  bgcolor: "#fff",
+  bgcolor: "var(--palette-white)",
   border: "1px solid var(--palette-primary)",
   borderRadius: 4,
   boxShadow: 24,

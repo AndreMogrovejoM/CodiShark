@@ -1,19 +1,22 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { CardImageOneStyledProps as Props } from "./CardImageOne.types";
 
+const { BREAKPOINTS } = CONSTANTS;
+
 const CardImageOneStyled = styled.div<Props>`
   position: relative;
-  max-width: 32rem;
-  max-height: 30rem;
   width: 100%;
+  max-height: 30rem;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 0.8rem;
 
-  @media screen and (max-width: 1366px) {
-    width: 100%;
+  @media screen and (min-width: ${BREAKPOINTS.wide}px) {
+    max-width: 32rem;
   }
+
   .CardImageOne {
     &__title {
       position: absolute;

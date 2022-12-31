@@ -1,18 +1,19 @@
+import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
 import { CardImageTwoStyledProps as Props } from "./CardImageTwo.types";
 
+const { BREAKPOINTS } = CONSTANTS;
+
 const CardImageTwoStyled = styled.div<Props>`
   position: relative;
-  max-width: 32rem;
-  max-height: 30rem;
   width: 100%;
   background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 1.6rem;
 
-  @media screen and (max-width: 1366px) {
-    width: 20rem;
+  @media screen and (min-width: ${BREAKPOINTS.wide}px) {
+    max-width: 32rem;
   }
 
   .CardImageTwo {
@@ -20,18 +21,11 @@ const CardImageTwoStyled = styled.div<Props>`
       position: absolute;
       display: flex;
       flex-direction: column;
-      top: 36rem;
-      left: 4rem;
-      @media screen and (max-width: 1515px) {
-        top: 34rem;
-      }
-      @media screen and (max-width: 1470px) {
-        top: 32rem;
-        left: 3.6rem;
-      }
-      @media screen and (max-width: 1410px) {
-        left: 3.2rem;
-        top: 30rem;
+      bottom: 2.4rem;
+      left: 1.6rem;
+
+      @media screen and (min-width: ${BREAKPOINTS.wide}px) {
+        left: 4rem;
       }
     }
 
