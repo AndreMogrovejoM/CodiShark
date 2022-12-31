@@ -37,11 +37,6 @@ const SignInStyled = styled.div<Props>`
           font-size: 3.2rem;
           line-height: 4rem;
         }
-
-        @media screen and (min-width: 1600px) {
-          font-size: 4.8rem;
-          line-height: 6.4rem;
-        }
       }
 
       &--h2 {
@@ -53,11 +48,6 @@ const SignInStyled = styled.div<Props>`
         @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
           font-size: 2.4rem;
           line-height: 3.2rem;
-        }
-
-        @media screen and (min-width: 1600px) {
-          font-size: 3.2rem;
-          line-height: 4.8rem;
         }
       }
     }

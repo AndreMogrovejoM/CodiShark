@@ -24,9 +24,13 @@ const es: Dictionary = {
       myPayments: "Listado de pagos",
       myClients: "Listado de clientes",
       logout: "Cerrar sesión",
+      support: "Contacto",
       title: "Contacto",
       direction: "La Republica 218 - Miraflores",
-      setting: "Configuración 2FA"
+      setting: "Configuración 2FA",
+      phone: "0800 1652 1254",
+      email: "info@b12.com",
+      address: "La Republica 218 - Miraflores"
     },
     button: {
       text: "Cargando..."
@@ -421,7 +425,8 @@ const es: Dictionary = {
       discount: "Monto a pagar",
       deadline: "Fecha límite de pago",
       button: "Pagar",
-      button2: "Generar número de operación"
+      button2: "Generar número de operación",
+      buttonPayment: "Pagado"
     }
   },
   utils: {

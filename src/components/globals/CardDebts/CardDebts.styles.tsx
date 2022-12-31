@@ -118,6 +118,11 @@ const CardDebtsStyled = styled.div<Props>`
           font-weight: 400;
           font-size: 1.2rem;
         }
+
+        &-large {
+          font-weight: 560;
+          font-size: 1.6rem;
+        }
       }
 
       &--price {

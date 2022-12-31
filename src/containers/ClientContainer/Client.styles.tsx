@@ -24,10 +24,6 @@ const ClientContainerStyled = styled.div<Props>`
     min-height: 90vh;
   }
 
-  @media screen and (max-width: ${BREAKPOINTS.wide}px) {
-    flex-direction: column;
-  }
-
   .ClientContainer {
     &__section1 {
       display: flex;
@@ -81,20 +77,22 @@ const ClientContainerStyled = styled.div<Props>`
         gap: 0.8rem;
       }
 
-      @media screen and (min-width: 1366px) {
+      @media screen and (min-width: ${BREAKPOINTS.desktop}px) {
         width: 70%;
-        margin: 0 auto;
       }
     }
 
     &__section4 {
-      width: 28%;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      flex-wrap: wrap;
       display: none;
+
+      @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
+        width: 28%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
 
       @media screen and (min-width: ${BREAKPOINTS.wide}px) {
         display: block;

@@ -55,6 +55,21 @@ const SidebarResponsiveStyled = styled.div<Props>`
         fill: var(--palette-skyBlue);
         font-size: 3.2rem;
       }
+
+      &--modal {
+        &-title {
+          font-size: 2.4rem;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        &-paragraph {
+          display: flex;
+          gap: 1.6rem;
+          font-size: 1.4rem;
+          font-weight: 400;
+        }
+      }
     }
 
     &__container {
@@ -80,6 +95,18 @@ const SidebarResponsiveStyled = styled.div<Props>`
       &--profile {
         display: flex;
         align-items: center;
+      }
+
+      &--modal {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        &-info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        }
       }
     }
 
@@ -130,4 +157,17 @@ export const MenuItemStyled = {
 
 export const MenuStyled = {
   mt: "4vh"
+};
+
+export const ModalStyled = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  minWidth: 320,
+  bgcolor: "var(--palette-white)",
+  border: "1px solid var(--palette-primary)",
+  borderRadius: 4,
+  boxShadow: 24,
+  p: 4
 };

@@ -25,9 +25,13 @@ const en = {
       myPayments: "My payments",
       myClients: "Customer list",
       logout: "Logout",
+      support: "Contact",
       title: "Contact",
       direction: "La Republica 218 - Miraflores",
-      setting: "Setting 2FA"
+      setting: "Setting 2FA",
+      phone: "0800 1652 1254",
+      email: "info@b12.com",
+      address: "La Republica 218 - Miraflores"
     },
     button: {
       text: "Loading..."
@@ -417,7 +421,8 @@ const en = {
       discount: "Pay amount",
       deadline: "Payment deadline",
       button: "Pay",
-      button2: "Generate transaction number"
+      button2: "Generate transaction number",
+      buttonPayment: "Paid"
     }
   },
   utils: {

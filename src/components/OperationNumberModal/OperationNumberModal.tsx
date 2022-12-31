@@ -62,12 +62,7 @@ const OperationNumberModal: React.FC<Props> = props => {
   };
 
   return (
-    <Modal
-      open={open}
-      onClose={() => setOpen(!open)}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
+    <Modal open={open} onClose={() => setOpen(!open)}>
       <Box sx={style}>
         <Styles className="OperationNumberModal">
           <IconButton
