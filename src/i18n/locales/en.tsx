@@ -145,6 +145,14 @@ const en = {
       user: "User settings",
       signOut: "Sign out"
     },
+    ModalContact: {
+      title: "Contact",
+      direction: "La Republica 218 - Miraflores",
+      setting: "Setting 2FA",
+      phone: "0800 1652 1254",
+      email: "info@b12.com",
+      address: "La Republica 218 - Miraflores"
+    },
     select: "Select",
     inputSearch: "Search",
     progress: "Loading...",
