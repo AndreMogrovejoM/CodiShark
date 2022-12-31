@@ -4,6 +4,6 @@ import FooterResponsive from "./FooterResponsive";
 
 describe("FooterResponsive", () => {
   it("renders with default props", () => {
-    render(<FooterResponsive />);
+    render(<FooterResponsive setOpen={() => {}} />);
   });
 });

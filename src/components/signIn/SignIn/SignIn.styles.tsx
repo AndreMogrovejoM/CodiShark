@@ -1,5 +1,3 @@
-import BG_USER from "assets/images/loginImageUser.jpg";
-import BG_USER_WEBP from "assets/images/loginImageUser.webp";
 import CONSTANTS from "config/constants";
 import styled from "styled-components";
 
@@ -150,6 +148,17 @@ const SignInStyled = styled.div<Props>`
           width: 32rem;
         }
       }
+
+      &--image {
+        display: block;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        height: inherit;
+        width: 60vw;
+        height: 100%;
+      }
     }
 
     &__container {
@@ -208,14 +217,7 @@ const SignInStyled = styled.div<Props>`
 
         @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
           display: block;
-          background-image: url(${BG_USER});
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          position: relative;
-          background-image: -webkit-image-set(url(${BG_USER_WEBP}));
-          height: inherit;
-          width: 60vw;
+          height: 100%;
         }
       }
 

@@ -145,6 +145,14 @@ const es: Dictionary = {
       user: "Configuraciones de usuario",
       signOut: "Cerrar Sesión"
     },
+    ModalContact: {
+      title: "Contacto",
+      direction: "La Republica 218 - Miraflores",
+      setting: "Configuración 2FA",
+      phone: "0800 1652 1254",
+      email: "info@b12.com",
+      address: "La Republica 218 - Miraflores"
+    },
     select: "Seleccionar",
     inputSearch: "Buscar",
     progress: "Cargando...",

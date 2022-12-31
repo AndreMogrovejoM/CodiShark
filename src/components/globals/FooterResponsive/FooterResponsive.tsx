@@ -15,6 +15,7 @@ const { ADMIN_ENTRY_PATH, ENTRY_PATH } = CONSTANTS.ROUTES;
 const { USER_PAYMENT_LIST, ADMIN_PAYMENT_LIST } = CONSTANTS.ROUTES;
 
 const FooterResponsive: React.FC<Props> = props => {
+  const { setOpen } = props;
   const t = useI18n().components.FooterResponsive;
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -56,9 +57,7 @@ const FooterResponsive: React.FC<Props> = props => {
         </div>
         <div
           className="FooterResponsive__container--icon  FooterResponsive__text"
-          onClick={() => {
-            /* TODO: Pendiente */
-          }}
+          onClick={() => setOpen(true)}
         >
           <img
             src={contactIcon}

@@ -48,6 +48,18 @@ const LayoutContainerStyled = styled.div<Props>`
       @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
         flex-direction: row;
       }
+
+      &--modal {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        &-info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+      }
     }
 
     &__footer {
@@ -61,7 +73,37 @@ const LayoutContainerStyled = styled.div<Props>`
         padding-bottom: 4rem;
       }
     }
+
+    &__component {
+      &--modal {
+        &-title {
+          font-size: 2.4rem;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        &-paragraph {
+          display: flex;
+          gap: 1.6rem;
+          font-size: 1.4rem;
+          font-weight: 400;
+        }
+      }
+    }
   }
 `;
 
 export default LayoutContainerStyled;
+
+export const ModalStyled = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  minWidth: 320,
+  bgcolor: "var(--palette-white)",
+  border: "1px solid var(--palette-primary)",
+  borderRadius: 4,
+  boxShadow: 24,
+  p: 4
+};

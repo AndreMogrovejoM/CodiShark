@@ -1,20 +1,19 @@
-import { AccountCircle, Email, Home, LocalPhone } from "@mui/icons-material";
+import { AccountCircle } from "@mui/icons-material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import { AppBar, Box, IconButton, Menu, Modal, Toolbar } from "@mui/material";
+import { AppBar, IconButton, Menu, Toolbar } from "@mui/material";
 import { MenuItem } from "@mui/material";
 import logoKonecta from "assets/images/logoKonectaSidebar.svg";
 import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useI18n from "i18n/i18n.hooks";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "react-use-cookie";
 import { useLogout } from "services/auth/auth.service.hooks";
 import { useLocalStorage } from "utils/useLocalStorage";
 import { userRol } from "utils/validations.utils";
 
-import Styles, { ModalStyled } from "./SidebarResponsive.styles";
+import Styles from "./SidebarResponsive.styles";
 import { MenuItemStyled, MenuStyled } from "./SidebarResponsive.styles";
 import { paperProps } from "./SidebarResponsive.styles";
 import { SidebarResponsiveProps as Props } from "./SidebarResponsive.types";
@@ -25,7 +24,6 @@ const { SIGN_USER, SIGN_ADMIN } = CONSTANTS.ROUTES;
 const SidebarResponsive: React.FC<Props> = props => {
   const t = useI18n().global.sideBar;
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
   const { setSignInStep, setUser, user } = useAuth();
   const { mutateAsync, reset } = useLogout();
   const { first_name, last_name, mother_last_name } = user ?? {};
@@ -62,15 +60,6 @@ const SidebarResponsive: React.FC<Props> = props => {
       onClose={handleClose}
       PaperProps={paperProps}
     >
-      <MenuItem
-        onClick={() => setOpen(!open)}
-        disableRipple
-        sx={MenuItemStyled}
-      >
-        <SupportAgentIcon />
-        {t.support}
-      </MenuItem>
-
       <MenuItem onClick={handleLogout} disableRipple sx={MenuItemStyled}>
         <LogoutIcon />
         {t.logout}
@@ -87,34 +76,6 @@ const SidebarResponsive: React.FC<Props> = props => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const renderModal = () => (
-    <Modal open={open} onClose={() => setOpen(!open)}>
-      <Box sx={ModalStyled}>
-        <Styles className={`SidebarResponsive`}>
-          <div className="SidebarResponsive__container--modal">
-            <h1 className="SidebarResponsive__component--modal-title">
-              {t.title}
-            </h1>
-            <div className="SidebarResponsive__container--modal-info">
-              <p className="SidebarResponsive__component--modal-paragraph">
-                <LocalPhone />
-                {t.phone}
-              </p>
-              <p className="SidebarResponsive__component--modal-paragraph">
-                <Email />
-                {t.email}
-              </p>
-              <p className="SidebarResponsive__component--modal-paragraph">
-                <Home />
-                {t.address}
-              </p>
-            </div>
-          </div>
-        </Styles>
-      </Box>
-    </Modal>
-  );
 
   return (
     <Styles className={`SidebarResponsive`}>
@@ -155,8 +116,6 @@ const SidebarResponsive: React.FC<Props> = props => {
           </div>
         </Toolbar>
       </AppBar>
-
-      {renderModal()}
     </Styles>
   );
 };

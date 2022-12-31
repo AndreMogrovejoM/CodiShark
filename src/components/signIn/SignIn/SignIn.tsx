@@ -1,3 +1,4 @@
+import BG_USER from "assets/images/loginImageUser.jpg";
 import logoKonecta from "assets/images/logoKonecta.svg";
 import image01 from "assets/images/sliderImage01.png";
 import SwipperComponent from "components/globals/SwipperComponent/SwipperComponent";
@@ -147,7 +148,14 @@ const SignIn: React.FC<Props> = props => {
   return (
     <Styles className="SignIn" signInStep={signInStep}>
       <div className="SignIn__container--components">
-        <div className="SignIn__container--image">{renderList()}</div>
+        <div className="SignIn__container--image">
+          <img
+            src={BG_USER}
+            alt="Imagen de fondo"
+            className="SignIn__component--image"
+          />
+          {renderList()}
+        </div>
 
         <div className="SignIn__container--form">
           <div className="SignIn__component--form-logo">
