@@ -120,7 +120,17 @@ export const validLoginUser = () => {
     }
   };
 
-  return [dniField, codeField, dateField];
+  const numberField = {
+    name: "phone",
+    type: "phone",
+    label: "Teléfono",
+    maxLength: voidValue,
+    rules: {
+      required: t.fieldRequired
+    }
+  };
+
+  return [dniField, codeField, dateField, numberField];
 };
 
 export const validLoginUserValidation = () => {

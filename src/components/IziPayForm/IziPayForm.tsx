@@ -9,6 +9,7 @@ import CONSTANTS from "config/constants";
 import useAuth from "contexts/auth/auth.hooks";
 import useGlobals from "contexts/globals/globals.hooks";
 import React, { useCallback, useEffect } from "react";
+import { useQueryClient } from "react-query";
 import { useValidateIziPayPayment } from "services/iziPay/iziPay.service.hooks";
 import { useUserDebts } from "services/users/users.service.hooks";
 import { useSendFailedOperation } from "services/users/users.service.hooks";
@@ -31,6 +32,7 @@ const IziPayForm: React.FC<Props> = props => {
   const { setIsLoading, setPaymentStatus } = useGlobals();
   const { user } = useAuth();
   const { refetch } = useUserDebts();
+  const queryClient = useQueryClient();
 
   const handleError = useCallback(
     (error: any) => {
@@ -86,6 +88,9 @@ const IziPayForm: React.FC<Props> = props => {
             refetch();
             reset();
             setOpen(false);
+            queryClient.invalidateQueries("debts");
+            queryClient.invalidateQueries("debt");
+            queryClient.invalidateQueries("user-operations-list");
             setPaymentStatus("SUCCESS");
             return false;
           })
@@ -118,6 +123,7 @@ const IziPayForm: React.FC<Props> = props => {
     failMutation,
     handleError,
     mutateAsync,
+    queryClient,
     refetch,
     reset,
     setIsLoading,

@@ -19,6 +19,7 @@ const palette = {
   errorBackground: "hsla(0, 100%, 44%, 0.4)",
   blue: "hsla(205, 80%, 10%, 1)",
   skyBlue: "hsla(193, 100%, 45%, 1)",
+  skyBlue2: "hsla(193, 82%, 59%, 1)",
   yellow: "hsla(54, 100%, 50%, 1)",
   blueText: "hsla(215, 72%, 24%, 1)",
   grayText: "hsla(0, 0%, 39%, 1)",
@@ -30,6 +31,7 @@ const palette = {
   yellowWeakBackground: "hsla(48, 77%, 82%, 1)",
   limeGreen: "hsl(84, 48%, 55%)",
   limeGreenBackground: "hsla(86, 54%, 51%, 1)",
+  limeGreenBackground2: "hsla(86, 94%, 35%, 1)",
   darkShadow: "rgba(0, 0, 0, 0.4)"
 };
 

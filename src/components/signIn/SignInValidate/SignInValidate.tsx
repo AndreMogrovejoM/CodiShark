@@ -6,6 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { validLoginUserValidation } from "utils/validations.utils";
 
+// import RecoveryForm from "../RecoveryForm/RecoveryForm";
 import Styles from "./SignInValidate.styles";
 import { SignInValidateProps as Props } from "./SignInValidate.types";
 
@@ -84,7 +85,7 @@ const SignInValidate: React.FC<Props> = props => {
           />
         ))}
       </div>
-
+      {/* <RecoveryForm /> */}
       <div className="SignInValidate__container--button">
         <Button
           type="submit"
