@@ -3,6 +3,7 @@
 // Component Props
 export interface IndicatorsClientTwoProps {
   total_debts?: number;
+  discount?: number;
 }
 
 // Styled Component Props

@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
 import Button from "components/globals/Button/Button";
 import TextField from "components/globals/TextField/TextField";
-import useI18n from "i18n/i18n.hooks";
-import React, { useState } from "react";
+import React from "react";
 import { Controller, useForm, FieldValues } from "react-hook-form";
 import { validLoginUser } from "utils/validations.utils";
 
@@ -10,9 +9,8 @@ import Styles from "./RecoveryForm.styles";
 import { RecoveryFormProps as Props } from "./RecoveryForm.types";
 
 const RecoveryForm: React.FC<Props> = props => {
-  const [step, setStep] = useState(0);
+  const { step, setStep } = props;
   const [numberField] = validLoginUser();
-  const t = useI18n().signIn.SignInFormUser;
   const isLoading = false;
 
   const { control, handleSubmit } = useForm();
@@ -24,7 +22,7 @@ const RecoveryForm: React.FC<Props> = props => {
 
   const renderFirstStep = () => {
     return (
-      <>
+      <div className="RecoveryForm__textContainer">
         <h3 className="RecoveryForm__text--greeting__bold">
           No son tus datos actuales?
         </h3>
@@ -32,7 +30,7 @@ const RecoveryForm: React.FC<Props> = props => {
         <span className="RecoveryForm__text--color" onClick={() => setStep(1)}>
           aquí
         </span>
-      </>
+      </div>
     );
   };
 
@@ -81,9 +79,20 @@ const RecoveryForm: React.FC<Props> = props => {
             disabled={isLoading}
             className="RecoveryForm__button"
           >
-            {t.button}
+            Contactar con un asesor
           </Button>
         </Box>
+      </div>
+    );
+  };
+
+  const renderThirdStep = () => {
+    return (
+      <div className="RecoveryForm__SSContainer">
+        <span className="RecoveryForm__text--greeting__bold">
+          Su número fue registrado correctamente, uno de nuestros asesores se
+          comunicará con usted a la brevedad.
+        </span>
       </div>
     );
   };
@@ -94,6 +103,8 @@ const RecoveryForm: React.FC<Props> = props => {
         return renderFirstStep();
       case 1:
         return renderSecondStep();
+      case 2:
+        return renderThirdStep();
       default:
         return renderFirstStep();
     }

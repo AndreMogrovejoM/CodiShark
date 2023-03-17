@@ -1,4 +1,4 @@
-import fotoMujerOne from "assets/images/fotoMujerOne.svg";
+import cardImageOne from "assets/images/cardImageOne.svg";
 import useI18n from "i18n/i18n.hooks";
 import React from "react";
 
@@ -11,11 +11,13 @@ const CardImageOne: React.FC<Props> = props => {
     <Styles className="CardImageOne">
       <img
         className="CardImageOne__image"
-        src={fotoMujerOne}
-        alt="fotoMujerOne"
+        src={cardImageOne}
+        alt="cardImageOne"
       />
-      <h2 className="CardImageOne__subtitle">{t.subtitle}</h2>
-      <h2 className="CardImageOne__title">{t.title}</h2>
+      <div className="CardImageOne__textContainer">
+        <h2 className="CardImageOne__subtitle">{t.subtitle}</h2>
+        <h2 className="CardImageOne__title">{t.title}</h2>
+      </div>
     </Styles>
   );
 };

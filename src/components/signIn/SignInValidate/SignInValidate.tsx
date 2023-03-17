@@ -6,7 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { useSignInUserStep2 } from "services/auth/auth.service.hooks";
 import { validLoginUserValidation } from "utils/validations.utils";
 
-// import RecoveryForm from "../RecoveryForm/RecoveryForm";
+import RecoveryForm from "../RecoveryForm/RecoveryForm";
 import Styles from "./SignInValidate.styles";
 import { SignInValidateProps as Props } from "./SignInValidate.types";
 
@@ -18,6 +18,7 @@ const SignInValidate: React.FC<Props> = props => {
   const { register, handleSubmit } = useForm();
   const { mutateAsync, reset } = useSignInUserStep2();
   const { first_name, last_name, phone, email } = user ?? {};
+  const [recoveryStep, setRecoveryStep] = useState(0);
 
   const submitHandler = async (values: FieldValues) => {
     try {
@@ -85,18 +86,21 @@ const SignInValidate: React.FC<Props> = props => {
           />
         ))}
       </div>
-      {/* <RecoveryForm /> */}
+      <RecoveryForm step={recoveryStep} setStep={setRecoveryStep} />
       <div className="SignInValidate__container--button">
         <Button
-          type="submit"
+          type={recoveryStep === 0 ? "submit" : undefined}
           variant="contained"
           size="large"
           color="info"
           fullWidth
           disabled={isLoading}
           className="SignInValidate__component--button"
+          onClick={() => {
+            if (recoveryStep !== 0) setSignInStep(0);
+          }}
         >
-          {t.button}
+          {recoveryStep === 0 ? t.button : "Regresar"}
         </Button>
       </div>
     </form>

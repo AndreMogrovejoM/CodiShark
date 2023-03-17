@@ -12,6 +12,12 @@ const DebtTableStyled = styled.div<Props>`
         display: flex;
         gap: 0.64rem;
         align-items: center;
+        position: relative;
+        width: 20rem;
+
+        @media screen and (max-width: 1400px) {
+          width: 16rem;
+        }
       }
 
       &--button {
@@ -35,17 +41,33 @@ const DebtTableStyled = styled.div<Props>`
       }
     }
 
+    &__discountContainer {
+      background-color: var(--palette-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      width: 8rem;
+      height: 4.8rem;
+      margin-left: 2.4rem;
+      position: absolute;
+      right: 0%;
+      top: -1.8rem;
+      border-radius: 0.4rem;
+    }
+
     &__component {
-      &--discount {
-        display: flex;
-        font-weight: 700;
-        align-items: center;
+      &--discountTitle {
+        font-weight: bold;
         line-height: 1.6rem;
-        font-size: 0.8rem;
-        background-color: var(--palette-yellow);
-        border-radius: 0.8rem;
-        padding: 0 0.8rem;
-        justify-content: center;
+        font-size: 2rem;
+      }
+
+      &--discount {
+        font-weight: 700;
+        line-height: 1.6rem;
+        font-size: 1rem;
       }
 
       &--button {
@@ -83,6 +105,7 @@ const DebtTableStyled = styled.div<Props>`
         font-weight: 700;
         font-size: 1.4rem;
         line-height: 2.4rem;
+        display: block;
       }
 
       &--color {
@@ -95,6 +118,10 @@ const DebtTableStyled = styled.div<Props>`
         line-height: 2.4rem;
       }
     }
+  }
+
+  .rdt_TableRow {
+    height: 6.4rem !important;
   }
 `;
 

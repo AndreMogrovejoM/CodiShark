@@ -44,10 +44,11 @@ export const RowMiddle: React.FC<RowMiddleProps> = props => {
           <h3 className="DebtTable__text--title DebtTable__text--color">{`S/. ${numberWithCommas(
             price ?? 0
           )}`}</h3>
-          <div>
-            <span className="DebtTable__component--discount">{` - ${
+          <div className="DebtTable__discountContainer">
+            <h2 className="DebtTable__component--discountTitle">{`-${
               Math.round(discount * 100) ?? ""
-            } %`}</span>
+            }%`}</h2>
+            <span className="DebtTable__component--discount">Descuento</span>
           </div>
         </div>
       </SummaryCard>

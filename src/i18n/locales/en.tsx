@@ -323,12 +323,12 @@ const en = {
       paragraph3: "-Leveling in credit bureaus"
     },
     CardImageOne: {
-      title: "Live a debt-free life",
-      subtitle: "Living peacefully is priceless"
+      title: "70%",
+      subtitle: "Save until a paying here"
     },
     CardImageTwo: {
-      subtitle1: "“to pay off my debt was to reach the",
-      subtitle2: "financial freedom, and that freedom",
+      subtitle1: "“Live in peace has no price",
+      subtitle2: "Live with a freedom without debts",
       subtitle3: "helped me achieve my dreams”"
     },
     IndicatorsClientOne: {

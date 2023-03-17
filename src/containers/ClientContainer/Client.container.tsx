@@ -28,6 +28,15 @@ const ClientContainerContainer: React.FC<Props> = props => {
   const { data: summaryData, total_debts } = data ?? {};
   if (summaryData && summaryData?.length > 0)
     summaryData[0].defaultExpanded = true;
+  const maxDiscount =
+    summaryData &&
+    // eslint-disable-next-line prefer-spread
+    Math.max.apply(
+      Math,
+      summaryData?.map(function (o) {
+        return o.pct_dscto_cancellation;
+      })
+    );
 
   const renderCarrouselIndicator = () => (
     <SwipperComponent slidesPerView={"auto"} widthFull>
@@ -46,7 +55,10 @@ const ClientContainerContainer: React.FC<Props> = props => {
             <IndicatorsClientOne />
           </SwiperSlide>
           <SwiperSlide>
-            <IndicatorsClientTwo total_debts={total_debts} />
+            <IndicatorsClientTwo
+              total_debts={total_debts}
+              discount={maxDiscount}
+            />
           </SwiperSlide>
         </>
       )}
@@ -62,7 +74,7 @@ const ClientContainerContainer: React.FC<Props> = props => {
     ) : (
       <>
         <IndicatorsClientOne />
-        <IndicatorsClientTwo total_debts={total_debts} />
+        <IndicatorsClientTwo total_debts={total_debts} discount={maxDiscount} />
       </>
     );
 

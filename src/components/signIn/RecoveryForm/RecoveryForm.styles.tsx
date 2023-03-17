@@ -11,10 +11,16 @@ const RecoveryFormStyled = styled.div<Props>`
   margin-top: 1.6rem;
 
   .RecoveryForm {
+    &__textContainer {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 1.2rem;
+    }
+
     &__text {
       &--greeting {
         font-weight: 400;
-        font-size: 1.6rem;
+        font-size: 1.4rem !important;
 
         @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
           font-weight: 400;
@@ -34,6 +40,11 @@ const RecoveryFormStyled = styled.div<Props>`
       &--color {
         color: var(--palette-skyBlue);
         white-space: nowrap;
+        font-size: 1.4rem;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       &--block {
@@ -47,7 +58,7 @@ const RecoveryFormStyled = styled.div<Props>`
 
     &__SSContainer {
       background-color: var(--palette-skyBlue2);
-      padding: 1.6rem 2rem;
+      padding: 1.2rem 1.2rem;
       border-radius: 0.8rem;
     }
 

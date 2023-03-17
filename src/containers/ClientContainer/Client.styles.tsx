@@ -83,7 +83,7 @@ const ClientContainerStyled = styled.div<Props>`
     }
 
     &__section4 {
-      display: none;
+      display: flex;
 
       @media screen and (min-width: ${BREAKPOINTS.mobile}px) {
         width: 28%;

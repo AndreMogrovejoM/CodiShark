@@ -324,13 +324,13 @@ const es: Dictionary = {
     },
 
     CardImageOne: {
-      title: "Vive la vida libre de deudas",
-      subtitle: "Vivir tranquilo no tiene precio"
+      title: "70%",
+      subtitle: "Ahorra hasta un Pagando por aquí"
     },
 
     CardImageTwo: {
-      subtitle1: "“pagar mi deuda fue alcanzar la",
-      subtitle2: "libertad financiera, y esa libertad",
+      subtitle1: "“Vivir tranquilo no tiene precio”",
+      subtitle2: "Vive de esa libertad libre de deudas",
       subtitle3: "me ayudó a alcanzar mis sueños”"
     },
 
