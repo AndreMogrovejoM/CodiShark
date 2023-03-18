@@ -1,9 +1,8 @@
-import{A as Rt}from"./AdministratorPanel.container.9dd478c3.js";import{S as Ve,P as zt,A as Et,a as oe,i as re}from"./SwipperComponent.6eb87648.js";import{a as e,s as O,C as E,j as c,af as ge,a4 as $t,a2 as qe,E as Ce,r as k,ag as me,G as j}from"./index.b54eacfb.js";import{u as $,g as Dt}from"./i18n.hooks.45a62a30.js";import{u as ee,r as We,i as Ge,a as He,I as Mt,L as jt}from"./Layout.container.43b54f64.js";import{l as At}from"./logoKonecta.45ccee3a.js";import{g as Bt,t as Kt,w as Ft,x as Ut,n as Qe,C as Lt,D as Yt,E as Vt}from"./validations.utils.032e510f.js";import{u as Ne,a as qt,b as Ze}from"./users.service.hooks.97b75379.js";import{S as Wt}from"./sweetalert2.all.53ab14b7.js";import{B as Je}from"./Box.9b8acb2a.js";import{n as te,g as Gt,a as Ht}from"./common.utils.106d572f.js";import{B as X}from"./Button.e61c5d17.js";import{T as Qt}from"./Table.02a4a393.js";import{d as Xe,a as de}from"./Remove.f0b98125.js";import{S as H}from"./SkeletonComponent.d30e425c.js";import Zt from"./404.page.0e626a78.js";import"./administrator.service.hooks.5aaaf7d9.js";const Jt=Bt(e("path",{d:"M16.59 7.58 10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"}),"CheckCircleOutline"),Xt="/CodiShark/assets/cardImageOne.27ab76fa.svg",{BREAKPOINTS:be}=E,en=O.div`
+import{A as Rt}from"./AdministratorPanel.container.543e0d56.js";import{S as Ve,P as zt,A as Et,a as oe,i as re}from"./SwipperComponent.c2496e3d.js";import{a as e,s as O,C as E,j as c,af as ge,a4 as $t,a2 as qe,E as Ce,r as k,ag as me,G as j}from"./index.4d215d3b.js";import{u as $,g as Dt}from"./i18n.hooks.b18bfc08.js";import{u as ee,r as We,i as Ge,a as He,I as Mt,L as jt}from"./Layout.container.4c7bfaa9.js";import{l as At}from"./logoKonecta.dff35306.js";import{g as Bt,t as Kt,w as Ft,x as Ut,n as Qe,C as Lt,D as Yt,E as Vt}from"./validations.utils.b4bff25c.js";import{u as Ne,a as qt,b as Ze}from"./users.service.hooks.ed145bc3.js";import{S as Wt}from"./sweetalert2.all.5419947b.js";import{B as Je}from"./Box.85ba67d3.js";import{n as te,g as Gt,a as Ht}from"./common.utils.106d572f.js";import{B as X}from"./Button.b7b90e42.js";import{T as Qt}from"./Table.c063fb38.js";import{d as Xe,a as de}from"./Remove.59c534ce.js";import{S as H}from"./SkeletonComponent.ea6169e4.js";import Zt from"./404.page.6da14c1d.js";import"./administrator.service.hooks.57ff3686.js";const Jt=Bt(e("path",{d:"M16.59 7.58 10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"}),"CheckCircleOutline"),Xt="/CodiShark/assets/cardImageOne.27ab76fa.svg",{BREAKPOINTS:be}=E,en=O.div`
   position: relative;
   width: 100%;
   height: 30rem;
   max-height: 30rem;
-  background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 1.6rem;
   overflow: hidden;
@@ -84,7 +83,6 @@ import{A as Rt}from"./AdministratorPanel.container.9dd478c3.js";import{S as Ve,P
   position: relative;
   width: 100%;
   height: 45rem;
-  background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 1.6rem;
   overflow: hidden;

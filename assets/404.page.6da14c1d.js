@@ -1,4 +1,4 @@
-import{l as i}from"./logoKonecta.45ccee3a.js";import{B as e}from"./Button.e61c5d17.js";import{s as t,u as s,j as a,a as o}from"./index.b54eacfb.js";import"./i18n.hooks.45a62a30.js";const n=t.div`
+import{l as i}from"./logoKonecta.dff35306.js";import{B as e}from"./Button.b7b90e42.js";import{s as t,u as s,j as a,a as o}from"./index.4d215d3b.js";import"./i18n.hooks.b18bfc08.js";const n=t.div`
   max-width: var(--sizes-page-maxWidth);
   min-width: 100%;
   height: 100vh;
