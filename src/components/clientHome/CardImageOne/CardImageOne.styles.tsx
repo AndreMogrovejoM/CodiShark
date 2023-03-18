@@ -10,7 +10,6 @@ const CardImageOneStyled = styled.div<Props>`
   width: 100%;
   height: 30rem;
   max-height: 30rem;
-  background-color: var(--palette-white);
   margin-bottom: 3.2rem;
   border-radius: 1.6rem;
   overflow: hidden;
